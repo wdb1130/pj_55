@@ -1,0 +1,65 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/center/center-bg.png');
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/center/centercenter-bg.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/center/center-bg.png', sizingMethod='scale');
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    color: #fff;
+    font-weight: 700;
+    overflow: hidden;
+}
+.logo span{
+    display: inline-block;
+    height: 100%;
+    padding-left: 55px;
+    line-height: 45px;
+    background: url('../img/login/logo.png') no-repeat;
+    background-size: 45px 45px;
+    font-size: 22px;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+.top,.down {
+    width: 100%;
+    border: 1px solid red;
+}
+.top{
+    display: flex;
+}
+.down {
+    display: flex;
+}
+.chart1,.chart2,.chart3{
+    border: 1px solid blue;
+}
+.chart4,.chart5{
+    border: 1px solid yellow;
+}
+.chart1 {
+    flex: 1;
+}
+.chart2 {
+    flex: 1.5;
+}
+.chart3 {
+    flex: 1;
+}
+.chart4 {
+    flex: 1;
+}
+.chart5 {
+    flex: 2.5;
+}

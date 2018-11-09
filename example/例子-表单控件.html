@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/layui/css/layui.css">
+    <script src="./static/layui/layui.js"></script>
+    <style>
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+            /* border-radius: 10px; */
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            /* border-radius: 10px; */
+            background-image: -webkit-gradient(linear,
+                left bottom,
+                left top,
+                color-stop(0.44, rgb(122, 153, 217)),
+                color-stop(0.72, rgb(73, 125, 189)),
+                color-stop(0.86, rgb(28, 58, 148)));
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="layui-form">
+        <div class="layui-inline">
+            <span>时间对比</span>   
+            <div class="layui-inline">
+                <input type="text" class="layui-input" id="test1" name="pickDate1" placeholder="选择日期">
+            </div>
+            <span>PK</span>
+            <div class="layui-inline">
+                <input type="text" class="layui-input" id="test2" name="pickDate2" placeholder="选择日期">
+            </div>
+        </div><!-- 
+        --><div class="layui-inline">
+            <button class="layui-btn" lay-submit lay-filter="formDemo1">对比</button>
+        </div>
+    </form>
+
+    <br>
+    <br>
+
+    <form class="layui-form">
+        <div class="layui-inline">
+            <div class="layui-inline" style="width: 100px;">
+                <select name="city">
+                    <option value="0">日报</option>
+                    <option value="1">月报</option>
+                    <option value="0">日报</option>
+                    <option value="1">月报</option>
+                    <option value="0">日报</option>
+                    <option value="1">月报</option>
+                    <option value="0">日报</option>
+                    <option value="1">月报</option>
+                    <option value="0">日报</option>
+                    <option value="1">月报</option>
+                    <option value="0">日报</option>
+                    <option value="1">月报</option>
+                    <option value="0">日报</option>
+                    <option value="1">月报</option>
+                </select>
+            </div><!--  
+            --><div class="layui-inline">
+                <input type="text" class="layui-input" id="test3" name="pickDate3" placeholder="选择日期">
+            </div><!-- 
+            --><div class="layui-inline">
+                <button class="layui-btn" lay-submit lay-filter="formDemo2">确定</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        layui.use('form', function () {
+            var form = layui.form;
+            form.on('submit(formDemo1)', function (data) {
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+        layui.use('form', function () {
+            var form = layui.form;
+            form.on('submit(formDemo2)', function (data) {
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#test1',
+                theme: '#050732'
+            });
+            laydate.render({
+                elem: '#test2'
+            });
+            laydate.render({
+                elem: '#test3'
+            });
+        });
+    </script>
+</body>
+
+</html>

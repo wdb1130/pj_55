@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./static/layui/css/layui.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./static/layui/layui.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="other"></div>
+        <div class="container">
+            <div class="logo">
+                <span>XX网漏洞态势感知平台</span>
+            </div>
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <div class="layui-input-block login-input">
+                        <i></i>
+                        <input type="text" name="user" required lay-verify="required" placeholder="用户名" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block login-input">
+                        <i></i>
+                        <input type="password" name="pwd" required lay-verify="required" placeholder="密码" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-login-btn">
+                    <div class="layui-btn-fluid login-input">
+                        <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="formLogin">登&nbsp;录</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <script>
+        $(function(){
+            resetWH();
+            layui.use('form', function () {
+                var form = layui.form;
+                form.on('submit(formLogin)', function (data) {
+                    console.log(JSON.stringify(data.field))
+                    // layer.msg();
+                    return false;
+                });
+            });
+            window.onresize = function () {
+                resetWH();
+            }
+            function resetWH(){
+                var fontNum = 2 + $('.logo').children().html().length;
+                var h = window.innerHeight;
+                $('.content').css('height', h);
+                var wForm = $('.container').width() * 0.7;
+                var fontSize = Math.floor(wForm / fontNum);
+                $('.logo').css('width', wForm);
+                $('.logo').find('span').css('fontSize', fontSize);
+            }
+        });
+    </script>
+</body>
+
+</html>

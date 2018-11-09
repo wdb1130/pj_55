@@ -1,0 +1,103 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/login/login-bg.png');
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/login/login-bg.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/login/login-bg.png', sizingMethod='scale');
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
+.content{
+    display: flex;
+    align-items: center;
+}
+.other{
+    flex: 2;
+}
+.container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px;
+    margin-right: 5%;
+    padding-bottom: 30px;
+    background: url('../img/login/login-box.png') no-repeat;
+    background-size: 100% 100%;
+    border-bottom: 1px solid #1351EA;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    color: #fff;
+    font-weight: 700;
+    overflow: hidden;
+    transform: translateY(-70px);
+}
+.logo span{
+    display: inline-block;
+    height: 100%;
+    padding-left: 55px;
+    line-height: 45px;
+    background: url('../img/login/logo.png') no-repeat;
+    background-size: 45px 45px;
+    font-size: 26px;
+}
+form {
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 65px;
+    padding-right: 65px;
+}
+.login-input {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.layui-form-item {
+    margin-bottom: 40px;
+}
+.login-input > input {
+    padding: 10px 0 10px 60px;
+    border-color: #328CEF;
+    color: rgba(255, 255, 255, .7);
+    height: 48px;
+}
+input[name="user"] {
+    background: url('../img/login/user.png') no-repeat 10px 50%;
+}
+input[name="pwd"] {
+    background: url('../img/login/pwd.png') no-repeat 10px 50%;
+}
+.login-input > i {
+    position: absolute;
+    width: 1px;
+    height: 80%;
+    margin-left: 48px;
+    border-right: 1px solid #3992F2;
+}
+.layui-login-btn {
+    margin-top: 50px;
+}
+.layui-login-btn button {
+    font-size: 20px;
+    background: #135BFF;
+}
+
+::-webkit-input-placeholder {
+    color: #8BA5EF;
+}
+:-moz-placeholder {
+    color: #8BA5EF;
+}
+::-moz-placeholder {
+    color: #8BA5EF;
+}
+:-ms-input-placeholder {
+    color: #8BA5EF;
+}

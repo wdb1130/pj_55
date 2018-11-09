@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <link rel="stylesheet" href="../css/synthesis.css">
+  <script src="../js/jquery.js"></script>
+  <script src="../static/layui/layui.js"></script>
+
+  <title>synthesis</title>
+</head>
+<body>
+  <div class="title">
+      <div>
+          <i class="logo"></i>
+          <span>XX网漏洞态势感知平台</span>
+      </div>
+  </div>
+  <div id="orbit-system">
+    <div class="system">
+      <div class="satellite-orbit">
+        <div class="satellite user">
+          <img src="../img/synthesis/user.png" alt="">
+          <p>用户</p>
+        </div>
+        <div class="satellite data">
+          <img src="../img/synthesis/data.png" alt="">
+          <p>数据</p>
+        </div>
+        <div class="satellite asset">
+          <img src="../img/synthesis/asset.png" alt="">
+          <p>资产</p>
+        </div>
+        <div class="satellite manage">
+          <img src="../img/synthesis/manage.png" alt="">
+          <p>管理</p>
+        </div>
+        <div class="satellite serve">
+          <img src="../img/synthesis/serve.png" alt="">
+          <p>服务</p>
+        </div>
+      </div>
+      <div class="planet">
+        <div class="breath"></div>
+        <img src="../img/synthesis/logo_l.png" alt="">
+        <p>态势中心</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.onload = function(){
+     var w = $('.satellite-orbit').css('width');
+      $('.satellite-orbit').css('height',w);
+    }
+  </script>
+</body>
+</html>

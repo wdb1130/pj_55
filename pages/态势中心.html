@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>态势中心</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/jquery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <span>XX网漏洞态势感知平台</span>
+        </div>
+        <div class="content">
+            <div class="top">
+                <div class="chart1"></div>
+                <div class="chart2"></div>
+                <div class="chart3"></div>
+            </div>
+            <div class="down">
+                <div class="chart4"></div>
+                <div class="chart5"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(function(){
+            resetWH();
+            window.onresize = function () {
+                resetWH();
+            }
+            function resetWH(){
+                var logoH = $('.logo').height();
+                var wH = window.innerHeight;
+                $('.content').css('height', wH - logoH);
+            }
+        });
+    </script>
+</body>
+
+</html>
