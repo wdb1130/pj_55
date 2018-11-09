@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
     margin: 0;
     padding: 0;
     background: url('../img/center/center-bg.png');
@@ -9,7 +9,7 @@ html, body {
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
-}
+} */
 .logo {
     display: flex;
     justify-content: center;
@@ -30,20 +30,74 @@ html, body {
 }
 .content {
     display: flex;
-    flex-wrap: wrap;
-}
-.top,.down {
-    width: 100%;
-    border: 1px solid red;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 .top{
+    flex: 1;
     display: flex;
+    margin-top: 45px;
+}
+.top > div {
+    padding: 1rem;
 }
 .down {
+    flex: 1;
+    display: flex;
+}
+.top > div:nth-child(1) {
+    flex: 1;
+    border: 1px solid pink;
+    display: flex;
+    flex-direction: column;
+}
+.chart1-title {
+    display: flex;
+    flex-direction: column;
+}
+.chart1-title > div:nth-child(1){
+    font-size: 20px;
+}
+.chart1-title > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+#chart1 {
+    flex: 1;
+    border: 1px solid red;
+}
+.top > div:nth-child(2) {
+    flex: 1.5;
+    border: 1px solid yellow;
+}
+.top > div:nth-child(3) {
+    flex: 1;
+    border: 1px solid green;
+}
+.down > div:nth-child(1) {
+    flex: 1;
+    border: 1px solid yellowgreen;
+}
+.down > div:nth-child(2) {
+    flex: 2.5;
+    border: 1px solid orange;
+}
+/* .chart1-title {
     display: flex;
 }
 .chart1,.chart2,.chart3{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
     border: 1px solid blue;
+}
+#chart1{
+    flex: 1;
 }
 .chart4,.chart5{
     border: 1px solid yellow;
@@ -62,4 +116,4 @@ html, body {
 }
 .chart5 {
     flex: 2.5;
-}
+} */
