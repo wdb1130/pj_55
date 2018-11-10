@@ -1,0 +1,137 @@
+
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem 4rem 3rem 4rem;
+    border: 1px solid red;
+}
+.select-option{
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+}
+.layui-btn{
+    background-color: #135BFF!important;
+}
+.form-table{
+    flex: 1;
+    border: 1px solid #1046CD;
+    background: #050836;
+    color: #fff;
+}
+.form-table{
+    display: flex;
+}
+.table-title{
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+.table-title > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    border-bottom: 1px solid #1F4B88;
+}
+.table-title > div:not(:last-child):not(:first-child){
+    flex: 1;
+}
+.table-title > div:last-child{
+    flex: 3;
+    border-bottom: none;
+}
+.table-title > div:first-child{
+    flex: 1.5;
+}
+.table-compare{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.table-compare > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+}
+.table-compare > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #1F4B88;
+}
+.table-compare > div:not(:last-child):not(:first-child){
+    flex: 1;
+}
+.table-compare > div:last-child{
+    flex: 3;
+    border-bottom: none;
+}
+.table-compare > div:first-child{
+    flex: 1.5;
+}
+.table-compare > div:first-child {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.times {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #030528;
+    color: #fff;
+    border: 1px solid #1150E3;
+    cursor: pointer;
+}
+form.layui-form {
+    width: 100%;
+    text-align: center;
+}
+.layui-form > div {
+    width: 80%!important;
+}
+.layui-form-select .layui-input {
+    text-align: center!important;
+    background: #03062A!important;
+    color: #fff;
+    border-color: #104DDD!important;
+}
+.layui-form-select .layui-edge {
+    border-top-color: #135BFF;
+}
+.form-table > .table-compare:nth-child(2n) {
+    background: #07164A;
+}
+.layui-form-select dl {
+    background: #03062A!important;
+    border-color: #0E3FB9;
+}
+.layui-form-select dl dd.layui-this {
+    background: #060A3E;
+}
+.layui-form-select dl dd:hover {
+    background: #060A3E;
+}
+::-webkit-scrollbar-track {
+    background-color: #03062A;
+    border: 1px solid #0E3FB9;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    border-color: red;
+    background-color: red;
+}
+::-webkit-scrollbar-thumb {
+    background: #135BFF;
+}
