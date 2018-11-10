@@ -1,8 +1,15 @@
-
-
-
-
-
+html, body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/manage/opera.png');
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/manage/opera.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/manage/opera.png', sizingMethod='scale');
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -11,13 +18,36 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 1rem 4rem 3rem 4rem;
-    border: 1px solid red;
+    padding: .5rem 4rem 1rem 4rem;
+    color: #fff;
+}
+.opera-title {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 8rem);
+    padding-left: 1rem;
+}
+.opera-title > div:first-child {
+    font-size: 1.5rem;
+    color: #C0D4F9;
+}
+.opera-title .sp {
+    font-size: 1rem;
+}
+.opera-title > div:last-child {
+    padding-left: 30px;
+    padding-right: 30px;
+    background: url('../img/manage/oprea-people.png') no-repeat;
+    background-size: 15px 16px;
+    position: relative;
+    color: #C0D4F9;
 }
 .select-option{
     display: flex;
     margin-bottom: 1rem;
     justify-content: flex-end;
+    margin-top: 2.5rem;
 }
 .layui-btn{
     background-color: #135BFF!important;
@@ -27,6 +57,7 @@
     border: 1px solid #1046CD;
     background: #050836;
     color: #fff;
+    margin-bottom: 1rem;
 }
 .form-table{
     display: flex;
@@ -100,38 +131,4 @@ form.layui-form {
 }
 .layui-form > div {
     width: 80%!important;
-}
-.layui-form-select .layui-input {
-    text-align: center!important;
-    background: #03062A!important;
-    color: #fff;
-    border-color: #104DDD!important;
-}
-.layui-form-select .layui-edge {
-    border-top-color: #135BFF;
-}
-.form-table > .table-compare:nth-child(2n) {
-    background: #07164A;
-}
-.layui-form-select dl {
-    background: #03062A!important;
-    border-color: #0E3FB9;
-}
-.layui-form-select dl dd.layui-this {
-    background: #060A3E;
-}
-.layui-form-select dl dd:hover {
-    background: #060A3E;
-}
-::-webkit-scrollbar-track {
-    background-color: #03062A;
-    border: 1px solid #0E3FB9;
-}
-::-webkit-scrollbar {
-    width: 10px;
-    border-color: red;
-    background-color: red;
-}
-::-webkit-scrollbar-thumb {
-    background: #135BFF;
 }

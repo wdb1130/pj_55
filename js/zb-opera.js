@@ -18,7 +18,7 @@ $(function () {
         var laydate = layui.laydate;
         laydate.render({
             elem: '#pickDate1',
-            theme: '#050732'
+            theme: '#050737'
         });
     });
     // table

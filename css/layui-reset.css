@@ -1,0 +1,93 @@
+.layui-form-select .layui-input {
+    text-align: center!important;
+    background: #03062A!important;
+    color: #fff;
+    border-color: #104DDD!important;
+}
+.layui-form-select .layui-edge {
+    border-top-color: #135BFF;
+}
+.form-table > .table-compare:nth-child(2n) {
+    background: #07164A;
+}
+.layui-form-select dl {
+    background: #03062A!important;
+    border-color: #0E3FB9;
+}
+.layui-form-select dl dd.layui-this {
+    background: #060A3E;
+}
+.layui-form-select dl dd:hover {
+    background: #060A3E;
+}
+::-webkit-scrollbar-track {
+    background-color: #03062A;
+    border: 1px solid #0E3FB9;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    border-color: red;
+    background-color: red;
+}
+::-webkit-scrollbar-thumb {
+    background: #135BFF;
+}
+.layui-input {
+    color: #fff;
+    background: #071D4C;
+    border-color: #135BFD;
+    border-radius: 0;
+}
+.layui-btn{
+    border-radius: 0;
+}
+.layui-table thead tr {
+    background: #07245E;
+}
+.layui-table-header, .layui-table th {
+    color: #C6D9FE;
+    border-color: #204A87;
+}
+.layui-table {
+    color: #C6D9FE;
+    background: #050737;
+}
+.layui-table tbody tr:hover, .layui-table-hover {
+    background-color: #07245E;
+}
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #115CFE;
+    background-color: #050737;
+    color: #fff;
+}
+.layui-form-checkbox[lay-skin=primary] i {
+    border-color: #115CFE;
+}
+.layui-form-checkbox[lay-skin=primary]:hover i {
+    border-color: #115CFE;
+    color: #fff;
+}
+.layui-table-view {
+    border-color: #204A87;
+}
+.layui-table td {
+    border-color: #204A87;
+}
+.layui-laydate-footer span:hover {
+    color: #050737!important;
+}
+.layui-input:focus, .layui-textarea:focus {
+    border-color: #104DDD!important;
+}
+.layui-input:hover, .layui-textarea:hover {
+    border-color: #104DDD!important;
+}
+.layui-table-click {
+    background-color: #07245E;
+}
+.layui-btn-primary {
+    border-color: #135BFF;
+}
+.layui-btn-primary:hover {
+    border-color: #135BFF!important;
+}

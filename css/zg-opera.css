@@ -1,8 +1,15 @@
-
-
-
-
-
+html, body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/manage/opera.png');
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/manage/opera.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/manage/opera.png', sizingMethod='scale');
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -11,12 +18,42 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 1rem 4rem 3rem 4rem;
-    border: 1px solid red;
+    padding: .5rem 4rem 1rem 4rem;
+    color: #fff;
+    position: relative;
+}
+.opera-title {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 8rem);
+    padding-left: 1rem;
+}
+.opera-title > div:first-child {
+    font-size: 1.5rem;
+    color: #C0D4F9;
+}
+.opera-title .sp {
+    font-size: 1rem;
+}
+.opera-title > div:last-child {
+    padding-left: 30px;
+    padding-right: 30px;
+    background: url('../img/manage/oprea-people.png') no-repeat;
+    background-size: 15px 16px;
+    position: relative;
+    color: #C0D4F9;
+}
+i.layui-icon.layui-icon-triangle-d {
+    position: absolute;
+    right: 8px;
+    top: 2px;
+    color: #145BFE;
 }
 .select-option{
     display: flex;
     margin-bottom: 1rem;
+    margin-top: 2.5rem;
 }
 .thing {
     margin-left: 3rem;
@@ -24,6 +61,7 @@
 .title{
     height: 19px;
     padding-bottom: 5px;
+    color: #C6D9FE;
 }
 .layui-btn{
     background-color: #135BFF!important;
