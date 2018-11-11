@@ -1,0 +1,127 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/asset/asset_fy.png');
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/asset/asset_fy.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/asset/asset_fy.png', sizingMethod='scale');
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .5rem 4rem 1rem 4rem;
+    color: #fff;
+}
+.opera-title {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 8rem);
+    padding-left: 1rem;
+}
+.opera-title > div:first-child {
+    font-size: 1.5rem;
+    color: #C0D4F9;
+}
+span.sp {
+    font-size: 1rem;
+}
+.chart-table {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+.chart-group{
+    flex: 1;
+    display: flex;
+}
+.chart-group > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: url('../img/asset/asset_fy_03.png') no-repeat;
+    background-size: 100% 100%;
+}
+.chart-group .title {
+    padding-top: .5rem;
+    padding-left: 2rem;
+    font-size: 1.3rem;
+    color: #C5D9FF;
+}
+.chart-show{
+    flex: 1;
+    display: flex;
+}
+.chart-bottom {
+    display: flex;
+}
+.chart-bottom > div{
+    flex: 1;
+    text-align: center;
+}
+#chart1,
+#chart2,
+#chart3,
+#chart4,
+#chart5,
+#chart6,
+#chart7 {
+    flex: 1;
+}
+#chart2,
+#chart3,
+#chart4{
+    padding: 1.5rem;
+}
+.chart1 {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+.chart2 {
+    margin-bottom: 1rem;
+}
+.chart3 {
+    margin-right: 1rem;
+}
+.chart-show-table{
+    flex-direction: column;
+    padding:  1rem;
+}
+.table-chart{
+    display: flex;
+}
+.table-chart > div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px dashed #135BFF;
+}
+.table-chart > div > span {
+    padding: .3rem;
+}
+.table-chart > div > span:nth-child(1) {
+    color: #40CF77;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.table-chart > div > span:nth-child(2) {
+    color: #C3D7FC;
+}
+.nbsp {
+    margin: 0 1px;
+}
+.table-chart + div{
+    flex: 1;
+    display: flex;
+}
