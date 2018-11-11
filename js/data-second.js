@@ -320,22 +320,19 @@ function drawChart4() {
             },
             splitArea: {
                 areaStyle: {
-                    color: ['#0E2A43',
-                        '#0E2A43', '#0E2A43',
-                        '#0E2A43', '#0E2A43'
-                    ],
+                    color: [],
                     shadowColor: 'rgba(0, 0, 0, 0.3)',
                     shadowBlur: 10
                 }
             },
             axisLine: {
                 lineStyle: {
-                    color: 'rgba(255, 255, 255, 0.5)'
+                    color: '#1254ED'
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: 'rgba(255, 255, 255, 0.5)'
+                    color: '#1254ED'
                 }
             }
         }],
@@ -406,22 +403,19 @@ function drawChart5() {
             },
             splitArea: {
                 areaStyle: {
-                    color: ['#0E2A43',
-                        '#0E2A43', '#0E2A43',
-                        '#0E2A43', '#0E2A43'
-                    ],
+                    color: [],
                     shadowColor: 'rgba(0, 0, 0, 0.3)',
                     shadowBlur: 10
                 }
             },
             axisLine: {
                 lineStyle: {
-                    color: 'rgba(255, 255, 255, 0.5)'
+                    color: '#1254ED'
                 }
             },
             splitLine: {
                 lineStyle: {
-                    color: 'rgba(255, 255, 255, 0.5)'
+                    color: '#1254ED'
                 }
             }
         }],

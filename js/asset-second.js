@@ -149,68 +149,41 @@ function drawChart2() {
     option = null;
     option = {
         color: ['#3398DB'],
-        title: {
-            text: '',
-        },
         tooltip: {
             trigger: 'axis',
             axisPointer: {
                 type: 'shadow'
-            },
-            formatter: "{b} <br> 合格率: {c}%"
+            }
         },
         grid: {
-            x: 0,
-            y: 10,
+            x: 20,
+            y: 20,
             x2: 20,
-            y2: 20,
+            y2: 10,
             containLabel: true
         },
-        xAxis: {
-            type: 'value',
-            boundaryGap: [0, 0.01],
-            min: 0,
-            max: 100,
-            interval: 20,
-            axisLabel: {
-                formatter: '{value}%',
-                textStyle: {
-                    fontWeight: '80'
+        xAxis: [
+            {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu'],
+                axisTick: {
+                    alignWithLabel: true
                 }
             }
-        },
-        yAxis: {
-            type: 'category',
-            data: ['湖北省', '湖南省', '广东省'],
-            axisLabel: {
-                show: true,
-                interval: 0,
-                rotate: 0,
-                margin: 10,
-                inside: false,
-                textStyle: {
-                    fontWeight: '50'
-                }
+        ],
+        yAxis: [
+            {
+                type: 'value'
             }
-        },
-        series: [{
-            type: 'bar',
-            barWidth : 20,
-            label: {
-                normal: {
-                    show: true,
-                    formatter: function (v) {
-                        var val = v.data;
-                        if (val == 0) {
-                            return '';
-                        }
-                        return val;
-                    },
-                    color: '#fff'
-                }
-            },
-            data: [22, 33, 88]
-        }]
+        ],
+        series: [
+            {
+                name: '直接访问',
+                type: 'bar',
+                barWidth: '20',
+                data: [10, 52, 200, 334, 390, 330, 220]
+            }
+        ]
     };
     if (option && typeof option === "object") {
         myChart2.setOption(option, true);
@@ -233,7 +206,7 @@ function drawChart3() {
             orient: 'vertical',
             x: 'left',
             y: 'center',
-            data: ['直接访问', '邮件营销', '搜索引擎']
+            data: ['直接访问', '邮件营销', '搜索引擎', '百度一下']
         },
         grid: {
             x: 100,
@@ -257,26 +230,31 @@ function drawChart3() {
             {
                 name: '直接访问',
                 type: 'bar',
-                barWidth : 20,
-                data: [320, 332, 301, 334, 390, 330, 320]
+                barWidth: 20,
+                data: [320, 332]
             },
             {
                 name: '邮件营销',
                 type: 'bar',
                 stack: '广告',
-                barWidth : 20,
-                data: [120, 132, 101, 134, 90, 230, 210]
+                barWidth: 20,
+                data: [120, 132]
             },
             {
                 name: '搜索引擎',
                 type: 'bar',
-                barWidth : 20,
-                data: [862, 1018, 964, 1026, 1679, 1600, 1570],
+                barWidth: 20,
+                data: [862, 1018],
             },
-
+            ,
+            {
+                name: '百度一下',
+                type: 'bar',
+                barWidth: 20,
+                data: [862, 1018],
+            }
         ]
     };
-
     if (option && typeof option === "object") {
         myChart3.setOption(option, true);
         window.onresize = myChart3.resize;
@@ -298,11 +276,15 @@ function drawChart4() {
             }, {
                 text: '参数三',
                 max: 100
+            }, {
+                text: '参数四',
+                max: 100
             }],
-            center: ['50%', '60%'],
+            
+            radius: '65%',
+            center: ['50%', '50%'],
             startAngle: 90,
             splitNumber: 4,
-            shape: 'circle',
             name: {
                 formatter: '{value}',
                 textStyle: {
@@ -338,7 +320,7 @@ function drawChart4() {
                 }
             },
             data: [{
-                value: [40, 20, 60],
+                value: [40, 20, 60, 55],
                 name: '长沙',
                 symbol: 'rect',
                 symbolSize: 0,
@@ -377,11 +359,14 @@ function drawChart5() {
             }, {
                 text: '参数三',
                 max: 100
+            }, {
+                text: '参数四',
+                max: 100
             }],
-            center: ['50%', '60%'],
+            radius: '65%',
+            center: ['50%', '50%'],
             startAngle: 90,
             splitNumber: 4,
-            shape: 'circle',
             name: {
                 formatter: '{value}',
                 textStyle: {
@@ -417,7 +402,7 @@ function drawChart5() {
                 }
             },
             data: [{
-                value: [40, 20, 60],
+                value: [40, 20, 60, 55],
                 name: '长沙',
                 symbol: 'rect',
                 symbolSize: 0,
