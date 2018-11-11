@@ -78,40 +78,41 @@ html,body {
   line-height: 30px;
 }
 .left .layui-row:nth-child(1) div {
-  background: url(../img/data/data_1.png) no-repeat center;
+  background: url(../img/data/data_1.png) no-repeat center left;
   background-size: contain;
 }
 .left .layui-row:nth-child(1) div:hover {
-  background: url(../img/data/data_1_h.png) no-repeat center;
+  background: url(../img/data/data_1_h.png) no-repeat center left;
   background-size: contain;
 }
 .left .layui-row:nth-child(2) div {
-  background: url(../img/data/data_2.png) no-repeat center;
+  background: url(../img/data/data_2.png) no-repeat center left;
   background-size: contain;
 }
 .left .layui-row:nth-child(2) div:hover {
-  background: url(../img/data/data_2_h.png) no-repeat center;
+  background: url(../img/data/data_2_h.png) no-repeat center left;
   background-size: contain;
 }
 .left .layui-row:nth-child(3) div {
-  background: url(../img/data/data_3.png) no-repeat center;
+  background: url(../img/data/data_3.png) no-repeat center left;
   background-size: contain;
 }
 .left .layui-row:nth-child(3) div:hover {
-  background: url(../img/data/data_3_h.png) no-repeat center;
+  background: url(../img/data/data_3_h.png) no-repeat center left;
   background-size: contain;
 }
 .left .layui-row:nth-child(4) div {
-  background: url(../img/data/data_4.png) no-repeat center;
+  background: url(../img/data/data_4.png) no-repeat center left;
   background-size: contain;
 }
 .left .layui-row:nth-child(4) div:hover {
-  background: url(../img/data/data_4_h.png) no-repeat center;
+  background: url(../img/data/data_4_h.png) no-repeat center left;
   background-size: contain;
 }
 
 .right .layui-row {
   height: 30%;
+  padding-left: 3rem;
 }
 .right .layui-row:nth-child(2) {
   margin: 3% 0;
@@ -123,15 +124,15 @@ html,body {
 .chart-box {
   height: 100%;
   font-size: 12px;
-  background: url(../img/data/data_b_02.png) no-repeat center;
+  background: url(../img/data/data_b_02.png) no-repeat center left;
   background-size: contain;
 }
 .chart-box-sml  {
-  background: url(../img/data/data_b_01.png) no-repeat center;
+  background: url(../img/data/data_b_01.png) no-repeat center left;
   background-size: contain;
 }
-.chart-box .chart-name{
-  padding-left: 17%;
+.chart-box .chart-name {
+  padding-left: 2rem;
   line-height: 30px;
 }
 .chart-box div{
