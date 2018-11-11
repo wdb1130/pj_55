@@ -287,7 +287,6 @@ function drawChart5() {
     var myChart5 = echarts.init(dom5);
     option = null;
     option = {
-        backgroundColor: '#394056',
         title: {
             text: '',
             textStyle: {
@@ -358,7 +357,6 @@ function drawChart5() {
         series: [{
             name: '南宁-曼芭',
             type: 'line',
-            smooth: true,
             lineStyle: {
                 normal: {
                     width: 1
@@ -386,7 +384,6 @@ function drawChart5() {
         }, {
             name: '桂林-曼芭',
             type: 'line',
-            smooth: true,
             lineStyle: {
                 normal: {
                     width: 1
@@ -414,7 +411,6 @@ function drawChart5() {
         }, {
             name: '南宁-甲米',
             type: 'line',
-            smooth: true,
             lineStyle: {
                 normal: {
                     width: 1

@@ -91,3 +91,6 @@
 .layui-btn-primary:hover {
     border-color: #135BFF!important;
 }
+.layui-btn {
+    background: #135BFF;
+}
