@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户态势分析</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/user-second.css">
+    <link rel="stylesheet" href="../css/layui-reset.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../static/layui/layui.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="opera-title">
+            <div>用户态势分析</div>
+        </div>
+        <div class="chart-option">
+            <div class="top">
+                <div class="chart1">
+                    <div>用户态势预测</div>
+                    <div id="chart1"></div>
+                </div>
+                <div class="chart2">
+                    <div>对比分析柱状图</div>
+                    <div id="chart2"></div>
+                </div>
+            </div>
+            <div class="down">
+                <div>对比分析条件选择</div>
+                <div class="chart-group">
+                    <div class="chart3">
+                        <div class="form-chart">
+                            <form class="layui-form">
+                                <div class="layui-inline">
+                                    <span>时间对比:</span>
+                                    <div class="layui-inline">
+                                        <input type="text" class="layui-input" id="pickDate1" name="pickDate1"
+                                            placeholder="选择日期">
+                                    </div>
+                                    <span>PK</span>
+                                    <div class="layui-inline">
+                                        <input type="text" class="layui-input" id="pickDate2" name="pickDate2"
+                                            placeholder="选择日期">
+                                    </div>
+                                </div>
+                                <div class="layui-inline compare-btn">
+                                    <button class="layui-btn" lay-submit lay-filter="compareDate">对比</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="type-chart">
+                            <div id="chart3"></div>
+                            <div id="chart4"></div>
+                        </div>
+                        <div>
+                            <div>【 2018-10-09 】</div>
+                            <div>【 2018-10-10 】</div>
+                        </div>
+                    </div>
+                    <div class="chart4">
+                        <div class="form-chart">
+                            <form class="layui-form">
+                                <div class="layui-inline">
+                                    <span>类型对比:</span>
+                                    <div class="layui-inline" style="width: 150px;">
+                                        <select name="userID1">
+                                            <option value="">选择用户ID</option>
+                                            <option value="0">1001</option>
+                                            <option value="1">1002</option>
+                                        </select>
+                                    </div>
+                                    <span>PK</span>
+                                    <div class="layui-inline" style="width: 150px;">
+                                        <select name="userID2">
+                                            <option value="">选择用户ID</option>
+                                            <option value="0">1001</option>
+                                            <option value="1">1002</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline compare-btn">
+                                    <button class="layui-btn" lay-submit lay-filter="compareType">对比</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="type-chart">
+                            <div id="chart5"></div>
+                            <div id="chart6"></div>
+                        </div>
+                        <div>
+                            <div>【 主机 】</div>
+                            <div>【 主机 】</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/echarts/echarts.js"></script>
+    <script src="../js/user-second.js"></script>
+</body>
+
+</html>
