@@ -1,107 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../static/layui/css/layui.css">
-  <link rel="stylesheet" href="../css/networkData.css">
-  <script src="../js/jquery.js"></script>
-  <script src="../static/layui/layui.js"></script>
-  <title>网络数据安全态势</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/networkData.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../static/layui/layui.js"></script>
+    <title>网络数据安全态势</title>
 </head>
+
 <body>
-  <div class="container">
-    <div class="top">
-      <h3 class="title">网络数据安全态势</h3>
-      <div class="add-speed">
-        数据增加速率： 
-        <span class="speed">1T/天</span>
-      </div>
+    <div class="container">
+        <div class="top">
+            <h3 class="title">网络数据安全态势</h3>
+            <div class="add-speed">
+                数据增加速率：
+                <span class="speed">1T/天</span>
+            </div>
+        </div>
+        <div class="content layui-fluid">
+            <div class="left layui-col-lg5">
+                <div class="layui-row">
+                    <div class="wrapper">
+                        <a href="#">
+                            <span class="precent"> 56 %</span><br>
+                            <span class="title">网络态势分析</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="wrapper">
+                        <a href="#">
+                            <span class="precent"> 56 %</span><br>
+                            <span class="title">数据防御指数</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="wrapper">
+                        <a href="#">
+                            <span class="precent"> 56 %</span><br>
+                            <span class="title">数据操作指数</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="wrapper">
+                        <a href="#">
+                            <span class="precent"> 56 %</span><br>
+                            <span class="title">数据威胁指数</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right layui-col-lg7">
+                <div class="layui-row">
+                    <div class="layui-col-lg5 chart-box">
+                        <h3 class="chart-name">数据态势预测</h3>
+                        <div id="chart-1"></div>
+                    </div>
+                    <div class="layui-col-lg7">
+                        <div class="layui-col-lg6 chart-box chart-box-sml">
+                            <h3 class="chart-name">数据态势预测</h3>
+                            <div id="chart-2"></div>
+                        </div>
+                        <div class="layui-col-lg6 chart-box chart-box-sml">
+                            <h3 class="chart-name">数据态势预测</h3>
+                            <div id="chart-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-lg5 chart-box">
+                        <h3 class="chart-name">数据态势预测</h3>
+                        <div class="table-chart">
+                            <div class="th-header">
+                                <span>事件</span>
+                                <span>值</span>
+                                <span>日期</span>
+                            </div>
+                            <div class="th-boby">
+                                <div>
+                                    <span>进程开放率</span>
+                                    <span>80%</span>
+                                    <span>2018-10-10</span>
+                                </div>
+                                <div>
+                                    <span>进程开放率</span>
+                                    <span>80%</span>
+                                    <span>2018-10-10</span>
+                                </div>
+                                <div>
+                                    <span>进程开放率</span>
+                                    <span>80%</span>
+                                    <span>2018-10-10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-lg7">
+                        <div class="layui-col-lg12 chart-box">
+                            <h3 class="chart-name">数据态势预测</h3>
+                            <div class="table-chart">
+                                <div class="th-header">
+                                    <span>事件</span>
+                                    <span>值</span>
+                                    <span>日期</span>
+                                </div>
+                                <div class="th-boby">
+                                    <div>
+                                        <span>进程开放率</span>
+                                        <span>80%</span>
+                                        <span>2018-10-10</span>
+                                    </div>
+                                    <div>
+                                        <span>进程开放率</span>
+                                        <span>80%</span>
+                                        <span>2018-10-10</span>
+                                    </div>
+                                    <div>
+                                        <span>进程开放率</span>
+                                        <span>80%</span>
+                                        <span>2018-10-10</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-lg5 chart-box">
+                        <h3 class="chart-name">数据态势预测</h3>
+                        <div id="chart-4"></div>
+                    </div>
+                    <div class="layui-col-lg7">
+                        <div class="layui-col-lg12 chart-box">
+                            <h3 class="chart-name">数据态势预测</h3>
+                            <div id="chart-5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="content layui-fluid">
-      <div class="left layui-col-lg5">
-        <div class="layui-row">
-          <div class="wrapper">
-            <a href="#">
-              <span class="precent"> 56 %</span><br>
-              <span class="title">网络态势分析</span>
-            </a>
-          </div>
-        </div>
-        <div class="layui-row">
-          <div class="wrapper">
-            <a href="#">
-              <span class="precent"> 56 %</span><br>
-              <span class="title">数据防御指数</span>
-            </a>
-          </div>
-        </div>
-        <div class="layui-row">
-          <div class="wrapper">
-            <a href="#">
-              <span class="precent"> 56 %</span><br>
-              <span class="title">数据操作指数</span>
-            </a>
-          </div>
-        </div>
-        <div class="layui-row">
-          <div class="wrapper">
-            <a href="#">
-              <span class="precent"> 56 %</span><br>
-              <span class="title">数据威胁指数</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="right layui-col-lg7">
-        <div class="layui-row">
-          <div class="layui-col-lg5 chart-box">
-            <h3 class="chart-name">数据态势预测</h3>
-            <div id="chart-1"></div>
-          </div>
-          <div class="layui-col-lg7">
-            <div class="layui-col-lg6 chart-box chart-box-sml">
-              <h3 class="chart-name">数据态势预测</h3>
-              <div id="chart-2"></div>
-            </div>
-            <div class="layui-col-lg6 chart-box chart-box-sml">
-                <h3 class="chart-name">数据态势预测</h3>
-                <div id="chart-3"></div>
-            </div>
-          </div>
-        </div>
-        <div class="layui-row">
-          <div class="layui-col-lg5 chart-box">
-              <h3 class="chart-name">数据态势预测</h3>
-              <div id="chart-4"></div>
-          </div>
-          <div class="layui-col-lg7">
-            <div class="layui-col-lg12 chart-box">
-                <h3 class="chart-name">数据态势预测</h3>
-                <div id="chart-5"></div>
-            </div>
-          </div>
-        </div>
-        <div class="layui-row">
-          <div class="layui-col-lg5 chart-box">
-              <h3 class="chart-name">数据态势预测</h3>
-              <div id="chart-6"></div>
-          </div>
-          <div class="layui-col-lg7">
-            <div class="layui-col-lg12 chart-box">
-                <h3 class="chart-name">数据态势预测</h3>
-                <div id="chart-7"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 <script src="../static/echarts/echarts.js"></script>
 <script src="../static/echarts/echarts-liquidfill.min.js"></script>
 <script src="../js/networkData.js"></script>
+
 </html>

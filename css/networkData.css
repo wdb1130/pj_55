@@ -1,140 +1,221 @@
-html,body {
-  height: 100%;
-  width: 100%;
-  color: #fff;
-  box-sizing: border-box;
+html,
+body {
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    box-sizing: border-box;
 }
+
 .container {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  min-height: 600px;
-  align-items: center;
-  overflow: hidden;
-  background: url(../img/data/data.png) no-repeat;
-  background-size: 100% 100%;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    align-items: center;
+    overflow: hidden;
+    background: url(../img/data/data.png) no-repeat;
+    background-size: 100% 100%;
 }
-.top{
-  position:absolute;
-  top: 0;
-  width: 100%;
+
+.top {
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
+
 .top .title {
-  width: 24%;
-  display: inline-block;
-  text-align: center;
-  line-height: 35px;
-  font-size: 1.15rem;
-  margin-top: 5px;
+    width: 24%;
+    display: inline-block;
+    text-align: center;
+    line-height: 35px;
+    font-size: 1.15rem;
+    margin-top: 5px;
 }
+
 .top div {
-  position: relative;
-  top: -6px;
-  font-size: 12px;
-  display: inline-block;
-  margin-left: 50px;
+    position: relative;
+    top: -6px;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 50px;
 }
+
 .top .speed {
-  color: rgb(56, 128, 38);
+    color: rgb(56, 128, 38);
 }
 
 .content {
-  width: 100%;
-  height: 90%;
-  padding-top: 3%;
-  min-height: 500px;
+    width: 100%;
+    height: 90%;
+    padding-top: 3%;
+    min-height: 500px;
 }
+
 .content>div {
-  display: flex;
-  flex:1;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
 }
+
 .left {
-  text-align: right;
-  padding-bottom: 3rem;
+    text-align: right;
+    padding-bottom: 3rem;
 }
+
 .left .layui-row {
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center;
-  height: 25%;
-  padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 25%;
+    padding-right: 10px;
 }
+
 .left .layui-row div {
-  width: 25%;
-  min-width: 170px;
-  height: 60%;
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+    width: 25%;
+    min-width: 170px;
+    height: 60%;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
+
 .left a {
-  color: #fff;
-  display: inline-block;
-  margin: 0 auto;
-  line-height: 30px;
+    color: #fff;
+    display: inline-block;
+    margin: 0 auto;
+    line-height: 30px;
 }
+
 .left .layui-row:nth-child(1) div {
-  background: url(../img/data/data_1.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_1.png) no-repeat center left;
+    background-size: contain;
 }
+
 .left .layui-row:nth-child(1) div:hover {
-  background: url(../img/data/data_1_h.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_1_h.png) no-repeat center left;
+    background-size: contain;
 }
+
 .left .layui-row:nth-child(2) div {
-  background: url(../img/data/data_2.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_2.png) no-repeat center left;
+    background-size: contain;
 }
+
 .left .layui-row:nth-child(2) div:hover {
-  background: url(../img/data/data_2_h.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_2_h.png) no-repeat center left;
+    background-size: contain;
 }
+
 .left .layui-row:nth-child(3) div {
-  background: url(../img/data/data_3.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_3.png) no-repeat center left;
+    background-size: contain;
 }
+
 .left .layui-row:nth-child(3) div:hover {
-  background: url(../img/data/data_3_h.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_3_h.png) no-repeat center left;
+    background-size: contain;
 }
+
 .left .layui-row:nth-child(4) div {
-  background: url(../img/data/data_4.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_4.png) no-repeat center left;
+    background-size: contain;
 }
+
 .left .layui-row:nth-child(4) div:hover {
-  background: url(../img/data/data_4_h.png) no-repeat center left;
-  background-size: contain;
+    background: url(../img/data/data_4_h.png) no-repeat center left;
+    background-size: contain;
 }
 
 .right .layui-row {
-  height: 30%;
-  padding-left: 3rem;
-}
-.right .layui-row:nth-child(2) {
-  margin: 3% 0;
+    height: 30%;
+    padding-left: 3rem;
 }
 
-.right .layui-row >div {
-  height: 95%;
+.right .layui-row:nth-child(2) {
+    margin: 3% 0;
 }
+
+.right .layui-row>div {
+    height: 95%;
+}
+
 .chart-box {
-  height: 100%;
-  font-size: 12px;
-  background: url(../img/data/data_b_02.png) no-repeat center left;
-  background-size: contain;
+    height: 100%;
+    font-size: 12px;
+    background: url(../img/data/data_b_02.png) no-repeat center left;
+    background-size: contain;
 }
-.chart-box-sml  {
-  background: url(../img/data/data_b_01.png) no-repeat center left;
-  background-size: contain;
+
+.chart-box-sml {
+    background: url(../img/data/data_b_01.png) no-repeat center left;
+    background-size: contain;
 }
+
 .chart-box .chart-name {
-  padding-left: 2rem;
-  line-height: 30px;
+    padding-left: 2rem;
+    line-height: 30px;
 }
-.chart-box div{
-  height: 100%;
+
+.chart-box>div {
+    height: 100%;
+    overflow: auto;
+}
+
+.table-chart .th-header {
+    display: flex;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: .5rem 0;
+    color: #124BCD;
+}
+
+.table-chart .th-header span:nth-child(1) {
+    flex: 1;
+}
+
+.table-chart .th-header span:nth-child(2) {
+    flex: 1;
+}
+
+.table-chart .th-header span:nth-child(3) {
+    flex: 1.5;
+}
+
+.table-chart .th-header span:nth-child(4) {
+    flex: 1.5;
+}
+
+.table-chart .th-boby {
+    flex: 1;
+    overflow: auto;
+    color: #C5D9FF;
+}
+
+.table-chart .th-boby>div {
+    display: flex;
+    text-align: center;
+    padding: .5rem 0;
+}
+
+.table-chart .th-boby>div:nth-child(2n+1) {
+    background: #061044;
+}
+
+.table-chart .th-boby span:nth-child(1) {
+    flex: 1.5;
+}
+
+.table-chart .th-boby span:nth-child(2) {
+    flex: 1;
+}
+
+.table-chart .th-boby span:nth-child(3) {
+    flex: 1.5;
+}
+
+.table-chart .th-boby span:nth-child(4) {
+    flex: 1.5;
 }
