@@ -1,0 +1,139 @@
+html,body {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  align-items: center;
+  overflow: hidden;
+  background: url(../img/data/data.png) no-repeat;
+  background-size: 100% 100%;
+}
+.top{
+  position:absolute;
+  top: 0;
+  width: 100%;
+}
+.top .title {
+  width: 24%;
+  display: inline-block;
+  text-align: center;
+  line-height: 35px;
+  font-size: 1.15rem;
+  margin-top: 5px;
+}
+.top div {
+  position: relative;
+  top: -6px;
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 50px;
+}
+.top .speed {
+  color: rgb(56, 128, 38);
+}
+
+.content {
+  width: 100%;
+  height: 90%;
+  padding-top: 3%;
+  min-height: 500px;
+}
+.content>div {
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  height: 100%;
+}
+.left {
+  text-align: right;
+  padding-bottom: 3rem;
+}
+.left .layui-row {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  height: 25%;
+  padding-right: 10px;
+}
+.left .layui-row div {
+  width: 25%;
+  min-width: 170px;
+  height: 60%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.left a {
+  color: #fff;
+  display: inline-block;
+  margin: 0 auto;
+  line-height: 30px;
+}
+.left .layui-row:nth-child(1) div {
+  background: url(../img/data/data_1.png) no-repeat center;
+  background-size: contain;
+}
+.left .layui-row:nth-child(1) div:hover {
+  background: url(../img/data/data_1_h.png) no-repeat center;
+  background-size: contain;
+}
+.left .layui-row:nth-child(2) div {
+  background: url(../img/data/data_2.png) no-repeat center;
+  background-size: contain;
+}
+.left .layui-row:nth-child(2) div:hover {
+  background: url(../img/data/data_2_h.png) no-repeat center;
+  background-size: contain;
+}
+.left .layui-row:nth-child(3) div {
+  background: url(../img/data/data_3.png) no-repeat center;
+  background-size: contain;
+}
+.left .layui-row:nth-child(3) div:hover {
+  background: url(../img/data/data_3_h.png) no-repeat center;
+  background-size: contain;
+}
+.left .layui-row:nth-child(4) div {
+  background: url(../img/data/data_4.png) no-repeat center;
+  background-size: contain;
+}
+.left .layui-row:nth-child(4) div:hover {
+  background: url(../img/data/data_4_h.png) no-repeat center;
+  background-size: contain;
+}
+
+.right .layui-row {
+  height: 30%;
+}
+.right .layui-row:nth-child(2) {
+  margin: 3% 0;
+}
+
+.right .layui-row >div {
+  height: 95%;
+}
+.chart-box {
+  height: 100%;
+  font-size: 12px;
+  background: url(../img/data/data_b_02.png) no-repeat center;
+  background-size: contain;
+}
+.chart-box-sml  {
+  background: url(../img/data/data_b_01.png) no-repeat center;
+  background-size: contain;
+}
+.chart-box .chart-name{
+  padding-left: 17%;
+  line-height: 30px;
+}
+.chart-box div{
+  height: 100%;
+}
