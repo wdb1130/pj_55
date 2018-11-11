@@ -373,6 +373,9 @@ function drawChart5() {
             }, {
                 text: '参数三',
                 max: 100
+            }, {
+                text: '参数三',
+                max: 100
             }],
             center: ['50%', '60%'],
             startAngle: 90,
@@ -413,7 +416,7 @@ function drawChart5() {
                 }
             },
             data: [{
-                value: [40, 20, 60],
+                value: [40, 20, 60, 55],
                 name: '长沙',
                 symbol: 'rect',
                 symbolSize: 0,
@@ -448,6 +451,9 @@ function drawChart6() {
                 max: 100
             }, {
                 text: '参数二',
+                max: 100
+            }, {
+                text: '参数三',
                 max: 100
             }, {
                 text: '参数三',
@@ -492,7 +498,7 @@ function drawChart6() {
                 }
             },
             data: [{
-                value: [40, 20, 60],
+                value: [40, 20, 60, 55],
                 name: '长沙',
                 symbol: 'rect',
                 symbolSize: 0,
