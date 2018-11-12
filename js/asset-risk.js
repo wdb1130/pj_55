@@ -1,7 +1,7 @@
 $(function () {
     drawChart1();
     drawChart2();
-    // drawChart3();
+    drawChart3();
 });
 // chart1
 function drawChart1() {
@@ -206,144 +206,160 @@ function drawChart3() {
     var dom3 = document.getElementById("chart3");
     var myChart3 = echarts.init(dom3);
     option = null;
-    var echartData = [{
-        value: 50,
-        name: '交卷时间'
-    }, {
-        value: 50,
-        name: '未交卷时间'
-    }];
-    var innerColor = '#2bff8f';
-    var outColor = "#50e0ff";
-    var textColor = '#50e0ff';
-    var startColor = 'rgba(73,223,240,0.1)';
-    var endColor = 'rgba(73,223,240,0.8)';
-    var scale = 1;
-    var color = [{
-        type: 'linear',
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [{
-            offset: 0,
-            color: startColor
-        }, {
-            offset: 1,
-            color: endColor
-        }],
-        globalCoord: false
-    }, 'none'];
-    var rich = {
-        time: {
-            color: innerColor,
-            fontSize: 32 * scale,
-            padding: [0, 0],
-            fontWeight: 'bold'
-        },
-        unit: {
-            color: innerColor,
-            fontSize: 14 * scale,
-            padding: [0, 0, 0, 0],
-            verticalAlign: 'bottom',
-        }
-    }
-    option = {
-        title: [{
-            text: '网络宽带占用率',
-            x: '50%',
-            y: '80%',
-            textAlign: 'center',
-            textStyle: {
-                color: '#fff',
-                textAlign: 'center',
-                fontSize: 15 * scale,
-                fontWeight: 'bold'
-            },
-        }],
-        legend: {
-            show: false,
-            itemGap: 12,
-            data: ['通过', '未通过']
-        },
-        series: [{
-            name: 'Line 0',
-            type: 'pie',
-            clockWise: false,
-            hoverAnimation: false,
-            center: ['50%', '40%'],
-            radius: ['50%', '51.5%'],
-            itemStyle: {
-                normal: {
-                    color: innerColor
-                }
-            },
-            data: [{
-                value: 10,
-                name: '',
-            }],
+    var color = ['#fb734e', '#e32f46', '#94d96c', '#0bbcb7', '#1a9bfc', '#7049f0'];
+    var dataStyle = {
+        normal: {
             label: {
-                normal: {
-                    formatter: function (params) {
-                        var time = echartData[0].value;
-                        return '{time|' + time + '}{unit|min}';
-                    },
-                    position: 'center',
-                    textStyle: {
-                        fontSize: 38 * scale,
-                        fontWeight: 'bold',
-                        color: textColor
-                    },
-                    rich: rich
-                }
+                show: false
+            },
+            labelLine: {
+                show: false
+            },
+            shadowBlur: 40,
+            borderWidth: 10,
+            shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+        }
+    };
+    var placeHolderStyle = {
+        normal: {
+            color: '#393d50',
+            label: {
+                show: false
+            },
+            labelLine: {
+                show: false
             }
         },
-        {
+        emphasis: {
+            color: '#393d50'
+        }
+    };
+    option = {
+        tooltip: {
+            trigger: 'item',
+            show: true,
+            formatter: "{b} : <br/>{d}%",
+            backgroundColor: 'rgba(0,0,0,0.7)', // 背景
+            padding: [8, 10], //内边距
+            extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
+        },
+        legend: {
+            orient: 'vertical',
+            // icon: 'circle',
+            left: '5%',
+            top: 'center',
+            itemGap: 20,
+            data: ['二级匹配度', '三级匹配度', '四级匹配度', '04', '05', '06'],
+            textStyle: {
+                color: '#fft'
+            }
+        },
+        series: [{
             name: 'Line 1',
             type: 'pie',
-            clockWise: false,
-            hoverAnimation: false,
-            center: ['50%', '40%'],
-            radius: ['75%', '65%'],
-            color: color,
-            itemStyle: {
-                normal: {
-                    label: {
-                        show: false
-                    },
-                    labelLine: {
-                        show: false
-                    },
+            clockWise: true,
+            radius: ['70%', '75%'],
+            center: ['60%', '50%'],
+            itemStyle: dataStyle,
+            hoverAnimation: true,
+            startAngle: 90,
+            label: {
+                borderRadius: '10',
+            },
+            data: [{
+                value: 50,
+                name: '四级匹配度',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: color[0]
+                        }, {
+                            offset: 1,
+                            color: color[1]
+                        }])
+                    }
                 }
             },
-            data: echartData,
+            {
+                value: 50,
+                name: '',
+                tooltip: {
+                    show: false
+                },
+                itemStyle: placeHolderStyle
+            },
+            ]
         },
         {
             name: 'Line 2',
             type: 'pie',
-            clockWise: false,
-            hoverAnimation: false,
-            center: ['50%', '40%'],
-            radius: ['75%', '75%'],
-            itemStyle: {
-                normal: {
-                    borderWidth: 2 * scale,
-                    borderColor: outColor,
-                    label: {
-                        show: false
-                    },
-                    labelLine: {
-                        show: false
-                    },
+            clockWise: true,
+            radius: ['55%', '60%'],
+            center: ['60%', '50%'],
+            itemStyle: dataStyle,
+            hoverAnimation: true,
+            startAngle: 90,
+            data: [{
+                value: 30,
+                name: '三级匹配度',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: color[2]
+                        }, {
+                            offset: 1,
+                            color: color[3]
+                        }])
+                    }
                 }
             },
-            data: [{
-                value: 10,
+            {
+                value: 70,
                 name: '',
-
-            }]
+                tooltip: {
+                    show: false
+                },
+                itemStyle: placeHolderStyle
+            },
+            ]
+        },
+        {
+            name: 'Line 3',
+            type: 'pie',
+            clockWise: true,
+            radius: ['40%', '45%'],
+            center: ['60%', '50%'],
+            itemStyle: dataStyle,
+            hoverAnimation: true,
+            startAngle: 90,
+            data: [{
+                value: 30,
+                name: '二级匹配度',
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: color[4]
+                        }, {
+                            offset: 1,
+                            color: color[5]
+                        }]),
+                    }
+                }
+            },
+            {
+                value: 70,
+                name: '',
+                tooltip: {
+                    show: false
+                },
+                itemStyle: placeHolderStyle
+            },
+            ]
         }
-        ],
+        ]
     };
     if (option && typeof option === "object") {
         myChart3.setOption(option, true);

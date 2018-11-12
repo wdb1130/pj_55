@@ -62,7 +62,8 @@ span.sp {
     display: flex;
 }
 #chart1,
-#chart2{
+#chart2,
+#chart3{
     flex: 1;
 }
 .chart-group .table-chart {
@@ -114,4 +115,15 @@ span.sp {
 }
 .table-chart .th-boby span:nth-child(4) {
     flex: 1.5;
+}
+.chart1{
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+.chart2{
+    margin-bottom: 1rem;
+}
+.chart4{
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
