@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../static/layui/css/layui.css">
     <script src="../../static/layui/layui.js"></script>
+    <script src="../../js/jquery.js"></script>
     <style>
         .my-test{
             cursor: pointer;
@@ -24,11 +25,43 @@
             </div>
         </div>
     </div>
-    
+
     <script type="text/javascript" src="../../static/echarts/echarts.js"></script>
     <script src="./initChart.js"></script>
     <script type="text/javascript">
-        initChart('chart1');
+        console.log('开始请求');
+        // 全局变量
+        var legend;
+        var series;
+        var xAxis;
+        setTimeout(function () {
+            $.ajax({
+                type: "GET",
+                data: "",
+                dataType: 'json',
+                url: "./test-json.json",
+                success: function (res) {
+                    if (res.resultCode == 200) {
+                        legend = [];
+                        series = [];
+                        xAxis = res.data.xAxis;
+                        res.data.series.forEach(function (item) {
+                            legend.push(item.name);
+                            series.push(
+                                {
+                                    name: item.name,
+                                    type: 'line',
+                                    stack: '总量',
+                                    areaStyle: {},
+                                    data: item.data
+                                }
+                            )
+                        });
+                    };
+                    initChart('chart1', legend, xAxis, series);
+                }
+            });
+        }, 2000);
     </script>
 
     <script>
@@ -61,8 +94,12 @@
                 }
             };
             $('#layerDemo .my-test').on('click', function () {
-                var othis = $(this), method = othis.data('method');
-                active[method] ? active[method].call(this, othis) : '';
+                if (legend && xAxis && series) {
+                    var othis = $(this), method = othis.data('method');
+                    active[method] ? active[method].call(this, othis) : '';
+                } else {
+                    console.log('未加载');
+                }
             });
         });
     </script>

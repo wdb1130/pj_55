@@ -30,7 +30,10 @@
     <script src="./initChart.js"></script>
     <script>
         console.log('加载子页面');
-        initChart('chartModal');
+        // console.log(parent.legend);
+        // console.log(parent.series);
+        // console.log(parent.xAxis);
+        initChart('chartModal', parent.legend, parent.xAxis, parent.series);
     </script>
 </body>
 
