@@ -128,7 +128,9 @@ body {
     background: url(../img/data/data_4_h.png) no-repeat center left;
     background-size: contain;
 }
-
+.right {
+    height:100%;
+}
 .right .layui-row {
     height: 30%;
     padding-left: 3rem;
@@ -138,12 +140,10 @@ body {
     margin: 3% 0;
 }
 
-.right .layui-row>div {
-    height: 95%;
-}
-
 .chart-box {
     height: 100%;
+    display: flex;
+    flex-direction: column;
     font-size: 12px;
     background: url(../img/data/data_b_02.png) no-repeat center left;
     background-size: contain;
@@ -153,39 +153,32 @@ body {
     background: url(../img/data/data_b_01.png) no-repeat center left;
     background-size: contain;
 }
+.chart-box-sml:last-child {
+    margin-left: 2rem;
+}
 
 .chart-box .chart-name {
     padding-left: 2rem;
     line-height: 30px;
 }
 
-.chart-box>div {
-    height: 100%;
-    overflow: auto;
+.chart-box .chart {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 3rem;
 }
 
 .table-chart .th-header {
+    line-height: 2.5rem;
     display: flex;
-    font-size: 1.1rem;
     text-align: center;
-    padding: .5rem 0;
     color: #124BCD;
 }
 
-.table-chart .th-header span:nth-child(1) {
+.table-chart .th-header span {
     flex: 1;
-}
-
-.table-chart .th-header span:nth-child(2) {
-    flex: 1;
-}
-
-.table-chart .th-header span:nth-child(3) {
-    flex: 1.5;
-}
-
-.table-chart .th-header span:nth-child(4) {
-    flex: 1.5;
 }
 
 .table-chart .th-boby {
@@ -204,18 +197,14 @@ body {
     background: #061044;
 }
 
-.table-chart .th-boby span:nth-child(1) {
-    flex: 1.5;
-}
-
-.table-chart .th-boby span:nth-child(2) {
+.table-chart .th-boby span {
     flex: 1;
 }
 
-.table-chart .th-boby span:nth-child(3) {
-    flex: 1.5;
+.chart-box .chart-two {
+    display: flex;
+    flex-direction: row;
 }
-
-.table-chart .th-boby span:nth-child(4) {
-    flex: 1.5;
+.chart-two div {
+    flex: 1;
 }
