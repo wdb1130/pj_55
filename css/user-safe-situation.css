@@ -1,0 +1,163 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: url('../img/manage/opera.png');
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/manage/opera.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/manage/opera.png', sizingMethod='scale');
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+}
+.container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .5rem 4rem 1rem 4rem;
+    color: #fff;
+}
+.opera-title {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 8rem);
+    padding-left: 1rem;
+}
+.opera-title > div:first-child {
+    font-size: 1.5rem;
+    color: #C0D4F9;
+}
+.center-bg {
+    position: absolute;
+    width: 33%;
+    height: 33%;
+    border: 1px solid tomato;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.left-content,
+.right-content {
+    padding-top: 2rem;
+    display: flex;
+    flex: 1;
+}
+.left-content{
+    flex-direction: column;
+}
+.left-content > div {
+    flex: 1;
+    border: 1px solid green;
+}
+.right-content > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1px solid green;
+}
+.top-chart,
+.down-chart {
+    flex: 1;
+}
+.left-content > div:nth-child(1){
+    display: flex;
+}
+.left-content > div:nth-child(1) > .nbsp:nth-child(1){
+    flex: .5;
+}
+.chart1{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    background: url('../img/user/user_b_06.png') no-repeat;
+    background-size: 100% 100%;
+    padding: .5rem;
+}
+.chart1 > span {
+    padding-right: 1rem;
+    text-align: right;
+}
+#chart1{
+    flex: 1;
+}
+.left-content > div:nth-child(1) > .nbsp:last-child{
+    flex: 1;
+}
+.left-content > div:nth-child(2){
+    display: flex;
+}
+.left-content > div:nth-child(2) > .nbsp:nth-child(1){
+    flex: .2;
+}
+.slider1 {
+    display: flex;
+    flex-direction: column;
+    flex: 1.5;
+    background: url('../img/user/user_b_06.png') no-repeat;
+    background-size: 100% 100%;
+    padding: .5rem;
+}
+.slider1 > span{
+    text-align: right;
+    padding-right: 1rem;
+}
+.slider1 > div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.th-title{
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.td-body{
+    flex: 1;
+    display: flex;
+}
+.td-body > div {
+    flex: 1;
+}
+.th-title > span{
+    flex: 1;
+    text-align: center;
+}
+.left-content > div:nth-child(2) > .nbsp:last-child{
+    flex: 1;
+}
+.swiper-slide-detail{
+    display: flex;
+}
+.swiper-slide-detail:nth-child(2n){
+    background: #061043;
+}
+.swiper-slide-detail > span{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-content > div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+.right-content > div:first-child > div{
+    flex: 1;
+}
+.top-chart,
+.down-chart {
+    display: flex;
+    flex-direction: column;
+    background: url('../img/user/user_b_03.png') no-repeat;
+    background-size: 100% 100%;
+    padding: .5rem;
+}
+#chart3,
+#chart4 {
+    flex: 1;
+}
