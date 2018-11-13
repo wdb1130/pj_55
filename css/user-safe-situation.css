@@ -161,3 +161,21 @@ html, body {
 #chart4 {
     flex: 1;
 }
+.right-content > div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+.right-content > div:last-child > div{
+    flex: 1;
+}
+.right-content > div:last-child > .nbsp{
+    flex: .5;
+}
+.chart-ws{
+    flex: 1;
+    display: flex;
+}
+.chart-ws > div{
+    flex: 1;
+    border: 1px solid red;
+}

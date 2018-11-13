@@ -2,6 +2,8 @@ $(function () {
     drawChart1();
     drawChart3();
     drawChart4();
+    drawChart5();
+    drawChart6();
 });
 // chart1
 function drawChart1() {
@@ -263,5 +265,301 @@ function drawChart4() {
     if (option && typeof option === "object") {
         myChart4.setOption(option, true);
         window.onresize = myChart4.resize;
+    }
+}
+function drawChart5() {
+    var dom5 = document.getElementById("chart5");
+    var myChart5 = echarts.init(dom5);
+    option = null;
+    var echartData = [{
+        value: 50,
+        name: '交卷时间'
+    }, {
+        value: 50,
+        name: '未交卷时间'
+    }];
+    var innerColor = '#2bff8f';
+    var outColor = "#50e0ff";
+    var textColor = '#50e0ff';
+    var startColor = 'rgba(73,223,240,0.1)';
+    var endColor = 'rgba(73,223,240,0.8)';
+    var scale = 1;
+    var color = [{
+        type: 'linear',
+        x: 0,
+        y: 0,
+        x2: 0,
+        y2: 1,
+        colorStops: [{
+            offset: 0,
+            color: startColor
+        }, {
+            offset: 1,
+            color: endColor
+        }],
+        globalCoord: false
+    }, 'none'];
+    var rich = {
+        time: {
+            color: innerColor,
+            fontSize: 32 * scale,
+            padding: [0, 0],
+            fontWeight: 'bold'
+        },
+        unit: {
+            color: innerColor,
+            fontSize: 14 * scale,
+            padding: [0, 0, 0, 0],
+            verticalAlign: 'bottom',
+        }
+    }
+    option = {
+        title: [{
+            text: '网络宽带占用率',
+            x: '50%',
+            y: '80%',
+            textAlign: 'center',
+            textStyle: {
+                color: '#fff',
+                textAlign: 'center',
+                fontSize: 15 * scale,
+                fontWeight: 'bold'
+            },
+        }],
+        legend: {
+            show: false,
+            itemGap: 12,
+            data: ['通过', '未通过']
+        },
+        series: [{
+            name: 'Line 0',
+            type: 'pie',
+            clockWise: false,
+            hoverAnimation: false,
+            center: ['50%', '40%'],
+            radius: ['50%', '51.5%'],
+            itemStyle: {
+                normal: {
+                    color: innerColor
+                }
+            },
+            data: [{
+                value: 10,
+                name: '',
+            }],
+            label: {
+                normal: {
+                    formatter: function (params) {
+                        var time = echartData[0].value;
+                        return '{time|' + time + '}{unit|min}';
+                    },
+                    position: 'center',
+                    textStyle: {
+                        fontSize: 38 * scale,
+                        fontWeight: 'bold',
+                        color: textColor
+                    },
+                    rich: rich
+                }
+            }
+        },
+        {
+            name: 'Line 1',
+            type: 'pie',
+            clockWise: false,
+            hoverAnimation: true,
+            center: ['50%', '40%'],
+            radius: ['75%', '65%'],
+            color: color,
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                }
+            },
+            data: echartData,
+        },
+        {
+            name: 'Line 2',
+            type: 'pie',
+            clockWise: false,
+            hoverAnimation: false,
+            center: ['50%', '40%'],
+            radius: ['75%', '75%'],
+            itemStyle: {
+                normal: {
+                    borderWidth: 2 * scale,
+                    borderColor: outColor,
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                }
+            },
+            data: [{
+                value: 10,
+                name: '',
+
+            }]
+        }
+        ],
+    };
+    if (option && typeof option === "object") {
+        myChart5.setOption(option, true);
+        window.onresize = myChart5.resize;
+    }
+}
+function drawChart6() {
+    var dom6 = document.getElementById("chart6");
+    var myChart6 = echarts.init(dom6);
+    option = null;
+    var echartData = [{
+        value: 50,
+        name: '交卷时间'
+    }, {
+        value: 50,
+        name: '未交卷时间'
+    }];
+    var innerColor = '#2bff8f';
+    var outColor = "#50e0ff";
+    var textColor = '#50e0ff';
+    var startColor = 'rgba(73,223,240,0.1)';
+    var endColor = 'rgba(73,223,240,0.8)';
+    var scale = 1;
+    var color = [{
+        type: 'linear',
+        x: 0,
+        y: 0,
+        x2: 0,
+        y2: 1,
+        colorStops: [{
+            offset: 0,
+            color: startColor
+        }, {
+            offset: 1,
+            color: endColor
+        }],
+        globalCoord: false
+    }, 'none'];
+    var rich = {
+        time: {
+            color: innerColor,
+            fontSize: 32 * scale,
+            padding: [0, 0],
+            fontWeight: 'bold'
+        },
+        unit: {
+            color: innerColor,
+            fontSize: 14 * scale,
+            padding: [0, 0, 0, 0],
+            verticalAlign: 'bottom',
+        }
+    }
+    option = {
+        title: [{
+            text: '网络宽带占用率',
+            x: '50%',
+            y: '80%',
+            textAlign: 'center',
+            textStyle: {
+                color: '#fff',
+                textAlign: 'center',
+                fontSize: 15 * scale,
+                fontWeight: 'bold'
+            },
+        }],
+        legend: {
+            show: false,
+            itemGap: 12,
+            data: ['通过', '未通过']
+        },
+        series: [{
+            name: 'Line 0',
+            type: 'pie',
+            clockWise: false,
+            hoverAnimation: false,
+            center: ['50%', '40%'],
+            radius: ['50%', '51.5%'],
+            itemStyle: {
+                normal: {
+                    color: innerColor
+                }
+            },
+            data: [{
+                value: 10,
+                name: '',
+            }],
+            label: {
+                normal: {
+                    formatter: function (params) {
+                        var time = echartData[0].value;
+                        return '{time|' + time + '}{unit|min}';
+                    },
+                    position: 'center',
+                    textStyle: {
+                        fontSize: 38 * scale,
+                        fontWeight: 'bold',
+                        color: textColor
+                    },
+                    rich: rich
+                }
+            }
+        },
+        {
+            name: 'Line 1',
+            type: 'pie',
+            clockWise: false,
+            hoverAnimation: true,
+            center: ['50%', '40%'],
+            radius: ['75%', '65%'],
+            color: color,
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                }
+            },
+            data: echartData,
+        },
+        {
+            name: 'Line 2',
+            type: 'pie',
+            clockWise: false,
+            hoverAnimation: false,
+            center: ['50%', '40%'],
+            radius: ['75%', '75%'],
+            itemStyle: {
+                normal: {
+                    borderWidth: 2 * scale,
+                    borderColor: outColor,
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                }
+            },
+            data: [{
+                value: 10,
+                name: '',
+
+            }]
+        }
+        ],
+    };
+    if (option && typeof option === "object") {
+        myChart6.setOption(option, true);
+        window.onresize = myChart6.resize;
     }
 }
