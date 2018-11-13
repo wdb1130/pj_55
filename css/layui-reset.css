@@ -94,3 +94,9 @@
 .layui-btn {
     background: #135BFF;
 }
+.layui-layer {
+    background-color: #030520!important;
+}
+.chart-click {
+    cursor: pointer;
+}

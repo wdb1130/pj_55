@@ -22,11 +22,11 @@
         <div class="chart-option">
             <div class="top">
                 <div class="chart1">
-                    <div>数据态势预测</div>
+                    <div data-method="setTop" class="chart-click" data-chartType="drawLine">数据态势预测</div>
                     <div id="chart1"></div>
                 </div>
                 <div class="chart2">
-                    <div>对比分析柱状图</div>
+                    <div data-method="setTop" class="chart-click" data-chartType="drawHorizontalBar">对比分析柱状图</div>
                     <div id="chart2"></div>
                 </div>
             </div>
@@ -95,6 +95,7 @@
         </div>
     </div>
     <script src="../static/echarts/echarts.js"></script>
+    <script src="../js/initChart.js"></script>
     <script src="../js/data-second.js"></script>
 </body>
 

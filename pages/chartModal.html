@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>图表模态框</title>
+    <script src="../static/echarts/echarts.js"></script>
+    <script src="../js/initChart.js"></script>
     <style>
         .content {
             position: absolute;
@@ -17,7 +19,7 @@
             flex-direction: column;
             padding: 1rem;
         }
-        #chartModal{
+        #chartModal {
             flex: 1;
         }
     </style>
@@ -27,14 +29,11 @@
     <div class="content">
         <div id="chartModal"></div>
     </div>
-    <script type="text/javascript" src="../../static/echarts/echarts.js"></script>
-    <script src="./initChart.js"></script>
+
     <script>
         console.log('加载子页面');
-        // console.log(parent.legend);
-        // console.log(parent.series);
-        // console.log(parent.xAxis);
-        initChart('chartModal', parent.legend, parent.xAxis, parent.series);
+        var foo = parent.chartTypeState;
+        initChartFun[foo]('chartModal');
     </script>
 </body>
 
