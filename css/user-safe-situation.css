@@ -33,12 +33,89 @@ html, body {
 }
 .center-bg {
     position: absolute;
-    width: 33%;
-    height: 33%;
-    border: 1px solid tomato;
+    width: 35%;
+    height: 35%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.u-bg{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('../img/user/user_c.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: -100;
+}
+.s-bg{
+    position: absolute;
+    width: 38%;
+    height: 40%;
+    z-index: 100;
+    cursor: pointer;
+}
+/* 蓝 */
+.s-bg1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 4%;
+    left: -18%;
+    background: url('../img/user/user_2.png') no-repeat;
+    background-size: 100% 100%;
+}
+.s-bg1:hover{
+    background: url('../img/user/user_2_h.png') no-repeat;
+    background-size: 100% 100%;
+}
+/* 紫 */
+.s-bg2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 4%;
+    right: -15%;
+    background: url('../img/user/user_1.png') no-repeat;
+    background-size: 100% 100%;
+}
+.s-bg2:hover{
+    background: url('../img/user/user_1_h.png') no-repeat;
+    background-size: 100% 100%;
+}
+/* 黄 */
+.s-bg3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    bottom: -8%;
+    right: -15%;
+    background: url('../img/user/user_4.png') no-repeat;
+    background-size: 100% 100%;
+}
+.s-bg3:hover{
+    background: url('../img/user/user_4_h.png') no-repeat;
+    background-size: 100% 100%;
+}
+/* 绿 */
+.s-bg4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    bottom: -8%;
+    left: -18%;
+    background: url('../img/user/user_3.png') no-repeat;
+    background-size: 100% 100%;
+}
+.s-bg4:hover{
+    background: url('../img/user/user_3_h.png') no-repeat;
+    background-size: 100% 100%;
 }
 .left-content,
 .right-content {
@@ -51,13 +128,11 @@ html, body {
 }
 .left-content > div {
     flex: 1;
-    border: 1px solid green;
 }
 .right-content > div {
     display: flex;
     flex-direction: column;
     flex: 1;
-    border: 1px solid green;
 }
 .top-chart,
 .down-chart {
@@ -177,5 +252,4 @@ html, body {
 }
 .chart-ws > div{
     flex: 1;
-    border: 1px solid red;
 }
