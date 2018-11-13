@@ -1,0 +1,99 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    overflow: hidden;
+    background: url(../img/serve/serve.png) no-repeat;
+    background-size: 100% 100%;
+}
+.header {
+  height: 3rem;
+  line-height: 3rem;
+  width: 100%;
+  padding-left: 6rem;
+}
+.section {
+  flex: 1;
+  display: flex;
+  padding: 0 2rem;
+}
+.footer {
+  height: 3rem;
+}
+.section .layui-col-lg3 {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.chart-box,.tag-box {
+  flex: 1;
+  display: flex; 
+  flex-direction: column;
+}
+ .col-2 .tag-box {
+  justify-content: center;
+ }
+
+.chart {
+  flex: 1;
+  width: 100%;
+}
+.tag {
+  height: 4rem;
+  width: 10rem;
+  margin: 0 auto;
+}
+.col-3 .tag-box {
+  display: block;
+}
+.col-3 .tag-box .tag {
+  float: right;
+  margin-right: 3rem;
+}
+
+/* 背景设置 */
+
+.col-1 .chart,.col-2 .chart {
+  background: url(../img/serve/serve_b_1.png) no-repeat center bottom;
+  background-size: 80% 80%;
+}
+.col-3 .chart,.col-4 .chart {
+  background: url(../img/serve/serve_b_2.png) no-repeat center bottom;
+  background-size: 80% 80%;
+}
+#tag1 {
+  background: url(../img/serve/serve_03.png) no-repeat;
+  background-size: cover;
+}
+#tag1:hover {
+  background: url(../img/serve/serve_03_h.png) no-repeat;
+  background-size: cover;
+}
+#tag2 {
+  background: url(../img/serve/serve_07.png) no-repeat;
+  background-size: cover;
+}
+#tag2:hover {
+  background: url(../img/serve/serve_07_h.png) no-repeat;
+  background-size: cover;
+}
+#tag3 {
+  background: url(../img/serve/serve_11.png) no-repeat;
+  background-size: cover;
+}
+#tag3:hover {
+  background: url(../img/serve/serve_11_h.png) no-repeat;
+  background-size: cover;
+}
