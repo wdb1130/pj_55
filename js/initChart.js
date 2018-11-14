@@ -1,6 +1,6 @@
 var initChartFun = {
     // 折线图
-    drawLine: function (dom) {
+    drawLine: function (dom, postModalData) {
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
         option = null;
@@ -13,7 +13,7 @@ var initChartFun = {
                 itemWidth: 14,
                 itemHeight: 5,
                 itemGap: 13,
-                data: ['移动', '电信', '联通'],
+                data: postModalData[0],
                 right: '4%',
                 textStyle: {
                     fontSize: 12,
@@ -27,11 +27,13 @@ var initChartFun = {
                         color: '#fff'
                     }
                 },
-                data: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:40', '13:45']
+                data: postModalData[1]
             }],
             yAxis: [{
                 type: 'value',
-                name: '单位（%）',
+                name: '量值',
+                max: 100,
+                min: -100,
                 axisLine: {
                     lineStyle: {
                         color: '#fff'
@@ -49,64 +51,7 @@ var initChartFun = {
                     }
                 }
             }],
-            series: [{
-                name: '移动',
-                type: 'line',
-                symbol: 'circle',
-                symbolSize: 5,
-                lineStyle: {
-                    normal: {
-                        width: 1
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: 'rgb(137,189,27)',
-                        borderColor: 'rgba(137,189,2,0.27)',
-                        borderWidth: 10
-
-                    }
-                },
-                data: [150, 120, -110, 125, 145, -122, 165]
-            }, {
-                name: '电信',
-                type: 'line',
-                symbol: 'circle',
-                symbolSize: 5,
-                lineStyle: {
-                    normal: {
-                        width: 1
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: 'rgb(0,136,212)',
-                        borderColor: 'rgba(0,136,212,0.2)',
-                        borderWidth: 10
-
-                    }
-                },
-                data: [165, -122, 220, 182, -191, 134, 150]
-            }, {
-                name: '联通',
-                type: 'line',
-                symbol: 'circle',
-                symbolSize: 5,
-                lineStyle: {
-                    normal: {
-                        width: 1
-                    }
-                },
-                itemStyle: {
-                    normal: {
-
-                        color: 'rgb(219,50,51)',
-                        borderColor: 'rgba(219,50,51,0.2)',
-                        borderWidth: 10
-                    }
-                },
-                data: [220, 182, -125, 150, 120, 110, -165]
-            },]
+            series: postModalData[2]
         };
         if (option && typeof option === "object") {
             myChart.setOption(option, true);
@@ -114,21 +59,17 @@ var initChartFun = {
         }
     },
     // 横向柱状图
-    drawHorizontalBar: function (dom) {
+    drawHorizontalBar: function (dom, postModalData) {
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
         option = null;
         option = {
-            color: ['#3398DB'],
-            title: {
-                text: '',
-            },
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
                     type: 'shadow'
                 },
-                formatter: "{b} <br> 合格率: {c}%"
+                formatter: "{b} : {c}%"
             },
             grid: {
                 x: 0,
@@ -139,7 +80,6 @@ var initChartFun = {
             },
             xAxis: {
                 type: 'value',
-                boundaryGap: [0, 0.01],
                 min: 0,
                 max: 100,
                 interval: 20,
@@ -148,13 +88,27 @@ var initChartFun = {
                     textStyle: {
                         fontWeight: '80'
                     }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#135Bff'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: '#57617B'
+                    }
                 }
             },
             yAxis: {
                 type: 'category',
-                data: ['湖北省', '湖南省', '广东省'],
+                data: postModalData[0],
+                axisLine: {
+                    lineStyle: {
+                        color: '#135Bff'
+                    }
+                },
                 axisLabel: {
-                    show: true,
                     interval: 0,
                     rotate: 0,
                     margin: 10,
@@ -166,21 +120,16 @@ var initChartFun = {
             },
             series: [{
                 type: 'bar',
-                barWidth: 20,
-                label: {
+                data: postModalData[1],
+                barMaxWidth: '20',
+                itemStyle: {
                     normal: {
-                        show: true,
-                        formatter: function (v) {
-                            var val = v.data;
-                            if (val == 0) {
-                                return '';
-                            }
-                            return val;
-                        },
-                        color: '#fff'
+                        color: function (params) {
+                            var colorList = postModalData[2];
+                            return colorList[params.dataIndex]
+                        }
                     }
-                },
-                data: [22, 33, 88]
+                }
             }]
         };
         if (option && typeof option === "object") {
@@ -189,15 +138,132 @@ var initChartFun = {
         }
     },
     // 纵向柱状图
-    drawVerticalBar: function () {
-
+    drawVerticalBar: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                y: 'center',
+                data: postModalData[0]
+            },
+            grid: {
+                x: 100,
+                y: 15,
+                x2: 0,
+                y2: 0,
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: postModalData[1]
+                }
+            ],
+            yAxis: [
+                {
+                    min: 0,
+                    max: 100,
+                    type: 'value'
+                }
+            ],
+            series: postModalData[2]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
     },
     // 圆形雷达图
-    drawArcRadar: function () { 
-
+    drawArcRadar: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        option = {
+            radar: [{
+                indicator: [{
+                    text: '参数一',
+                    max: 100
+                }, {
+                    text: '参数二',
+                    max: 100
+                }, {
+                    text: '参数三',
+                    max: 100
+                }, {
+                    text: '参数四',
+                    max: 100
+                }],
+                radius: '65%',
+                center: ['50%', '50%'],
+                startAngle: 90,
+                shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                splitArea: {
+                    areaStyle: {
+                        color: [],
+                        shadowColor: 'rgba(0, 0, 0, 0.3)',
+                        shadowBlur: 10
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#1254ED'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: '#1254ED'
+                    }
+                }
+            }],
+            series: [{
+                type: 'radar',
+                itemStyle: {
+                    emphasis: {
+                        lineStyle: {
+                            width: 4
+                        }
+                    }
+                },
+                data: [{
+                    value: [40, 20, 60, 55],
+                    symbol: 'rect',
+                    symbolSize: 0,
+                    areaStyle: {
+                        normal: {
+                            color: 'rgba(255, 255, 0, 0.5)'
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: 'rgba(255, 255, 0, 0.5)',
+                            type: 'solid',
+                            width: 0
+                        }
+                    }
+                }]
+            }]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
     },
     // 方形雷达图
     drawRectRadar: function () {
-        
-     }
+
+    }
 };

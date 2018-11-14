@@ -1,0 +1,51 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["全局态势", "威胁", "防御", "操作"],
+        "seriesData": [
+            {
+                "date": "2018-10-01",
+                "globalSituation": 70,
+                "risk": 54,
+                "defense": 10,
+                "opera": 20
+            },
+            {
+                "date": "2018-10-02",
+                "globalSituation": -70,
+                "risk": -20,
+                "defense": 82,
+                "opera": 40
+            },
+            {
+                "date": "2018-10-03",
+                "globalSituation": 60,
+                "risk": 30,
+                "defense": -25,
+                "opera": -20
+            },
+            {
+                "date": "2018-10-04",
+                "globalSituation": -60,
+                "risk": 50,
+                "defense": 10,
+                "opera": -54
+            },
+            {
+                "date": "2018-10-05",
+                "globalSituation": 50,
+                "risk": -12,
+                "defense": 70,
+                "opera": 20
+            },
+            {
+                "date": "2018-10-06",
+                "globalSituation": -50,
+                "risk": 15,
+                "defense": 11,
+                "opera": -80
+            }
+        ]
+    }
+}

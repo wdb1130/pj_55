@@ -1,0 +1,20 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "title": "全局态势",
+                "value": 70
+            },
+            {
+                "title": "可用性",
+                "value": 20
+            },
+            {
+                "title": "稳定性",
+                "value": 32
+            }
+        ]
+    }
+}

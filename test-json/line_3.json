@@ -1,0 +1,51 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["全局态势", "可用性", "稳定性"],
+        "seriesData": [
+            {
+                "date": "2018-10-01",
+                "globalSituation": 70,
+                "usability": 10,
+                "stability": 20
+            },
+            {
+                "date": "2018-10-02",
+                "globalSituation": -70,
+                "usability": -20,
+                "stability": 82
+            },
+            {
+                "date": "2018-10-03",
+                "globalSituation": 60,
+                "usability": 30,
+                "stability": -25
+            },
+            {
+                "date": "2018-10-04",
+                "globalSituation": -60,
+                "usability": 50,
+                "stability": 10
+            },
+            {
+                "date": "2018-10-05",
+                "globalSituation": 50,
+                "usability": -12,
+                "stability": 70
+            },
+            {
+                "date": "2018-10-06",
+                "globalSituation": -50,
+                "usability": 15,
+                "stability": 11
+            },
+            {
+                "date": "2018-10-07",
+                "globalSituation": 10,
+                "usability": 70,
+                "stability": -65
+            }
+        ]
+    }
+}

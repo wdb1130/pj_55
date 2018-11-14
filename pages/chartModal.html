@@ -31,9 +31,18 @@
     </div>
 
     <script>
-        console.log('加载子页面');
-        var foo = parent.chartTypeState;
-        initChartFun[foo]('chartModal');
+        var funName = parent.chartTypeState;
+        var postodalData = parent.postModalData;
+        console.log(funName, postodalData)
+        switch(funName){
+            case 'drawLine':
+            initChartFun[funName]('chartModal', postodalData);
+            break;
+            case 'drawHorizontalBar':
+            initChartFun[funName]('chartModal', postodalData);
+            break;
+        }
+
     </script>
 </body>
 

@@ -1,0 +1,25 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["全局态势", "可用性", "稳定性"],
+        "seriesData": [
+            [
+                {
+                    "date": "2018-02-03",
+                    "globalSituation": 70,
+                    "usability": 10,
+                    "stability": 20
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-04",
+                    "globalSituation": 10,
+                    "usability": 40,
+                    "stability": 60
+                }
+            ]
+        ]
+    }
+}

@@ -1,4 +1,44 @@
 var chartTypeState;
+
+// 模态框获取的
+var postModalData;
+
+// 所有图表请求后暂存
+var storageData = {
+    drawLine: [],
+    drawHorizontalBar: [],
+    drawVerticalBar: []
+}
+
+var colorLine = ['#FF3838', '#8124FF', '#45CE8D'];
+var colorList = [
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(13, 151, 246, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(13, 151, 246, 1)'
+    }]),
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(63, 5, 246, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(63, 5, 246, 1)'
+    }]),
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(63, 151, 7, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(63, 151, 7, 1)'
+    }])
+];
+var colorBarList = ['#FF3838', '#45CE8D', '#8124FF'];
+var colorRadarList = ['rgba(255, 255, 0, 0.5)'];
+
+
+// 页面加载
 $(function () {
     layui.use('form', function () {
         var form = layui.form;
@@ -22,8 +62,6 @@ $(function () {
             theme: '#050732'
         });
     });
-
-
     layui.use('layer', function () {
         var $ = layui.jquery, layer = layui.layer;
         //触发事件
@@ -54,176 +92,142 @@ $(function () {
         };
         $('.chart-click').on('click', function () {
             chartTypeState = $(this).attr('data-chartType');
+            postModalData = storageData[chartTypeState];
             var othis = $(this), method = othis.data('method');
             active[method] ? active[method].call(this, othis) : '';
         });
     });
 
+    setTimeout(function () {
+        // chart1
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/line_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.globalSituation);
+                        sitemArr[1].push(item.usability);
+                        sitemArr[2].push(item.stability);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLine[idx],
+                                    borderWidth: 1
 
-    setTimeout(function(){
-        initChartFun.drawLine('chart1');
-        initChartFun.drawHorizontalBar('chart2')
-    },1000)
+                                }
+                            },
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawLine.push(res.result.legendData);
+                    storageData.drawLine.push(xAxisData);
+                    storageData.drawLine.push(seriesData);
+                    initChartFun.drawLine('chart1', storageData.drawLine);
+                };
+            }
+        });
+
+        // chart2
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/horizontalBar_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var yAxisData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        yAxisData.push(item.title);
+                        seriesData.push(item.value);
+                    });
+                    storageData.drawHorizontalBar.push(yAxisData, seriesData, colorList);
+                    initChartFun.drawHorizontalBar('chart2', storageData.drawHorizontalBar);
+                };
+            }
+        });
+
+        // chart3
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/verticalBar_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], []];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        xAxisData.push(item[0]['date']);
+                        sitemArr[0].push(item[0]['globalSituation']);
+                        sitemArr[1].push(item[0]['usability']);
+                        sitemArr[2].push(item[0]['stability']);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: colorBarList[idx],
+                                    label: {
+                                        show: true,
+                                        position: 'top',
+                                        textStyle: {
+                                            color: '#fff',
+                                            fontSize: 16
+                                        }
+                                    }
+                                }
+                            },
+                            barWidth: 20,
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawVerticalBar.push(res.result.legendData);
+                    storageData.drawVerticalBar.push(xAxisData);
+                    storageData.drawVerticalBar.push(seriesData);
+                    initChartFun.drawVerticalBar('chart3', storageData.drawVerticalBar);
+                };
+            }
+        });
 
 
-    drawChart3();
-    drawChart4();
+
+
+
+
+
+
+
+
+
+
+    }, 1000)
+
+
     drawChart5();
 });
 
-// chart3
-function drawChart3() {
-    var dom3 = document.getElementById("chart3");
-    var myChart3 = echarts.init(dom3);
-    option = null;
-    option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        legend: {
-            orient: 'vertical',
-            x: 'left',
-            y: 'center',
-            data: ['直接访问', '邮件营销', '搜索引擎', '百度一下']
-        },
-        grid: {
-            x: 100,
-            y: 15,
-            x2: 0,
-            y2: 0,
-            containLabel: true
-        },
-        xAxis: [
-            {
-                type: 'category',
-                data: ['周一', '周二']
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                name: '直接访问',
-                type: 'bar',
-                barWidth: 20,
-                data: [320, 332]
-            },
-            {
-                name: '邮件营销',
-                type: 'bar',
-                stack: '广告',
-                barWidth: 20,
-                data: [120, 132]
-            },
-            {
-                name: '搜索引擎',
-                type: 'bar',
-                barWidth: 20,
-                data: [862, 1018],
-            },
-            {
-                name: '百度一下',
-                type: 'bar',
-                barWidth: 20,
-                data: [862, 118],
-            }
-        ]
-    };
-
-    if (option && typeof option === "object") {
-        myChart3.setOption(option, true);
-        window.onresize = myChart3.resize;
-    }
-}
-// chart4
-function drawChart4() {
-    var dom4 = document.getElementById("chart4");
-    var myChart4 = echarts.init(dom4);
-    option = null;
-    option = {
-        radar: [{
-            indicator: [{
-                text: '参数一',
-                max: 100
-            }, {
-                text: '参数二',
-                max: 100
-            }, {
-                text: '参数三',
-                max: 100
-            }, {
-                text: '参数四',
-                max: 100
-            }],
-            radius: '65%',
-            center: ['50%', '50%'],
-            startAngle: 90,
-            splitNumber: 4,
-            shape: 'circle',
-            name: {
-                formatter: '{value}',
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            splitArea: {
-                areaStyle: {
-                    color: [],
-                    shadowColor: 'rgba(0, 0, 0, 0.3)',
-                    shadowBlur: 10
-                }
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
-            }
-        }],
-        series: [{
-            name: '雷达图',
-            type: 'radar',
-            itemStyle: {
-                emphasis: {
-                    lineStyle: {
-                        width: 4
-                    }
-                }
-            },
-            data: [{
-                value: [40, 20, 60, 55],
-                name: '长沙',
-                symbol: 'rect',
-                symbolSize: 0,
-                areaStyle: {
-                    normal: {
-                        color: 'rgba(255, 255, 0, 0.5)'
-                    }
-                },
-                lineStyle: {
-                    normal: {
-                        type: 'solid',
-                        width: 0
-                    }
-                }
-            }]
-        }]
-    }
-    if (option && typeof option === "object") {
-        myChart4.setOption(option, true);
-        window.onresize = myChart4.resize;
-    }
-}
 // chart5
 function drawChart5() {
     var dom5 = document.getElementById("chart5");
