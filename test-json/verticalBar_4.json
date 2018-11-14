@@ -1,0 +1,27 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["全局态势", "威胁", "防御", "操作"],
+        "seriesData": [
+            [
+                {
+                    "date": "2018-02-03",
+                    "globalSituation": 70,
+                    "risk": 10,
+                    "defense": 20,
+                    "opera": 20
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-04",
+                    "globalSituation": 10,
+                    "risk": 40,
+                    "defense": 60,
+                    "opera": 20
+                }
+            ]
+        ]
+    }
+}

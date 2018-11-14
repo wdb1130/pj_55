@@ -4,15 +4,15 @@
     "result": {
         "seriesData": [
             {
-                "title": "稳定性",
-                "value": 32
+                "title": "木马攻击事件数量",
+                "value": 38
             },
             {
-                "title": "稳定性",
-                "value": 62
+                "title": "木马增长率",
+                "value": 52
             },
             {
-                "title": "全局态势",
+                "title": "受影响资产比例",
                 "value": 70
             }
         ]

@@ -36,9 +36,10 @@
         console.log(funName, postodalData)
         switch(funName){
             case 'drawLine':
-            initChartFun[funName]('chartModal', postodalData);
-            break;
+            case 'drawVerticalBarH':
             case 'drawHorizontalBar':
+            case 'drawVerticalSingleBar':
+            case 'drawRing':
             initChartFun[funName]('chartModal', postodalData);
             break;
         }

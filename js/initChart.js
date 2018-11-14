@@ -137,7 +137,63 @@ var initChartFun = {
             window.onresize = myChart.resize;
         }
     },
-    // 纵向柱状图
+    // 纵向柱状图(单独)
+    drawVerticalSingleBar: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                x: 20,
+                y: 20,
+                x2: 20,
+                y2: 10,
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: postModalData[0],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    min: 0,
+                    max: 100,
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    type: 'bar',
+                    barWidth: '20',
+                    data: postModalData[1],
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                var colorList = postModalData[2];
+                                return colorList[params.dataIndex]
+                            }
+                        }
+                    },
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
+    },
+    // 纵向柱状图(合并、legend竖)
     drawVerticalBar: function (dom, postModalData) {
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
@@ -172,9 +228,82 @@ var initChartFun = {
                 {
                     min: 0,
                     max: 100,
-                    type: 'value'
+                    type: 'value',
+                    name: '量值'
                 }
             ],
+            series: postModalData[2]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
+    },
+    // 纵向柱状图(合并、legend横)
+    drawVerticalBarH: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                right: '10%',
+                textStyle: {
+                    color: '#ccc'
+                },
+                data: postModalData[0]
+            },
+            grid: {
+                x: 20,
+                y: 40,
+                x2: 20,
+                y2: 20,
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: postModalData[1],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#1255F0'
+                        }
+                    },
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            color: '#8ECEEE'
+                        }
+                    }
+                }
+            ],
+            yAxis: [{
+                type: 'value',
+                min: 0,
+                max: 100,
+                axisLine: {
+                    lineStyle: {
+                        color: '#1255F0'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#8ECEEE'
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#09206F'
+                    }
+                }
+            }],
             series: postModalData[2]
         };
         if (option && typeof option === "object") {
@@ -189,19 +318,7 @@ var initChartFun = {
         option = null;
         option = {
             radar: [{
-                indicator: [{
-                    text: '参数一',
-                    max: 100
-                }, {
-                    text: '参数二',
-                    max: 100
-                }, {
-                    text: '参数三',
-                    max: 100
-                }, {
-                    text: '参数四',
-                    max: 100
-                }],
+                indicator: postModalData[0],
                 radius: '65%',
                 center: ['50%', '50%'],
                 startAngle: 90,
@@ -239,17 +356,17 @@ var initChartFun = {
                     }
                 },
                 data: [{
-                    value: [40, 20, 60, 55],
+                    value: postModalData[1],
                     symbol: 'rect',
                     symbolSize: 0,
                     areaStyle: {
                         normal: {
-                            color: 'rgba(255, 255, 0, 0.5)'
+                            color: postModalData[2]
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: 'rgba(255, 255, 0, 0.5)',
+                            color: postModalData[2],
                             type: 'solid',
                             width: 0
                         }
@@ -263,7 +380,112 @@ var initChartFun = {
         }
     },
     // 方形雷达图
-    drawRectRadar: function () {
-
+    drawRectRadar: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        option = {
+            radar: [{
+                indicator: postModalData[0],
+                radius: '65%',
+                center: ['50%', '50%'],
+                startAngle: 90,
+                splitNumber: 4,
+                name: {
+                    formatter: '{value}',
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                splitArea: {
+                    areaStyle: {
+                        color: [],
+                        shadowColor: 'rgba(0, 0, 0, 0.3)',
+                        shadowBlur: 10
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#1254ED'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: '#1254ED'
+                    }
+                }
+            }],
+            series: [{
+                name: '雷达图',
+                type: 'radar',
+                itemStyle: {
+                    emphasis: {
+                        lineStyle: {
+                            width: 4
+                        }
+                    }
+                },
+                data: [{
+                    value: postModalData[1],
+                    symbol: 'rect',
+                    symbolSize: 0,
+                    areaStyle: {
+                        normal: {
+                            color: postModalData[2]
+                        }
+                    },
+                    lineStyle: {
+                        normal: {
+                            type: 'solid',
+                            width: 0
+                        }
+                    }
+                }]
+            }]
+        }
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
+    },
+    // 内中外三环圆环图
+    drawRing: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        option = {
+            tooltip: {
+                trigger: 'item',
+                show: true,
+                formatter: "{b} : <br/>{d}%",
+                padding: [8, 10], //内边距
+                extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
+            },
+            legend: {
+                orient: 'vertical',
+                left: '2%',
+                top: 'center',
+                itemGap: 20,
+                data: postModalData[0],
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            series: postModalData[1]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
     }
+
+
+    
+
+
+
+
+
+
+
 };

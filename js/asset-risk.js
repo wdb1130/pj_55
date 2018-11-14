@@ -1,368 +1,233 @@
+var chartTypeState;
+
+// 模态框获取的
+var postModalData;
+
+// 所有图表请求后暂存
+var storageData = {
+    drawVerticalBarH: [],
+    drawLine: [],
+    drawRing: []
+}
+
+var colorBarList = ['#FF3838', '#45CE8D', '#2420FF'];
+var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorRingList = ['#0DC3FF', '#E9D356', '#F65C3E'];
+var radiusArr = [
+    ['70%', '75%'],
+    ['55%', '60%'],
+    ['40%', '45%']
+];
+var centerArr = [
+    ['60%', '50%'],
+    ['60%', '50%'],
+    ['60%', '50%']
+];
+
 $(function () {
-    drawChart1();
-    drawChart2();
-    drawChart3();
+    layui.use('layer', function () {
+        var $ = layui.jquery, layer = layui.layer;
+        //触发事件
+        var active = {
+            setTop: function () {
+                var that = this;
+                layer.open({
+                    type: 2,
+                    title: '图表的模态框测试',
+                    area: ['70%', '70%'],
+                    shade: 0.3,
+                    offset: ['15%', '15%'],
+                    maxmin: true,
+                    anim: 1,
+                    content: '../pages/chartModal.html',
+                    yes: function () {
+                        $(that).click();
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    },
+                    zIndex: layer.zIndex,
+                    success: function (layero) {
+                        // 子页面弹出成功回调
+                    }
+                });
+            }
+        };
+        $('.chart-click').on('click', function () {
+            chartTypeState = $(this).attr('data-chartType');
+            postModalData = storageData[chartTypeState];
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+    });
+
+    setTimeout(function () {
+        // chart1
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/muma_verticalBar_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], []];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        xAxisData.push(item[0]['date']);
+                        sitemArr[0].push(item[0]['attackNum']);
+                        sitemArr[1].push(item[0]['rate']);
+                        sitemArr[2].push(item[0]['proportion']);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: colorBarList[idx]
+                                }
+                            },
+                            barWidth: 12,
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawVerticalBarH.push(res.result.legendData);
+                    storageData.drawVerticalBarH.push(xAxisData);
+                    storageData.drawVerticalBarH.push(seriesData);
+                    initChartFun.drawVerticalBarH('chart1', storageData.drawVerticalBarH);
+                };
+            }
+        });
+
+        // chart2
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/muma_line_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.globalSituation);
+                        sitemArr[1].push(item.risk);
+                        sitemArr[2].push(item.defense);
+                        sitemArr[3].push(item.opera);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLine[idx],
+                                    borderWidth: 1
+                                }
+                            },
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawLine.push(res.result.legendData);
+                    storageData.drawLine.push(xAxisData);
+                    storageData.drawLine.push(seriesData);
+                    initChartFun.drawLine('chart2', storageData.drawLine);
+                };
+            }
+        });
+
+        // chart3
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/ring_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var legendData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item, idx) {
+                        legendData.push(item.title);
+                        seriesData.push({
+                            name: 'Line' + idx,
+                            type: 'pie',
+                            clockWise: true,
+                            radius: radiusArr[idx],
+                            center: centerArr[idx],
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: false
+                                    },
+                                    shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+                                }
+                            },
+                            hoverAnimation: true,
+                            startAngle: 90,
+                            label: {
+                                borderRadius: '10',
+                            },
+                            data: [{
+                                value: item.value,
+                                name: item.title,
+                                itemStyle: {
+                                    normal: {
+                                        color: colorRingList[idx]
+                                    }
+                                }
+                            },
+                            {
+                                value: 100 - item.value,
+                                name: '',
+                                tooltip: {
+                                    show: false
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        color: 'rgba(41,27,135,.3)',
+                                        label: {
+                                            show: false
+                                        },
+                                        labelLine: {
+                                            show: false
+                                        }
+                                    },
+                                    emphasis: {
+                                        color: 'rgba(41,27,135,.3)'
+                                    }
+                                }
+                            }]
+                        });
+                    });
+                    storageData.drawRing.push(legendData);
+                    storageData.drawRing.push(seriesData);
+                    initChartFun.drawRing('chart3', storageData.drawRing);
+                };
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }, 1000);
+    
 });
-// chart1
-function drawChart1() {
-    var dom1 = document.getElementById("chart1");
-    var myChart1 = echarts.init(dom1);
-    option = null;
-    option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        legend: {
-            right: '10%',
-            textStyle: {
-                color: '#ccc'
-            },
-            data: ['直接访问', '邮件营销']
-        },
-        grid: {
-            x: 20,
-            y: 40,
-            x2: 20,
-            y2: 20,
-            containLabel: true
-        },
-        xAxis: [
-            {
-                type: 'category',
-                data: ['周一', '周二', '周三', '周四'],
-                axisLine: {
-                    lineStyle: {
-                        color: '#1255F0'
-                    }
-                },
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: '#8ECEEE'
-                    }
-                }
-            }
-        ],
-        yAxis: [{
-            type: 'value',
-            axisLine: {
-                lineStyle: {
-                    color: '#1255F0'
-                }
-            },
-            axisLabel: {
-                show: true,
-                textStyle: {
-                    color: '#8ECEEE'
-                }
-            },
-            splitLine: {
-                show: true,
-                lineStyle: {
-                    color: '#09206F'
-                }
-            }
-        }],
-        series: [
-            {
-                name: '直接访问',
-                type: 'bar',
-                barWidth: 20,
-                data: [320, 332, 110, 230]
-            },
-            {
-                name: '邮件营销',
-                type: 'bar',
-                stack: '广告',
-                barWidth: 20,
-                data: [120, 132, 103, 240]
-            }
-        ]
-    };
-    if (option && typeof option === "object") {
-        myChart1.setOption(option, true);
-        window.onresize = myChart1.resize;
-    }
-}
-// chart2
-function drawChart2() {
-    var dom2 = document.getElementById("chart2");
-    var myChart2 = echarts.init(dom2);
-    option = null;
-    option = {
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            icon: 'rect',
-            itemWidth: 14,
-            itemHeight: 5,
-            itemGap: 13,
-            data: ['移动', '电信', '联通'],
-            right: '4%',
-            textStyle: {
-                fontSize: 12,
-                color: '#F1F1F3'
-            }
-        },
-        xAxis: [{
-            boundaryGap: false,
-            axisLine: {
-                lineStyle: {
-                    color: '#fff'
-                }
-            },
-            data: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:40', '13:45']
-        }],
-        yAxis: [{
-            type: 'value',
-            name: '单位（%）',
-            axisLine: {
-                lineStyle: {
-                    color: '#fff'
-                }
-            },
-            axisLabel: {
-                margin: 10,
-                textStyle: {
-                    fontSize: 14
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#57617B'
-                }
-            }
-        }],
-        series: [{
-            name: '移动',
-            type: 'line',
-            symbol: 'circle',
-            symbolSize: 5,
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'rgb(137,189,27)',
-                    borderColor: 'rgba(137,189,2,0.27)',
-                    borderWidth: 10
-
-                }
-            },
-            data: [150, 120, -110, 125, 145, -122, 165]
-        }, {
-            name: '电信',
-            type: 'line',
-            symbol: 'circle',
-            symbolSize: 5,
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'rgb(0,136,212)',
-                    borderColor: 'rgba(0,136,212,0.2)',
-                    borderWidth: 10
-
-                }
-            },
-            data: [165, -122, 220, 182, -191, 134, 150]
-        }, {
-            name: '联通',
-            type: 'line',
-            symbol: 'circle',
-            symbolSize: 5,
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            itemStyle: {
-                normal: {
-
-                    color: 'rgb(219,50,51)',
-                    borderColor: 'rgba(219,50,51,0.2)',
-                    borderWidth: 10
-                }
-            },
-            data: [220, 182, -125, 150, 120, 110, -165]
-        },]
-    };
-    if (option && typeof option === "object") {
-        myChart2.setOption(option, true);
-        window.onresize = myChart2.resize;
-    }
-}
-// chart3
-function drawChart3() {
-    var dom3 = document.getElementById("chart3");
-    var myChart3 = echarts.init(dom3);
-    option = null;
-    var color = ['#fb734e', '#e32f46', '#94d96c', '#0bbcb7', '#1a9bfc', '#7049f0'];
-    var dataStyle = {
-        normal: {
-            label: {
-                show: false
-            },
-            labelLine: {
-                show: false
-            },
-            shadowBlur: 40,
-            borderWidth: 10,
-            shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
-        }
-    };
-    var placeHolderStyle = {
-        normal: {
-            color: '#393d50',
-            label: {
-                show: false
-            },
-            labelLine: {
-                show: false
-            }
-        },
-        emphasis: {
-            color: '#393d50'
-        }
-    };
-    option = {
-        tooltip: {
-            trigger: 'item',
-            show: true,
-            formatter: "{b} : <br/>{d}%",
-            backgroundColor: 'rgba(0,0,0,0.7)', // 背景
-            padding: [8, 10], //内边距
-            extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
-        },
-        legend: {
-            orient: 'vertical',
-            // icon: 'circle',
-            left: '5%',
-            top: 'center',
-            itemGap: 20,
-            data: ['二级匹配度', '三级匹配度', '四级匹配度', '04', '05', '06'],
-            textStyle: {
-                color: '#fft'
-            }
-        },
-        series: [{
-            name: 'Line 1',
-            type: 'pie',
-            clockWise: true,
-            radius: ['70%', '75%'],
-            center: ['60%', '50%'],
-            itemStyle: dataStyle,
-            hoverAnimation: true,
-            startAngle: 90,
-            label: {
-                borderRadius: '10',
-            },
-            data: [{
-                value: 50,
-                name: '四级匹配度',
-                itemStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: color[0]
-                        }, {
-                            offset: 1,
-                            color: color[1]
-                        }])
-                    }
-                }
-            },
-            {
-                value: 50,
-                name: '',
-                tooltip: {
-                    show: false
-                },
-                itemStyle: placeHolderStyle
-            },
-            ]
-        },
-        {
-            name: 'Line 2',
-            type: 'pie',
-            clockWise: true,
-            radius: ['55%', '60%'],
-            center: ['60%', '50%'],
-            itemStyle: dataStyle,
-            hoverAnimation: true,
-            startAngle: 90,
-            data: [{
-                value: 30,
-                name: '三级匹配度',
-                itemStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: color[2]
-                        }, {
-                            offset: 1,
-                            color: color[3]
-                        }])
-                    }
-                }
-            },
-            {
-                value: 70,
-                name: '',
-                tooltip: {
-                    show: false
-                },
-                itemStyle: placeHolderStyle
-            },
-            ]
-        },
-        {
-            name: 'Line 3',
-            type: 'pie',
-            clockWise: true,
-            radius: ['40%', '45%'],
-            center: ['60%', '50%'],
-            itemStyle: dataStyle,
-            hoverAnimation: true,
-            startAngle: 90,
-            data: [{
-                value: 30,
-                name: '二级匹配度',
-                itemStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: color[4]
-                        }, {
-                            offset: 1,
-                            color: color[5]
-                        }]),
-                    }
-                }
-            },
-            {
-                value: 70,
-                name: '',
-                tooltip: {
-                    show: false
-                },
-                itemStyle: placeHolderStyle
-            },
-            ]
-        }
-        ]
-    };
-    if (option && typeof option === "object") {
-        myChart3.setOption(option, true);
-        window.onresize = myChart3.resize;
-    }
-}

@@ -1,0 +1,65 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["木马攻击数量", "木马增长率", "受影响资产比例"],
+        "seriesData": [
+            [
+                {
+                    "date": "2018-02-03",
+                    "attackNum": 70,
+                    "rate": 10,
+                    "proportion": 20
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-04",
+                    "attackNum": 10,
+                    "rate": 40,
+                    "proportion": 60
+                }
+            ],
+            [
+                {
+                    "date": "2018-02-05",
+                    "attackNum": 70,
+                    "rate": 10,
+                    "proportion": 20
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-06",
+                    "attackNum": 10,
+                    "rate": 40,
+                    "proportion": 60
+                }
+            ],
+            [
+                {
+                    "date": "2018-02-07",
+                    "attackNum": 70,
+                    "rate": 10,
+                    "proportion": 20
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-08",
+                    "attackNum": 10,
+                    "rate": 40,
+                    "proportion": 60
+                }
+            ],
+            [
+                {
+                    "date": "2018-02-09",
+                    "attackNum": 70,
+                    "rate": 10,
+                    "proportion": 20
+                }
+            ]
+        ]
+    }
+}

@@ -7,10 +7,12 @@ var postModalData;
 var storageData = {
     drawLine: [],
     drawHorizontalBar: [],
-    drawVerticalBar: []
+    drawVerticalBar: [],
+    drawArcRadar1: [],
+    drawArcRadar2: [],
 }
 
-var colorLine = ['#FF3838', '#8124FF', '#45CE8D'];
+var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var colorList = [
     new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
         offset: 0,
@@ -32,11 +34,18 @@ var colorList = [
     }, {
         offset: 1,
         color: 'rgba(63, 151, 7, 1)'
+    }]),
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(255, 255, 0, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(255, 255, 0, 1)'
     }])
 ];
-var colorBarList = ['#FF3838', '#45CE8D', '#8124FF'];
-var colorRadarList = ['rgba(255, 255, 0, 0.5)'];
-
+var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorRadarList1 = ['rgba(205, 106, 75, 0.5)'];
+var colorRadarList2 = ['rgba(35, 180, 170, 0.5)'];
 
 // 页面加载
 $(function () {
@@ -104,17 +113,18 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_3.json",
+            url: "../test-json/line_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
-                    var sitemArr = [[], [], []];
+                    var sitemArr = [[], [], [], []];
                     var seriesData = []
                     res.result.seriesData.forEach(function (item, idx) {
                         xAxisData.push(item.date);
                         sitemArr[0].push(item.globalSituation);
-                        sitemArr[1].push(item.usability);
-                        sitemArr[2].push(item.stability);
+                        sitemArr[1].push(item.risk);
+                        sitemArr[2].push(item.defense);
+                        sitemArr[3].push(item.opera);
                     });
                     res.result.legendData.forEach(function (item, idx) {
                         seriesData.push({
@@ -150,7 +160,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/horizontalBar_3.json",
+            url: "../test-json/horizontalBar_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
                     var yAxisData = [];
@@ -170,17 +180,18 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/verticalBar_3.json",
+            url: "../test-json/verticalBar_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
-                    var sitemArr = [[], [], []];
+                    var sitemArr = [[], [], [], []];
                     var seriesData = [];
                     res.result.seriesData.forEach(function (item) {
                         xAxisData.push(item[0]['date']);
                         sitemArr[0].push(item[0]['globalSituation']);
-                        sitemArr[1].push(item[0]['usability']);
-                        sitemArr[2].push(item[0]['stability']);
+                        sitemArr[1].push(item[0]['risk']);
+                        sitemArr[2].push(item[0]['defense']);
+                        sitemArr[3].push(item[0]['opera']);
                     });
                     res.result.legendData.forEach(function (item, idx) {
                         seriesData.push({
@@ -193,7 +204,7 @@ $(function () {
                                         show: true,
                                         position: 'top',
                                         textStyle: {
-                                            color: '#fff',
+                                            color: '#ccc',
                                             fontSize: 16
                                         }
                                     }
@@ -211,103 +222,54 @@ $(function () {
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-    }, 1000)
-
-
-    drawChart5();
-});
-
-// chart5
-function drawChart5() {
-    var dom5 = document.getElementById("chart5");
-    var myChart5 = echarts.init(dom5);
-    option = null;
-    option = {
-        radar: [{
-            indicator: [{
-                text: '参数一',
-                max: 100
-            }, {
-                text: '参数二',
-                max: 100
-            }, {
-                text: '参数三',
-                max: 100
-            }, {
-                text: '参数四',
-                max: 100
-            }],
-            radius: '65%',
-            center: ['50%', '50%'],
-            startAngle: 90,
-            splitNumber: 4,
-            shape: 'circle',
-            name: {
-                formatter: '{value}',
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            splitArea: {
-                areaStyle: {
-                    color: [],
-                    shadowColor: 'rgba(0, 0, 0, 0.3)',
-                    shadowBlur: 10
-                }
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
+        // chart4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/arcRadar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var indicator = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        indicator.push({
+                            text: item.title+ ':' +item.value+ '%',
+                            max: 100
+                        });
+                        seriesData.push(item.value)
+                    });
+                    storageData.drawArcRadar1.push(indicator);
+                    storageData.drawArcRadar1.push(seriesData);
+                    storageData.drawArcRadar1.push(colorRadarList1);
+                    initChartFun.drawArcRadar('chart4', storageData.drawArcRadar1);
+                };
             }
-        }],
-        series: [{
-            name: '雷达图',
-            type: 'radar',
-            itemStyle: {
-                emphasis: {
-                    lineStyle: {
-                        width: 4
-                    }
-                }
-            },
-            data: [{
-                value: [40, 20, 60, 55],
-                name: '长沙',
-                symbol: 'rect',
-                symbolSize: 0,
-                areaStyle: {
-                    normal: {
-                        color: 'rgba(255, 255, 0, 0.5)'
-                    }
-                },
-                lineStyle: {
-                    normal: {
-                        type: 'solid',
-                        width: 0
-                    }
-                }
-            }]
-        }]
-    }
-    if (option && typeof option === "object") {
-        myChart5.setOption(option, true);
-        window.onresize = myChart5.resize;
-    }
-}
+        });
+
+        // chart5
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/arcRadar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var indicator = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        indicator.push({
+                            text: item.title+ ':' +item.value+ '%',
+                            max: 100
+                        });
+                        seriesData.push(item.value)
+                    });
+                    storageData.drawArcRadar2.push(indicator);
+                    storageData.drawArcRadar2.push(seriesData);
+                    storageData.drawArcRadar2.push(colorRadarList2);
+                    initChartFun.drawArcRadar('chart5', storageData.drawArcRadar2);
+                };
+            }
+        });
+    }, 1000)
+});

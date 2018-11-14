@@ -4,16 +4,20 @@
     "result": {
         "seriesData": [
             {
-                "title": "稳定性",
-                "value": 32
+                "title": "操作",
+                "value": 10
             },
             {
-                "title": "稳定性",
-                "value": 62
+                "title": "防御",
+                "value": 70
+            },
+            {
+                "title": "威胁",
+                "value": 20
             },
             {
                 "title": "全局态势",
-                "value": 70
+                "value": 32
             }
         ]
     }

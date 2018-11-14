@@ -1,3 +1,52 @@
+var chartTypeState;
+
+// 模态框获取的
+var postModalData;
+
+// 所有图表请求后暂存
+var storageData = {
+    drawLine: [],
+    drawVerticalSingleBar: [],
+    drawVerticalBar: [],
+    drawRectRadar1: [],
+    drawRectRadar2: []
+}
+
+var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorList = [
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(13, 151, 246, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(13, 151, 246, 1)'
+    }]),
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(63, 5, 246, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(63, 5, 246, 1)'
+    }]),
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(63, 151, 7, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(63, 151, 7, 1)'
+    }]),
+    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
+        offset: 0,
+        color: 'rgba(255, 255, 0, 0.2)'
+    }, {
+        offset: 1,
+        color: 'rgba(255, 255, 0, 1)'
+    }])
+];
+var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorRadarList1 = ['rgba(205, 106, 75, 0.8)'];
+var colorRadarList2 = ['rgba(35, 180, 170, 0.8)'];
+
 $(function () {
     layui.use('form', function () {
         var form = layui.form;
@@ -21,407 +70,206 @@ $(function () {
             theme: '#050732'
         });
     });
+    layui.use('layer', function () {
+        var $ = layui.jquery, layer = layui.layer;
+        //触发事件
+        var active = {
+            setTop: function () {
+                var that = this;
+                layer.open({
+                    type: 2,
+                    title: '图表的模态框测试',
+                    area: ['70%', '70%'],
+                    shade: 0.3,
+                    offset: ['15%', '15%'],
+                    maxmin: true,
+                    anim: 1,
+                    content: '../pages/chartModal.html',
+                    yes: function () {
+                        $(that).click();
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    },
+                    zIndex: layer.zIndex,
+                    success: function (layero) {
+                        // 子页面弹出成功回调
+                    }
+                });
+            }
+        };
+        $('.chart-click').on('click', function () {
+            chartTypeState = $(this).attr('data-chartType');
+            postModalData = storageData[chartTypeState];
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+    });
 
-    drawChart1();
-    drawChart2();
-    drawChart3();
-    drawChart4();
-    drawChart5();
+    setTimeout(function () {
+        // chart1
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/line_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.globalSituation);
+                        sitemArr[1].push(item.risk);
+                        sitemArr[2].push(item.defense);
+                        sitemArr[3].push(item.opera);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLine[idx],
+                                    borderWidth: 1
+
+                                }
+                            },
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawLine.push(res.result.legendData);
+                    storageData.drawLine.push(xAxisData);
+                    storageData.drawLine.push(seriesData);
+                    initChartFun.drawLine('chart1', storageData.drawLine);
+                };
+            }
+        });
+
+        // chart2
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/horizontalBar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        xAxisData.push(item.title);
+                        seriesData.push(item.value);
+                    });
+                    storageData.drawVerticalSingleBar.push(xAxisData, seriesData, colorBarList);
+                    initChartFun.drawVerticalSingleBar('chart2', storageData.drawVerticalSingleBar);
+                };
+            }
+        });
+
+        // chart3
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/verticalBar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], [], []];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        xAxisData.push(item[0]['date']);
+                        sitemArr[0].push(item[0]['globalSituation']);
+                        sitemArr[1].push(item[0]['risk']);
+                        sitemArr[2].push(item[0]['defense']);
+                        sitemArr[3].push(item[0]['opera']);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: colorBarList[idx],
+                                    label: {
+                                        show: true,
+                                        position: 'top',
+                                        textStyle: {
+                                            color: '#ccc',
+                                            fontSize: 16
+                                        }
+                                    }
+                                }
+                            },
+                            barWidth: 20,
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawVerticalBar.push(res.result.legendData);
+                    storageData.drawVerticalBar.push(xAxisData);
+                    storageData.drawVerticalBar.push(seriesData);
+                    initChartFun.drawVerticalBar('chart3', storageData.drawVerticalBar);
+                };
+            }
+        });
+
+        // chart4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/arcRadar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var indicator = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        indicator.push({
+                            text: item.title + ':' + item.value + '%',
+                            max: 100
+                        });
+                        seriesData.push(item.value)
+                    });
+                    storageData.drawRectRadar1.push(indicator);
+                    storageData.drawRectRadar1.push(seriesData);
+                    storageData.drawRectRadar1.push(colorRadarList1);
+                    initChartFun.drawRectRadar('chart4', storageData.drawRectRadar1);
+                };
+            }
+        });
+
+        // chart5
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/arcRadar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var indicator = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        indicator.push({
+                            text: item.title + ':' + item.value + '%',
+                            max: 100
+                        });
+                        seriesData.push(item.value)
+                    });
+                    storageData.drawRectRadar2.push(indicator);
+                    storageData.drawRectRadar2.push(seriesData);
+                    storageData.drawRectRadar2.push(colorRadarList2);
+                    initChartFun.drawRectRadar('chart5', storageData.drawRectRadar2);
+                };
+            }
+        });
+    }, 1000);
+
 });
-// chart1
-function drawChart1() {
-    var dom1 = document.getElementById("chart1");
-    var myChart1 = echarts.init(dom1);
-    option = null;
-    option = {
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            icon: 'rect',
-            itemWidth: 14,
-            itemHeight: 5,
-            itemGap: 13,
-            data: ['移动', '电信', '联通'],
-            right: '4%',
-            textStyle: {
-                fontSize: 12,
-                color: '#F1F1F3'
-            }
-        },
-        xAxis: [{
-            boundaryGap: false,
-            axisLine: {
-                lineStyle: {
-                    color: '#fff'
-                }
-            },
-            data: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:40', '13:45']
-        }],
-        yAxis: [{
-            type: 'value',
-            name: '单位（%）',
-            axisLine: {
-                lineStyle: {
-                    color: '#fff'
-                }
-            },
-            axisLabel: {
-                margin: 10,
-                textStyle: {
-                    fontSize: 14
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#57617B'
-                }
-            }
-        }],
-        series: [{
-            name: '移动',
-            type: 'line',
-            symbol: 'circle',
-            symbolSize: 5,
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'rgb(137,189,27)',
-                    borderColor: 'rgba(137,189,2,0.27)',
-                    borderWidth: 10
-
-                }
-            },
-            data: [150, 120, -110, 125, 145, -122, 165]
-        }, {
-            name: '电信',
-            type: 'line',
-            symbol: 'circle',
-            symbolSize: 5,
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'rgb(0,136,212)',
-                    borderColor: 'rgba(0,136,212,0.2)',
-                    borderWidth: 10
-
-                }
-            },
-            data: [165, -122, 220, 182, -191, 134, 150]
-        }, {
-            name: '联通',
-            type: 'line',
-            symbol: 'circle',
-            symbolSize: 5,
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            itemStyle: {
-                normal: {
-
-                    color: 'rgb(219,50,51)',
-                    borderColor: 'rgba(219,50,51,0.2)',
-                    borderWidth: 10
-                }
-            },
-            data: [220, 182, -125, 150, 120, 110, -165]
-        },]
-    };
-    if (option && typeof option === "object") {
-        myChart1.setOption(option, true);
-        window.onresize = myChart1.resize;
-    }
-}
-// chart2
-function drawChart2() {
-    var dom2 = document.getElementById("chart2");
-    var myChart2 = echarts.init(dom2);
-    option = null;
-    option = {
-        color: ['#3398DB'],
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        grid: {
-            x: 20,
-            y: 20,
-            x2: 20,
-            y2: 10,
-            containLabel: true
-        },
-        xAxis: [
-            {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu'],
-                axisTick: {
-                    alignWithLabel: true
-                }
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                name: '直接访问',
-                type: 'bar',
-                barWidth: '20',
-                data: [10, 52, 200, 334, 390, 330, 220]
-            }
-        ]
-    };
-    if (option && typeof option === "object") {
-        myChart2.setOption(option, true);
-        window.onresize = myChart2.resize;
-    }
-}
-// chart3
-function drawChart3() {
-    var dom3 = document.getElementById("chart3");
-    var myChart3 = echarts.init(dom3);
-    option = null;
-    option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        legend: {
-            orient: 'vertical',
-            x: 'left',
-            y: 'center',
-            data: ['直接访问', '邮件营销', '搜索引擎', '百度一下']
-        },
-        grid: {
-            x: 100,
-            y: 15,
-            x2: 0,
-            y2: 0,
-            containLabel: true
-        },
-        xAxis: [
-            {
-                type: 'category',
-                data: ['周一', '周二']
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                name: '直接访问',
-                type: 'bar',
-                barWidth: 20,
-                data: [320, 332]
-            },
-            {
-                name: '邮件营销',
-                type: 'bar',
-                stack: '广告',
-                barWidth: 20,
-                data: [120, 132]
-            },
-            {
-                name: '搜索引擎',
-                type: 'bar',
-                barWidth: 20,
-                data: [862, 1018],
-            },
-            ,
-            {
-                name: '百度一下',
-                type: 'bar',
-                barWidth: 20,
-                data: [862, 1018],
-            }
-        ]
-    };
-    if (option && typeof option === "object") {
-        myChart3.setOption(option, true);
-        window.onresize = myChart3.resize;
-    }
-}
-// chart4
-function drawChart4() {
-    var dom4 = document.getElementById("chart4");
-    var myChart4 = echarts.init(dom4);
-    option = null;
-    option = {
-        radar: [{
-            indicator: [{
-                text: '参数一',
-                max: 100
-            }, {
-                text: '参数二',
-                max: 100
-            }, {
-                text: '参数三',
-                max: 100
-            }, {
-                text: '参数四',
-                max: 100
-            }],
-            
-            radius: '65%',
-            center: ['50%', '50%'],
-            startAngle: 90,
-            splitNumber: 4,
-            name: {
-                formatter: '{value}',
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            splitArea: {
-                areaStyle: {
-                    color: [],
-                    shadowColor: 'rgba(0, 0, 0, 0.3)',
-                    shadowBlur: 10
-                }
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
-            }
-        }],
-        series: [{
-            name: '雷达图',
-            type: 'radar',
-            itemStyle: {
-                emphasis: {
-                    lineStyle: {
-                        width: 4
-                    }
-                }
-            },
-            data: [{
-                value: [40, 20, 60, 55],
-                name: '长沙',
-                symbol: 'rect',
-                symbolSize: 0,
-                areaStyle: {
-                    normal: {
-                        color: 'rgba(255, 255, 0, 0.5)'
-                    }
-                },
-                lineStyle: {
-                    normal: {
-                        type: 'solid',
-                        width: 0
-                    }
-                }
-            }]
-        }]
-    }
-    if (option && typeof option === "object") {
-        myChart4.setOption(option, true);
-        window.onresize = myChart4.resize;
-    }
-}
-// chart5
-function drawChart5() {
-    var dom5 = document.getElementById("chart5");
-    var myChart5 = echarts.init(dom5);
-    option = null;
-    option = {
-        radar: [{
-            indicator: [{
-                text: '参数一',
-                max: 100
-            }, {
-                text: '参数二',
-                max: 100
-            }, {
-                text: '参数三',
-                max: 100
-            }, {
-                text: '参数四',
-                max: 100
-            }],
-            radius: '65%',
-            center: ['50%', '50%'],
-            startAngle: 90,
-            splitNumber: 4,
-            name: {
-                formatter: '{value}',
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            splitArea: {
-                areaStyle: {
-                    color: [],
-                    shadowColor: 'rgba(0, 0, 0, 0.3)',
-                    shadowBlur: 10
-                }
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#1254ED'
-                }
-            }
-        }],
-        series: [{
-            name: '雷达图',
-            type: 'radar',
-            itemStyle: {
-                emphasis: {
-                    lineStyle: {
-                        width: 4
-                    }
-                }
-            },
-            data: [{
-                value: [40, 20, 60, 55],
-                name: '长沙',
-                symbol: 'rect',
-                symbolSize: 0,
-                areaStyle: {
-                    normal: {
-                        color: 'rgba(255, 255, 0, 0.5)'
-                    }
-                },
-                lineStyle: {
-                    normal: {
-                        type: 'solid',
-                        width: 0
-                    }
-                }
-            }]
-        }]
-    }
-    if (option && typeof option === "object") {
-        myChart5.setOption(option, true);
-        window.onresize = myChart5.resize;
-    }
-}

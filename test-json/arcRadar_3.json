@@ -8,16 +8,12 @@
                 "value": 70
             },
             {
-                "title": "威胁",
+                "title": "可用性",
                 "value": 52
             },
             {
-                "title": "运维",
-                "value": 38
-            },
-            {
                 "title": "防御",
-                "value": 92
+                "value": 38
             }
         ]
     }
