@@ -606,10 +606,61 @@ var initChartFun = {
             myChart.setOption(option, true);
             window.onresize = myChart.resize;
         }
+    },
+    // 空心圆环图
+    drawHollowRing: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b}: {c} ({d}%)"
+            },
+            title: {
+                text: postModalData[0],
+                left: 'center',
+                top: 'center',
+                textStyle: {
+                    fontSize:'80%',
+                    color: '#fff'
+                }
+            },
+            series: [
+                {
+                    name: '',
+                    type: 'pie',
+                    radius: ['40%', '55%'],
+                    label: {
+                        normal: {
+                            formatter: '{b|{b}}',
+                            borderWidth: 1,
+                            borderRadius: 4,
+                            rich: {
+                                b: {
+                                    fontSize: 12
+                                }
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                var colorList = postModalData[2];
+                                return colorList[params.dataIndex]
+                            }
+                        }
+                    },
+                    data: postModalData[1]
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
     }
-
-
-
+    // 
 
 
 

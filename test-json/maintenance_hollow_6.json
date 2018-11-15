@@ -1,0 +1,62 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["不同协议包分布变化率", "不同协议包分布变化率"],
+        "seriesData": [
+            [
+                {
+                    "name": "SSL",
+                    "value": 105
+                },
+                {
+                    "name": "HTTP",
+                    "value": 120
+                },
+                {
+                    "name": "FTP",
+                    "value": 170
+                },
+                {
+                    "name": "TCP",
+                    "value": 130
+                },
+                {
+                    "name": "UDP",
+                    "value": 70
+                },
+                {
+                    "name": "其他",
+                    "value": 210
+                }
+            ],
+
+            [
+                {
+                    "name": "SSL",
+                    "value": 111
+                },
+                {
+                    "name": "HTTP",
+                    "value": 231
+                },
+                {
+                    "name": "FTP",
+                    "value": 76
+                },
+                {
+                    "name": "TCP",
+                    "value": 32
+                },
+                {
+                    "name": "UDP",
+                    "value": 99
+                },
+                {
+                    "name": "其他",
+                    "value": 102
+                }
+            ]
+        ]
+    }
+}
