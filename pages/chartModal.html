@@ -58,6 +58,7 @@
                 break;
             case 'drawHollowRing':
             case 'drawPartRing':
+                var resizeChart = [];
                 var chartGroup = $('<div class="chart-group"></div>');
                 postodalData.forEach(function (item, idx) {
                     var domId = 'chartModal' + (idx + 1);
@@ -67,7 +68,13 @@
                 $('.content').html(chartGroup);
                 postodalData.forEach(function (item, idx) {
                     var domId = 'chartModal' + (idx + 1);
-                    initChartFun[funName](domId, postodalData[idx]);
+                    var myChart = initChartFun[funName](domId, postodalData[idx]);
+                    resizeChart.push(myChart);
+                    window.addEventListener("resize", function () {
+                        for (var i = 0; i < resizeChart.length; i++) {
+                            resizeChart[i].resize();
+                        }
+                    });
                 });
                 break;
         }

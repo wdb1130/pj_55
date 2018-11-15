@@ -51,6 +51,27 @@ $(function () {
 
 
     setTimeout(function () {
+        // list1
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/device_table_list_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var html = "";
+                    res.result.forEach(function (item) {
+                        html += "<div>"
+                            + "<span>" + item.name + "</span>"
+                            + "<span>" + item.value + "%</span>"
+                            + "<span>" + item.date + "</span>"
+                            + "</div>";
+                    });
+                    $('.device-resources').html(html);
+                };
+            }
+        });
+
         // chart2
         $.ajax({
             type: "GET",
@@ -131,7 +152,27 @@ $(function () {
             }
         });
 
-
+        // list4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/device_table_list_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var html = "";
+                    res.result.forEach(function (item) {
+                        html += "<div>"
+                            + "<span>" + item.name + "</span>"
+                            + "<span>" + item.value + "%</span>"
+                            + "<span>" + (item.state ? '已修复' : '未修复') + "</span>"
+                            + "<span>" + item.date + "</span>"
+                            + "</div>";
+                    });
+                    $('.device-state').html(html);
+                };
+            }
+        });
     }, 1000);
 
 });

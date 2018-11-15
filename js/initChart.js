@@ -512,7 +512,7 @@ var initChartFun = {
                 textStyle: {
                     color: '#fff',
                     textAlign: 'center',
-                    fontSize: '200%',
+                    fontSize: '100%',
                     fontWeight: 'bold'
                 },
             }],
@@ -605,6 +605,7 @@ var initChartFun = {
         if (option && typeof option === "object") {
             myChart.setOption(option, true);
             window.onresize = myChart.resize;
+            return myChart;
         }
     },
     // 空心圆环图
@@ -658,6 +659,7 @@ var initChartFun = {
         if (option && typeof option === "object") {
             myChart.setOption(option, true);
             window.onresize = myChart.resize;
+            return myChart;
         }
     }
     // 

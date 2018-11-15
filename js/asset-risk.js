@@ -216,17 +216,47 @@ $(function () {
             }
         });
 
+        // list3
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/device_table_list_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var html = "";
+                    res.result.forEach(function (item) {
+                        html += "<div>"
+                            + "<span>" + item.name + "</span>"
+                            + "<span>" + item.value + "%</span>"
+                            + "<span>" + item.date + "</span>"
+                            + "</div>";
+                    });
+                    $('.service-event').html(html);
+                };
+            }
+        });
 
-
-
-
-
-
-
-
-
-
-
+        // list4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/device_table_list_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var html = "";
+                    res.result.forEach(function (item) {
+                        html += "<div>"
+                            + "<span>" + item.name + "</span>"
+                            + "<span>" + item.value + "%</span>"
+                            + "<span>" + item.date + "</span>"
+                            + "</div>";
+                    });
+                    $('.collect-event').html(html);
+                };
+            }
+        });
 
     }, 1000);
     

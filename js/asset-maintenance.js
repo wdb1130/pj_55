@@ -82,6 +82,7 @@ $(function () {
             url: "../test-json/maintenanceOccupancyRate_3.json",
             success: function (res) {
                 if (res.resultCode == 200) {
+                    var resizeChart = [];
                     var xAxisDataArr = [[], [], []];
                     var seriesDataArr = [[], [], []];
                     res.result.seriesData.forEach(function (item, idx) {
@@ -97,7 +98,13 @@ $(function () {
                             }
                         );
                         storageData.drawPartRing[idx].push(xAxisDataArr[idx], seriesDataArr[idx], colorPartRingList[idx]);
-                        initChartFun.drawPartRing(domId, storageData.drawPartRing[idx]);
+                        var myChart = initChartFun.drawPartRing(domId, storageData.drawPartRing[idx]);
+                        resizeChart.push(myChart);
+                        window.addEventListener("resize", function () {
+                            for (var i = 0; i < resizeChart.length; i++) {
+                                resizeChart[i].resize();
+                            }
+                        });
                     });
                 };
             }
