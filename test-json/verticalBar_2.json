@@ -1,0 +1,58 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["访问控制开放度", "入侵监测规则覆盖率"],
+        "seriesData": [
+            [
+                {
+                    "date": "2018-02-03",
+                    "openness": 70,
+                    "rate": 20
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-04",
+                    "openness": 10,
+                    "rate": 40
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-05",
+                    "openness": 10,
+                    "rate": 40
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-06",
+                    "openness": 10,
+                    "rate": 40
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-07",
+                    "openness": 10,
+                    "rate": 40
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-08",
+                    "openness": 10,
+                    "rate": 40
+                }
+            ], 
+            [
+                {
+                    "date": "2018-02-09",
+                    "openness": 10,
+                    "rate": 40
+                }
+            ]
+        ]
+    }
+}
