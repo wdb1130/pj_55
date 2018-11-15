@@ -1,0 +1,68 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "name": "进程开放率",
+                "value": 70,
+                "state": 0,
+                "date": "2018-10-01"
+            },
+            {
+                "name": "进程开放率",
+                "value": 60,
+                "state": 0,
+                "date": "2018-10-02"
+            },
+            {
+                "name": "进程开放率",
+                "value": 50,
+                "state": 1,
+                "date": "2018-10-03"
+            },
+            {
+                "name": "进程开放率",
+                "value": 40,
+                "state": 0,
+                "date": "2018-10-04"
+            },
+            {
+                "name": "进程开放率",
+                "value": 30,
+                "state": 1,
+                "date": "2018-10-05"
+            },
+            {
+                "name": "进程开放率",
+                "value": 70,
+                "state": 0,
+                "date": "2018-10-06"
+            },
+            {
+                "name": "进程开放率",
+                "value": 20,
+                "state": 0,
+                "date": "2018-10-07"
+            },
+            {
+                "name": "进程开放率",
+                "value": 10,
+                "state": 1,
+                "date": "2018-10-08"
+            },
+            {
+                "name": "进程开放率",
+                "value": 70,
+                "state": 1,
+                "date": "2018-10-09"
+            },
+            {
+                "name": "进程开放率",
+                "value": 30,
+                "state": 0,
+                "date": "2018-10-10"
+            }
+        ]
+    }
+}
