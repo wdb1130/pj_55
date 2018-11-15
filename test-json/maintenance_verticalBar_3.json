@@ -1,0 +1,25 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["高", "中", "低"],
+        "seriesData": [
+            [
+                {
+                    "title": "资产重要性",
+                    "high": 70,
+                    "middle": 10,
+                    "low": 20
+                }
+            ], 
+            [
+                {
+                    "title": "网络防护等级",
+                    "high": 10,
+                    "middle": 40,
+                    "low": 60
+                }
+            ]
+        ]
+    }
+}

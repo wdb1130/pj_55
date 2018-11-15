@@ -13,36 +13,6 @@ var storageData = {
 }
 
 var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var colorList = [
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(13, 151, 246, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(13, 151, 246, 1)'
-    }]),
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(63, 5, 246, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(63, 5, 246, 1)'
-    }]),
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(63, 151, 7, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(63, 151, 7, 1)'
-    }]),
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(255, 255, 0, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(255, 255, 0, 1)'
-    }])
-];
 var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var colorRadarList1 = ['rgba(205, 106, 75, 0.8)'];
 var colorRadarList2 = ['rgba(35, 180, 170, 0.8)'];

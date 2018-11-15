@@ -477,10 +477,139 @@ var initChartFun = {
             myChart.setOption(option, true);
             window.onresize = myChart.resize;
         }
+    },
+    // 部分比例圆环
+    drawPartRing: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = null;
+        var echartData = postModalData[1];
+        var outColor = postModalData[2]; //最外层圆环边框颜色 
+        var startColor = postModalData[2]; //最大内层圆环填充颜色
+        var endColor = postModalData[2]; //最大内层圆环填充颜色 
+        var scale = 1;
+        var color = [{
+            type: 'linear',
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [{
+                offset: 0,
+                color: startColor
+            }, {
+                offset: 1,
+                color: endColor
+            }],
+            globalCoord: false
+        }, 'none'];
+        option = {
+            title: [{
+                text: postModalData[0],
+                x: '50%',
+                y: '80%',
+                textAlign: 'center',
+                textStyle: {
+                    color: '#fff',
+                    textAlign: 'center',
+                    fontSize: '200%',
+                    fontWeight: 'bold'
+                },
+            }],
+            series: [
+                {
+                    name: 'Line 0',
+                    type: 'pie',
+                    clockWise: true,
+                    hoverAnimation: false,
+                    center: ['50%', '40%'],
+                    radius: ['50%', '51.5%'],
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    data: [{
+                        value: 0,
+                        name: '',
+                    }],
+                    label: {
+                        normal: {
+                            formatter: function () {
+                                var time = echartData[0].value;
+                                return '{time|' + time + '%}';
+                            },
+                            position: 'center',
+                            textStyle: {
+                                fontSize: 38 * scale,
+                                fontWeight: 'bold'
+                            },
+                            rich: {
+                                time: {
+                                    color: '#fff',
+                                    fontSize: 32 * scale,
+                                    padding: [0, 0],
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    name: 'Line 1',
+                    type: 'pie',
+                    clockWise: true,
+                    hoverAnimation: true,
+                    center: ['50%', '40%'],
+                    radius: ['75%', '65%'],
+                    color: color,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: false
+                            },
+                            labelLine: {
+                                show: false
+                            },
+                        }
+                    },
+                    data: echartData,
+                },
+                {
+                    name: 'Line 2',
+                    type: 'pie',
+                    clockWise: true,
+                    hoverAnimation: false,
+                    center: ['50%', '40%'],
+                    radius: ['75%', '75%'],
+                    itemStyle: {
+                        normal: {
+                            borderWidth: 2 * scale,
+                            borderColor: outColor,
+                            label: {
+                                show: false
+                            },
+                            labelLine: {
+                                show: false
+                            },
+                        }
+                    },
+                    data: [{
+                        value: 0,
+                        name: '',
+
+                    }]
+                }
+            ],
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
     }
 
 
-    
+
 
 
 

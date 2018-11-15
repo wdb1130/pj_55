@@ -1,0 +1,20 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "title": "网络宽带占用率",
+                "rate": 32
+            },
+            {
+                "title": "CPU占用率",
+                "rate": 62
+            },
+            {
+                "title": "内存消耗率",
+                "rate": 70
+            }
+        ]
+    }
+}

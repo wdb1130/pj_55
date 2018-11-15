@@ -22,13 +22,13 @@
         <div class="chart-table">
             <div class="chart-group">
                 <div class="chart1">
-                    <div class="title">资产安全性指数</div>
+                    <div class="title chart-click" data-method="setTop" data-chartType="drawHorizontalBar">资产安全性指数</div>
                     <div class="chart-show">
                         <div id="chart1"></div>
                     </div>
                 </div>
                 <div class="chart2">
-                    <div class="title">资产可用性指数</div>
+                    <div class="title chart-click" data-method="setTop" data-chartType="drawPartRing">资产可用性指数</div>
                     <div class="chart-show">
                         <div id="chart2"></div>
                         <div id="chart3"></div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="chart4">
-                    <div class="title">资产重要性指数</div>
+                    <div class="title chart-click" data-method="setTop" data-chartType="drawVerticalBar">资产重要性指数</div>
                     <div class="chart-show">
                         <div id="chart7"></div>
                     </div>
@@ -71,6 +71,7 @@
     </div>
 
     <script src="../static/echarts/echarts.js"></script>
+    <script src="../js/initChart.js"></script>
     <script src="../js/asset-maintenance.js"></script>
 </body>
 

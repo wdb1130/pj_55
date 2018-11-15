@@ -19,7 +19,17 @@
             flex-direction: column;
             padding: 1rem;
         }
+
         #chartModal {
+            flex: 1;
+        }
+
+        .chart-group {
+            flex: 1;
+            display: flex;
+        }
+
+        .chart-group>div {
             flex: 1;
         }
     </style>
@@ -27,21 +37,39 @@
 
 <body>
     <div class="content">
-        <div id="chartModal"></div>
+
     </div>
 
+    <script src="../js/jquery.js"></script>
     <script>
         var funName = parent.chartTypeState;
         var postodalData = parent.postModalData;
         console.log(funName, postodalData)
-        switch(funName){
+        switch (funName) {
             case 'drawLine':
+            case 'drawVerticalBar':
             case 'drawVerticalBarH':
             case 'drawHorizontalBar':
             case 'drawVerticalSingleBar':
             case 'drawRing':
-            initChartFun[funName]('chartModal', postodalData);
-            break;
+                var chartModal = $('<div id="chartModal"></div>');
+                $('.content').html(chartModal);
+                initChartFun[funName]('chartModal', postodalData);
+                break;
+            case 'drawPartRing':
+                var chartGroup = $('<div class="chart-group"></div>');
+                postodalData.forEach(function (item, idx) {
+                    var domId = 'chartModal' + (idx + 1);
+                    var chartModal = $('<div id=' + domId + '></div>')
+                    chartGroup.append(chartModal);
+                });
+                $('.content').html(chartGroup);
+                postodalData.forEach(function (item, idx) {
+                    var domId = 'chartModal' + (idx + 1);
+                    initChartFun[funName](domId, postodalData[idx]);
+                });
+                break;
+
         }
 
     </script>
