@@ -1,629 +1,353 @@
+var chartTypeState;
+
+// 模态框获取的
+var postModalData;
+
+// 所有图表请求后暂存
+var storageData = {
+    drawLiquidFill: [],
+    drawOneFanPie1: [],
+    drawOneFanPie2: [],
+    drawLine4: [],
+    drawLine5: [],
+    drawLine6: [],
+    drawTwoFanPie: [],
+    drawVerticalBarH: []
+}
+
+var ColorOneFanPie1List = ['#45CE8D', 'rgba(69,206,141, .5)'];
+var ColorOneFanPie2List = ['#FB943A', 'rgba(251,148,58, .5)'];
+var colorVerticalBarList = ['#45CE8D', '#9000FF'];
+var colorLineList1 = ['#FF3838', '#9000FF', '#45CE8D'];
+var colorLineList2 = ['#2420FF', '#EC13FF', '#FB943A', '#45CE8D', '#FF3838'];
+var colorTwoFanPieList = ['#2420FF', '#9000FF'];
+var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
+var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
+    offset: 0,
+    color: 'rgba(28,141,239,0)' // 0% 处的颜色
+},
+{
+    offset: 0.6,
+    color: 'rgba(28,141,239,0.4)' // 0% 处的颜色
+}, {
+    offset: 1,
+    color: 'rgba(28,141,239,1)' // 100% 处的颜色
+}
+], false);
+
 // chart5
-$(function() {
-    initChart1();
-    initChart2();
-    initChart3();
-    initChart4();
-    initChart5();
-    initChart6();
-    initChart7();
-    initChart8();
-})
-
-
-function initChart1() {
-    var dom = document.getElementById("chart1");
-    var myChart1 = echarts.init(dom);
-    var option = {
-        series: [{
-            type: 'liquidFill',
-            radius: '65%',
-            data: [0.5, 0.45],
-            // 水球颜色
-            color: ['#FE5555', '#F07581'],
-            center: ['50%', '55ß%'],
-            outline: {
-                // show: false
-                borderDistance: 5,
-                itemStyle: {
-                    borderWidth: 2,
-                    borderColor: '#13FDCE',
-                },
-            },
-            backgroundStyle: { //背景颜色设置
-                // color: new echarts.graphic.RadialGradient(['center','red', 'blue']),
-                opacity: 0.4,
-
-            },
-            // "#160f64",
-            label: {
-                normal: {
-                    color: '#fff',
-                    insideColor: '#ccc',
-                    fontSize: 25,
-                    position: ['50%', '30%']
-                }
-            }
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart1.setOption(option, true);
-        window.onresize = myChart1.resize;
-    }
-}
-
-function initChart2() {
-    var dom = document.getElementById("chart2");
-    var myChart2 = echarts.init(dom);
-    var option = {
-        color: ['red', 'green'],
-        series: [{
-            name: '项目详情',
-            type: 'pie',
-            radius: '65%',
-            center: ['50%', '55%'],
-            data: [{
-                    value: 60,
-                    name: '已完成项目'
-                }, {
-                    value: 40,
-                    name: '未完成项目'
-                },
-
-            ],
-            itemStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0,
-                    y: 0,
-                    x2: 0,
-                    y2: 1,
-                    colorStops: [{
-                        offset: 0,
-                        color: 'red'
-                    }, {
-                        offset: 1,
-                        color: 'blue'
-                    }]
-                },
-                emphasis: {
-                    show: true,
-                    fontSize: '20',
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            label: {
-                normal: {
-                    position: 'inner',
-                    formatter: "{c}%",
-                    fontSize: 20,
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '20',
-                        fontWeight: 'bold'
+$(function () {
+    layui.use('layer', function () {
+        var $ = layui.jquery, layer = layui.layer;
+        //触发事件
+        var active = {
+            setTop: function () {
+                var that = this;
+                layer.open({
+                    type: 2,
+                    title: '图表的模态框测试',
+                    area: ['70%', '70%'],
+                    shade: 0.3,
+                    offset: ['15%', '15%'],
+                    maxmin: true,
+                    anim: 1,
+                    content: '../pages/chartModal.html',
+                    yes: function () {
+                        $(that).click();
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    },
+                    zIndex: layer.zIndex,
+                    success: function (layero) {
+                        // 子页面弹出成功回调
+                    },
+                    full: function (dom) {
+                        dom.find('iframe').contents().find('.content').html("");
+                        dom.find('iframe').contents().find('.content').append('<div id="chartModal"></div>');
+                        var funName = dom.find('iframe')[0].contentWindow.funName;
+                        var postodalData = dom.find('iframe')[0].contentWindow.postodalData;
+                        dom.find('iframe')[0].contentWindow.initChartFun[funName]('chartModal', postodalData);
                     }
-                },
-            },
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart2.setOption(option, true);
-        window.onresize = myChart2.resize;
-    }
-}
+                });
+            }
+        };
+        $('.chart-click').on('click', function () {
+            chartTypeState = $(this).attr('data-chartType');
+            postModalData = storageData[chartTypeState];
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+    });
 
-function initChart3() {
-    var dom = document.getElementById("chart3");
-    var myChart3 = echarts.init(dom);
-    var option = {
-        color: ['red', 'green'],
-        series: [{
-            name: '项目详情',
-            type: 'pie',
-            radius: '65%',
-            center: ['50%', '55%'],
-            data: [{
-                    value: 60,
-                    name: '已完成项目'
-                }, {
-                    value: 40,
-                    name: '未完成项目'
-                },
+    setTimeout(function () {
+        // chart1
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/oneFanPie_1.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var legendData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        legendData.push(item.name);
+                        seriesData.push(item.value);
+                    });
+                    storageData.drawLiquidFill.push(legendData);
+                    storageData.drawLiquidFill.push(seriesData);
+                    storageData.drawLiquidFill.push(colorLiquidFillList1);
+                    storageData.drawLiquidFill.push(colorLiquidFillList2);
+                    initChartFun.drawLiquidFill('chart1', storageData.drawLiquidFill);
+                };
+            }
+        });
 
-            ],
-            itemStyle: {
-                emphasis: {
-                    show: true,
-                    fontSize: '20',
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            label: {
-                normal: {
-                    position: 'inner',
-                    formatter: "{c}%",
-                    fontSize: 20,
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '20',
-                        fontWeight: 'bold'
-                    }
-                },
-            },
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart3.setOption(option, true);
-        window.onresize = myChart3.resize;
-    }
-}
+        // chart2
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/oneFanPie_1.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var legendData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        legendData.push(item.name);
+                        seriesData.push(item.value);
+                    });
+                    storageData.drawOneFanPie1.push(legendData);
+                    storageData.drawOneFanPie1.push(seriesData);
+                    storageData.drawOneFanPie1.push(ColorOneFanPie1List);
+                    initChartFun.drawOneFanPie('chart2', storageData.drawOneFanPie1);
+                };
+            }
+        });
 
-function initChart4() {
-    var dom = document.getElementById("chart4");
-    var myChart = echarts.init(dom);
-    option = {
-        title: {
-            // text: '折线图堆叠',
-            textStyle: {
-                color: '#fff',
-                fontSize: '14px',
+        // chart3
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/oneFanPie_1.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var legendData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        legendData.push(item.name);
+                        seriesData.push(item.value);
+                    });
+                    storageData.drawOneFanPie2.push(legendData);
+                    storageData.drawOneFanPie2.push(seriesData);
+                    storageData.drawOneFanPie2.push(ColorOneFanPie2List);
+                    initChartFun.drawOneFanPie('chart3', storageData.drawOneFanPie2);
+                };
             }
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            top: '20%',
-            textStyle: {
-                fontSize: 10,
-                color: '#ccc'
-            },
-            data: [{
-                    name: '全局态势',
-                    icon: 'rect',
-                    color: 'red'
-                },
-                {
-                    name: '威胁',
-                    icon: 'rect',
-                    color: 'aqua'
-                },
-                {
-                    name: '防御',
-                    icon: 'rect',
-                    color: 'green'
-                },
-                {
-                    name: '操作',
-                    icon: 'rect',
-                    color: 'blue'
-                },
-            ]
-        },
-        grid: {
-            left: '15%',
-            top: '35%',
-            right: '15%',
-            bottom: '15%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            axisLine: {
-                lineStyle: {
-                    color: 'blue'
-                }
-            },
-            // data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        },
-        yAxis: {
-            type: 'value',
-            name: '最值',
-            nameLocation: 'end',
-            nameGap: 5,
-            splitLine: false, //辅助线
-            splitNumber: 20,
-            max: 100,
-            min: -100,
-            nameTextStyle: {
-                color: ' #fff',
-                fontSize: 10,
-                align: 'left'
-            },
-            boundaryGap: true, //折现与轴间距
-            axisLine: {
-                lineStyle: {
-                    color: '#ccc'
-                }
-            }
-        },
-        series: [{
-                name: '全局态势',
-                type: 'line',
-                stack: '总量',
-                data: [20, 32, 10, 34, 0, 30, 10]
-            },
-            {
-                name: '威胁',
-                type: 'line',
-                stack: '总量',
-                data: [22, 2, 11, 24, 9, 30, 31]
-            },
-            {
-                name: '防御',
-                type: 'line',
-                stack: '总量',
-                data: [5, 32, 21, 14, 10, 30, 41]
-            },
-            {
-                name: '操作',
-                type: 'line',
-                stack: '总量',
-                data: [32, 32, 1, 34, 15, 30, 32]
-            }
-        ]
-    };
+        });
 
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-        window.onresize = myChart.resize;
-    }
-}
+        // chart4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/line_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.globalSituation);
+                        sitemArr[1].push(item.usability);
+                        sitemArr[2].push(item.stability);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLineList1[idx],
+                                    borderWidth: 1
 
-function initChart5() {
-    var dom = document.getElementById("chart5");
-    var myChart = echarts.init(dom);
-    option = {
-        title: {
-            // text: '折线图堆叠',
-            textStyle: {
-                color: '#fff',
-                fontSize: '14px',
+                                }
+                            },
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawLine4.push(res.result.legendData);
+                    storageData.drawLine4.push(xAxisData);
+                    storageData.drawLine4.push(seriesData);
+                    initChartFun.drawLine('chart4', storageData.drawLine4);
+                };
             }
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            textStyle: {
-                fontSize: 10,
-                color: '#ccc'
-            },
-            data: [{
-                    name: '全局态势',
-                    icon: 'rect',
-                    color: 'red'
-                },
-                {
-                    name: '威胁',
-                    icon: 'rect',
-                    color: 'aqua'
-                },
-                {
-                    name: '防御',
-                    icon: 'rect',
-                    color: 'green'
-                },
-                {
-                    name: '操作',
-                    icon: 'rect',
-                    color: 'blue'
-                },
-            ]
-        },
-        grid: {
-            left: '15%',
-            top: '20%',
-            right: '20%',
-            bottom: '20%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            axisLine: {
-                lineStyle: {
-                    color: '#ccc'
-                }
-            },
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        },
-        yAxis: {
-            type: 'value',
-            name: '最值',
-            nameLocation: 'end',
-            nameGap: 5,
-            splitLine: false, //辅助线
-            splitNumber: 5,
-            max: 100,
-            min: 0,
-            nameTextStyle: {
-                color: ' #fff',
-                fontSize: 10,
-                align: 'left'
-            },
-            boundaryGap: true, //折现与轴间距
-            axisLine: {
-                lineStyle: {
-                    color: '#ccc'
-                }
-            }
-        },
-        series: [{
-                name: '全局态势',
-                type: 'line',
-                stack: '总量',
-                data: [20, 32, 10, 34, 0, 30, 10]
-            },
-            {
-                name: '威胁',
-                type: 'line',
-                stack: '总量',
-                data: [22, 2, 11, 24, 9, 30, 31]
-            },
-            {
-                name: '防御',
-                type: 'line',
-                stack: '总量',
-                data: [5, 32, 21, 14, 10, 30, 41]
-            },
-            {
-                name: '操作',
-                type: 'line',
-                stack: '总量',
-                data: [32, 32, 1, 34, 15, 30, 32]
-            }
-        ]
-    };
+        });
 
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-        window.onresize = myChart.resize;
-    }
-}
 
-function initChart6() {
-    var dom = document.getElementById("chart6");
-    var myChart = echarts.init(dom);
-    option = {
-        title: {
-            // text: '折线图堆叠',
-            textStyle: {
-                color: '#fff',
-                fontSize: '14px',
-            }
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            textStyle: {
-                fontSize: 10,
-                color: '#ccc'
-            },
-            data: [{
-                    name: '全局态势',
-                    icon: 'rect',
-                    color: 'red'
-                },
-                {
-                    name: '威胁',
-                    icon: 'rect',
-                    color: 'aqua'
-                },
-                {
-                    name: '防御',
-                    icon: 'rect',
-                    color: 'green'
-                },
-                {
-                    name: '操作',
-                    icon: 'rect',
-                    color: 'blue'
-                },
-            ]
-        },
-        grid: {
-            left: '15%',
-            top: '20%',
-            right: '20%',
-            bottom: '20%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            axisLine: {
-                lineStyle: {
-                    color: '#ccc'
-                }
-            },
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        },
-        yAxis: {
-            type: 'value',
-            name: '最值',
-            nameLocation: 'end',
-            nameGap: 5,
-            splitLine: false, //辅助线
-            splitNumber: 5,
-            max: 100,
-            min: 0,
-            nameTextStyle: {
-                color: ' #fff',
-                fontSize: 10,
-                align: 'left'
-            },
-            boundaryGap: true, //折现与轴间距
-            axisLine: {
-                lineStyle: {
-                    color: '#ccc'
-                }
-            }
-        },
-        series: [{
-                name: '全局态势',
-                type: 'line',
-                stack: '总量',
-                data: [20, 32, 10, 34, 0, 30, 10]
-            },
-            {
-                name: '威胁',
-                type: 'line',
-                stack: '总量',
-                data: [22, 2, 11, 24, 9, 30, 31]
-            },
-            {
-                name: '防御',
-                type: 'line',
-                stack: '总量',
-                data: [5, 32, 21, 14, 10, 30, 41]
-            },
-            {
-                name: '操作',
-                type: 'line',
-                stack: '总量',
-                data: [32, 32, 1, 34, 15, 30, 32]
-            }
-        ]
-    };
+        // chart5
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/line_5.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], [], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.TCP);
+                        sitemArr[1].push(item.UDP);
+                        sitemArr[2].push(item.HTTP);
+                        sitemArr[3].push(item.FTP);
+                        sitemArr[4].push(item.SSL);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLineList2[idx],
+                                    borderWidth: 1
 
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-        window.onresize = myChart.resize;
-    }
-}
+                                }
+                            },
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawLine5.push(res.result.legendData);
+                    storageData.drawLine5.push(xAxisData);
+                    storageData.drawLine5.push(seriesData);
+                    initChartFun.drawLine('chart5', storageData.drawLine5);
+                };
+            }
+        });
 
-function initChart7() {
-    var dom = document.getElementById("chart7");
-    var myChart = echarts.init(dom);
-    option = {
-        series: [{
-            name: '访问来源',
-            type: 'pie',
-            radius: '55%',
-            center: ['50%', '50%'],
-            data: [
-                { value: 55, name: '直接访问' },
-                { value: 44, name: '邮件营销' }
-            ].sort(function(a, b) { return a.value - b.value; }),
-            roseType: 'radius',
-            label: {
-                normal: {
-                    position: 'inner',
-                    formatter: "{c}%",
-                    // formatter: "{c}\n{b}",
-                    fontSize: 14,
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            color: ['#9BD16F', '#D07070'],
-            animationType: 'scale',
-            animationEasing: 'elasticOut',
-            animationDelay: function(idx) {
-                return Math.random() * 200;
-            }
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-        window.onresize = myChart.resize;
-    }
-}
+        // chart6
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/line_5.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], [], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.TCP);
+                        sitemArr[1].push(item.UDP);
+                        sitemArr[2].push(item.HTTP);
+                        sitemArr[3].push(item.FTP);
+                        sitemArr[4].push(item.SSL);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLineList2[idx],
+                                    borderWidth: 1
 
-function initChart8() {
-    var dom = document.getElementById("chart8");
-    var myChart = echarts.init(dom);
-    option = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
+                                }
+                            },
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawLine6.push(res.result.legendData);
+                    storageData.drawLine6.push(xAxisData);
+                    storageData.drawLine6.push(seriesData);
+                    initChartFun.drawLine('chart6', storageData.drawLine6);
+                };
             }
-        },
-        color: ['#e4393c', 'aqua'],
-        legend: {
-            right: '12%',
-            top: '15%',
-            textStyle: {
-                color: '#ccc'
-            },
-            data: ['进入流量', '流出流量']
-        },
-        grid: {
-            x: '15%',
-            y: '25%%',
-            x2: '15%',
-            y2: '5%',
-            containLabel: true
-        },
-        xAxis: [{
-            type: 'category',
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-            axisLine: {
-                lineStyle: {
-                    color: 'blue'
-                }
-            },
-            axisLabel: {
-                show: true,
-                textStyle: {
-                    color: '#ddd'
-                }
+        });
+
+        // chart7
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/twoFanPie_2.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var legendData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        legendData.push(item.name);
+                    });
+                    storageData.drawTwoFanPie.push(legendData);
+                    storageData.drawTwoFanPie.push(res.result.seriesData);
+                    storageData.drawTwoFanPie.push(colorTwoFanPieList);
+                    initChartFun.drawTwoFanPie('chart7', storageData.drawTwoFanPie);
+                };
             }
-        }],
-        yAxis: [{
-            type: 'value',
-            min: 0,
-            max: 100,
-            splitNumber: 10,
-            axisLine: {
-                lineStyle: {
-                    color: '#1255F0'
-                }
-            },
-            axisLabel: {
-                show: true,
-                textStyle: {
-                    color: '#8ECEEE'
-                }
-            },
-            splitLine: {
-                show: false
+        });
+
+        // chart8
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/verticalBar_2.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], []];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        xAxisData.push(item[0]['date']);
+                        sitemArr[0].push(item[0]['openness']);
+                        sitemArr[1].push(item[0]['rate']);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: colorVerticalBarList[idx]
+                                }
+                            },
+                            barWidth: 12,
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawVerticalBarH.push(res.result.legendData);
+                    storageData.drawVerticalBarH.push(xAxisData);
+                    storageData.drawVerticalBarH.push(seriesData);
+                    initChartFun.drawVerticalBarH('chart8', storageData.drawVerticalBarH);
+                };
             }
-        }],
-        series: [{
-                name: '进入流量',
-                type: 'bar',
-                barWidth: 10,
-                barGap: 0.3,
-                data: [30, 32, 11, 20, 90, 22, 29]
-            },
-            {
-                name: '流出流量',
-                type: 'bar',
-                // stack: '广告',
-                barWidth: 10,
-                data: [12, 12, 10, 40, 88, 99, 33]
-            }
-        ]
-    };
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-        window.onresize = myChart.resize;
-    }
-}
+        });
+
+    }, 1000);
+
+});

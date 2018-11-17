@@ -1,0 +1,16 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "name": "离线时间",
+                "value": 45
+            },
+            {
+                "name": "在线时间",
+                "value": 55
+            }
+        ]
+    }
+}

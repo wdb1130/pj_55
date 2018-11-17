@@ -623,7 +623,7 @@ var initChartFun = {
                 left: 'center',
                 top: 'center',
                 textStyle: {
-                    fontSize:'80%',
+                    fontSize: '80%',
                     color: '#fff'
                 }
             },
@@ -661,8 +661,249 @@ var initChartFun = {
             window.onresize = myChart.resize;
             return myChart;
         }
+    },
+    // 2半扇形状饼型图
+    drawTwoFanPie: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = {
+            legend: {
+                x: 'right',
+                y: 'top',
+                data: postModalData[0],
+                textStyle: {
+                    color: 'white'
+                }
+            },
+            series: [{
+                name: '',
+                type: 'pie',
+                radius: '55%',
+                center: ['50%', '50%'],
+                data: postModalData[1],
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        position: 'inner',
+                        formatter: "{c}%",
+                        fontSize: 14,
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                color: postModalData[2],
+                animationType: 'scale',
+                animationEasing: 'elasticOut'
+            }]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
+    },
+    // 1个扇形状饼型图
+    drawOneFanPie: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        var dataStyle = {
+            normal: {
+                label: {
+                    show: false
+                },
+                labelLine: {
+                    show: false
+                },
+                shadowBlur: 40,
+                borderWidth: 10,
+                shadowColor: 'rgba(0, 0, 0, 0)'
+            }
+        };
+        option = {
+            title: {
+                text: postModalData[1] + '%',
+                x: 'center',
+                y: 'center',
+                textStyle: {
+                    fontWeight: 'normal',
+                    fontSize: 24,
+                    color: "#fff",
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                show: true,
+                formatter: "{b} : <br/>{d}%",
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                padding: [8, 10]
+            },
+            series: [{
+                name: 'Line 2',
+                type: 'pie',
+                clockWise: true,
+                radius: ['0%', '80%'],
+                center: ['50%', '50%'],
+                itemStyle: dataStyle,
+                hoverAnimation: false,
+                startAngle: 90,
+                data: [{
+                    value: postModalData[1],
+                    name: postModalData[0],
+                    itemStyle: {
+                        normal: {
+                            color: postModalData[2][0],
+                        }
+                    }
+                },
+                {
+                    value: 100 - postModalData[1],
+                    name: '',
+                    tooltip: {
+                        show: false
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(255, 255, 255, .2)'//不改
+                        }
+                    }
+                }
+                ]
+            },
+            {
+                name: 'Line 3',
+                type: 'pie',
+                clockWise: true,
+                radius: ['40%', '40%'],
+                center: ['50%', '50%'],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        borderWidth: 1,
+                        borderType: 'dashed',
+                        borderColor: postModalData[2][1],
+                    }
+                },
+                hoverAnimation: false,
+                startAngle: 90,
+                data: [{
+                    value: postModalData[1],
+                    name: postModalData[0],
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent',
+                        }
+                    }
+                },
+                {
+                    value: 100 - postModalData[1],
+                    name: '',
+                    tooltip: {
+                        show: false
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    }
+                }
+                ]
+            },
+            {
+                name: 'Line 3',
+                type: 'pie',
+                clockWise: true,
+                radius: ['45%', '60%'],
+                center: ['50%', '50%'],
+                itemStyle: dataStyle,
+                hoverAnimation: false,
+                startAngle: 90,
+                data: [{
+                    value: postModalData[1],
+                    name: postModalData[0],
+                    itemStyle: {
+                        normal: {
+                            color: postModalData[2][1],
+                        }
+                    }
+                },
+                {
+                    value: 100 - postModalData[1],
+                    name: '',
+                    tooltip: {
+                        show: false
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: postModalData[2][1]
+                        }
+                    }
+                }
+                ]
+            }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
+    },
+    // 水球图
+    drawLiquidFill: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        var option = {
+            title: {
+                text: postModalData[0],
+                bottom: '0%',
+                left: 'center',
+                textStyle: {
+                    fontSize: 14,
+                    color: '#fff',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                }
+            },
+            series: [{
+                type: 'liquidFill',
+                radius: '65%',
+                data: [postModalData[1] / 100, postModalData[1] / 100 - 0.1],
+                center: ['50%', '55%'],
+                color: postModalData[2], // 水球颜色
+                outline: {
+                    borderDistance: 5,
+                    itemStyle: {
+                        borderWidth: 3,
+                        borderColor: 'rgb(26,106,177)',
+                    },
+                },
+                backgroundStyle: { //背景颜色设置
+                    color: postModalData[3],
+                    opacity: 0.4,
+                },
+                label: {
+                    normal: {
+                        color: '#fff',
+                        insideColor: '#ccc',
+                        fontSize: 25,
+                        position: ['50%', '30%']
+                    }
+                }
+            }]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
     }
-    // 
+
+
 
 
 

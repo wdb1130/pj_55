@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>图表模态框</title>
     <script src="../static/echarts/echarts.js"></script>
+    <script src="../static/echarts/echarts-liquidfill.min.js"></script>
     <script src="../js/initChart.js"></script>
     <style>
         .content {
@@ -45,6 +46,8 @@
         var funName = parent.chartTypeState;
         var postodalData = parent.postModalData;
         console.log(funName, postodalData)
+        funName.includes('drawLine') && (funName = 'drawLine');
+        funName.includes('drawOneFanPie') && (funName = 'drawOneFanPie');
         switch (funName) {
             case 'drawLine':
             case 'drawVerticalBar':
@@ -52,6 +55,9 @@
             case 'drawHorizontalBar':
             case 'drawVerticalSingleBar':
             case 'drawRing':
+            case 'drawTwoFanPie':
+            case 'drawOneFanPie':
+            case 'drawLiquidFill':
                 var chartModal = $('<div id="chartModal"></div>');
                 $('.content').html(chartModal);
                 initChartFun[funName]('chartModal', postodalData);

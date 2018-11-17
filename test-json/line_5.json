@@ -1,0 +1,57 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["TCP", "UDP", "HTTP", "FTP", "SSL"],
+        "seriesData": [
+            {
+                "date": "2018-10-01",
+                "TCP": 70,
+                "UDP": 54,
+                "HTTP": 10,
+                "FTP": 20,
+                "SSL": 54
+            },
+            {
+                "date": "2018-10-02",
+                "TCP": -70,
+                "UDP": -20,
+                "HTTP": 82,
+                "FTP": 40,
+                "SSL": 54
+            },
+            {
+                "date": "2018-10-03",
+                "TCP": 60,
+                "UDP": 30,
+                "HTTP": -25,
+                "FTP": -20,
+                "SSL": 54
+            },
+            {
+                "date": "2018-10-04",
+                "TCP": -60,
+                "UDP": 50,
+                "HTTP": 10,
+                "FTP": -54,
+                "SSL": 54
+            },
+            {
+                "date": "2018-10-05",
+                "TCP": 50,
+                "UDP": -12,
+                "HTTP": 70,
+                "FTP": 20,
+                "SSL": 54
+            },
+            {
+                "date": "2018-10-06",
+                "TCP": -50,
+                "UDP": 15,
+                "HTTP": 11,
+                "FTP": -80,
+                "SSL": 54
+            }
+        ]
+    }
+}
