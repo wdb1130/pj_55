@@ -1,0 +1,16 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "title": "文件后缀修改率",
+                "value": 32
+            },
+            {
+                "title": "保密等级变更率",
+                "value": 62
+            }
+        ]
+    }
+}

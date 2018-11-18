@@ -26,7 +26,7 @@ body {
     background-size: cover;
     height: 3rem;
     line-height: 3rem;
-    width: 100%;
+    /* width: 100%; */
     padding-left: 6rem;
 }
 
@@ -167,8 +167,7 @@ body {
     flex: 2;
 }
 .chart-box {
-    position: relative;
-    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     font-size: 12px;
@@ -201,18 +200,15 @@ body {
 
 .table-chart .th-boby {
     flex: 1;
+    display: flex;
     overflow: auto;
     color: #C5D9FF;
 }
 
 .table-chart .th-boby>div {
+    flex: 1;
     display: flex;
     text-align: center;
-    padding: .5rem 0;
-}
-
-.table-chart .th-boby>div:nth-child(2n+1) {
-    background: #061044;
 }
 
 .table-chart .th-boby span {
@@ -225,4 +221,19 @@ body {
 }
 .chart-two div {
     flex: 1;
+}
+#chart-4 {
+    flex: 1;
+}
+.swiper-slide-detail{
+    display: flex;
+}
+.swiper-slide-detail:nth-child(2n){
+    background: #061043;
+}
+.swiper-slide-detail > span{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

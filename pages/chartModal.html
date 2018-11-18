@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>图表模态框</title>
+    <link rel="stylesheet" href="../css/reset.css">
     <script src="../static/echarts/echarts.js"></script>
     <script src="../static/echarts/echarts-liquidfill.min.js"></script>
+    <script src="../static/amchart/amcharts.js"></script>
+    <script src="../static/amchart/serial.js"></script>
     <script src="../js/initChart.js"></script>
     <style>
         .content {
@@ -48,6 +51,7 @@
         console.log(funName, postodalData)
         funName.includes('drawLine') && (funName = 'drawLine');
         funName.includes('drawOneFanPie') && (funName = 'drawOneFanPie');
+        funName.includes('drawLiquidFill') && (funName = 'drawLiquidFill');
         switch (funName) {
             case 'drawLine':
             case 'drawVerticalBar':
@@ -58,6 +62,12 @@
             case 'drawTwoFanPie':
             case 'drawOneFanPie':
             case 'drawLiquidFill':
+            case 'draw3DCylinder':
+            case 'draw3DCylinderH':
+            case 'draw3DCylinderV':
+            case 'drawRectRadar':
+            case 'drawGradientLine':
+            case 'drawScatter':
                 var chartModal = $('<div id="chartModal"></div>');
                 $('.content').html(chartModal);
                 initChartFun[funName]('chartModal', postodalData);

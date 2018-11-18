@@ -21,7 +21,7 @@ var initChartFun = {
                 }
             },
             xAxis: [{
-                boundaryGap: false,
+                boundaryGap: true,
                 axisLine: {
                     lineStyle: {
                         color: '#fff'
@@ -901,14 +901,312 @@ var initChartFun = {
             myChart.setOption(option, true);
             window.onresize = myChart.resize;
         }
+    },
+    // 渐变背景折线图
+    drawGradientLine: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    lineStyle: {
+                        color: '#0D53A2'
+                    }
+                }
+            },
+            legend: {
+                icon: 'rect',
+                itemWidth: 14,
+                itemHeight: 5,
+                itemGap: 13,
+                data: postModalData[0],
+                right: '4%',
+                textStyle: {
+                    fontSize: 12,
+                    color: '#F1F1F3'
+                }
+            },
+            grid: {
+                left: '0%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                boundaryGap: true,
+                axisLine: {
+                    lineStyle: {
+                        color: '#0D53A2'
+                    }
+                },
+                data: postModalData[1]
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '量值',
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#0D53A2'
+                    }
+                },
+                axisLabel: {
+                    margin: 10,
+                    textStyle: {
+                        fontSize: 14
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: '#0D53A2'
+                    }
+                }
+            }],
+            series: postModalData[2]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
+    },
+    // 散点图
+    drawScatter: function (dom, postModalData) {
+        var dom = document.getElementById(dom);
+        var myChart = echarts.init(dom);
+        option = {
+            visualMap: {
+                min: 0,
+                max: 100,
+                dimension: 1,
+                left: 'right',
+                top: 'top',
+                text: ['高', '低'],
+                calculable: true,
+                itemWidth: 10,
+                itemHeight: 100,
+                textStyle: {
+                    color: '#ccc',
+                    fontSize: 11
+                },
+                inRange: {
+                    color: postModalData[1]
+                },
+                padding: [10, 20],
+                orient: 'horizontal',
+            },
+            grid: {
+                left: '0%',
+                right: '15%',
+                bottom: '0%',
+                containLabel: true
+            },
+            tooltip: {
+                trigger: 'item',
+                showDelay: 0,
+                formatter: function (params) {
+                    if (params.value.length > 1) {
+                        return '主机: ' +
+                            params.value[0] + '<br/> ' + '风险值: ' +
+                            params.value[1];
+                    }
+                },
+                axisPointer: {
+                    show: true,
+                    type: 'cross',
+                    lineStyle: {
+                        type: 'dashed',
+                        width: 1
+                    }
+                }
+            },
+            xAxis: [{
+                type: 'value',
+                name: '主机',
+                scale: true,
+                min: 0,
+                max: 100,
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#3259B8',
+                    }
+                },
+                splitLine: {
+                    show: false,
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '风险值',
+                scale: true,
+                min: 0,
+                max: 100,
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#3259B8',
+                    }
+                },
+                splitLine: {
+                    show: false,
+                }
+            }],
+            series: [{
+                name: 'price-area',
+                type: 'scatter',
+                data: postModalData[0],
+                symbolSize: 4,
+            }]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+            window.onresize = myChart.resize;
+        }
+    },
+    //3d圆柱图
+    draw3DCylinder: function (dom, postModalData) {
+        var chart = AmCharts.makeChart(dom, {
+            "theme": "light",
+            "type": "serial",
+            "startDuration": 2,
+            "dataProvider": postModalData[0],
+            "valueAxes": [{
+                "position": "left",
+                "color": "#0D53A2",
+                "title": "",
+                "axisColor": "#0D53A2",
+                "minimum": 0,
+                "maximum": 100,
+                "gridColor": '#0D53A2'
+            }],
+            "graphs": [{
+                "balloonText": "[[category]]: <b>[[value]]</b>",
+                "colorField": "color",
+                "fillAlphas": 0.85,
+                "lineAlpha": 0.1,
+                "type": "column",
+                "topRadius": 1,
+                "valueField": "value"
+            }],
+            "depth3D": 20,
+            "angle": 30,
+            "columnWidth": 0.4,
+            "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "title",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "color": "#0D53A2",
+                "labelRotation": 0,
+                "axisColor": "#0D53A2",
+                "gridColor": '#0D53A2'
+            },
+            "export": {
+                "enabled": true
+            }
+        }, 0);
+    },
+    // 3d柱状图（纵向）
+    draw3DCylinderV: function (dom, postModalData) {
+        var chart = AmCharts.makeChart(dom, {
+            "theme": "light",
+            "type": "serial",
+            "startDuration": 2,
+            "dataProvider": postModalData[0],
+            "valueAxes": [{
+                "position": "left",
+                "color": "#0D53A2",
+                "title": "",
+                "axisColor": "#0D53A2",
+                "minimum": 0,
+                "maximum": 100,
+                "gridColor": '#0D53A2'
+            }],
+            "graphs": [{
+                "balloonText": "[[category]]: <b>[[value]]</b>",
+                "fillColorsField": "color",
+                "fillAlphas": 1,
+                "lineAlpha": 0.1,
+                "type": "column",
+                "valueField": "value"
+            }],
+            "depth3D": 15,
+            "angle": 30,
+            "columnWidth": 0.3,
+            "rotate": false,
+            "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "title",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "color": "#0D53A2",
+                "labelRotation": 0,
+                "axisColor": "#0D53A2",
+                "gridColor": '#0D53A2'
+            },
+            "export": {
+                "enabled": true
+            }
+        });
+    },
+    // 3d柱状图（横向）
+    draw3DCylinderH: function (dom, postModalData) {
+        var chart = AmCharts.makeChart(dom, {
+            "theme": "light",
+            "type": "serial",
+            "startDuration": 2,
+            "dataProvider": postModalData[0],
+            "valueAxes": [{
+                "position": "left",
+                "color": "#0D53A2",
+                "title": "",
+                "axisColor": "#0D53A2",
+                "minimum": 0,
+                "maximum": 100,
+                "gridColor": '#0D53A2'
+            }],
+            "graphs": [{
+                "balloonText": "[[category]]: <b>[[value]]</b>",
+                "fillColorsField": "color",
+                "fillAlphas": 1,
+                "lineAlpha": 0.1,
+                "type": "column",
+                "valueField": "value"
+            }],
+            "depth3D": 15,
+            "angle": 30,
+            "columnWidth": 0.5,
+            "rotate": true,
+            "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "title",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "color": "#0D53A2",
+                "labelRotation": 0,
+                "axisColor": "#0D53A2",
+                "gridColor": '#0D53A2'
+            },
+            "export": {
+                "enabled": true
+            }
+        });
     }
-
-
-
-
-
-
-
-
-
 };
