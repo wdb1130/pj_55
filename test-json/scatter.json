@@ -1,0 +1,56 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "host": 56,
+                "risk": 38
+            },
+            {
+                "host": 12,
+                "risk": 52
+            },
+            {
+                "host": 33,
+                "risk": 70
+            },
+            {
+                "host": 22,
+                "risk": 66
+            },
+            {
+                "host": 90,
+                "risk": 23
+            },
+            {
+                "host": 10,
+                "risk": 77
+            },
+            {
+                "host": 98,
+                "risk": 43
+            },
+            {
+                "host": 26,
+                "risk": 70
+            },
+            {
+                "host": 32,
+                "risk": 75
+            },
+            {
+                "host": 79,
+                "risk": 22
+            },
+            {
+                "host": 38,
+                "risk": 18
+            },
+            {
+                "host": 29,
+                "risk": 34
+            }
+        ]
+    }
+}

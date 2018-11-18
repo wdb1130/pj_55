@@ -1,9 +1,254 @@
+var modalTitle;
+var chartTypeState;
+
+// 模态框获取的
+var postModalData;
+
+// 所有图表请求后暂存
+var storageData = {
+    draw3DCylinder: [],
+    drawRectRadar: [],
+    drawGradientLine: [],
+    drawScatter: []
+}
+
+var color3DCylinder = ['#FF3838', '#FB943A', '#2420FF', '#9000FF'];
+var colorRadarList = ['rgba(205, 106, 75, 0.8)'];
+var colorScatterList = ['#45CE8D', '#FB943A', '#FF3838'];
+
+var colorLineList = [
+    'rgb(255,56,56)',
+    'rgb(69,206,141)',
+    'rgb(251,148,58)',
+    'rgb(36,32,255)',
+    'rgb(144,0,255)',
+];
+var colorLineGradientList = [
+    new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        offset: 0,
+        color: 'rgba(255,56,56, 0.3)'
+    }, {
+        offset: 0.8,
+        color: 'rgba(255,56,56, 0)'
+    }], false),
+    new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        offset: 0,
+        color: 'rgba(69,206,141, 0.3)'
+    }, {
+        offset: 0.8,
+        color: 'rgba(69,206,141, 0)'
+    }], false),
+    new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        offset: 0,
+        color: 'rgba(251,148,58, 0.3)'
+    }, {
+        offset: 0.8,
+        color: 'rgba(251,148,58, 0)'
+    }], false),
+    new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        offset: 0,
+        color: 'rgba(36,32,255, 0.3)'
+    }, {
+        offset: 0.8,
+        color: 'rgba(36,32,255, 0)'
+    }], false),
+    new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        offset: 0,
+        color: 'rgba(144,0,255, 0.3)'
+    }, {
+        offset: 0.8,
+        color: 'rgba(144,0,255, 0)'
+    }], false),
+];
+
+
 $(function () {
-    drawChart1();
-    drawChart2();
-    drawChart3();
-    drawChart4();
-    drawChart5();
+    layui.use('layer', function () {
+        var $ = layui.jquery, layer = layui.layer;
+        //触发事件
+        var active = {
+            setTop: function () {
+                var that = this;
+                layer.open({
+                    type: 2,
+                    title: ' ',
+                    area: ['70%', '70%'],
+                    shade: 0.3,
+                    offset: ['15%', '15%'],
+                    maxmin: true,
+                    anim: 1,
+                    content: '../pages/chartModal.html',
+                    yes: function () {
+                        $(that).click();
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    },
+                    zIndex: layer.zIndex,
+                    success: function (layero) {
+                        // 子页面弹出成功回调
+                        layero.find('.layui-layer-title').text(modalTitle);
+                    }
+                });
+            }
+        };
+        $('.chart-click').on('click', function () {
+            modalTitle = $(this).text();
+            chartTypeState = $(this).attr('data-chartType');
+            postModalData = storageData[chartTypeState];
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+    });
+
+    setTimeout(function () {
+        // chart1
+
+        // chart2
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/arcRadar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    res.result.seriesData.forEach(function (item, idx) {
+                        item.color = color3DCylinder[idx];
+                    });
+                    storageData.draw3DCylinder.push(res.result.seriesData);
+                    initChartFun.draw3DCylinder('chart2', storageData.draw3DCylinder);
+                };
+            }
+        });
+
+        // chart3
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/arcRadar_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var indicator = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        indicator.push({
+                            text: item.title + ':' + item.value + '%',
+                            max: 100
+                        });
+                        seriesData.push(item.value)
+                    });
+                    storageData.drawRectRadar.push(indicator);
+                    storageData.drawRectRadar.push(seriesData);
+                    storageData.drawRectRadar.push(colorRadarList);
+                    initChartFun.drawRectRadar('chart3', storageData.drawRectRadar);
+                };
+            }
+        });
+
+        // chart4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/scatter.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item, idx) {
+                        var arr = [];
+                        arr.push(item.host, item.risk);
+                        seriesData.push(arr);
+                    });
+                    storageData.drawScatter.push(seriesData, colorScatterList);
+                    initChartFun.drawScatter('chart4', storageData.drawScatter);
+                };
+            }
+        });
+
+        // chart5
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/lineGradient_5.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], [], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.globalSituation);
+                        sitemArr[1].push(item.asset);
+                        sitemArr[2].push(item.serve);
+                        sitemArr[3].push(item.user);
+                        sitemArr[4].push(item.data);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            areaStyle: {
+                                normal: {
+                                    color: colorLineGradientList[idx],
+                                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                                    shadowBlur: 10
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLineList[idx]
+                                }
+                            },
+                            data: sitemArr[idx]
+                        });
+                    });
+                    storageData.drawGradientLine.push(res.result.legendData);
+                    storageData.drawGradientLine.push(xAxisData);
+                    storageData.drawGradientLine.push(seriesData);
+                    initChartFun.drawGradientLine('chart5', storageData.drawGradientLine);
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+    }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 // chart1
 function drawChart1() {
@@ -40,107 +285,6 @@ function drawChart1() {
     if (option && typeof option === "object") {
         myChart1.setOption(option, true);
         window.onresize = myChart1.resize;
-    }
-}
-
-// chart2
-function drawChart2() {
-    var dom2 = document.getElementById("chart2");
-    var myChart2 = echarts.init(dom2);
-    option = null;
-    option = {
-        xAxis: {
-            data: ['Sun', 'Mon', 'Tue', 'Wed']
-        },
-        yAxis: {},
-        series: [{
-            type: 'bar',
-            barWidth: 37,
-            itemStyle: {
-                normal: {
-                    borderWidth: 1,
-                    borderColor: '#18CEE2',
-                    barBorderRadius: 28,
-                    color: new echarts.graphic.LinearGradient(
-                        0, 0, 1, 0,
-                        [
-                            { offset: 0, color: '#2dc3db' },
-                            { offset: 1, color: '#0f88c0' }
-                        ]
-                    )
-                },
-                emphasis: {
-                    barBorderRadius: 13,
-                    shadowBlur: 18,
-                    shadowColor: 'rgba(218,170, 58, 0.7)'
-                }
-            },
-            data: [220, 182, 191, 234]
-        }, {
-            name: 'a',
-            tooltip: {
-                show: false
-            },
-            type: 'pictorialBar',
-            itemStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(
-                        0, 0, 1, 0,
-                        [
-                            { offset: 0, color: '#2bc6dd' },
-                            { offset: 1, color: '#18cde1' }
-                        ]
-                    ),
-                    borderWidth: 1,
-                    borderColor: '#18CEE2'
-                }
-            },
-            symbol: 'circle',
-            symbolSize: ['38', '22'],
-            symbolPosition: 'end',
-            data: [220, 182, 191, 234],
-            z: 3
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart2.setOption(option, true);
-        window.onresize = myChart2.resize;
-    }
-}
-
-// chart3
-function drawChart3() {
-    var dom3 = document.getElementById("chart3");
-    var myChart3 = echarts.init(dom3);
-    option = null;
-    option = {
-        color: ['#f00'],
-        radar: {
-            indicator: [{
-                name: '低危用户',
-                max: 100
-            }, {
-                name: '中危用户',
-                max: 100
-            }, {
-                name: '极高危用户',
-                max: 100
-            }, {
-                name: '高危用户',
-                max: 100
-            }]
-        },
-        series: [{
-            name: '',
-            type: 'radar',
-            data: [{
-                value: [23, 55, 82, 12]
-            }]
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart3.setOption(option, true);
-        window.onresize = myChart3.resize;
     }
 }
 
@@ -278,167 +422,5 @@ function drawChart4() {
     if (option && typeof option === "object") {
         myChart4.setOption(option, true);
         window.onresize = myChart4.resize;
-    }
-}
-
-// chart5
-function drawChart5() {
-    var dom5 = document.getElementById("chart5");
-    var myChart5 = echarts.init(dom5);
-    option = null;
-    option = {
-        title: {
-            text: '',
-            textStyle: {
-                fontWeight: 'normal',
-                fontSize: 16,
-                color: '#F1F1F3'
-            },
-            left: '6%'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                lineStyle: {
-                    color: '#57617B'
-                }
-            }
-        },
-        legend: {
-            icon: 'rect',
-            itemWidth: 14,
-            itemHeight: 5,
-            itemGap: 13,
-            data: ['南宁-曼芭', '桂林-曼芭', '南宁-甲米'],
-            right: '4%',
-            textStyle: {
-                fontSize: 12,
-                color: '#F1F1F3'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: [{
-            type: 'category',
-            boundaryGap: false,
-            axisLine: {
-                lineStyle: {
-                    color: '#57617B'
-                }
-            },
-            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-        }],
-        yAxis: [{
-            type: 'value',
-            axisTick: {
-                show: false
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#57617B'
-                }
-            },
-            axisLabel: {
-                margin: 10,
-                textStyle: {
-                    fontSize: 14
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: '#57617B'
-                }
-            }
-        }],
-        series: [{
-            name: '南宁-曼芭',
-            type: 'line',
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(137, 189, 27, 0.3)'
-                    }, {
-                        offset: 0.8,
-                        color: 'rgba(137, 189, 27, 0)'
-                    }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
-                    shadowBlur: 10
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'rgb(137,189,27)'
-                }
-            },
-            data: [96.3, 96.4, 97.5, 95.6, 98.1, 94.8, 89.6, 94.1, 80.1, 52.4, 75.8, 94.7]
-        }, {
-            name: '桂林-曼芭',
-            type: 'line',
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(0, 136, 212, 0.3)'
-                    }, {
-                        offset: 0.8,
-                        color: 'rgba(0, 136, 212, 0)'
-                    }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
-                    shadowBlur: 10
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'rgb(0,136,212)'
-                }
-            },
-            data: [97.3, 99.2, 99.3, 100.0, 99.6, 90.6, 80.0, 91.5, 69.8, 67.5, 90.4, 84.9]
-        }, {
-            name: '南宁-甲米',
-            type: 'line',
-            lineStyle: {
-                normal: {
-                    width: 1
-                }
-            },
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(219, 50, 51, 0.3)'
-                    }, {
-                        offset: 0.8,
-                        color: 'rgba(219, 50, 51, 0)'
-                    }], false),
-                    shadowColor: 'rgba(0, 0, 0, 0.1)',
-                    shadowBlur: 10
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: 'rgb(219,50,51)'
-                }
-            },
-            data: [84.2, 81.0, 67.5, 72.1, 43.7, 88.5, 91.9, 101.8, 79.7, 87.6, 92.9, 0]
-        },]
-    };
-    if (option && typeof option === "object") {
-        myChart5.setOption(option, true);
-        window.onresize = myChart5.resize;
     }
 }

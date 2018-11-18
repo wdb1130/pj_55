@@ -1,3 +1,4 @@
+var modalTitle;
 var chartTypeState;
 
 // 模态框获取的
@@ -6,43 +7,14 @@ var postModalData;
 // 所有图表请求后暂存
 var storageData = {
     drawLine: [],
-    drawHorizontalBar: [],
+    draw3DCylinderH: [],
     drawVerticalBar: [],
     drawArcRadar1: [],
     drawArcRadar2: [],
 }
 
 var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var colorList = [
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(13, 151, 246, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(13, 151, 246, 1)'
-    }]),
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(63, 5, 246, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(63, 5, 246, 1)'
-    }]),
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(63, 151, 7, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(63, 151, 7, 1)'
-    }]),
-    new echarts.graphic.LinearGradient(1, 1, 0, 0, [{
-        offset: 0,
-        color: 'rgba(255, 255, 0, 0.2)'
-    }, {
-        offset: 1,
-        color: 'rgba(255, 255, 0, 1)'
-    }])
-];
+var color3DCylinder = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var colorRadarList1 = ['rgba(205, 106, 75, 0.5)'];
 var colorRadarList2 = ['rgba(35, 180, 170, 0.5)'];
@@ -79,7 +51,7 @@ $(function () {
                 var that = this;
                 layer.open({
                     type: 2,
-                    title: '图表的模态框测试',
+                    title: ' ',
                     area: ['70%', '70%'],
                     shade: 0.3,
                     offset: ['15%', '15%'],
@@ -95,11 +67,13 @@ $(function () {
                     zIndex: layer.zIndex,
                     success: function (layero) {
                         // 子页面弹出成功回调
+                        layero.find('.layui-layer-title').text(modalTitle);
                     }
                 });
             }
         };
         $('.chart-click').on('click', function () {
+            modalTitle = $(this).text();
             chartTypeState = $(this).attr('data-chartType');
             postModalData = storageData[chartTypeState];
             var othis = $(this), method = othis.data('method');
@@ -160,20 +134,18 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/horizontalBar_4.json",
+            url: "../test-json/3dH_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    var yAxisData = [];
-                    var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
-                        yAxisData.push(item.title);
-                        seriesData.push(item.value);
+                    res.result.seriesData.forEach(function (item, idx) {
+                        item.color = color3DCylinder[idx];
                     });
-                    storageData.drawHorizontalBar.push(yAxisData, seriesData, colorList);
-                    initChartFun.drawHorizontalBar('chart2', storageData.drawHorizontalBar);
+                    storageData.draw3DCylinderH.push(res.result.seriesData);
+                    initChartFun.draw3DCylinderH('chart2', storageData.draw3DCylinderH);
                 };
             }
         });
+
 
         // chart3
         $.ajax({
@@ -234,7 +206,7 @@ $(function () {
                     var seriesData = [];
                     res.result.seriesData.forEach(function (item) {
                         indicator.push({
-                            text: item.title+ ':' +item.value+ '%',
+                            text: item.title + ':' + item.value + '%',
                             max: 100
                         });
                         seriesData.push(item.value)
@@ -259,7 +231,7 @@ $(function () {
                     var seriesData = [];
                     res.result.seriesData.forEach(function (item) {
                         indicator.push({
-                            text: item.title+ ':' +item.value+ '%',
+                            text: item.title + ':' + item.value + '%',
                             max: 100
                         });
                         seriesData.push(item.value)

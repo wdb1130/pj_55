@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/layui-reset.css">
+    <link rel="stylesheet" href="../static/swiper/css/swiper.css">
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <link rel="stylesheet" href="../css/networkData.css">
+    <script src="../static/swiper/js/swiper.js"></script>
     <script src="../js/jquery.js"></script>
     <script src="../static/layui/layui.js"></script>
     <title>网络数据安全态势</title>
@@ -61,21 +64,21 @@
             <div class="right">
                 <div class="layui-row">
                     <div class="layui-col col-4 chart-box">
-                        <h3 class="chart-name">数据态势预测</h3>
+                        <h3 class="chart-name chart-click" data-method="setTop" data-chartType="drawLine">数据态势预测</h3>
                         <div class="chart" id="chart-1"></div>
                     </div>
                     <div class="layui-col col-3 chart-box">
-                        <h3 class="chart-name">数据态势预测</h3>
+                        <h3 class="chart-name chart-click" data-method="setTop" data-chartType="drawLiquidFill1">数据防泄漏强度</h3>
                         <div class="chart" id="chart-2"></div>
                     </div>
                     <div class="layui-col col-3 chart-box">
-                        <h3 class="chart-name">数据态势预测</h3>
+                        <h3 class="chart-name chart-click" data-method="setTop" data-chartType="drawLiquidFill2">文件监控强度</h3>
                         <div class="chart" id="chart-3"></div>
                     </div>
                 </div>
                 <div class="layui-row">
                     <div class="layui-col col-4 chart-box">
-                        <h3 class="chart-name">数据态势预测</h3>
+                        <h3 class="chart-name">数据日常操作指数</h3>
                         <div class="chart table-chart">
                             <div class="th-header">
                                 <span>事件</span>
@@ -83,36 +86,16 @@
                                 <span>日期</span>
                             </div>
                             <div class="th-boby">
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
-                                </div>
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
-                                </div>
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
-                                </div>
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
-                                </div>
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
+                                <div class="swiper-container swiper-container1">
+                                    <div class="swiper-wrapper">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="layui-col col-4 chart-box">
-                        <h3 class="chart-name">数据态势预测</h3>
+                        <h3 class="chart-name">数据异常访问指数</h3>
                         <div class="chart table-chart">
                             <div class="th-header">
                                 <span>事件</span>
@@ -120,39 +103,29 @@
                                 <span>日期</span>
                             </div>
                             <div class="th-boby">
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
-                                </div>
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
-                                </div>
-                                <div>
-                                    <span>进程开放率</span>
-                                    <span>80%</span>
-                                    <span>2018-10-10</span>
+                                <div class="swiper-container swiper-container2">
+                                    <div class="swiper-wrapper">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="layui-col col-2"></div>
                 </div>
                 <div class="layui-row">
                     <div class="layui-col col-4 chart-box">
-                        <h3 class="chart-name">数据态势预测</h3>
-                        <div class="chart" id="chart-4"></div>
+                        <h3 class="chart-name chart-click" data-method="setTop" data-chartType="draw3DCylinderH">数据受损指数</h3>
+                        <div class="chart">
+                            <div id="chart-4"></div>
+                        </div>
                     </div>
                     <div class="layui-col col-4 chart-box">
-                        <h3 class="chart-name">数据态势预测</h3>
+                        <h3 class="chart-name chart-click" data-method="setTop" data-chartType="drawPartRing">数据篡改指数</h3>
                         <div class="chart chart-two">
                             <div class="chart-lf" id="chart-5"></div>
                             <div class="chart-rt" id="chart-6"></div>
                         </div>
                     </div>
-                    <div class="layui-col col-2"></div>
                 </div>
             </div>
         </div>
@@ -160,6 +133,22 @@
 </body>
 <script src="../static/echarts/echarts.js"></script>
 <script src="../static/echarts/echarts-liquidfill.min.js"></script>
+<script src="../static/amchart/amcharts.js"></script>
+<script src="../static/amchart/serial.js"></script>
+<script src="../js/initChart.js"></script>
 <script src="../js/networkData.js"></script>
+
+
+<script>
+
+
+    var mySwiper1 = new Swiper('.swiper-container1', {
+        direction: 'vertical',
+        slidesPerView: 4,
+        loop: true,
+        // autoplay: true,
+        // speed: 1000,
+    });
+</script>
 
 </html>

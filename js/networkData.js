@@ -1,479 +1,288 @@
-// chart5
-$(function() {
-    initChart1();
-    initChart2();
-    initChart3();
-    drawChart5();
-    drawChart6();
+var modalTitle;
+var chartTypeState;
+
+// 模态框获取的
+var postModalData;
+
+// 所有图表请求后暂存
+var storageData = {
+    drawLine: [],
+    drawLiquidFill1: [],
+    drawLiquidFill2: [],
+    draw3DCylinderH: [],
+    drawPartRing: [[], []]
+}
+
+var colorLine = ['#FF3838', '#8124FF', '#45CE8D'];
+
+var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
+var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
+    offset: 0,
+    color: 'rgba(28,141,239,0)' // 0% 处的颜色
+},
+{
+    offset: 0.6,
+    color: 'rgba(28,141,239,0.4)' // 0% 处的颜色
+}, {
+    offset: 1,
+    color: 'rgba(28,141,239,1)' // 100% 处的颜色
+}
+], false);
+
+var color3DCylinder = ['#FF3838', '#2420FF'];
+var colorPartRingList = ['#45CE8D', '#FF3838'];
+
+$(function () {
+    layui.use('layer', function () {
+        var $ = layui.jquery, layer = layui.layer;
+        //触发事件
+        var active = {
+            setTop: function () {
+                var that = this;
+                layer.open({
+                    type: 2,
+                    title: ' ',
+                    area: ['70%', '70%'],
+                    shade: 0.3,
+                    offset: ['15%', '15%'],
+                    maxmin: true,
+                    anim: 1,
+                    content: '../pages/chartModal.html',
+                    yes: function () {
+                        $(that).click();
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    },
+                    zIndex: layer.zIndex,
+                    success: function (layero) {
+                        // 子页面弹出成功回调
+                        layero.find('.layui-layer-title').text(modalTitle);
+                    },
+                    full: function (dom) {
+                        dom.find('iframe').contents().find('.content').html("");
+                        dom.find('iframe').contents().find('.content').append('<div id="chartModal"></div>');
+                        var funName = dom.find('iframe')[0].contentWindow.funName;
+                        var postodalData = dom.find('iframe')[0].contentWindow.postodalData;
+                        dom.find('iframe')[0].contentWindow.initChartFun[funName]('chartModal', postodalData);
+                    }
+                });
+            }
+        };
+        $('.chart-click').on('click', function () {
+            modalTitle = $(this).text();
+            chartTypeState = $(this).attr('data-chartType');
+            postModalData = storageData[chartTypeState];
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+    });
+
+    setTimeout(function () {
+        // chart1
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/line_4.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var xAxisData = [];
+                    var sitemArr = [[], [], [], []];
+                    var seriesData = []
+                    res.result.seriesData.forEach(function (item, idx) {
+                        xAxisData.push(item.date);
+                        sitemArr[0].push(item.globalSituation);
+                        sitemArr[1].push(item.risk);
+                        sitemArr[2].push(item.defense);
+                        sitemArr[3].push(item.opera);
+                    });
+                    res.result.legendData.forEach(function (item, idx) {
+                        seriesData.push({
+                            name: item,
+                            type: 'line',
+                            symbol: 'circle',
+                            symbolSize: 8,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: colorLine[idx],
+                                    borderWidth: 1
+
+                                }
+                            },
+                            data: sitemArr[idx]
+                        })
+                    });
+                    storageData.drawLine.push(res.result.legendData);
+                    storageData.drawLine.push(xAxisData);
+                    storageData.drawLine.push(seriesData);
+                    initChartFun.drawLine('chart-1', storageData.drawLine);
+                };
+            }
+        });
+
+        // chart2
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/oneFanPie_1.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var legendData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        legendData.push(item.name);
+                        seriesData.push(item.value);
+                    });
+                    storageData.drawLiquidFill1.push(legendData);
+                    storageData.drawLiquidFill1.push(seriesData);
+                    storageData.drawLiquidFill1.push(colorLiquidFillList1);
+                    storageData.drawLiquidFill1.push(colorLiquidFillList2);
+                    initChartFun.drawLiquidFill('chart-2', storageData.drawLiquidFill1);
+                };
+            }
+        });
+
+        // chart3
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/oneFanPie_1.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var legendData = [];
+                    var seriesData = [];
+                    res.result.seriesData.forEach(function (item) {
+                        legendData.push(item.name);
+                        seriesData.push(item.value);
+                    });
+                    storageData.drawLiquidFill2.push(legendData);
+                    storageData.drawLiquidFill2.push(seriesData);
+                    storageData.drawLiquidFill2.push(colorLiquidFillList1);
+                    storageData.drawLiquidFill2.push(colorLiquidFillList2);
+                    initChartFun.drawLiquidFill('chart-3', storageData.drawLiquidFill2);
+                };
+            }
+        });
+
+        // list4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/device_table_list_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var html = "";
+                    res.result.forEach(function (item) {
+                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
+                            + "<span>" + item.name + "</span>"
+                            + "<span>" + item.value + "%</span>"
+                            + "<span>" + item.date + "</span>"
+                            + "</div>";
+                    });
+                    $('.swiper-container1>.swiper-wrapper').html(html);
+                    var mySwiper1 = new Swiper('.swiper-container1', {
+                        direction: 'vertical',
+                        slidesPerView: 4,
+                        loop: true,
+                        autoplay: true,
+                        speed: 1000,
+                    });
+                };
+            }
+        });
+
+        // list5
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/device_table_list_3.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var html = "";
+                    res.result.forEach(function (item) {
+                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
+                            + "<span>" + item.name + "</span>"
+                            + "<span>" + item.value + "%</span>"
+                            + "<span>" + item.date + "</span>"
+                            + "</div>";
+                    });
+                    $('.swiper-container2>.swiper-wrapper').html(html);
+                    var mySwiper2 = new Swiper('.swiper-container2', {
+                        direction: 'vertical',
+                        slidesPerView: 4,
+                        loop: true,
+                        autoplay: true,
+                        speed: 1000,
+                    });
+                };
+            }
+        });
+
+        // chart4
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/3dH_2.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    res.result.seriesData.forEach(function (item, idx) {
+                        item.color = color3DCylinder[idx];
+                    });
+                    storageData.draw3DCylinderH.push(res.result.seriesData);
+                    initChartFun.draw3DCylinderH('chart-4', storageData.draw3DCylinderH);
+                };
+            }
+        });
+
+        // chart5,6
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/networkDataRing_2.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var resizeChart = [];
+                    var xAxisDataArr = [[], []];
+                    var seriesDataArr = [[], []];
+                    res.result.seriesData.forEach(function (item, idx) {
+                        var domId = 'chart-' + (idx + 5);
+                        xAxisDataArr[idx].push(item.title);
+                        seriesDataArr[idx].push(
+                            {
+                                value: item.value,
+                                name: ''
+                            }, {
+                                value: 100 - item.value,
+                                name: ''
+                            }
+                        );
+                        storageData.drawPartRing[idx].push(xAxisDataArr[idx], seriesDataArr[idx], colorPartRingList[idx]);
+                        var myChart = initChartFun.drawPartRing(domId, storageData.drawPartRing[idx]);
+                        resizeChart.push(myChart);
+                        window.addEventListener("resize", function () {
+                            for (var i = 0; i < resizeChart.length; i++) {
+                                resizeChart[i].resize();
+                            }
+                        });
+                    });
+                };
+            }
+        });
+
+    }, 1000);
+
+
+
 })
-
-function initChart1() {
-    var dom1 = document.getElementById("chart-1");
-    var myChart1 = echarts.init(dom1);
-    option = {
-        title: {
-            // text: '折线图堆叠',
-            textStyle: {
-                color: '#fff',
-                fontSize: '14px',
-            }
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            textStyle: {
-                fontSize: 10,
-                color: '#ccc'
-            },
-            data: [{
-                    name: '全局态势',
-                    icon: 'rect',
-                    color: 'red'
-                },
-                {
-                    name: '威胁',
-                    icon: 'rect',
-                    color: 'aqua'
-                },
-                {
-                    name: '防御',
-                    icon: 'rect',
-                    color: 'green'
-                },
-                {
-                    name: '操作',
-                    icon: 'rect',
-                    color: 'blue'
-                },
-            ]
-        },
-        grid: {
-            left: '15%',
-            top: '20%',
-            right: '20%',
-            bottom: '20%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            axisLine: {
-                lineStyle: {
-                    color: '#ccc'
-                }
-            },
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        },
-        yAxis: {
-            type: 'value',
-            name: '最值',
-            nameLocation: 'end',
-            nameGap: 5,
-            splitLine: false, //辅助线
-            splitNumber: 5,
-            max: 100,
-            min: 0,
-            nameTextStyle: {
-                color: ' #fff',
-                fontSize: 10,
-                align: 'left'
-            },
-            boundaryGap: true, //折现与轴间距
-            axisLine: {
-                lineStyle: {
-                    color: '#ccc'
-                }
-            }
-        },
-        series: [{
-                name: '全局态势',
-                type: 'line',
-                stack: '总量',
-                data: [20, 32, 10, 34, 0, 30, 10]
-            },
-            {
-                name: '威胁',
-                type: 'line',
-                stack: '总量',
-                data: [22, 2, 11, 24, 9, 30, 31]
-            },
-            {
-                name: '防御',
-                type: 'line',
-                stack: '总量',
-                data: [5, 32, 21, 14, 10, 30, 41]
-            },
-            {
-                name: '操作',
-                type: 'line',
-                stack: '总量',
-                data: [32, 32, 1, 34, 15, 30, 32]
-            }
-        ]
-    };
-
-    if (option && typeof option === "object") {
-        myChart1.setOption(option, true);
-        window.onresize = myChart1.resize;
-    }
-}
-
-function initChart2() {
-    var dom = document.getElementById("chart-2");
-    var myChart2 = echarts.init(dom);
-    var option = {
-        title: {
-            text: '保密系统更新率',
-            bottom: '8%',
-            left:'25%',
-            textStyle: {
-                fontSize: 14,
-                color: '#fff',
-                align: 'center',
-                verticalAlign:'bottom',
-            }
-        },
-        series: [{
-            type: 'liquidFill',
-            radius: '85%',
-            data: [0.5, 0.45, 0.4, 0.3],
-            // 水球颜色
-            color: ['#FE5555', '#F07581', '#FB5E61'],
-            center: ['57%', '40%'],
-            outline: {
-                // show: false
-                borderDistance: 5,
-                itemStyle: {
-                    borderWidth: 2,
-                    borderColor: '#13FDCE',
-                },
-            },
-            backgroundStyle: { //背景颜色设置
-                // color: new echarts.graphic.RadialGradient(['center','red', 'blue']),
-                opacity: 0.4
-            },
-                    // "#160f64",
-            label: {
-                normal: {
-                    color: '#fff',
-                    insideColor: '#ccc',
-                    fontSize: 25,
-                    position :['50%','30%']
-                }
-            }
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart2.setOption(option, true);
-        window.onresize = myChart2.resize;
-    }
-}
-
-function initChart3() {
-    var dom = document.getElementById("chart-3");
-    var myChart3 = echarts.init(dom);
-    var option = {
-        title: {
-            text: '文件系统更新率',
-            bottom: '8%',
-            left:'25%',
-            textStyle: {
-                fontSize: 14,
-                color: '#fff',
-                align: 'center',
-                verticalAlign:'bottom',
-            }
-        },
-        series: [{
-            type: 'liquidFill',
-            name: 'hello chiana',
-            radius: '85%',
-            center: ['57%', '40%'],
-            color: ['#661fca','#4a19a1'],
-            data: [0.45,0.44],
-            outline: { //外边框样式
-                show: true,
-                borderDistance: 5,
-                itemStyle: {
-                    color: 'none',
-                    borderColor: '#203487',
-                    borderWidth: 2,
-                    shadowBlur: 20,
-                    shadowColor: 'rgba(0, 0, 0, 0.25)'
-                }
-            },
-            backgroundStyle: { //背景颜色设置
-                color:"#160f64",
-                opacity: 0.4
-            },
-            // itemStyle: {
-            //     opacity: 0.95,
-            //     shadowBlur: 50,
-            //     shadowColor: 'rgba(0, 0, 0, 1)'
-            // },
-            // emphasis: {
-            //     itemStyle: {
-            //         opacity: 0.8
-            //     }
-            // },
-            label: { //标签样式
-                normal: {
-                    color: '#fff',
-                    insideColor: '#ccc',
-                    fontSize: 25,
-                    position :['50%','30%']
-                }
-            }
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart3.setOption(option, true);
-        window.onresize = myChart3.resize;
-    }
-}
-// chart5
-function drawChart5() {
-    var dom = document.getElementById("chart-5");
-    var myChart5 = echarts.init(dom);
-    option = null;
-    var echartData = [{
-        value: 50,
-        name: '交卷时间'
-    }, {
-        value: 50,
-        name: '未交卷时间'
-    }];
-    var innerColor = '#2bff8f';
-    var textColor = '#50e0ff';
-    var startColor = 'rgba(73,223,240,0.1)';
-    var endColor = 'rgba(73,223,240,0.8)';
-    var scale = 1;
-    var color = [{
-        type: 'linear',
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [{
-            offset: 0,
-            color: startColor
-        }, {
-            offset: 1,
-            color: endColor
-        }],
-        globalCoord: false
-    }, 'none'];
-    var rich = {
-        time: {
-            color: innerColor,
-            fontSize: 32 * scale,
-            padding: [0, 0],
-            fontWeight: 'bold'
-        },
-        unit: {
-            color: innerColor,
-            fontSize: 14 * scale,
-            padding: [0, 0, 0, 0],
-            verticalAlign: 'bottom',
-        }
-    }
-    option = {
-        title: [{
-            text: '网络宽带占用率',
-            x: '50%',
-            y: '80%',
-            textAlign: 'center',
-            textStyle: {
-                color: '#fff',
-                textAlign: 'center',
-                fontSize: 15 * scale,
-                fontWeight: 'bold'
-            },
-        }],
-        legend: {
-            show: false,
-            itemGap: 12,
-            data: ['通过', '未通过']
-        },
-        series: [{
-                name: 'Line 0',
-                type: 'pie',
-                clockWise: false,
-                hoverAnimation: false,
-                center: ['50%', '40%'],
-                radius: ['75%', '67.5%'],
-                itemStyle: {
-                    normal: {
-                        color: innerColor
-                    }
-                },
-                data: [{
-                    value: 10,
-                    name: '',
-                }],
-                label: {
-                    normal: {
-                        formatter: function(params) {
-                            var time = echartData[0].value;
-                            return '{time|' + time + '}{unit|min}';
-                        },
-                        position: 'center',
-                        textStyle: {
-                            fontSize: 38 * scale,
-                            fontWeight: 'bold',
-                            color: textColor
-                        },
-                        rich: rich
-                    }
-                }
-            },
-            {
-                name: 'Line 1',
-                type: 'pie',
-                clockWise: false,
-                hoverAnimation: false,
-                center: ['50%', '40%'],
-                radius: ['67.5%', '55%'],
-                color: color,
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: false
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                    }
-                },
-                data: echartData,
-            }
-        ],
-    };
-    if (option && typeof option === "object") {
-        myChart5.setOption(option, true);
-        window.onresize = myChart5.resize;
-    }
-}
-// chart6
-function drawChart6() {
-    var dom = document.getElementById("chart-6");
-    var myChart6 = echarts.init(dom);
-    option = null;
-    var echartData = [{
-        value: 50,
-        name: '交卷时间'
-    }, {
-        value: 50,
-        name: '未交卷时间'
-    }];
-    var innerColor = '#2bff8f';
-    var textColor = '#50e0ff';
-    var startColor = 'rgba(73,223,240,0.1)';
-    var endColor = 'rgba(73,223,240,0.8)';
-    var scale = 1;
-    var color = [{
-        type: 'linear',
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [{
-            offset: 0,
-            color: startColor
-        }, {
-            offset: 1,
-            color: endColor
-        }],
-        globalCoord: false
-    }, 'none'];
-    var rich = {
-        time: {
-            color: innerColor,
-            fontSize: 32 * scale,
-            padding: [0, 0],
-            fontWeight: 'bold'
-        },
-        unit: {
-            color: innerColor,
-            fontSize: 14 * scale,
-            padding: [0, 0, 0, 0],
-            verticalAlign: 'bottom',
-        }
-    }
-    option = {
-        title: [{
-            text: '网络宽带占用率',
-            x: '50%',
-            y: '80%',
-            textAlign: 'center',
-            textStyle: {
-                color: '#fff',
-                textAlign: 'center',
-                fontSize: 15 * scale,
-                fontWeight: 'bold'
-            },
-        }],
-        legend: {
-            show: false,
-            itemGap: 12,
-            data: ['通过', '未通过']
-        },
-        series: [{
-                name: 'Line 0',
-                type: 'pie',
-                clockWise: false,
-                hoverAnimation: false,
-                center: ['50%', '40%'],
-                radius: ['75%', '67.5%'],
-                itemStyle: {
-                    normal: {
-                        color: innerColor
-                    }
-                },
-                data: [{
-                    value: 50,
-                    name: '',
-                }],
-                label: {
-                    normal: {
-                        formatter: function(params) {
-                            var time = echartData[0].value;
-                            return '{time|' + time + '}{unit|min}';
-                        },
-                        position: 'center',
-                        textStyle: {
-                            fontSize: 38 * scale,
-                            fontWeight: 'bold',
-                            color: textColor
-                        },
-                        rich: rich
-                    }
-                }
-            },
-            {
-                name: 'Line 1',
-                type: 'pie',
-                clockWise: false,
-                hoverAnimation: false,
-                center: ['50%', '40%'],
-                radius: ['67.5%', '55%'],
-                color: color,
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: false
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                    }
-                },
-                data: echartData,
-            }
-        ],
-    };
-    if (option && typeof option === "object") {
-        myChart6.setOption(option, true);
-        window.onresize = myChart6.resize;
-    }
-}

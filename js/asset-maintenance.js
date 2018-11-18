@@ -1,3 +1,4 @@
+var modalTitle;
 var chartTypeState;
 
 // 模态框获取的
@@ -5,13 +6,14 @@ var postModalData;
 
 // 所有图表请求后暂存
 var storageData = {
-    drawHorizontalBar: [],
+    draw3DCylinderH: [],
     drawVerticalBar: [],
     drawPartRing: [[], [], []],
     drawHollowRing: [[], []]
 }
 
 var colorBarList = ['#2420FF', '#45CE8D', '#FB943A', '#FF3838'];
+var color3DCylinder = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var colorVerticalBarList = ['#FF3838', '#FB943A', '#2420FF'];
 var colorPartRingList = ['#2420FF', '#45CE8D', '#FF3838'];
 var colorHollowRingList = ['#FF3838', '#9000FF', '#2420FF', '#EC13FF', '#45CE8D', '#FB943A'];
@@ -25,7 +27,7 @@ $(function () {
                 var that = this;
                 layer.open({
                     type: 2,
-                    title: '图表的模态框测试',
+                    title: ' ',
                     area: ['70%', '70%'],
                     shade: 0.3,
                     offset: ['15%', '15%'],
@@ -41,11 +43,13 @@ $(function () {
                     zIndex: layer.zIndex,
                     success: function (layero) {
                         // 子页面弹出成功回调
+                        layero.find('.layui-layer-title').text(modalTitle);
                     }
                 });
             }
         };
         $('.chart-click').on('click', function () {
+            modalTitle = $(this).text();
             chartTypeState = $(this).attr('data-chartType');
             postModalData = storageData[chartTypeState];
             var othis = $(this), method = othis.data('method');
@@ -59,17 +63,14 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/maintenance_horizontalBar_4.json",
+            url: "../test-json/3dH_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    var yAxisData = [];
-                    var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
-                        yAxisData.push(item.title);
-                        seriesData.push(item.value);
+                    res.result.seriesData.forEach(function (item, idx) {
+                        item.color = color3DCylinder[idx];
                     });
-                    storageData.drawHorizontalBar.push(yAxisData, seriesData, colorBarList);
-                    initChartFun.drawHorizontalBar('chart1', storageData.drawHorizontalBar);
+                    storageData.draw3DCylinderH.push(res.result.seriesData);
+                    initChartFun.draw3DCylinderH('chart1', storageData.draw3DCylinderH);
                 };
             }
         });

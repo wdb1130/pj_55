@@ -1,3 +1,4 @@
+var modalTitle;
 var chartTypeState;
 
 // 模态框获取的
@@ -45,7 +46,7 @@ $(function () {
                 var that = this;
                 layer.open({
                     type: 2,
-                    title: '图表的模态框测试',
+                    title: ' ',
                     area: ['70%', '70%'],
                     shade: 0.3,
                     offset: ['15%', '15%'],
@@ -61,6 +62,7 @@ $(function () {
                     zIndex: layer.zIndex,
                     success: function (layero) {
                         // 子页面弹出成功回调
+                        layero.find('.layui-layer-title').text(modalTitle);
                     },
                     full: function (dom) {
                         dom.find('iframe').contents().find('.content').html("");
@@ -73,6 +75,7 @@ $(function () {
             }
         };
         $('.chart-click').on('click', function () {
+            modalTitle = $(this).text();
             chartTypeState = $(this).attr('data-chartType');
             postModalData = storageData[chartTypeState];
             var othis = $(this), method = othis.data('method');

@@ -1,0 +1,105 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "legendData": ["全局态势", "资产", "服务", "用户", "数据"],
+        "seriesData": [
+            {
+                "date": "2018-01",
+                "globalSituation": 70,
+                "asset": 54,
+                "serve": 10,
+                "user": 20,
+                "data": 54
+            },
+            {
+                "date": "2018-02",
+                "globalSituation": 10,
+                "asset": 20,
+                "serve": 82,
+                "user": 40,
+                "data": 54
+            },
+            {
+                "date": "2018-03",
+                "globalSituation": 60,
+                "asset": 30,
+                "serve": 25,
+                "user": 20,
+                "data": 54
+            },
+            {
+                "date": "2018-04",
+                "globalSituation": 60,
+                "asset": 50,
+                "serve": 10,
+                "user": 54,
+                "data": 54
+            },
+            {
+                "date": "2018-05",
+                "globalSituation": 50,
+                "asset": 12,
+                "serve": 70,
+                "user": 20,
+                "data": 54
+            },
+            {
+                "date": "2018-06",
+                "globalSituation": 50,
+                "asset": 15,
+                "serve": 11,
+                "user": 50,
+                "data": 54
+            },
+            {
+                "date": "2018-07",
+                "globalSituation": 10,
+                "asset": 15,
+                "serve": 11,
+                "user": 80,
+                "data": 54
+            },
+            {
+                "date": "2018-08",
+                "globalSituation": 20,
+                "asset": 15,
+                "serve": 11,
+                "user": 10,
+                "data": 54
+            },
+            {
+                "date": "2018-09",
+                "globalSituation": 20,
+                "asset": 15,
+                "serve": 11,
+                "user": 10,
+                "data": 54
+            },
+            {
+                "date": "2018-10",
+                "globalSituation": 20,
+                "asset": 15,
+                "serve": 11,
+                "user": 10,
+                "data": 54
+            },
+            {
+                "date": "2018-11",
+                "globalSituation": 20,
+                "asset": 15,
+                "serve": 11,
+                "user": 10,
+                "data": 54
+            },
+            {
+                "date": "2018-12",
+                "globalSituation": 50,
+                "asset": 15,
+                "serve": 11,
+                "user": 80,
+                "data": 54
+            }
+        ]
+    }
+}
