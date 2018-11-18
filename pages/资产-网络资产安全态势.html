@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网络用户安全态势</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/asset-safe-situation.css">
+    <link rel="stylesheet" href="../static/swiper/css/swiper.css">
+    <script src="../static/swiper/js/swiper.js"></script>
+    <script src="../js/jquery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">网络用户安全态势</div>
+            <div class="info">
+                <div class="info-item">
+                    <span class="flag">高危设备：</span>
+                    <span class="num"> 36</span>
+                    台
+                </div>
+                <div class="info-item">
+                    <span class="flag">中危设备：</span>
+                    <span class="num">226</span>
+                    台
+                </div>
+                <div class="info-item">
+                    <span class="flag">低危设备：</span>
+                    <span class="num">606</span>
+                    台
+                </div>
+            </div> 
+            <div class="user-msg">
+                <a href="#" class="gohome">
+                    <i></i>
+                    <span>返回首页</span>
+                </a>
+                <div class="username">
+                    <i></i>
+                    <span>Admin1</span>
+                    <div class="btn">退出登录</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="content">
+            <div class="col col-1">
+                <div class="chart-box">
+                    <span class="chart-name">资产安全性指数</span>
+                    <div class="chart" id="chart1"> </div>
+                </div>
+            </div>
+
+            <div class="col col-2">
+                <div class="chart-box">
+                    <span class="chart-name">资产态势预测分析</span>
+                    <div id="chart2" class="chart"></div>
+                </div>
+                <div class="chart-box tag-box">
+                    <div class="tag-1 tag-top">
+                        <a href="#">
+                            <div>60%</div>
+                            <div>资产态势分析</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="chart-box tag-box">
+                    <div class="tag-2">
+                        <a href="#">
+                            <div class="relative">
+                                <div>60%</div>
+                                <div>网络资产运维</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <span class="chart-name">资产可用性指数</span>
+                    <div class="chart">
+                        <div id="chart3"></div>
+                        <div id="chart4"></div>
+                        <div id="chart5"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-empty"></div>
+            <div class="col col-3">
+                <div class="chart-box">
+                    <span class="chart-name">木马攻击事件指数</span>
+                    <div id="chart6" class="chart"></div>
+                </div>
+                <div class="chart-box tag-box">
+                    <div class="tag-3 tag-top">
+                        <a href="#">
+                            <div class="relative">
+                                <div>60%</div>
+                                <div>用户行为指数</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="chart-box tag-box">
+                    <div class="tag-4">
+                        <a href="#">
+                            <div>60%</div>
+                            <div>用户威胁指数</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <span class="chart-name">设备资源开发率</span>
+                    <div id="chart4" class="chart">
+                        <div class="chart table-chart">
+                            <div class="th-header">
+                                <span>事件</span>
+                                <span>值</span>
+                                <span>日期</span>
+                            </div>
+                            <div class="th-boby">
+                                <div>
+                                    <span>进程开放率</span>
+                                    <span>80%</span>
+                                    <span>2018-10-10</span>
+                                </div>
+                                <div>
+                                    <span>进程开放率</span>
+                                    <span>80%</span>
+                                    <span>2018-10-10</span>
+                                </div>
+                                <div>
+                                    <span>进程开放率</span>
+                                    <span>80%</span>
+                                    <span>2018-10-10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-4">
+                <div class="chart-box">
+                    <span class="chart-name">病毒攻击事件指数</span>
+                    <div class="chart table-chart">
+                        <div class="th-header">
+                            <span>事件</span>
+                            <span>值</span>
+                            <span>日期</span>
+                        </div>
+                        <div class="th-boby">
+                            <div>
+                                <span>进程开放率</span>
+                                <span>80%</span>
+                                <span>2018-10-10</span>
+                            </div>
+                            <div>
+                                <span>进程开放率</span>
+                                <span>80%</span>
+                                <span>2018-10-10</span>
+                            </div>
+                            <div>
+                                <span>进程开放率</span>
+                                <span>80%</span>
+                                <span>2018-10-10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-box">
+                    <span class="chart-name">设备病毒防护强度</span>
+                    <div class="chart" id="chart7"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="../static/echarts/echarts.js"></script>
+    <!-- <script src="../js/user-safe-situation.js"></script> -->
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            slidesPerView: 4,
+            loop: true,
+            // autoplay: true,
+            // speed: 1000,
+        });
+    </script>
+</body>
+
+</html>

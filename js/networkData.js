@@ -66,19 +66,19 @@ function initChart1() {
         },
         yAxis: {
             type: 'value',
-            name: '最值',
-            nameLocation: 'end',
-            nameGap: 5,
+            // name: '最值',
+            // nameLocation: 'end',
+            // nameGap: 5,
             splitLine: false, //辅助线
-            splitNumber: 5,
-            max: 100,
-            min: 0,
+            // splitNumber: 5,
+            // max: 100,
+            // min: 0,
+            boundaryGap: true,
             nameTextStyle: {
                 color: ' #fff',
                 fontSize: 10,
                 align: 'left'
             },
-            boundaryGap: true, //折现与轴间距
             axisLine: {
                 lineStyle: {
                     color: '#ccc'

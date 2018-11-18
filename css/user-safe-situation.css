@@ -1,6 +1,8 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
     background: url('../img/user_bg.png');
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -9,253 +11,190 @@ html, body {
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
+    box-sizing: border-box;
 }
 .container {
     display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 0 4rem 1rem 0rem;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
     color: #fff;
 }
-.opera-title {
-    position: absolute;
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* width: calc(100% - 8rem); */
+.header {
     width: 100%;
     height: 3rem;
     background: url(../img/top_l.png) no-repeat center top;
     background-size: 100% 100%;
 }
-.opera-title > div:first-child {
+.header div {
     width: 27%;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 3.2rem;
     color: #C0D4F9;
 }
-.center-bg {
-    position: absolute;
-    width: 35%;
-    height: 35%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.u-bg{
-    position: absolute;
-    width: 70%;
-    height: 70%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background: url('../img/user/user_c.png') no-repeat; */
-    background-size: 100% 100%;
-    z-index: -100;
-}
-.s-bg{
-    position: absolute;
-    width: 38%;
-    height: 40%;
-    z-index: 100;
-    cursor: pointer;
-}
-/* 蓝 */
-.s-bg1{
+.content {
+    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 1rem 4rem 2rem;
+}
+.content .col {
+    display: flex;
     flex-direction: column;
-    top: 4%;
-    left: -18%;
+    justify-content: center;
+    flex: 3;
+}
+.content .col-empty {
+    flex: 2;
+}
+
+.chart-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.col-1 .chart-box {
+    height: 30%;
+}
+.col-2 .chart-box,.col-3 .chart-box {
+    flex: 2;
+}
+.col-2 .tag-box,.col-3 .tag-box {
+    flex: 1.7;
+}
+
+.content .col-4 {
+    margin-left: 1.5rem;
+    flex: 2.8;
+}
+.col-4 .chart-box {
+    height: 25%;
+}
+
+.tag-box>div {
+    display: flex;
+    height: 100%;
+    width: 55%;
+    cursor: pointer;
+    justify-content: flex-end;
+    align-items: center;
+    line-height: 1.5rem;
+    flex-direction: column;
+}
+.tag-box a {
+    height: 60%;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+}
+.tag-1,.tag-2 {
+    position: absolute;
+    left: 35%;
+}
+.tag-top {
+    position: absolute;
+    top: -25%;
+}
+
+.tag-1{
     background: url('../img/user/user_1.png') no-repeat center top;
     background-size: 100% 200%;
 }
-.s-bg1:hover{
+.tag-1:hover{
     background: url('../img/user/user_1.png') no-repeat center bottom;
     background-size: 100% 200%;
 }
-/* 紫 */
-.s-bg2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    top: 4%;
-    right: -15%;
-    background: url('../img/user/user_3.png') no-repeat center top;
-    background-size: 100% 200%;
-}
-.s-bg2:hover{
-    background: url('../img/user/user_3.png') no-repeat center bottom;
-    background-size: 100% 200%;
-}
-/* 黄 */
-.s-bg3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    bottom: -8%;
-    right: -15%;
-    background: url('../img/user/user_4.png') no-repeat center top;
-    background-size: 100% 200%;
-}
-.s-bg3:hover{
-    background: url('../img/user/user_4.png') no-repeat center bottom;
-    background-size: 100% 200%;
-}
-/* 绿 */
-.s-bg4{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    bottom: -8%;
-    left: -18%;
+.tag-2{
     background: url('../img/user/user_2.png') no-repeat center top;
     background-size: 100% 200%;
 }
-.s-bg4:hover{
+.tag-2:hover{
     background: url('../img/user/user_2.png') no-repeat center bottom;
     background-size: 100% 200%;
 }
-.left-content,
-.right-content {
-    padding-top: 2rem;
-    display: flex;
-    flex: 1;
+.tag-3{
+    background: url('../img/user/user_3.png') no-repeat center top;
+    background-size: 100% 200%;
 }
-.left-content{
-    flex-direction: column;
+.tag-3:hover{
+    background: url('../img/user/user_3.png') no-repeat center bottom;
+    background-size: 100% 200%;
 }
-.left-content > div {
-    flex: 1;
+.tag-4{
+    background: url('../img/user/user_4.png') no-repeat center top;
+    background-size: 100% 200%;
 }
-.right-content > div {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.tag-4:hover{
+    background: url('../img/user/user_4.png') no-repeat center bottom;
+    background-size: 100% 200%;
 }
-.top-chart,
-.down-chart {
-    flex: 1;
-}
-.left-content > div:nth-child(1){
-    display: flex;
-}
-.left-content > div:nth-child(1) > .nbsp:nth-child(1){
-    flex: .5;
-}
-.chart1{
-    display: flex;
-    flex-direction: column;
-    flex: 2;
+
+.col-1 .chart-box,.col-2 .chart-box:not(.tag-box) {
     background: url('../img/user/user_b_06.png') no-repeat;
     background-size: 100% 100%;
-    padding: .5rem;
 }
-.chart1 > span {
-    padding-right: 1rem;
-    text-align: right;
-}
-#chart1{
-    flex: 1;
-}
-.left-content > div:nth-child(1) > .nbsp:last-child{
-    flex: 1;
-}
-.left-content > div:nth-child(2){
-    display: flex;
-}
-.left-content > div:nth-child(2) > .nbsp:nth-child(1){
-    flex: .2;
-}
-.slider1 {
-    display: flex;
-    flex-direction: column;
-    flex: 1.5;
-    background: url('../img/user/user_b_06.png') no-repeat;
-    background-size: 100% 100%;
-    padding: .5rem;
-}
-.slider1 > span{
-    text-align: right;
-    padding-right: 1rem;
-}
-.slider1 > div{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-.th-title{
-    padding: .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.td-body{
-    flex: 1;
-    display: flex;
-}
-.td-body > div {
-    flex: 1;
-}
-.th-title > span{
-    flex: 1;
-    text-align: center;
-}
-.left-content > div:nth-child(2) > .nbsp:last-child{
-    flex: 1;
-}
-.swiper-slide-detail{
-    display: flex;
-}
-.swiper-slide-detail:nth-child(2n){
-    background: #061043;
-}
-.swiper-slide-detail > span{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.right-content > div:first-child {
-    display: flex;
-    flex-direction: column;
-}
-.right-content > div:first-child > div{
-    flex: 1;
-}
-.top-chart,
-.down-chart {
-    display: flex;
-    flex-direction: column;
+.col-3 .chart-box:not(.tag-box),.col-4 .chart-box {
     background: url('../img/user/user_b_03.png') no-repeat;
     background-size: 100% 100%;
-    padding: .5rem;
 }
-#chart3,
-#chart4 {
+.col-4 .chart-box {
+    margin-top: 3rem;
+}
+
+
+.chart-box .chart-name {
+    display: inline-block;
+    height: 1rem;
+    text-align: right;
+    font-size: 13px;
+    padding-right: 1.2rem;
+    line-height: 1.5rem;
+}
+.col-3 .chart-name,
+.col-4 .chart-name {
+    padding-left: 1.2rem;
+    text-align: left;
+
+}
+.chart-box .chart {
     flex: 1;
+    width: 100%;
 }
-.right-content > div:last-child {
+.table-chart {
+    font-size: 12px;
+}
+.table-chart .th-header {
+    padding-top: 1rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
     display: flex;
-    flex-direction: column;
+    text-align: center;
+    color: #124BCD;
 }
-.right-content > div:last-child > div{
+
+.table-chart .th-header span {
     flex: 1;
 }
-.right-content > div:last-child > .nbsp{
-    flex: .5;
-}
-.chart-ws{
+
+.table-chart .th-boby {
     flex: 1;
+    padding: 0.5rem;
+    overflow: hidden;
+    color: #C5D9FF;
+}
+
+.table-chart .th-boby>div {
     display: flex;
+    text-align: center;
+    padding: .5rem 0;
 }
-.chart-ws > div{
+
+.table-chart .th-boby>div:nth-child(2n+1) {
+    background: #061044;
+}
+
+.table-chart .th-boby span {
     flex: 1;
 }
