@@ -216,30 +216,31 @@ var initChartFun = {
                 orient: 'vertical',
                 x: 'left',
                 y: 'center',
-                data: postModalData[0]
+                data: postModalData[0],
+                textStyle: {
+                    color: '#fff'
+                }
             },
             grid: {
                 x: 100,
                 y: 15,
                 x2: 0,
-                y2: 0,
+                y2: 10,
                 containLabel: true
             },
             xAxis: [
                 {
                     type: 'category',
-                    axisLine: {
+                    axisLine:{
                         lineStyle: {
-                            color: '#1255F0'
-                        }
+                            color: '#1941B3'
+                        },
                     },
-                    axisLabel: {
-                        show: true,
-                        textStyle: {
-                            color: '#8ECEEE'
-                        }
+                    axisLabel:{
+                        color:'#ddd',
+                        fontSize: 16
                     },
-                    data: postModalData[1],
+                    data: postModalData[1]
                 }
             ],
             yAxis: [
@@ -248,21 +249,17 @@ var initChartFun = {
                     max: 100,
                     type: 'value',
                     name: '量值',
-                    axisLine: {
+                    axisLine:{
                         lineStyle: {
-                            color: '#8ECEEE'
-                        }
+                            color: '#1941B3'
+                        },
                     },
-                    axisLabel: {
-                        show: true,
-                        textStyle: {
-                            color: '#8ECEEE'
-                        }
+                    axisLabel:{
+                        color:'#ddd'
                     },
-                    splitLine: {
-                        show: true,
-                        lineStyle: {
-                            color: '#8ECEEE'
+                    splitLine :{
+                        lineStyle:{
+                            color: '#121C64'
                         }
                     }
                 }
