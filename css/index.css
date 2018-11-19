@@ -1,10 +1,10 @@
 html, body {
     margin: 0;
-    background: url('../img/center/center-bg.png');
+    background: url('../img/bg_02.png');
     background-repeat: no-repeat;
     background-attachment:fixed;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/center/centercenter-bg.png', sizingMethod='scale');
-    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/center/center-bg.png', sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg_02.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg_02.png', sizingMethod='scale');
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
@@ -13,18 +13,20 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45px;
+    height: 3.5rem;
     color: #fff;
     font-weight: 700;
     overflow: hidden;
+    background: url(../img/top_c.png) no-repeat;
+    background-size:100% 100%;
 }
 .logo span{
     display: inline-block;
     height: 100%;
     padding-left: 55px;
-    line-height: 45px;
-    background: url('../img/login/logo.png') no-repeat;
-    background-size: 45px 45px;
+    line-height: 3.2rem;
+    background: url('../img/login/logo.png') no-repeat left 20%;
+    background-size: 2.5rem 2.5rem;
     font-size: 22px;
 }
 .content {
@@ -35,7 +37,7 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 1rem 4rem 3rem 4rem;
+    padding: 2rem 4rem 3rem;
 }
 .top{
     flex: 1;

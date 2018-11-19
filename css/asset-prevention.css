@@ -1,11 +1,11 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: url('../img/asset/asset_fy.png');
+    background: url('../img/bg_03.png');
     background-repeat: no-repeat;
     background-attachment:fixed;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/asset/asset_fy.png', sizingMethod='scale');
-    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/asset/asset_fy.png', sizingMethod='scale');
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg_03.png', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/bg_03.png', sizingMethod='scale');
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
@@ -18,16 +18,26 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: .5rem 4rem 1rem 4rem;
+    padding: 4rem 8rem 4rem;
     color: #fff;
 }
 .opera-title {
+    position: absolute;
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 8rem);
-    padding-left: 1rem;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: url(../img/top_l_l.png) no-repeat center top;
+    background-size: 100% 100%;
 }
 .opera-title > div:first-child {
+    width: 39%;
+    text-align: center;
+    height: 1.5rem;
     font-size: 1.5rem;
     color: #C0D4F9;
 }
@@ -51,8 +61,14 @@ span.sp {
     background: url('../img/asset/asset_fy_03.png') no-repeat;
     background-size: 100% 100%;
 }
+.empty{
+    width:4rem;
+}
+.empty-row {
+    height: 1rem;
+}
 .chart-group .title {
-    padding-top: .5rem;
+    padding-top: .4rem;
     padding-left: 2rem;
     font-size: 1.3rem;
     color: #C5D9FF;
