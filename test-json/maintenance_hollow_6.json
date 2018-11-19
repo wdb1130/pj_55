@@ -2,7 +2,7 @@
     "resultCode": 200,
     "resultMessage": "请求成功",
     "result": {
-        "legendData": ["不同协议包分布变化率", "不同协议包分布变化率"],
+        "legendData": ["不同协议包分布变化率", "不同协议包大小变化率"],
         "seriesData": [
             [
                 {

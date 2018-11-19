@@ -16,8 +16,8 @@ var storageData = {
     drawVerticalBarH: []
 }
 
-var ColorOneFanPie1List = ['#45CE8D', 'rgba(69,206,141, .5)'];
-var ColorOneFanPie2List = ['#FB943A', 'rgba(251,148,58, .5)'];
+var colorOneFanPie1List = ['#45CE8D', 'rgba(69,206,141, .5)'];
+var colorOneFanPie2List = ['#FB943A', 'rgba(251,148,58, .5)'];
 var colorVerticalBarList = ['#45CE8D', '#9000FF'];
 var colorLineList1 = ['#FF3838', '#9000FF', '#45CE8D'];
 var colorLineList2 = ['#2420FF', '#EC13FF', '#FB943A', '#45CE8D', '#FF3838'];
@@ -65,11 +65,13 @@ $(function () {
                         layero.find('.layui-layer-title').text(modalTitle);
                     },
                     full: function (dom) {
-                        dom.find('iframe').contents().find('.content').html("");
-                        dom.find('iframe').contents().find('.content').append('<div id="chartModal"></div>');
-                        var funName = dom.find('iframe')[0].contentWindow.funName;
-                        var postodalData = dom.find('iframe')[0].contentWindow.postodalData;
-                        dom.find('iframe')[0].contentWindow.initChartFun[funName]('chartModal', postodalData);
+                        if (chartTypeState == "drawLiquidFill") {
+                            dom.find('iframe').contents().find('.content').html("");
+                            dom.find('iframe').contents().find('.content').append('<div id="chartModal"></div>');
+                            var funName = dom.find('iframe')[0].contentWindow.funName;
+                            var postodalData = dom.find('iframe')[0].contentWindow.postodalData;
+                            dom.find('iframe')[0].contentWindow.initChartFun[funName]('chartModal', postodalData);
+                        }
                     }
                 });
             }
@@ -123,7 +125,7 @@ $(function () {
                     });
                     storageData.drawOneFanPie1.push(legendData);
                     storageData.drawOneFanPie1.push(seriesData);
-                    storageData.drawOneFanPie1.push(ColorOneFanPie1List);
+                    storageData.drawOneFanPie1.push(colorOneFanPie1List);
                     initChartFun.drawOneFanPie('chart2', storageData.drawOneFanPie1);
                 };
             }
@@ -145,7 +147,7 @@ $(function () {
                     });
                     storageData.drawOneFanPie2.push(legendData);
                     storageData.drawOneFanPie2.push(seriesData);
-                    storageData.drawOneFanPie2.push(ColorOneFanPie2List);
+                    storageData.drawOneFanPie2.push(colorOneFanPie2List);
                     initChartFun.drawOneFanPie('chart3', storageData.drawOneFanPie2);
                 };
             }
@@ -177,6 +179,12 @@ $(function () {
                             lineStyle: {
                                 normal: {
                                     width: 1
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
                                 }
                             },
                             itemStyle: {
@@ -228,6 +236,12 @@ $(function () {
                                     width: 1
                                 }
                             },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
                             itemStyle: {
                                 normal: {
                                     color: colorLineList2[idx],
@@ -274,6 +288,12 @@ $(function () {
                             lineStyle: {
                                 normal: {
                                     width: 1
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
                                 }
                             },
                             itemStyle: {
@@ -337,6 +357,12 @@ $(function () {
                             itemStyle: {
                                 normal: {
                                     color: colorVerticalBarList[idx]
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
                                 }
                             },
                             barWidth: 12,

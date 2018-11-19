@@ -194,6 +194,12 @@ $(function () {
                                     width: 1
                                 }
                             },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
                             areaStyle: {
                                 normal: {
                                     color: colorLineGradientList[idx],
@@ -217,37 +223,7 @@ $(function () {
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
     }, 1000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
 // chart1
@@ -285,142 +261,5 @@ function drawChart1() {
     if (option && typeof option === "object") {
         myChart1.setOption(option, true);
         window.onresize = myChart1.resize;
-    }
-}
-
-// chart4
-function drawChart4() {
-    var dom4 = document.getElementById("chart4");
-    var myChart4 = echarts.init(dom4);
-    option = null;
-    option = {
-        title: {
-            text: '',
-            x: 'center',
-            y: 0,
-            textStyle: {
-                color: '#3259B8',
-                fontSize: 16,
-                fontWeight: 'normal',
-            }
-        },
-        visualMap: {
-            min: 15202,
-            max: 159980,
-            dimension: 1,
-            left: 'right',
-            top: 'top',
-            text: ['HIGH', 'LOW'], // 文本，默认为数值文本
-            calculable: true,
-            itemWidth: 18,
-            itemHeight: 160,
-            textStyle: {
-                color: '#3259B8',
-                height: 56,
-                fontSize: 11,
-                lineHeight: 60,
-            },
-            inRange: {
-                color: ['#3EACE5', '#F02FC2']
-            },
-            padding: [50, 20],
-            orient: 'horizontal',
-        },
-        grid: {
-            left: '5%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        tooltip: {
-            trigger: 'item',
-            showDelay: 0,
-            formatter: function (params) {
-                if (params.value.length > 1) {
-                    return 'Area: ' +
-                        params.value[0] + '㎡<br/> ' + 'House price: ' +
-                        params.value[1] + ' CNY/㎡ ';
-                } else {
-                    return params.seriesName + ' :<br/>' +
-                        params.name + ' : ' +
-                        params.value + ' CNY/㎡ ';
-                }
-            },
-            axisPointer: {
-                show: true,
-                type: 'cross',
-                lineStyle: {
-                    type: 'dashed',
-                    width: 1
-                }
-            }
-        },
-        xAxis: [{
-            type: 'value',
-            scale: true,
-            axisLabel: {
-                formatter: '{value} m'
-            },
-            nameTextStyle: {
-                color: '#3259B8',
-                fontSize: 14,
-            },
-            axisTick: {
-                show: false,
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#3259B8',
-                }
-            },
-            splitLine: {
-                show: false,
-            }
-        }],
-        yAxis: [{
-            type: 'value',
-            scale: true,
-            axisLabel: {
-                formatter: '{value} CNY/㎡'
-            },
-            nameTextStyle: {
-                color: '#3259B8',
-                fontSize: 14
-            },
-            axisTick: {
-                show: false,
-            },
-            axisLine: {
-                lineStyle: {
-                    color: '#3259B8',
-                }
-            },
-            splitLine: {
-                show: false,
-            }
-        }],
-        series: [{
-            name: 'price-area',
-            type: 'scatter',
-            data: [
-                [25.94, 142637],
-                [25.71, 60288],
-                [25.52, 118731],
-                [24.37, 123103],
-                [23.8, 126051],
-                [23.75, 91790],
-                [22.5, 132000],
-                [22.04, 136117],
-                [20.28, 53255],
-                [18.78, 22365],
-                [18.78, 23430],
-                [18.06, 25471],
-            ],
-            symbolSize: 4,
-        }]
-    };
-    if (option && typeof option === "object") {
-        myChart4.setOption(option, true);
-        window.onresize = myChart4.resize;
     }
 }

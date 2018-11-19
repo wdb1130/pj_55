@@ -13,8 +13,7 @@ var storageData = {
     drawPartRing: [[], []]
 }
 
-var colorLine = ['#FF3838', '#8124FF', '#45CE8D'];
-
+var colorLine = ['#FF3838', '#8124FF', '#45CE8D', '#9000FF'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
     offset: 0,
@@ -60,11 +59,13 @@ $(function () {
                         layero.find('.layui-layer-title').text(modalTitle);
                     },
                     full: function (dom) {
-                        dom.find('iframe').contents().find('.content').html("");
-                        dom.find('iframe').contents().find('.content').append('<div id="chartModal"></div>');
-                        var funName = dom.find('iframe')[0].contentWindow.funName;
-                        var postodalData = dom.find('iframe')[0].contentWindow.postodalData;
-                        dom.find('iframe')[0].contentWindow.initChartFun[funName]('chartModal', postodalData);
+                        if (chartTypeState == "drawLiquidFill1" || chartTypeState == "drawLiquidFill2") {
+                            dom.find('iframe').contents().find('.content').html("");
+                            dom.find('iframe').contents().find('.content').append('<div id="chartModal"></div>');
+                            var funName = dom.find('iframe')[0].contentWindow.funName;
+                            var postodalData = dom.find('iframe')[0].contentWindow.postodalData;
+                            dom.find('iframe')[0].contentWindow.initChartFun[funName]('chartModal', postodalData);
+                        }
                     }
                 });
             }
@@ -106,6 +107,12 @@ $(function () {
                             lineStyle: {
                                 normal: {
                                     width: 1
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
                                 }
                             },
                             itemStyle: {
@@ -193,7 +200,10 @@ $(function () {
                         direction: 'vertical',
                         slidesPerView: 4,
                         loop: true,
-                        autoplay: true,
+                        autoplay: {
+                            disableOnInteraction: false,
+                            delay: 2000,
+                        },
                         speed: 1000,
                     });
                 };
@@ -221,7 +231,10 @@ $(function () {
                         direction: 'vertical',
                         slidesPerView: 4,
                         loop: true,
-                        autoplay: true,
+                        autoplay: {
+                            disableOnInteraction: false,
+                            delay: 2000,
+                        },
                         speed: 1000,
                     });
                 };

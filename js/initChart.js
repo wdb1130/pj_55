@@ -24,7 +24,13 @@ var initChartFun = {
                 boundaryGap: true,
                 axisLine: {
                     lineStyle: {
-                        color: '#fff'
+                        color: '#1255F0'
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#8ECEEE'
                     }
                 },
                 data: postModalData[1]
@@ -36,18 +42,19 @@ var initChartFun = {
                 min: -100,
                 axisLine: {
                     lineStyle: {
-                        color: '#fff'
+                        color: '#8ECEEE'
                     }
                 },
                 axisLabel: {
-                    margin: 10,
+                    show: true,
                     textStyle: {
-                        fontSize: 14
+                        color: '#8ECEEE'
                     }
                 },
                 splitLine: {
+                    show: true,
                     lineStyle: {
-                        color: '#57617B'
+                        color: '#8ECEEE'
                     }
                 }
             }],
@@ -221,7 +228,18 @@ var initChartFun = {
             xAxis: [
                 {
                     type: 'category',
-                    data: postModalData[1]
+                    axisLine: {
+                        lineStyle: {
+                            color: '#1255F0'
+                        }
+                    },
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            color: '#8ECEEE'
+                        }
+                    },
+                    data: postModalData[1],
                 }
             ],
             yAxis: [
@@ -229,7 +247,24 @@ var initChartFun = {
                     min: 0,
                     max: 100,
                     type: 'value',
-                    name: '量值'
+                    name: '量值',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#8ECEEE'
+                        }
+                    },
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            color: '#8ECEEE'
+                        }
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#8ECEEE'
+                        }
+                    }
                 }
             ],
             series: postModalData[2]
@@ -634,15 +669,12 @@ var initChartFun = {
                     radius: ['40%', '55%'],
                     label: {
                         normal: {
-                            formatter: '{b|{b}}',
-                            borderWidth: 1,
-                            borderRadius: 4,
-                            rich: {
-                                b: {
-                                    fontSize: 12
-                                }
+                            formatter: '{b}:{c}: ({d}%)',
+                            textStyle: {
+                                fontWeight: 'normal',
+                                fontSize: 12
                             }
-                        }
+                        },
                     },
                     itemStyle: {
                         normal: {
@@ -861,7 +893,7 @@ var initChartFun = {
         var option = {
             title: {
                 text: postModalData[0],
-                bottom: '0%',
+                bottom: '4%',
                 left: 'center',
                 textStyle: {
                     fontSize: 14,
@@ -874,7 +906,7 @@ var initChartFun = {
                 type: 'liquidFill',
                 radius: '65%',
                 data: [postModalData[1] / 100, postModalData[1] / 100 - 0.1],
-                center: ['50%', '55%'],
+                center: ['50%', '48%'],
                 color: postModalData[2], // 水球颜色
                 outline: {
                     borderDistance: 5,
@@ -1062,6 +1094,12 @@ var initChartFun = {
             series: [{
                 name: 'price-area',
                 type: 'scatter',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
                 data: postModalData[0],
                 symbolSize: 4,
             }]

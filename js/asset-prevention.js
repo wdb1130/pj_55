@@ -101,6 +101,12 @@ $(function () {
                                     width: 1
                                 }
                             },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
                             itemStyle: {
                                 normal: {
                                     color: colorLineList[idx],
@@ -141,6 +147,12 @@ $(function () {
                             itemStyle: {
                                 normal: {
                                     color: colorVerticalBarList[idx]
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
                                 }
                             },
                             barWidth: 12,

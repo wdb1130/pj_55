@@ -86,6 +86,12 @@ $(function () {
                         seriesData.push({
                             name: item,
                             type: 'bar',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
                             itemStyle: {
                                 normal: {
                                     color: colorBarList[idx]
@@ -130,6 +136,12 @@ $(function () {
                             lineStyle: {
                                 normal: {
                                     width: 1
+                                }
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
                                 }
                             },
                             itemStyle: {
@@ -262,5 +274,5 @@ $(function () {
         });
 
     }, 1000);
-    
+
 });

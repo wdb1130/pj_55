@@ -111,6 +111,12 @@ $(function () {
                                     width: 1
                                 }
                             },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
                             itemStyle: {
                                 normal: {
                                     color: colorLine[idx],

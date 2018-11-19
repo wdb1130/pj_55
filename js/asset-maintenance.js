@@ -119,9 +119,14 @@ $(function () {
             url: "../test-json/maintenance_hollow_6.json",
             success: function (res) {
                 if (res.resultCode == 200) {
+                    var legendData = [];
+                    res.result.legendData.forEach(function (item) {
+                        var len = item.length / 2;
+                        legendData.push(item.slice(0, len) + '\n' + item.slice(len, item.length));
+                    });
                     res.result.seriesData.forEach(function (item, idx) {
                         var domId = 'chart' + (idx + 5);
-                        storageData.drawHollowRing[idx].push(res.result.legendData[idx]);
+                        storageData.drawHollowRing[idx].push(legendData[idx]);
                         storageData.drawHollowRing[idx].push(item);
                         storageData.drawHollowRing[idx].push(colorHollowRingList);
                         initChartFun.drawHollowRing(domId, storageData.drawHollowRing[idx]);
