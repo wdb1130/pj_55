@@ -192,7 +192,7 @@ html, body {
 }
 .tag-1:hover{
   background: url('../img/asset/asset_1.png') no-repeat center bottom;
-  background-size: 100% 200%;
+  background-size: 100% 201%;
 }
 .tag-2{
   background: url('../img/asset/asset_2.png') no-repeat center top;
