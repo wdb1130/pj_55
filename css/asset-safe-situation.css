@@ -252,11 +252,11 @@ html, body {
 }
 .table-chart {
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
 }
 .table-chart .th-header {
-  padding-top: 1rem;
-  height: 1.2rem;
-  line-height: 1.2rem;
+  padding-top: 0.5rem;
   display: flex;
   text-align: center;
   color: #124BCD;
@@ -267,6 +267,7 @@ html, body {
 }
 
 .table-chart .th-boby {
+  display: flex;
   flex: 1;
   padding: 0.5rem;
   overflow: hidden;
@@ -274,15 +275,49 @@ html, body {
 }
 
 .table-chart .th-boby>div {
+  flex: 1;
   display: flex;
   text-align: center;
-  padding: .5rem 0;
-}
-
-.table-chart .th-boby>div:nth-child(2n+1) {
-  background: #061044;
 }
 
 .table-chart .th-boby span {
   flex: 1;
+}
+
+.table-chart .th-boby span {
+  flex: 1;
+}
+
+.chart-box345{
+  display: flex;
+}
+.chart-box345>.chart{
+  display: flex;
+  flex: 1;
+}
+.chart-box345>.chart>div{
+  flex: 1;
+}
+.chart-box2{
+  display: flex;
+}
+.chart-box2>.chart2{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.chart-box2>.chart2>#chart2{
+  flex: 1;
+}
+.swiper-slide-detail{
+  display: flex;
+}
+.swiper-slide-detail:nth-child(2n+1){
+  background: #061043;
+}
+.swiper-slide-detail > span{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

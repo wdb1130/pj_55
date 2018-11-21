@@ -1220,7 +1220,8 @@ var initChartFun = {
                 "fillAlphas": 1,
                 "lineAlpha": 0.1,
                 "type": "column",
-                "valueField": "value"
+                "valueField": "value",
+                "labelText":"[[value]]"
             }],
             "depth3D": 15,
             "angle": 30,

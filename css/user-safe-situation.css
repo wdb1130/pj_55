@@ -164,6 +164,8 @@ html, body {
 }
 .table-chart {
     font-size: 12px;
+    display: flex;
+    flex-direction: column;
 }
 .table-chart .th-header {
     padding-top: 1rem;
@@ -178,23 +180,50 @@ html, body {
     flex: 1;
 }
 
+
 .table-chart .th-boby {
+    display: flex;
     flex: 1;
     padding: 0.5rem;
     overflow: hidden;
     color: #C5D9FF;
-}
-
-.table-chart .th-boby>div {
+  }
+  
+  .table-chart .th-boby>div {
+    flex: 1;
     display: flex;
     text-align: center;
-    padding: .5rem 0;
-}
-
-.table-chart .th-boby>div:nth-child(2n+1) {
-    background: #061044;
-}
-
-.table-chart .th-boby span {
+  }
+  
+  .table-chart .th-boby span {
     flex: 1;
+  }
+  
+  .table-chart .th-boby span {
+    flex: 1;
+  }
+
+.chart-box56{
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-box56>.chart-ws{
+    flex: 1;
+    display: flex;
+}
+.chart-box56>.chart-ws>div{
+    flex: 1;
+}
+.swiper-slide-detail{
+    display: flex;
+  }
+.swiper-slide-detail:nth-child(2n+1){
+    background: #061043;
+}
+.swiper-slide-detail > span{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
