@@ -1129,7 +1129,9 @@ var initChartFun = {
                 "lineAlpha": 0.1,
                 "type": "column",
                 "topRadius": 1,
-                "valueField": "value"
+                "valueField": "value",
+                "labelText":"[[value]]",
+                "color": "#fff"
             }],
             "depth3D": 20,
             "angle": 30,
@@ -1174,7 +1176,9 @@ var initChartFun = {
                 "fillAlphas": 1,
                 "lineAlpha": 0.1,
                 "type": "column",
-                "valueField": "value"
+                "valueField": "value",
+                "labelText":"[[value]]",
+                "color": "#fff"
             }],
             "depth3D": 15,
             "angle": 30,
@@ -1221,7 +1225,8 @@ var initChartFun = {
                 "lineAlpha": 0.1,
                 "type": "column",
                 "valueField": "value",
-                "labelText":"[[value]]"
+                "labelText":"[[value]]",
+                "color": "#fff"
             }],
             "depth3D": 15,
             "angle": 30,
