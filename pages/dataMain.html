@@ -17,6 +17,9 @@
 </head>
 
 <body>
+    <svg class="svg-data" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        
+    </svg>
     <div class="container">
         <div class="top">
             <h3 class="title">网络数据安全态势</h3>
@@ -28,7 +31,7 @@
         <div class="content">
             <div class="left">
                 <div class="layui-row">
-                    <div class="wrapper">
+                    <div class="wrapper wrapper1">
                         <a href="./dataSituation.html">
                             <span class="precent"> 56 %</span>
                             <span class="title">数据态势分析</span>
@@ -36,7 +39,7 @@
                     </div>
                 </div>
                 <div class="layui-row">
-                    <div class="wrapper">
+                    <div class="wrapper wrapper2">
                         <a href="#">
                             <span class="precent"> 56 %</span>
                             <span class="title">数据防御指数</span>
@@ -44,7 +47,7 @@
                     </div>
                 </div>
                 <div class="layui-row">
-                    <div class="wrapper">
+                    <div class="wrapper wrapper3">
                         <a href="#">
                             <span class="precent"> 56 %</span>
                             <span class="title">数据操作指数</span>
@@ -52,7 +55,7 @@
                     </div>
                 </div>
                 <div class="layui-row">
-                    <div class="wrapper">
+                    <div class="wrapper wrapper4">
                         <a href="#">
                             <span class="precent"> 56 %</span>
                             <span class="title">数据威胁指数</span>
@@ -63,15 +66,15 @@
 
             <div class="right">
                 <div class="layui-row">
-                    <div class="layui-col col-4 chart-box">
+                    <div class="layui-col col-4 chart-box chart-box1">
                         <h3 class="chart-name chart-click" data-method="setTop" data-chartType="drawLine">数据态势预测</h3>
                         <div class="chart" id="chart-1"></div>
                     </div>
-                    <div class="layui-col col-3 chart-box">
+                    <div class="layui-col col-3 chart-box chart-box2">
                         <h3 class="chart-name chart-click" data-method="setTop" data-chartType="drawLiquidFill1">数据防泄漏强度</h3>
                         <div class="chart" id="chart-2"></div>
                     </div>
-                    <div class="layui-col col-3 chart-box">
+                    <div class="layui-col col-3 chart-box chart-box3">
                         <h3 class="chart-name chart-click" data-method="setTop" data-chartType="drawLiquidFill2">文件监控强度</h3>
                         <div class="chart" id="chart-3"></div>
                     </div>
@@ -142,4 +145,5 @@
 <script src="../static/amchart/serial.js"></script>
 <script src="../js/initChart.js"></script>
 <script src="../js/networkData.js"></script>
+
 </html>
