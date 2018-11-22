@@ -297,5 +297,69 @@ $(function () {
     }, 1000);
 
 
+    var wrapper1Left = $('.wrapper1').offset().left;
+    var wrapper1Top = $('.wrapper1').offset().top;
+    var wrapper1Width = $('.wrapper1').width();
+    var wrapper1Hight = $('.wrapper1').height();
+    var cx1 = Math.floor(wrapper1Left + wrapper1Width);
+    var cy1 = Math.floor(wrapper1Top + wrapper1Hight / 2);
+    var box1Width = $('.chart-box1').width();
+    var box1Left = Math.floor($('.chart-box1').offset().left) + 5;
+    var pathLine1 = "M" + cx1 + " " + cy1 + " L" + box1Left + " " + cy1;
+    var wrapper2Left = $('.wrapper2').offset().left;
+    var wrapper2Top = $('.wrapper2').offset().top;
+    var wrapper2Width = $('.wrapper2').width();
+    var wrapper2Hight = $('.wrapper2').height();
+    // 起点
+    var cx2 = Math.floor(wrapper2Left + wrapper2Width);
+    var cy2 = Math.floor(wrapper2Top + wrapper2Hight / 2);
+    var box2Left = $('.chart-box2').offset().left;
+    var box2Top = $('.chart-box2').offset().top;
+    var box2Width = $('.chart-box2').width();
+    var box2Hight = $('.chart-box2').height();
+    var box3Left = $('.chart-box3').offset().left;
+    var box3Top = $('.chart-box3').offset().top;
+    var box3Width = $('.chart-box3').width();
+    var box3Hight = $('.chart-box3').height();
+    // 终点
+    var lastX = Math.floor(((box3Left - (box2Width + box2Left)) / 2) + box2Left + box2Width);
+    var lastY = cy2;
+    var lineTo1 = Math.floor(box3Width / 2 + box3Top);
+    var lineTo2 = Math.floor((box3Left - (box2Width + box2Left)) / 2) + lastX + 5;
+    var pathLine2 = "M" + cx2 + " " + cy2 + " L" + lastX + " " + lastY + " L" + lastX + " " + lineTo1 + " L" + lineTo2 + " " + lineTo1;
+    // 起点
+    otherLineX = Math.floor((box2Left - box1Left - box1Width) / 2 + box1Left + box1Width);
+    otherLinex2 = Math.floor(box2Left + 5);
+    var pathLine3 = "M" + otherLineX + " " + cy2 + " L" + otherLineX + " " + lineTo1 + " L" + otherLinex2 + " " + lineTo1;
+    // 终点
 
-})
+    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
+    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
+    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
+
+
+
+    $('.svg-data').html(wrapper1Arc + wrapper2Arc + wrapper3Arc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
