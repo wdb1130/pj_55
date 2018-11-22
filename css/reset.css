@@ -26,7 +26,7 @@ quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-content: ”;
+content: '';
 content: none;
 }
 /* remember to define focus styles! */
@@ -48,3 +48,29 @@ border-spacing: 0;
 svg + a {
     display: none!important;
  }
+
+ /* common style */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  min-width: 1024px;
+  min-height: 576px;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    font:10px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif !important;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  body {
+    font:12px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif !important;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  body {
+    font:14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif !important;
+  }
+}

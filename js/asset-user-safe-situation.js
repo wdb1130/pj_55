@@ -111,7 +111,7 @@ $(function () {
                             name: item,
                             type: 'line',
                             symbol: 'circle',
-                            symbolSize: 8,
+                            symbolSize: 4,
                             lineStyle: {
                                 normal: {
                                     width: 1
@@ -119,7 +119,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top'
                                 }
                             },
@@ -127,7 +127,6 @@ $(function () {
                                 normal: {
                                     color: colorLine[idx],
                                     borderWidth: 1
-
                                 }
                             },
                             data: sitemArr[idx]
@@ -267,7 +266,7 @@ $(function () {
                             name: item,
                             type: 'line',
                             symbol: 'circle',
-                            symbolSize: 8,
+                            symbolSize: 4,
                             lineStyle: {
                                 normal: {
                                     width: 1
@@ -275,7 +274,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top'
                                 }
                             },

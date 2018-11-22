@@ -175,7 +175,7 @@ $(function () {
                             name: item,
                             type: 'line',
                             symbol: 'circle',
-                            symbolSize: 8,
+                            symbolSize: 4,
                             lineStyle: {
                                 normal: {
                                     width: 1
@@ -183,7 +183,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top'
                                 }
                             },
@@ -230,7 +230,7 @@ $(function () {
                             name: item,
                             type: 'line',
                             symbol: 'circle',
-                            symbolSize: 8,
+                            symbolSize: 4,
                             lineStyle: {
                                 normal: {
                                     width: 1
@@ -238,7 +238,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top'
                                 }
                             },
@@ -284,7 +284,7 @@ $(function () {
                             name: item,
                             type: 'line',
                             symbol: 'circle',
-                            symbolSize: 8,
+                            symbolSize: 4,
                             lineStyle: {
                                 normal: {
                                     width: 1
@@ -292,7 +292,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top'
                                 }
                             },

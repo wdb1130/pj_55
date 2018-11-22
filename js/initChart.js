@@ -20,6 +20,12 @@ var initChartFun = {
                     color: '#F1F1F3'
                 }
             },
+            grid: {
+                top: 50,
+                left: '15%',
+                right: '10%',
+                bottom: 30,
+            },
             xAxis: [{
                 boundaryGap: true,
                 axisLine: {
@@ -37,26 +43,33 @@ var initChartFun = {
             }],
             yAxis: [{
                 type: 'value',
-                name: '量值',
+                name: '(量值)',
                 max: 100,
                 min: -100,
+                nameTextStyle:{ //最值样式
+                    color: '#8ECEEE'
+                },
+                axisTick: { //y轴刻度隐藏
+                    show: false
+                },
                 axisLine: {
                     lineStyle: {
                         color: '#8ECEEE'
                     }
                 },
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: '#8ECEEE'
+                axisLine:{
+                    lineStyle: {
+                        color: '#1941B3'
+                    },
+                },
+                axisLabel:{
+                    color:'#8ECEEE',
+                },
+                splitLine :{
+                    lineStyle:{
+                        color: '#121C64'
                     }
                 },
-                splitLine: {
-                    show: true,
-                    lineStyle: {
-                        color: '#8ECEEE'
-                    }
-                }
             }],
             series: postModalData[2]
         };
@@ -114,6 +127,9 @@ var initChartFun = {
                     lineStyle: {
                         color: '#135Bff'
                     }
+                },
+                axisTick: { //y轴刻度隐藏
+                    show: false
                 },
                 axisLabel: {
                     interval: 0,
@@ -176,6 +192,9 @@ var initChartFun = {
                 {
                     min: 0,
                     max: 100,
+                    axisTick: { //y轴刻度隐藏
+                        show: false
+                    },
                     type: 'value'
                 }
             ],
@@ -248,11 +267,14 @@ var initChartFun = {
                     min: 0,
                     max: 100,
                     type: 'value',
-                    name: '量值',
+                    name: '(量值)',
                     axisLine:{
                         lineStyle: {
                             color: '#1941B3'
                         },
+                    },
+                    axisTick: { //y轴刻度隐藏
+                        show: false
                     },
                     axisLabel:{
                         color:'#ddd'
@@ -322,6 +344,9 @@ var initChartFun = {
                     lineStyle: {
                         color: '#1255F0'
                     }
+                },
+                axisTick: { //y轴刻度隐藏
+                    show: false
                 },
                 axisLabel: {
                     show: true,
@@ -579,7 +604,7 @@ var initChartFun = {
                             rich: {
                                 time: {
                                     color: '#fff',
-                                    fontSize: 32 * scale,
+                                    fontSize: 20 * scale,
                                     padding: [0, 0],
                                     fontWeight: 'bold'
                                 }
@@ -974,7 +999,7 @@ var initChartFun = {
             }],
             yAxis: [{
                 type: 'value',
-                name: '量值',
+                name: '(量值)',
                 axisTick: {
                     show: false
                 },
@@ -982,6 +1007,9 @@ var initChartFun = {
                     lineStyle: {
                         color: '#0D53A2'
                     }
+                },
+                axisTick: { //y轴刻度隐藏
+                    show: false
                 },
                 axisLabel: {
                     margin: 10,
