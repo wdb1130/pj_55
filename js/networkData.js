@@ -301,8 +301,8 @@ $(function () {
     var wrapper1Top = $('.wrapper1').offset().top;
     var wrapper1Width = $('.wrapper1').width();
     var wrapper1Hight = $('.wrapper1').height();
-    var cx1 = Math.floor(wrapper1Left + wrapper1Width);
-    var cy1 = Math.floor(wrapper1Top + wrapper1Hight / 2);
+    var cx1 = Math.floor(wrapper1Left + wrapper1Width / 2);
+    var cy1 = Math.floor(wrapper1Top + wrapper1Hight / 3);
     var box1Width = $('.chart-box1').width();
     var box1Left = Math.floor($('.chart-box1').offset().left) + 5;
     var pathLine1 = "M" + cx1 + " " + cy1 + " L" + box1Left + " " + cy1;
@@ -311,8 +311,8 @@ $(function () {
     var wrapper2Width = $('.wrapper2').width();
     var wrapper2Hight = $('.wrapper2').height();
     // 起点
-    var cx2 = Math.floor(wrapper2Left + wrapper2Width);
-    var cy2 = Math.floor(wrapper2Top + wrapper2Hight / 2);
+    var cx2 = Math.floor(wrapper2Left + wrapper2Width / 2);
+    var cy2 = Math.floor(wrapper2Top + wrapper2Hight / 3);
     var box2Left = $('.chart-box2').offset().left;
     var box2Top = $('.chart-box2').offset().top;
     var box2Width = $('.chart-box2').width();
