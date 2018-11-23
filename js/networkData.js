@@ -32,6 +32,10 @@ var color3DCylinder = ['#FF3838', '#2420FF'];
 var colorPartRingList = ['#45CE8D', '#FF3838'];
 
 $(function () {
+    drawSvgDash();
+    $(window).resize(function () {
+        drawSvgDash();
+    });
     layui.use('layer', function () {
         var $ = layui.jquery, layer = layui.layer;
         //触发事件
@@ -296,13 +300,16 @@ $(function () {
 
     }, 1000);
 
+});
 
+function drawSvgDash() {
+    $('.svg-data').html("");
     var wrapper1Left = $('.wrapper1').offset().left;
     var wrapper1Top = $('.wrapper1').offset().top;
     var wrapper1Width = $('.wrapper1').width();
     var wrapper1Hight = $('.wrapper1').height();
     var cx1 = Math.floor(wrapper1Left + wrapper1Width / 2);
-    var cy1 = Math.floor(wrapper1Top + wrapper1Hight / 3);
+    var cy1 = Math.floor(wrapper1Top + wrapper1Hight / 2);
     var box1Width = $('.chart-box1').width();
     var box1Left = Math.floor($('.chart-box1').offset().left) + 5;
     var pathLine1 = "M" + cx1 + " " + cy1 + " L" + box1Left + " " + cy1;
@@ -310,9 +317,6 @@ $(function () {
     var wrapper2Top = $('.wrapper2').offset().top;
     var wrapper2Width = $('.wrapper2').width();
     var wrapper2Hight = $('.wrapper2').height();
-    // 起点
-    var cx2 = Math.floor(wrapper2Left + wrapper2Width / 2);
-    var cy2 = Math.floor(wrapper2Top + wrapper2Hight / 3);
     var box2Left = $('.chart-box2').offset().left;
     var box2Top = $('.chart-box2').offset().top;
     var box2Width = $('.chart-box2').width();
@@ -321,6 +325,11 @@ $(function () {
     var box3Top = $('.chart-box3').offset().top;
     var box3Width = $('.chart-box3').width();
     var box3Hight = $('.chart-box3').height();
+    // 起点
+    var cx2 = Math.floor(wrapper2Left + wrapper2Width / 2);
+    var box5Top = $('.chart-box5').offset().top;
+    var box5Height = $('.chart-box5').height();
+    var cy2 = Math.floor((box5Top - (box2Top + box2Hight)) / 2 + (box2Top + box2Hight));
     // 终点
     var lastX = Math.floor(((box3Left - (box2Width + box2Left)) / 2) + box2Left + box2Width);
     var lastY = cy2;
@@ -332,34 +341,58 @@ $(function () {
     otherLinex2 = Math.floor(box2Left + 5);
     var pathLine3 = "M" + otherLineX + " " + cy2 + " L" + otherLineX + " " + lineTo1 + " L" + otherLinex2 + " " + lineTo1;
     // 终点
+    // 起点
+    var wrapper3Left = $('.wrapper3').offset().left;
+    var wrapper3Top = $('.wrapper3').offset().top;
+    var wrapper3Width = $('.wrapper3').width();
+    var wrapper3Hight = $('.wrapper3').height();
+    var cx3 = Math.floor(wrapper3Left + wrapper3Width / 2);
+    var cy3 = Math.floor(wrapper3Top + wrapper3Hight / 2);
+    var box4Top = $('.chart-box4').offset().top;
+    var box4Left = $('.chart-box4').offset().left;
+    var box4Width = $('.chart-box4').width();
+    var box4Height = $('.chart-box4').height();
+    // 终点
+    var zheLineX = Math.floor(((box4Left - (wrapper3Left + wrapper3Width)) / 2) + (wrapper3Left + wrapper3Width));
+    var zheLineY = Math.floor(box4Top + box4Height / 2);
+    var zheLineXX = Math.floor(box4Left) + 5;
+    var pathLine4 = "M" + cx3 + " " + cy3 + " L" + zheLineX + " " + zheLineY + " L" + zheLineXX + " " + zheLineY;
+
+    // 起点
+    var wrapper4Left = $('.wrapper4').offset().left;
+    var wrapper4Top = $('.wrapper4').offset().top;
+    var wrapper4Width = $('.wrapper4').width();
+    var wrapper4Hight = $('.wrapper4').height();
+    var cx4 = Math.floor(wrapper4Left + wrapper4Width / 2);
+    var cy4 = Math.floor(wrapper4Top + wrapper4Hight / 2);
+    // 终点
+    var box6Top = $('.chart-box6').offset().top;
+    var box6Left = $('.chart-box6').offset().left;
+    var box6Width = $('.chart-box6').width();
+    var box6Height = $('.chart-box6').height();
+    var line6X = Math.floor(box6Left) + 5;
+    var pathLine5 = "M" + cx4 + " " + cy4 + " L" + line6X + " " + cy4;
+    var zheLine6X = Math.floor((box6Left - (wrapper4Left + wrapper4Width)) / 2 + (wrapper4Left + wrapper4Width));
+    var zheLine6Y = Math.floor((box6Top - (box4Top + box4Height)) / 2 + (box4Top + box4Height))
+    var box7Top = $('.chart-box7').offset().top;
+    var box7Left = $('.chart-box7').offset().left;
+    var box7Width = $('.chart-box7').width();
+    var box7Height = $('.chart-box7').height();
+    var zheLine7X = Math.floor((box7Left - (box6Width + box6Left)) / 2 + (box6Width + box6Left));
+    var zheLine7TopY = Math.floor(box4Top + box4Height / 2);
+    var zheLine7LeftX = Math.floor($('.chart-box5').offset().left) + 5;
+    var pathLine6 = "M" + cx4 + " " + cy4 + " L" + zheLine6X + " " + zheLine6Y + " L" + zheLine7X + " " + zheLine6Y + " L" + zheLine7X + " " + zheLine7TopY + " L" + zheLine7LeftX + " " + zheLine7TopY;
+    var zheLine8X = Math.floor(box7Top + box7Height / 2);
+    var zheLine8Y = Math.floor(box7Left) + 5;
+    var pathLine7 = "M" + zheLine7X + " " + zheLine6Y + " L" + zheLine7X + " " + zheLine8X + " L" + zheLine8Y + " " + zheLine8X;
 
     var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
     var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
     var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
+    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#fff" />';
+    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#fff" />';
+    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#fff" />';
+    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#fff" />';
 
-
-
-    $('.svg-data').html(wrapper1Arc + wrapper2Arc + wrapper3Arc)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
+    $('.svg-data').html(wrapper1Arc + wrapper2Arc + wrapper3Arc + wrapper4Arc + wrapper5Arc + wrapper6Arc + wrapper7Arc);
+}
