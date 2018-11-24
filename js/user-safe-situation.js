@@ -31,6 +31,10 @@ var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
 ], false);
 
 $(function () {
+    drawSvgDash();
+    $(window).resize(function () {
+        drawSvgDash();
+    });
     layui.use('layer', function () {
         var $ = layui.jquery, layer = layui.layer;
         //触发事件
@@ -77,7 +81,6 @@ $(function () {
             active[method] ? active[method].call(this, othis) : '';
         });
     });
-
 
     setTimeout(function () {
 
@@ -292,3 +295,89 @@ $(function () {
     }, 1000);
 
 });
+function drawSvgDash() {
+    $('.svg-data').html("");
+    var tag1Left = $('.tag1').offset().left;
+    var tag1Top = $('.tag1').offset().top;
+    var tag1Width = $('.tag1').width();
+    var tag1Hight = $('.tag1').height();
+    // 起点
+    var cx1 = Math.floor(tag1Left + tag1Width / 4);
+    var cy1 = Math.floor(tag1Top + tag1Hight / 2);
+    // 终点
+    var boxSvg1Top = $('.box-svg1').offset().top;
+    var boxSvg1Left = $('.box-svg1').offset().left;
+    var boxSvg1Height = $('.box-svg1').height();
+    var cyy1 = Math.floor(boxSvg1Top + boxSvg1Height) - 5;
+    var pathLine1 = "M" + cx1 + " " + cy1 + " L" + cx1 + " " + cyy1;
+    // 起点
+    var tag2Left = $('.tag2').offset().left;
+    var tag2Top = $('.tag2').offset().top;
+    var tag2Width = $('.tag2').width();
+    var tag2Hight = $('.tag2').height();
+    var cx2 = Math.floor(tag2Left + tag2Width / 4);
+    var cy2 = Math.floor(tag2Top + tag2Hight / 2);
+    // 终点
+    var boxSvg2Top = $('.box-svg2').offset().top;
+    var boxSvg2Left = $('.box-svg2').offset().left;
+    var boxSvg2Width = $('.box-svg2').width();
+    var boxSvg2Height = $('.box-svg2').height();
+    var line2X = Math.floor((tag2Left - (boxSvg2Left + boxSvg2Width)) / 2 + (boxSvg2Left + boxSvg2Width));
+    var line2Y = Math.floor(boxSvg2Top + boxSvg2Height / 2);
+    var line2XX = Math.floor(boxSvg2Left + boxSvg2Width) - 5;
+    var pathLine2 = "M" + cx2 + " " + cy2 + " L" + line2X + " " + line2Y + " L" + line2XX + " " + line2Y;
+    // 终点
+    var boxSvg3Top = $('.box-svg3').offset().top;
+    var line3X = Math.floor(boxSvg3Top) + 15;
+    var pathLine3 = "M" + cx2 + " " + cy2 + " L" + line2X + " " + cy2 + " L" + line2X + " " + line3X;
+    // 起点
+    var tag3Left = $('.tag3').offset().left;
+    var tag3Top = $('.tag3').offset().top;
+    var tag3Width = $('.tag3').width();
+    var tag3Hight = $('.tag3').height();
+    var cx3 = Math.floor(tag3Left + tag3Width * (3 / 4));
+    var cy3 = Math.floor(tag3Top + tag3Hight / 2);
+    // 终点
+    var boxSvg4Top = $('.box-svg4').offset().top;
+    var boxSvg4Height = $('.box-svg4').height();
+    var line4X = Math.floor(boxSvg4Height + boxSvg4Top) - 5;
+    var pathLine4 = "M" + cx3 + " " + cy3 + " L" + cx3 + " " + line4X;
+    // 起点
+    var tag4Left = $('.tag4').offset().left;
+    var tag4Top = $('.tag4').offset().top;
+    var tag4Width = $('.tag4').width();
+    var tag4Hight = $('.tag4').height();
+    var cx4 = Math.floor(tag4Left + tag4Width * (3 / 4));
+    var cy4 = Math.floor(tag4Top + tag4Hight / 2);
+    // 终点
+    var boxSvg5Top = $('.box-svg5').offset().top;
+    var boxSvg5Left = $('.box-svg5').offset().left;
+    var boxSvg5Width = $('.box-svg5').width();
+    var boxSvg5Height = $('.box-svg5').height();
+    var line5X = Math.floor((boxSvg5Left - (tag4Left + tag4Width)) / 2 + (tag4Left + tag4Width));
+    var line5Y = Math.floor(boxSvg5Top + boxSvg5Height / 2);
+    var line5XX = Math.floor(boxSvg5Left) + 5;
+    var pathLine5 = "M" + cx4 + " " + cy4 + " L" + line5X + " " + line5Y + " L" + line5XX + " " + line5Y;
+    // 终点
+    var boxSvg6Left = $('.box-svg6').offset().left;
+    var line6X = Math.floor(boxSvg6Left) + 5;
+    var pathLine6 = "M" + cx4 + " " + cy4 + " L" + line6X + " " + cy4;
+    // 起点
+    var cx5 = Math.floor(tag4Left + tag4Width / 2);
+    var cy5 = Math.floor(tag4Top + tag4Hight * (5 / 6));
+    var boxSvg7Top = $('.box-svg7').offset().top;
+    var line7Y = Math.floor(boxSvg7Top) + 15;
+    var pathLine7 = "M" + cx5 + " " + cy5 + " L" + line5X + " " + cy5 + " L" + line5X + " " + line7Y;
+
+    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
+    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
+    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
+    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#fff" />';
+    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#fff" />';
+    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#fff" />';
+    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#fff" />';
+
+    $('.svg-data').html(
+        wrapper1Arc + wrapper2Arc + wrapper3Arc + wrapper4Arc + wrapper5Arc + wrapper6Arc + wrapper7Arc
+    );
+}
