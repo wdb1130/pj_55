@@ -8,6 +8,8 @@ html, body {
   -moz-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   box-sizing: border-box;
+  z-index: -200;
+  position: relative;
 }
 .container {
   display: flex;
@@ -316,4 +318,10 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+svg.svg-data {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
 }
