@@ -38,6 +38,10 @@ var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
 
 // chart5
 $(function () {
+    drawSvgDash();
+    $(window).resize(function () {
+        drawSvgDash();
+    });
     layui.use('layer', function () {
         var $ = layui.jquery, layer = layui.layer;
         //触发事件
@@ -380,3 +384,102 @@ $(function () {
     }, 1000);
 
 });
+function drawSvgDash() {
+    $('.svg-data').html("");
+    var tag1Left = $('#tag1').offset().left;
+    var tag1Top = $('#tag1').offset().top;
+    var tag1Width = $('#tag1').width();
+    var tag1Hight = $('#tag1').height();
+    // 起点
+    var cx1 = Math.floor(tag1Left + tag1Width / 3);
+    var cy1 = Math.floor(tag1Top + tag1Hight / 2);
+    // 终点
+    var boxSvg4Top = $('.box-svg4').offset().top;
+    var boxSvg4Left = $('.box-svg4').offset().left;
+    var boxSvg4Height = $('.box-svg4').height();
+    var cyy1 = Math.floor(boxSvg4Top + boxSvg4Height) - 5;
+    var pathLine1 = "M" + cx1 + " " + cy1 + " L" + cx1 + " " + cyy1;
+
+    var tag2Left = $('#tag2').offset().left;
+    var tag2Top = $('#tag2').offset().top;
+    var tag2Width = $('#tag2').width();
+    var tag2Hight = $('#tag2').height();
+    // 起点
+    var cx2 = Math.floor(tag2Left + tag2Width / 3);
+    var cy2 = Math.floor(tag2Top + tag2Hight / 2);
+    // 终点
+    var boxSvg3Left = $('.box-svg3').offset().left;
+    var boxSvg3Width = $('.box-svg3').width();
+    var cxx2 = Math.floor(boxSvg3Left + boxSvg3Width) - 5;
+    var pathLine2 = "M" + cx2 + " " + cy2 + " L" + cxx2 + " " + cy2;
+    // 终点
+    var boxSvg1Top = $('.box-svg1').offset().top;
+    var boxSvg1Left = $('.box-svg1').offset().left;
+    var boxSvg1Width = $('.box-svg1').width();
+    var boxSvg1Height = $('.box-svg1').height();
+    var line1X = Math.floor((boxSvg4Left - (boxSvg1Left + boxSvg1Width)) * (1 / 3) + (boxSvg1Left + boxSvg1Width));
+    var line1Y = Math.floor(boxSvg1Top + boxSvg1Height * (3 / 4));
+    var line1XX = Math.floor(boxSvg1Left + boxSvg1Width) - 5;
+    var pathLine3 = "M" + cx2 + " " + cy2 + " L" + line1X + " " + line1Y + " L" + line1XX + " " + line1Y;
+    // 终点
+    var boxSvg2Top = $('.box-svg2').offset().top;
+    var boxSvg2Left = $('.box-svg2').offset().left;
+    var boxSvg2Width = $('.box-svg2').width();
+    var boxSvg2Height = $('.box-svg2').height();
+    var line2X = Math.floor(boxSvg2Top + boxSvg2Height * (2 / 3));
+    var line2Y = Math.floor(boxSvg2Left + boxSvg2Width) - 5;
+    var pathLine4 = "M" + cx2 + " " + cy2 + " L" + line1X + " " + line2X + " L" + line2Y + " " + line2X;
+    // 起点
+    var tag3Left = $('#tag3').offset().left;
+    var tag3Top = $('#tag3').offset().top;
+    var tag3Width = $('#tag3').width();
+    var tag3Hight = $('#tag3').height();
+    // 起点
+    var cx3 = Math.floor(tag3Left + tag3Width * (2 / 3));
+    var cy3 = Math.floor(tag3Top + tag3Hight / 2);
+    // 终点
+    var boxSvg5Top = $('.box-svg5').offset().top;
+    var boxSvg5Left = $('.box-svg5').offset().left;
+    var boxSvg5Width = $('.box-svg5').width();
+    var boxSvg5Height = $('.box-svg5').height();
+    var line5Y = Math.floor(boxSvg5Top + boxSvg5Height) - 5
+    var pathLine5 = "M" + cx3 + " " + cy3 + " L" + cx3 + " " + line5Y;
+    // 终点
+    var boxSvg6Left = $('.box-svg6').offset().left;
+    var boxSvg6Top = $('.box-svg6').offset().top;
+    var boxSvg6Width = $('.box-svg6').width();
+    var boxSvg6Height = $('.box-svg6').height();
+    var line6X = Math.floor((boxSvg6Left - (boxSvg5Left + boxSvg5Width)) * (2 / 3) + (boxSvg5Left + boxSvg5Width));
+    var line6Y = Math.floor(boxSvg6Top + boxSvg6Height * (3 / 4));
+    var line6XX = Math.floor(boxSvg6Left) + 5;
+    var pathLine6 = "M" + cx3 + " " + cy3 + " L" + line6X + " " + line6Y + " L" + line6XX + " " + line6Y;
+    // 终点
+    var boxSvg7Left = $('.box-svg7').offset().left;
+    var boxSvg7Top = $('.box-svg7').offset().top;
+    var boxSvg7Width = $('.box-svg7').width();
+    var boxSvg7Height = $('.box-svg7').height();
+    var line7Y = Math.floor(boxSvg7Top + boxSvg7Height * (2 / 3));
+    var line7XX = Math.floor(boxSvg7Left) + 5;
+    var pathLine7 = "M" + cx3 + " " + cy3 + " L" + line6X + " " + line7Y + " L" + line7XX + " " + line7Y;
+    // 终点
+    var boxSvg8Top = $('.box-svg8').offset().top;
+    var boxSvg8Left = $('.box-svg8').offset().left;
+    var boxSvg8Width = $('.box-svg8').width();
+    var boxSvg8Height = $('.box-svg8').height();
+    var line8X = Math.floor(boxSvg8Top + boxSvg8Height / 2);
+    var line8XX = Math.floor(boxSvg8Left) + 5;
+    var pathLine8 = "M" + cx3 + " " + cy3 + " L" + line6X + " " + cy3 + " L" + line6X + " " + line8X + " L" + line8XX + " " + line8X;
+
+    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
+    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
+    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
+    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#fff" />';
+    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#fff" />';
+    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#fff" />';
+    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#fff" />';
+    var wrapper8Arc = '<path stroke-dasharray="2,2" d="' + pathLine8 + '" fill="transparent" stroke="#fff" />';
+
+    $('.svg-data').html(
+        wrapper1Arc + wrapper2Arc + wrapper3Arc + wrapper4Arc + wrapper5Arc + wrapper6Arc + wrapper7Arc + wrapper8Arc
+    );
+}
