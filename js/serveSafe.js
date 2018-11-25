@@ -21,7 +21,19 @@ var colorOneFanPie2List = ['#FB943A', 'rgba(251,148,58, .5)'];
 var colorVerticalBarList = ['#45CE8D', '#9000FF'];
 var colorLineList1 = ['#FF3838', '#9000FF', '#45CE8D'];
 var colorLineList2 = ['#2420FF', '#EC13FF', '#FB943A', '#45CE8D', '#FF3838'];
-var colorTwoFanPieList = ['#2420FF', '#9000FF'];
+var colorTwoFanPieList = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    offset: 0,
+    color: 'rgba(144,0,255, 0.5)'
+}, {
+    offset: 1,
+    color: 'rgba(144,0,255, 1)'
+}], false), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    offset: 0,
+    color: 'rgba(36,32,255, 0.5)'
+}, {
+    offset: 1,
+    color: 'rgba(36,32,255, 1)'
+}], false)];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
     offset: 0,
