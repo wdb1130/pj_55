@@ -16,8 +16,8 @@ var storageData = {
 var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var color3DCylinder = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var colorRadarList1 = ['rgba(205, 106, 75, 0.8)'];
-var colorRadarList2 = ['rgba(35, 180, 170, 0.8)'];
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#FF3838'},{offset: 1, color: '#C5AC8E'}]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#3AA8D6'},{offset: 1, color: '#1FB494'}]);
 
 $(function () {
     layui.use('form', function () {

@@ -482,6 +482,11 @@ var initChartFun = {
                         }
                     }
                 },
+                areaStyle: {
+                    normal: {
+                        opacity: 0.9
+                    }
+                },
                 data: [{
                     value: postModalData[1],
                     symbol: 'rect',

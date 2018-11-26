@@ -13,7 +13,7 @@ var storageData = {
 }
 
 var color3DCylinder = ['#FF3838', '#FB943A', '#2420FF', '#9000FF'];
-var colorRadarList = ['rgba(205, 106, 75, 0.8)'];
+var colorRadarList = new echarts.graphic.LinearGradient(0, 0, 1, 0,  [{offset: 0, color: '#CAA96E'},{offset: 1, color: '#CE4430'}], false)
 var colorScatterList = ['#45CE8D', '#FB943A', '#FF3838'];
 
 var colorLineList = [

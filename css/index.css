@@ -80,6 +80,7 @@ html, body {
 }
 .chart1-title > div:nth-child(1){
     font-size: 1.5rem;
+    padding-left: 1rem;
 }
 .chart1-title > div:nth-child(2){
     display: flex;
