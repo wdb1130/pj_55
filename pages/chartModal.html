@@ -50,10 +50,10 @@
     <script>
         var funName = parent.chartTypeState;
         var postodalData = parent.postModalData;
-        funName.includes('drawLine') && (funName = 'drawLine');
-        funName.includes('drawOneFanPie') && (funName = 'drawOneFanPie');
-        funName.includes('drawLiquidFill') && (funName = 'drawLiquidFill');
-        funName.includes('draw3DCylinderH') && (funName = 'draw3DCylinderH');
+        (funName.indexOf('drawLine') > -1) && (funName = 'drawLine');
+        (funName.indexOf('drawOneFanPie') > -1) && (funName = 'drawOneFanPie');
+        (funName.indexOf('drawLiquidFill') > -1) && (funName = 'drawLiquidFill');
+        (funName.indexOf('draw3DCylinderH') > -1) && (funName = 'draw3DCylinderH');
         switch (funName) {
             case 'drawLine':
             case 'drawVerticalBar':
