@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .water-wrapper {
+      width: 200px;
+      height: 200px;
+    }
+    .ball-border {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background: url(../img/water-border.png) no-repeat center center;
+      background-size: 100% 100%;  
+      animation-timing-function: linear;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-name: b-water;
+    }
+    .ball {
+      height: 88%;
+      width: 88%;
+      border-radius: 50%;
+      background: url(../img/water-shadow.png) no-repeat center center;
+      background-size: 100% 100%; 
+    }
+    .ball .water-value {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      color: #fff;
+      transform: translateX(-50%);
+      font-size: 2rem;
+    }
+    .water {
+      position: absolute;
+      height: 88%;
+      width: 88%;
+      border: thin solid #aaa;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .bw {
+      position: absolute;
+      top: 50%;
+      height: 100%;
+      width: 200%;
+      font-size:0;
+      text-align: left;
+      overflow: hidden;
+      animation-timing-function: linear;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    #bw_1 {
+      animation-name: water_1;
+      left: -5%;
+    }
+    #bw_2 {
+      left: -5%;
+      animation-name: water_2;
+      animation-duration: 3s;
+    }
+    @keyframes b-water {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes water_1 {
+      0% {
+        left: -5%;
+      }
+      100% {
+        left: -73%;
+      }
+    }
+    @keyframes water_2 {
+      0% {
+        left: -5%;
+      }
+      100% {
+        left: -73%;
+      }
+    }
+  </style>
+  <title>waterBall</title>
+</head>
+<body>
+  <div class="water-wrapper center">
+    <div class="ball-border">
+    </div>
+    <div class="ball center">
+      <span class='water-value center'>10%</span>
+    </div>
+    <div class="water center">
+      <img  id="bw_1" class="bw" src="../img/bw_1.png" />
+      <img  id="bw_2" class="bw" src="../img/bw_2.png" />
+    </div>
+    <div class="legend"></div>
+  </div>
+</body>
+<script src="jquey3.3.1.js"></script>
+<script>
+  // 宽度，值
+ function initWaterBall(width,val){
+   $('.water-wrapper').css({
+     'width':width,
+     'height': width
+   })
+    $('.water-value').text(val+'%');
+    $('.bw').css('top',(100-val)+'%');
+ }
+ initWaterBall('200px',70);
+</script>
+</html>

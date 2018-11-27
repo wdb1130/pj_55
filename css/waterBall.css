@@ -1,0 +1,105 @@
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.water-wrapper {
+  color: #fff;
+  width:8rem;  
+  height:8rem; 
+  text-align: center; 
+}
+.ball-border {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: url(../img/water-border.png) no-repeat center center;
+  background-size: 100% 100%;
+  animation-timing-function: linear;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-name: b-water;
+}
+
+.ball {
+  height: 84%;
+  width: 84%;
+  border-radius: 50%;
+  background: url(../img/water-shadow.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.ball .water-value {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.water {
+  position: absolute;
+  height: 84%;
+  width: 84%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bw {
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  width: 200%;
+  font-size: 0;
+  text-align: left;
+  overflow: hidden;
+  animation-timing-function: linear;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+#bw_1 {
+  animation-name: water_1;
+  left: -5%;
+}
+
+#bw_2 {
+  left: -5%;
+  animation-name: water_2;
+  animation-duration: 3s;
+}
+
+@keyframes b-water {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes water_1 {
+  0% {
+    left: -5%;
+  }
+
+  100% {
+    left: -73%;
+  }
+}
+
+@keyframes water_2 {
+  0% {
+    left: -5%;
+  }
+
+  100% {
+    left: -73%;
+  }
+}

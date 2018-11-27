@@ -50,7 +50,7 @@ body {
     padding: 2rem 0 1rem 3.5rem;
 }
 .layui-col-lg3>p{
-    height: 3.5rem;
+    height: 2rem;
 }
 
 .chart-box,
@@ -141,7 +141,7 @@ body {
 
 .layui-col-lg3 .title {
     height: 2rem;
-    font-size: 1.05rem;
+    font-size: 14px;
     z-index: 10;
 }
 

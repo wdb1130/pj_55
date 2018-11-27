@@ -966,6 +966,29 @@ var initChartFun = {
             window.onresize = myChart.resize;
         }
     },
+
+    //水球图css
+    drawWaterBall: function (dom,val,legend){
+        var text = legend || '';
+        var htmlStr = 
+        '<div class="water-wrapper center">'+
+            '<div class="ball-border"> </div>'+
+            '<div class="ball center">'+
+              '<span class="water-value center">'+val+'%</span>'+
+            '</div>'+
+            '<div class="water center">'+
+                '<img  id="bw_1" class="bw" src="../img/bw_1.png" />'+
+                '<img  id="bw_2" class="bw" src="../img/bw_2.png" />'+
+            '</div>'+
+            '<div class="legend">'+text+'</div>'+
+        '</div>'
+        $('#'+dom).html(htmlStr);
+        $('#'+dom).find('.bw').css('top',(100-val)+'%');
+        
+        var w = $('#'+dom).find('.water-wrapper').css('height');
+        $('#'+dom).find('.water-wrapper').css('width',w);
+    },
+
     // 渐变背景折线图
     drawGradientLine: function (dom, postModalData) {
         var dom = document.getElementById(dom);
@@ -1153,7 +1176,7 @@ var initChartFun = {
             "dataProvider": postModalData[0],
             "valueAxes": [{
                 "position": "left",
-                "color": "#0D53A2",
+                "color": "#A4C1E4",
                 "title": "",
                 "axisColor": "#0D53A2",
                 "minimum": 0,
@@ -1182,7 +1205,7 @@ var initChartFun = {
             "categoryField": "title",
             "categoryAxis": {
                 "gridPosition": "start",
-                "color": "#0D53A2",
+                "color": "#A4C1E4",
                 "labelRotation": 0,
                 "axisColor": "#0D53A2",
                 "gridColor": '#0D53A2'
@@ -1201,7 +1224,7 @@ var initChartFun = {
             "dataProvider": postModalData[0],
             "valueAxes": [{
                 "position": "left",
-                "color": "#0D53A2",
+                "color": "#A4C1E4",
                 "title": "",
                 "axisColor": "#0D53A2",
                 "minimum": 0,
@@ -1230,7 +1253,7 @@ var initChartFun = {
             "categoryField": "title",
             "categoryAxis": {
                 "gridPosition": "start",
-                "color": "#0D53A2",
+                "color": "#A4C1E4",
                 "labelRotation": 0,
                 "axisColor": "#0D53A2",
                 "gridColor": '#0D53A2'
@@ -1249,7 +1272,7 @@ var initChartFun = {
             "dataProvider": postModalData[0],
             "valueAxes": [{
                 "position": "left",
-                "color": "#0D53A2",
+                "color": "#8DA1C9",
                 "title": "",
                 "axisColor": "#0D53A2",
                 "minimum": 0,
@@ -1278,7 +1301,7 @@ var initChartFun = {
             "categoryField": "title",
             "categoryAxis": {
                 "gridPosition": "start",
-                "color": "#0D53A2",
+                "color": "#A4C1E4",
                 "labelRotation": 0,
                 "axisColor": "#0D53A2",
                 "gridColor": '#0D53A2'

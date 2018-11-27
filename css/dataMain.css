@@ -102,7 +102,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    line-height: 2rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
 }
 
 .left .layui-row:nth-child(1) div {
@@ -185,8 +186,14 @@ body {
 .chart-box .chart {
     display: flex;
     flex-direction: column;
+    position: relative;
     flex: 1;
     padding: 0 .5rem;
+}
+.chart-box .chart .water-wrapper {
+    top: 40%;
+    height: 7rem;
+    width: 7rem;
 }
 
 .table-chart .th-header {

@@ -74,3 +74,13 @@ body {
     font:14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif !important;
   }
 }
+
+@font-face {
+  font-family: 'Num';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./font/DS-DIGII.TTF");
+}
+.font-num {
+  font-family: Num !important;
+}
