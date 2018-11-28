@@ -8,7 +8,7 @@
     <title>主管-操作页面</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../static/layui/css/layui.css">
-    <link rel="stylesheet" href="../css/zg-opera.css">
+    <link rel="stylesheet" href="../css/dataReportAdmin.css">
     <link rel="stylesheet" href="../css/layui-reset.css">
     <script src="../js/jquery.js"></script>
     <script src="../static/layui/layui.js"></script>
@@ -77,12 +77,36 @@
             </div>
             <table class="layui-hide" id="reportTable" lay-filter="compareOpera"></table>
         </div>
+        <!-- right -->
+        <div class="compare-wrapper">
+            <div class="compare-ctt">
+                <div class="title">事件对比</div>
+                <div class="compare-list">
+                    <div class="compare-item">
+                        <span>这是事件名称</span>
+                        <span class="rt">X</span>
+                    </div>
+                    <div class="compare-item">
+                        <span>最多十个字</span>
+                        <span class="rt">X</span>
+                    </div>
+                    <div class="compare-item">
+                        <span>这是事件名称</span>
+                        <span class="rt">X</span>
+                    </div>
+                </div>
+                <p class="tip">最多四个</p>
+                <div class="btn-wrapper">
+                    <button class="layui-btn compare-btn" data-type="getCheckData">对比</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/html" id="reportOpera">
         <a class="layui-btn layui-btn-primary layui-btn-xs opera-btn" lay-event="compare">+对比</a>
     </script>
 
-    <script src="../js/zg-opera.js"></script>
+    <script src="../js/dataReportAdmin.js"></script>
 </body>
 
 </html>
