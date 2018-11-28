@@ -110,26 +110,24 @@ $(function () {
             url: "../test-json/oneFanPie_1.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    // var legendData = [];
-                    // var seriesData = [];
-                    // res.result.seriesData.forEach(function (item) {
-                    //     legendData.push(item.name);
-                    //     seriesData.push(item.value);
-                    // });
-                    // storageData.drawLiquidFill.push(legendData);
-                    // storageData.drawLiquidFill.push(seriesData);
-                    // storageData.drawLiquidFill.push(colorLiquidFillList1);
-                    // storageData.drawLiquidFill.push(colorLiquidFillList2);
-                    // initChartFun.drawLiquidFill('chart1', storageData.drawLiquidFill);
-                    // initChartFun.drawWaterBall('chart1', storageData.drawLiquidFill);
-
-                    var legend = '';
-                    var value = '';
+                    var legendData = [];
+                    var seriesData = [];
                     res.result.seriesData.forEach(function (item) {
-                        legend = item.name
-                        value = item.value ;
+                        legendData.push(item.name);
+                        seriesData.push(item.value);
                     });
-                    initChartFun.drawWaterBall('chart1',value,legend);
+                    storageData.drawLiquidFill.push(legendData);
+                    storageData.drawLiquidFill.push(seriesData);
+                    storageData.drawLiquidFill.push(colorLiquidFillList1);
+                    storageData.drawLiquidFill.push(colorLiquidFillList2);
+                    initChartFun.drawLiquidFill('chart1', storageData.drawLiquidFill);
+                    // var legend = '';
+                    // var value = '';
+                    // res.result.seriesData.forEach(function (item) {
+                    //     legend = item.name
+                    //     value = item.value ;
+                    // });
+                    // initChartFun.drawWaterBall('chart1',value,legend);
                 };
             }
         });
@@ -208,7 +206,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: false,
+                                    show: true,
                                     position: 'top'
                                 }
                             },
@@ -263,7 +261,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: false,
+                                    show: true,
                                     position: 'top'
                                 }
                             },
@@ -317,7 +315,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: false,
+                                    show: true,
                                     position: 'top'
                                 }
                             },
