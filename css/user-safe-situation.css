@@ -86,7 +86,9 @@ html, body {
     text-decoration: none;
     color: #fff;
     text-align: center;
-    padding-top: 10px;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    padding-top: 1rem;
 }
 .tag-box a div{
     line-height: 25px;
@@ -148,10 +150,11 @@ html, body {
 
 .chart-box .chart-name {
     display: inline-block;
+    font-size: 1.05rem;
     height: 1rem;
     text-align: right;
-    padding-right: 1.2rem;
-    line-height: 1.5rem;
+    padding-right: 1.8rem;
+    padding-top: .5rem;
 }
 .col-3 .chart-name,
 .col-4 .chart-name {
