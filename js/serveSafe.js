@@ -120,6 +120,8 @@ $(function () {
                     storageData.drawLiquidFill.push(seriesData);
                     storageData.drawLiquidFill.push(colorLiquidFillList1);
                     storageData.drawLiquidFill.push(colorLiquidFillList2);
+                    initChartFun.drawLiquidFill('chart1',storageData.drawLiquidFill);
+                    
                     // var legend = '';
                     // var value = '';
                     // res.result.seriesData.forEach(function (item) {
