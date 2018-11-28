@@ -989,10 +989,19 @@ var initChartFun = {
     },
     //仪表图css
     drawMeterPointer: function (dom, val) {
-        console.log(val)
+        var valArr = (val + '').split("");
+        var showNum;
+        if (valArr.length == 1) {
+            showNum = "0 0 " + valArr[0];
+        } else if (valArr.length == 2) {
+            showNum = "0 " + valArr[0] + " " + valArr[1];
+        } else {
+            showNum = valArr[0] + " 0 0";
+        }
         var htmlStr =
             '<div class="meter-box">' +
             '<img src="../img/pointer_arc.png" alt="">' +
+            '<p class="font-num">' + showNum + '</p>' +
             '</div>';
         var degSingle = 2.6; //大约1间隔度数
         var deg = (val - 50) * degSingle;
