@@ -1,0 +1,12 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "name": "资产态势",
+                "value": 60
+            }
+        ]
+    }
+}

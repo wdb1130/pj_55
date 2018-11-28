@@ -29,6 +29,7 @@
 
         #chartModal {
             flex: 1;
+            display: flex;
         }
 
         .chart-group {
@@ -39,6 +40,7 @@
         .chart-group>div {
             flex: 1;
         }
+
     </style>
 </head>
 
@@ -72,6 +74,7 @@
             case 'drawRectRadar':
             case 'drawGradientLine':
             case 'drawScatter':
+            case 'drawMeterPointer':
                 var chartModal = $('<div id="chartModal"></div>');
                 $('.content').html(chartModal);
                 initChartFun[funName]('chartModal', postodalData);
