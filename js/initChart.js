@@ -943,8 +943,8 @@ var initChartFun = {
                 outline: {
                     borderDistance: 5,
                     itemStyle: {
-                        borderWidth: 3,
-                        borderColor: 'rgb(26,106,177)',
+                        borderWidth: 2,
+                        borderColor: 'rgb(16,52,221)',
                     },
                 },
                 backgroundStyle: { //背景颜色设置
