@@ -46,7 +46,7 @@ var initChartFun = {
                 name: '(量值)',
                 max: 100,
                 min: -100,
-                nameTextStyle:{ //最值样式
+                nameTextStyle: { //最值样式
                     color: '#8ECEEE'
                 },
                 axisTick: { //y轴刻度隐藏
@@ -57,16 +57,16 @@ var initChartFun = {
                         color: '#8ECEEE'
                     }
                 },
-                axisLine:{
+                axisLine: {
                     lineStyle: {
                         color: '#1941B3'
                     },
                 },
-                axisLabel:{
-                    color:'#8ECEEE',
+                axisLabel: {
+                    color: '#8ECEEE',
                 },
-                splitLine :{
-                    lineStyle:{
+                splitLine: {
+                    lineStyle: {
                         color: '#121C64'
                     }
                 },
@@ -250,13 +250,13 @@ var initChartFun = {
             xAxis: [
                 {
                     type: 'category',
-                    axisLine:{
+                    axisLine: {
                         lineStyle: {
                             color: '#1941B3'
                         },
                     },
-                    axisLabel:{
-                        color:'#ddd',
+                    axisLabel: {
+                        color: '#ddd',
                         fontSize: 16
                     },
                     data: postModalData[1]
@@ -268,7 +268,7 @@ var initChartFun = {
                     max: 100,
                     type: 'value',
                     name: '(量值)',
-                    axisLine:{
+                    axisLine: {
                         lineStyle: {
                             color: '#1941B3'
                         },
@@ -276,11 +276,11 @@ var initChartFun = {
                     axisTick: { //y轴刻度隐藏
                         show: false
                     },
-                    axisLabel:{
-                        color:'#ddd'
+                    axisLabel: {
+                        color: '#ddd'
                     },
-                    splitLine :{
-                        lineStyle:{
+                    splitLine: {
+                        lineStyle: {
                             color: '#121C64'
                         }
                     }
@@ -966,29 +966,50 @@ var initChartFun = {
             window.onresize = myChart.resize;
         }
     },
-
     //水球图css
-    drawWaterBall: function (dom,val,legend){
+    drawWaterBall: function (dom, val, legend) {
         var text = legend || '';
-        var htmlStr = 
-        '<div class="water-wrapper center">'+
-            '<div class="ball-border"> </div>'+
-            '<div class="ball center">'+
-              '<span class="water-value center">'+val+'%</span>'+
-            '</div>'+
-            '<div class="water center">'+
-                '<img  id="bw_1" class="bw" src="../img/bw_1.png" />'+
-                '<img  id="bw_2" class="bw" src="../img/bw_2.png" />'+
-            '</div>'+
-            '<div class="legend">'+text+'</div>'+
-        '</div>'
-        $('#'+dom).html(htmlStr);
-        $('#'+dom).find('.bw').css('top',(100-val)+'%');
-        
-        var w = $('#'+dom).find('.water-wrapper').css('height');
-        $('#'+dom).find('.water-wrapper').css('width',w);
-    },
+        var htmlStr =
+            '<div class="water-wrapper center">' +
+            '<div class="ball-border"> </div>' +
+            '<div class="ball center">' +
+            '<span class="water-value center">' + val + '%</span>' +
+            '</div>' +
+            '<div class="water center">' +
+            '<img  id="bw_1" class="bw" src="../img/bw_1.png" />' +
+            '<img  id="bw_2" class="bw" src="../img/bw_2.png" />' +
+            '</div>' +
+            '<div class="legend">' + text + '</div>' +
+            '</div>';
+        $('#' + dom).html(htmlStr);
+        $('#' + dom).find('.bw').css('top', (100 - val) + '%');
 
+        var w = $('#' + dom).find('.water-wrapper').css('height');
+        $('#' + dom).find('.water-wrapper').css('width', w);
+    },
+    //仪表图css
+    drawMeterPointer: function (dom, val) {
+        var valArr = (val + '').split("");
+        var showNum;
+        if (valArr.length == 1) {
+            showNum = "0 0 " + valArr[0];
+        } else if (valArr.length == 2) {
+            showNum = "0 " + valArr[0] + " " + valArr[1];
+        } else {
+            showNum = valArr[0] + " 0 0";
+        }
+        var htmlStr =
+            '<div class="meter-box">' +
+            '<img src="../img/pointer_arc.png" alt="">' +
+            '<p class="font-num">' + showNum + '</p>' +
+            '</div>';
+        var degSingle = 2.6; //大约1间隔度数
+        var deg = (val - 50) * degSingle;
+        $('#' + dom).html(htmlStr);
+        setTimeout(function () {
+            $('.meter-box>img').css('transform', 'rotate(' + deg + 'deg)');
+        }, 300)
+    },
     // 渐变背景折线图
     drawGradientLine: function (dom, postModalData) {
         var dom = document.getElementById(dom);
@@ -1191,7 +1212,7 @@ var initChartFun = {
                 "type": "column",
                 "topRadius": 1,
                 "valueField": "value",
-                "labelText":"[[value]]",
+                "labelText": "[[value]]",
                 "color": "#fff"
             }],
             "depth3D": 20,
@@ -1238,7 +1259,7 @@ var initChartFun = {
                 "lineAlpha": 0.1,
                 "type": "column",
                 "valueField": "value",
-                "labelText":"[[value]]",
+                "labelText": "[[value]]",
                 "color": "#fff"
             }],
             "depth3D": 15,
@@ -1286,7 +1307,7 @@ var initChartFun = {
                 "lineAlpha": 0.1,
                 "type": "column",
                 "valueField": "value",
-                "labelText":"[[value]]",
+                "labelText": "[[value]]",
                 "color": "#fff"
             }],
             "depth3D": 15,

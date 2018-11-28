@@ -6,6 +6,7 @@ var postModalData;
 
 // 所有图表请求后暂存
 var storageData = {
+    drawMeterPointer: [],
     draw3DCylinder: [],
     drawRectRadar: [],
     drawGradientLine: [],
@@ -13,7 +14,7 @@ var storageData = {
 }
 
 var color3DCylinder = ['#FF3838', '#FB943A', '#2420FF', '#9000FF'];
-var colorRadarList = new echarts.graphic.LinearGradient(0, 0, 1, 0,  [{offset: 0, color: '#CAA96E'},{offset: 1, color: '#CE4430'}], false)
+var colorRadarList = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#CAA96E' }, { offset: 1, color: '#CE4430' }], false)
 var colorScatterList = ['#45CE8D', '#FB943A', '#FF3838'];
 
 var colorLineList = [
@@ -103,11 +104,19 @@ $(function () {
 
     setTimeout(function () {
         // chart1
-
-
-
-
-        
+        $.ajax({
+            type: "GET",
+            data: "",
+            dataType: 'json',
+            url: "../test-json/meter.json",
+            success: function (res) {
+                if (res.resultCode == 200) {
+                    var val = res.result.seriesData[0].value;
+                    storageData.drawMeterPointer.push(val);
+                    initChartFun.drawMeterPointer('chart1', val);
+                };
+            }
+        });
 
         // chart2
         $.ajax({

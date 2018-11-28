@@ -149,7 +149,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: false,
+                                    show: true,
                                     position: 'top'
                                 }
                             },
