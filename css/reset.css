@@ -79,7 +79,7 @@ body {
   font-family: 'Num';
   font-style: normal;
   font-weight: 400;
-  src: url("./font/DS-DIGII.TTF");
+  src: url("../font/DS-DIGII.TTF");
 }
 .font-num {
   font-family: Num !important;
