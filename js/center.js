@@ -104,6 +104,11 @@ $(function () {
     setTimeout(function () {
         // chart1
 
+
+
+
+        
+
         // chart2
         $.ajax({
             type: "GET",

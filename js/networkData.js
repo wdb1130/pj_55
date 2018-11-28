@@ -7,8 +7,8 @@ var postModalData;
 // 所有图表请求后暂存
 var storageData = {
     drawLine: [],
-    drawLiquidFill1: [],
-    drawLiquidFill2: [],
+    drawWaterBall1: [],
+    drawWaterBall2: [],
     draw3DCylinderH: [],
     drawPartRing: [[], []]
 }
@@ -27,7 +27,6 @@ var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
     color: 'rgba(28,141,239,1)' // 100% 处的颜色
 }
 ], false);
-
 var color3DCylinder = ['#FF3838', '#2420FF'];
 var colorPartRingList = ['#45CE8D', '#FF3838'];
 
@@ -162,6 +161,8 @@ $(function () {
                         legend = item.name
                         value = item.value ;
                     });
+                    storageData.drawWaterBall1.push(value);
+                    storageData.drawWaterBall1.push(legend);
                     initChartFun.drawWaterBall('chart-2',value,legend);
                 };
             }
@@ -192,6 +193,8 @@ $(function () {
                         legend = item.name
                         value = item.value ;
                     });
+                    storageData.drawWaterBall2.push(value);
+                    storageData.drawWaterBall2.push(legend);
                     initChartFun.drawWaterBall('chart-3',value,legend);
                 };
             }

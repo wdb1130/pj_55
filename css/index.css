@@ -133,3 +133,25 @@ html, body {
 .chart4{
     margin-right: 1rem;
 }
+#chart1{
+    display: flex;
+}
+.meter-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background: url(../img//meter.png) no-repeat center center;
+    background-size: contain;
+    position: relative;
+    border: 1px solid blue;
+}
+.meter-box>img{
+    position: absolute;
+    width: auto;
+    padding-bottom: 10px;
+    height: 37%;
+    top: 9%;
+    transform-origin: center bottom;
+    transform: rotate(0deg);
+}

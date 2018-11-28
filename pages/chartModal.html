@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>图表模态框</title>
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/waterBall.css">
     <script src="../static/echarts/echarts.js"></script>
     <script src="../static/echarts/echarts-liquidfill.min.js"></script>
     <script src="../static/amchart/amcharts.js"></script>
@@ -54,6 +55,7 @@
         (funName.indexOf('drawOneFanPie') > -1) && (funName = 'drawOneFanPie');
         (funName.indexOf('drawLiquidFill') > -1) && (funName = 'drawLiquidFill');
         (funName.indexOf('draw3DCylinderH') > -1) && (funName = 'draw3DCylinderH');
+        (funName.indexOf('drawWaterBall') > -1) && (funName = 'drawWaterBall');
         switch (funName) {
             case 'drawLine':
             case 'drawVerticalBar':
@@ -61,9 +63,9 @@
             case 'drawHorizontalBar':
             case 'drawVerticalSingleBar':
             case 'drawRing':
+            case 'drawLiquidFill':
             case 'drawTwoFanPie':
             case 'drawOneFanPie':
-            case 'drawLiquidFill':
             case 'draw3DCylinder':
             case 'draw3DCylinderH':
             case 'draw3DCylinderV':
@@ -95,6 +97,10 @@
                     });
                 });
                 break;
+            case 'drawWaterBall':
+                var chartModal = $('<div id="chartModal"></div>');
+                $('.content').html(chartModal);
+                initChartFun[funName]('chartModal', postodalData[0], postodalData[1]);
         }
 
     </script>
