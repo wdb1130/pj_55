@@ -525,15 +525,13 @@ var initChartFun = {
             tooltip: {
                 trigger: 'item',
                 show: true,
-                formatter: "{b} : <br/>{d}%",
-                padding: [8, 10], //内边距
-                extraCssText: 'box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);', //添加阴影
+                formatter: "{b} : {d}%",
             },
             legend: {
                 orient: 'vertical',
                 left: '2%',
                 top: 'center',
-                itemGap: 20,
+                itemGap: 30,
                 data: postModalData[0],
                 textStyle: {
                     color: '#fff'
