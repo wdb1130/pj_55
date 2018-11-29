@@ -35,6 +35,7 @@ var initChartFun = {
                 },
                 axisLabel: {
                     show: true,
+                    interval: 0,
                     textStyle: {
                         color: '#8ECEEE'
                     }
@@ -578,7 +579,7 @@ var initChartFun = {
                 textStyle: {
                     color: '#fff',
                     textAlign: 'center',
-                    fontSize: '150%'
+                    fontSize: '120%'
                 },
             }],
             series: [

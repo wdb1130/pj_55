@@ -18,14 +18,14 @@ var color3DCylinder = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
 var colorPartRingList = ['#2420FF', '#45CE8D', '#FF3838'];
 var colorRingList = ['#0DC3FF', '#E9D356', '#F65C3E'];
 var radiusArr = [
-    ['70%', '75%'],
     ['55%', '60%'],
-    ['40%', '45%']
+    ['40%', '45%'],
+    ['25%', '30%']
 ];
 var centerArr = [
-    ['60%', '50%'],
-    ['60%', '50%'],
-    ['60%', '50%']
+    ['50%', '50%'],
+    ['50%', '50%'],
+    ['50%', '50%']
 ];
 var colorLineList = ['#FF3838'];
 
@@ -199,9 +199,12 @@ $(function () {
                             itemStyle: {
                                 normal: {
                                     label: {
-                                        show: false
+                                        show: true,
+                                        formatter: "{b}({d}%)"
                                     },
-                                    shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+                                    labelLine: {
+                                        show: true
+                                    }
                                 }
                             },
                             hoverAnimation: true,
