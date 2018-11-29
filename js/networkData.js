@@ -218,6 +218,8 @@ $(function () {
                             + "<span>" + item.date + "</span>"
                             + "</div>";
                     });
+                    var height1 = $('.swiper-container1').height();
+                    $('.swiper-container1').height(height1);
                     $('.swiper-container1>.swiper-wrapper').html(html);
                     var mySwiper1 = new Swiper('.swiper-container1', {
                         direction: 'vertical',
@@ -249,6 +251,8 @@ $(function () {
                             + "<span>" + item.date + "</span>"
                             + "</div>";
                     });
+                    var height2 = $('.swiper-container2').height();
+                    $('.swiper-container2').height(height2 - 5);
                     $('.swiper-container2>.swiper-wrapper').html(html);
                     var mySwiper2 = new Swiper('.swiper-container2', {
                         direction: 'vertical',

@@ -26,6 +26,21 @@ var centerArr = [
 ];
 
 $(function () {
+    $(".service-event").niceScroll({
+        cursorcolor: "#0E3FB9",
+        cursorwidth: "8px",
+        background: "#03062A",
+        cursorborder: "1px solid #0E3FB9",
+        cursorborderradius: 0
+    });
+    $(".collect-event").niceScroll({
+        cursorcolor: "#0E3FB9",
+        cursorwidth: "8px",
+        background: "#03062A",
+        cursorborder: "1px solid #0E3FB9",
+        cursorborderradius: 0
+    });
+
     layui.use('layer', function () {
         var $ = layui.jquery, layer = layui.layer;
         //触发事件

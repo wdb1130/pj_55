@@ -49,10 +49,12 @@ span.sp {
     display: flex;
     flex-direction: column;
     margin: 1rem 0;
+    min-height: 0;
 }
 .chart-group{
     flex: 1;
     display: flex;
+    min-height: 0;
 }
 .chart-group > div {
     flex: 1;
@@ -60,6 +62,7 @@ span.sp {
     flex-direction: column;
     background: url('../img/asset/asset_fy_03.png') no-repeat;
     background-size: 100% 100%;
+    min-height: 0;
 }
 .empty{
     width:4rem;
@@ -78,6 +81,7 @@ span.sp {
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem 3rem .6rem;
+    min-height: 0;
 }
 .table-chart .th-header {
     display: flex;

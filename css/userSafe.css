@@ -240,3 +240,7 @@ svg.svg-data {
     height: 100%;
     z-index: -100;
 }
+div.swiper-container1,
+div.swiper-container2{
+  margin-bottom: 1rem;
+}

@@ -49,10 +49,12 @@ span.sp {
     display: flex;
     flex-direction: column;
     margin: 1rem 0;
+    min-height: 0;
 }
 .chart-group{
     flex: 1;
     display: flex;
+    min-height: 0;
 }
 .empty-row {
     height: 2rem;
@@ -95,6 +97,7 @@ span.sp {
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem 3rem .6rem;
+    min-height: 0;
 }
 .table-chart .th-header {
     display: flex;
@@ -119,11 +122,13 @@ span.sp {
     flex: 1;
     overflow: auto;
     color: #C5D9FF;
+    min-height: 0;
 }
 .table-chart .th-boby > div {
     display: flex;
     text-align: center;
     padding: .5rem 0;
+    min-height: 0;
 }
 .table-chart .th-boby > div:nth-child(2n+1) {
     background: #061044;
