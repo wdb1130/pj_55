@@ -6,11 +6,11 @@ var postModalData;
 
 // 所有图表请求后暂存
 var storageData = {
-    drawLine1: [],
+    drawLine: [],
     draw3DCylinderH: [],
     drawPartRing: [[], [], []],
     drawRing: [],
-    drawLine2: [],
+    drawPlusLine: [],
 }
 
 var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
@@ -134,10 +134,10 @@ $(function () {
                             data: sitemArr[idx]
                         })
                     });
-                    storageData.drawLine1.push(res.result.legendData);
-                    storageData.drawLine1.push(xAxisData);
-                    storageData.drawLine1.push(seriesData);
-                    initChartFun.drawLine('chart2', storageData.drawLine1);
+                    storageData.drawLine.push(res.result.legendData);
+                    storageData.drawLine.push(xAxisData);
+                    storageData.drawLine.push(seriesData);
+                    initChartFun.drawLine('chart2', storageData.drawLine);
                 };
             }
         });
@@ -292,10 +292,10 @@ $(function () {
                             data: sitemArr[idx]
                         })
                     });
-                    storageData.drawLine2.push(res.result.legendData);
-                    storageData.drawLine2.push(xAxisData);
-                    storageData.drawLine2.push(seriesData);
-                    initChartFun.drawLine('chart7', storageData.drawLine2);
+                    storageData.drawPlusLine.push(res.result.legendData);
+                    storageData.drawPlusLine.push(xAxisData);
+                    storageData.drawPlusLine.push(seriesData);
+                    initChartFun.drawPlusLine('chart7', storageData.drawPlusLine);
                 };
             }
         });

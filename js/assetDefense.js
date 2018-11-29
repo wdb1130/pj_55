@@ -6,7 +6,7 @@ var postModalData;
 
 // 所有图表请求后暂存
 var storageData = {
-    drawLine: [],
+    drawPlusLine: [],
     drawVerticalBarH: []
 }
 
@@ -131,10 +131,10 @@ $(function () {
                             data: sitemArr[idx]
                         })
                     });
-                    storageData.drawLine.push(res.result.legendData);
-                    storageData.drawLine.push(xAxisData);
-                    storageData.drawLine.push(seriesData);
-                    initChartFun.drawLine('chart2', storageData.drawLine);
+                    storageData.drawPlusLine.push(res.result.legendData);
+                    storageData.drawPlusLine.push(xAxisData);
+                    storageData.drawPlusLine.push(seriesData);
+                    initChartFun.drawPlusLine('chart2', storageData.drawPlusLine);
                 };
             }
         });
