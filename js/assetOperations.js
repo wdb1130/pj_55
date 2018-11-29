@@ -122,7 +122,7 @@ $(function () {
                     var legendData = [];
                     res.result.legendData.forEach(function (item) {
                         var len = item.length / 2;
-                        legendData.push(item.slice(0, len) + '\n' + item.slice(len, item.length));
+                        legendData.push(item.slice(0, len) + '\n\n' + item.slice(len, item.length));
                     });
                     res.result.seriesData.forEach(function (item, idx) {
                         var domId = 'chart' + (idx + 5);

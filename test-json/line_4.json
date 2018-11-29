@@ -45,6 +45,13 @@
                 "risk": 15,
                 "defense": 11,
                 "opera": -80
+            },
+            {
+                "date": "2018-10-07",
+                "globalSituation": -10,
+                "risk": 55,
+                "defense": 31,
+                "opera": -20
             }
         ]
     }

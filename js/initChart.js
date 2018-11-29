@@ -234,7 +234,8 @@ var initChartFun = {
             legend: {
                 orient: 'vertical',
                 x: 'left',
-                y: 'center',
+                y: '10%',
+                itemGap: 30,
                 data: postModalData[0],
                 textStyle: {
                     color: '#fff'
@@ -579,8 +580,7 @@ var initChartFun = {
                 textStyle: {
                     color: '#fff',
                     textAlign: 'center',
-                    fontSize: '100%',
-                    fontWeight: 'bold'
+                    fontSize: '150%'
                 },
             }],
             series: [
@@ -703,6 +703,7 @@ var initChartFun = {
                         normal: {
                             formatter: '{b}:{c}: ({d}%)',
                             textStyle: {
+                                color: '#fff',
                                 fontWeight: 'normal',
                                 fontSize: 12
                             }
