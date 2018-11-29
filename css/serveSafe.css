@@ -4,7 +4,7 @@ body {
     width: 100%;
     color: #fff;
     box-sizing: border-box;
-    background: url(../img/serve/serve.png) no-repeat;
+    background: url(../img/serve_bg.png) no-repeat;
     background-size: 100% 100%;
     z-index: -200;
     position: relative;
@@ -20,22 +20,10 @@ body {
     overflow: auto;
 }
 
-.header {
-    height: 3rem;
-    width: 100%;
-    width: 27%;
-    min-width: 400px;
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 3.5rem;
-    color: #90E4FD;
-}
-
 .section {
     flex: 1;
     display: flex;
-    padding: 0 2rem;
-    padding-right: 5.5rem;
+    padding: 70px 100px 30px 50px;
 }
 
 .footer {

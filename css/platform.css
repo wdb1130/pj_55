@@ -1,5 +1,4 @@
 html, body {
-    margin: 0;
     background: url('../img/bg_02.png');
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -9,26 +8,6 @@ html, body {
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
 }
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3.5rem;
-    color: #fff;
-    font-weight: 700;
-    overflow: hidden;
-    background: url(../img/top_c.png) no-repeat;
-    background-size:100% 100%;
-}
-.logo span{
-    display: inline-block;
-    height: 100%;
-    padding-left: 55px;
-    line-height: 3.2rem;
-    background: url('../img/login/logo.png') no-repeat left 20%;
-    background-size: 2.5rem 2.5rem;
-    font-size: 22px;
-}
 .content {
     display: flex;
     flex-direction: column;
@@ -37,7 +16,7 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 2rem 4rem 3rem;
+    padding: 50px 70px 50px;
 }
 .top{
     flex: 1;

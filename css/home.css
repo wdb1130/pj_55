@@ -1,40 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   background: url(../img/synthesis/bg.png) no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
   width: 100%;
   overflow: hidden;
-}
-
-.header {
-  width: 100%;
-  height: 3rem;
-  line-height: 3rem;
-  position: relative;
-  text-align: center;
-  color: #fff;
-  font-size: 1.2rem;
-  background: url(../img/synthesis/top.png) no-repeat;
-  background-size: 100% 3rem;
-}
-
-.header .logo {
-  display: inline-block;
-  position: relative;
-  top: 0.3rem;
-  width: 2rem;
-  height: 2rem;
-  background: url(../img/synthesis/logo_s.png) no-repeat;
-  background-size: cover;
-}
-
-.header span {
-  position: relative;
-  top: -.2rem;
 }
 
 #orbit-system {
@@ -80,10 +49,10 @@ body {
 
 /* 中心球样式 */
 .planet {
-  width: 24rem;
-  height: 24rem;
-  margin-top: -12rem;
-  margin-left: -12rem;
+  width: 480px;
+  height: 480px;
+  margin-top: -240px;
+  margin-left: -240px;
   /*居中显示*/
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -94,10 +63,10 @@ body {
   background-size: cover;
 
   /* 恒星角度变换 */
-  -webkit-transform: rotateX(-75deg) rotateY(0deg) translateY(-6.5rem);
-  -moz-transform: rotateX(-75deg) rotateY(0deg) translateY(-6.5rem);
-  -ms-transform: rotateX(-75deg) rotateY(0deg) translateY(-6.5rem);
-  transform: rotateX(-75deg) rotateY(0deg) translateY(-6.5rem);
+  -webkit-transform: rotateX(-75deg) rotateY(0deg) translateY(-130px);
+  -moz-transform: rotateX(-75deg) rotateY(0deg) translateY(-130px);
+  -ms-transform: rotateX(-75deg) rotateY(0deg) translateY(-130px);
+  transform: rotateX(-75deg) rotateY(0deg) translateY(-130px);
 
 }
 
@@ -221,10 +190,10 @@ body {
 .user {
   top: 28%;
   left: 95%;
-  width: 11rem;
-  height: 11rem;
-  margin-top: -5.5rem;
-  margin-left: -5.5rem;
+  width: 220px;
+  height: 220px;
+  margin-top: -110px;
+  margin-left: -110px;
   -webkit-animation-name: invert-user;
   -moz-animation-name: invert-user;
   -o-animation-name: invert-user;
@@ -235,10 +204,10 @@ body {
 .data {
   top: 92%;
   left: 77%;
-  width: 13rem;
-  height: 13rem;
-  margin-top: -6.5rem;
-  margin-left: -6.5rem;
+  width: 260px;
+  height: 260px;
+  margin-top: -130px;
+  margin-left: -130px;
   -webkit-animation-name: invert-data;
   -moz-animation-name: invert-data;
   -o-animation-name: invert-data;
@@ -249,10 +218,10 @@ body {
 .asset {
   top: 92%;
   left: 23%;
-  width: 13rem;
-  height: 13rem;
-  margin-top: -6.5rem;
-  margin-left: -6.5rem;
+  width: 260px;
+  height: 260px;
+  margin-top: -130px;
+  margin-left: -130px;
   -webkit-animation-name: invert-asset;
   -moz-animation-name: invert-asset;
   -o-animation-name: invert-asset;
@@ -263,10 +232,10 @@ body {
 .manage {
   top: 35.6%;
   left: 2%;
-  width: 11rem;
-  height: 11rem;
-  margin-top: -5.5rem;
-  margin-left: -5.5rem;
+  width: 220px;
+  height: 220px;
+  margin-top: -110px;
+  margin-left: -110px;
   -webkit-animation-name: invert-manage;
   -moz-animation-name: invert-manage;
   -o-animation-name: invert-manage;
@@ -277,10 +246,10 @@ body {
 .serve {
   top: 0%;
   left: 50%;
-  width: 10rem;
-  height: 10rem;
-  margin-top: -5rem;
-  margin-left: -5rem;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
   -webkit-animation-name: invert-serve;
   -moz-animation-name: invert-serve;
   -o-animation-name: invert-serve;
@@ -303,223 +272,222 @@ body {
 @keyframes invert-user {
   0% {
     transform: rotateZ(360deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
 
   20% {
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
   40% {
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
   60% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
   75% {
-    height: 9rem;
-    width: 9rem;
-    margin-top: -4.5rem;
-    margin-left: -4.5rem;
+    height: 180px;
+    width: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
   }
 
   100% {
     transform: rotateZ(0deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
 }
 
 @keyframes invert-data {
   0% {
     transform: rotateZ(360deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
 
   20% {
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
   40% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
   60% {
-    height: 9rem;
-    width: 9rem;
-    margin-top: -4.5rem;
-    margin-left: -4.5rem;
+    height: 180px;
+    width: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
   }
   75% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
 
   100% {
     transform: rotateZ(0deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
 }
 
 @keyframes invert-asset {
   0% {
     transform: rotateZ(360deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
 
   20% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
   40% {
-    height: 9rem;
-    width: 9rem;
-    margin-top: -4.5rem;
-    margin-left: -4.5rem;
+    height: 180px;
+    width: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
   }
   60% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
   75% {
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
 
   100% {
     transform: rotateZ(0deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
 }
 
 @keyframes invert-manage {
   0% {
     transform: rotateZ(360deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
 
   20% {
-    height: 9rem;
-    width: 9rem;
-    margin-top: -4.5rem;
-    margin-left: -4.5rem;
+    height: 180px;
+    width: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
   }
   40% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
   60% {
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
   75% {
-    height: 13rem;
-    width: 13rem;
-    margin-top: -6.5rem;
-    margin-left: -6.5rem;
+    height: 260px;
+    width: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
   }
 
   100% {
     transform: rotateZ(0deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
 }
 
 @keyframes invert-serve {
   0% {
     transform: rotateZ(360deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 10rem;
-    width: 10rem;
-    margin-top: -5rem;
-    margin-left: -5rem;
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
   }
 
   20% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
   40% {
-    height: 12rem;
-    width: 12rem;
-    margin-top: -6rem;
-    margin-left: -6rem;
+    height: 240px;
+    width: 240px;
+    margin-top: -120px;
+    margin-left: -120px;
   }
   60% {
-    height: 12rem;
-    width: 12rem;
-    margin-top: -6rem;
-    margin-left: -6rem;
+    height: 240px;
+    width: 240px;
+    margin-top: -120px;
+    margin-left: -120px;
   }
   75% {
-    height: 11rem;
-    width: 11rem;
-    margin-top:-5.5rem;
-    margin-left:-5.5rem;
+    height: 220px;
+    width: 220px;
+    margin-top:-110px;
+    margin-left:-110px;
   }
 
   100% {
     transform: rotateZ(0deg) rotateY(0deg) rotateX(-75deg) scale(1.001);
-    height: 10rem;
-    width: 10rem;
-    margin-top: -5rem;
-    margin-left: -5rem;
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
   }
 }
 
 @keyframes breathe {
   0% {
-    opacity: .5;
+    opacity: .2;
   }
-
   100% {
     opacity: 1;
   }

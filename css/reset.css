@@ -11,7 +11,6 @@ margin: 0;
 padding: 0;
 border: 0;
 outline: 0;
-font-size: 100%;
 vertical-align: baseline;
 background: transparent;
 }
@@ -54,25 +53,44 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-size:10px !important;
   min-width: 1024px;
   min-height: 576px;
   overflow: hidden;
+  font-family:MicrosoftYaHei;
+  font-size: 10px;
 }
 
-@media only screen and (min-width: 1024px) {
-  body {
-    font:10px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif !important;
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+  html,body {
+    font-size:10px !important;
   }
 }
-@media only screen and (min-width: 1366px) {
-  body {
-    font:12px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif !important;
+@media screen and (min-width: 1366px) and (max-width: 1599px){
+  html,body {
+    font-size:12px !important;
   }
 }
-@media only screen and (min-width: 1600px) {
-  body {
-    font:14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif !important;
+@media screen and (min-width: 1600px) and (max-width: 1919px){
+  html,body {
+    font-size:14px !important;
   }
+}
+@media screen and (min-width: 1920px) and (max-width: 2559px){
+  html,body {
+    font-size:16px !important;
+  }
+}
+
+@media screen and (min-width: 2560px) and (max-width: 2999px){ 
+  html { 
+    font-size:18px !important;
+  } 
+}
+@media screen and (min-width: 3000px) and (max-width: 3800px){ 
+  html { 
+    font-size:20px !important;
+  } 
 }
 
 @font-face {
@@ -83,4 +101,77 @@ body {
 }
 .font-num {
   font-family: Num !important;
+}
+/* center */
+.header-ct {
+  width: 100%;
+  height:auto;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background: url(../img/synthesis/top.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.title-ct {
+  display: inline-block;
+  padding: 5px 0 24px 10px;
+  font-size: 2.5em;
+  font-weight: 600;
+  color:rgba(141,226,254,1);
+}
+.logo-ct {
+  position: relative;
+  display: inline-block;
+  top: 7px;
+  width: 50px;
+  height: 50px;
+  background: url(../img/synthesis/logo_s.png) no-repeat;
+  background-size: cover;
+}
+
+/* left header */
+.header-lf {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 70px;
+  background: url(../img/top_l.png) no-repeat center top;
+  background-size: 100% 100%;
+}
+.title-lf {
+  float: left;
+  width: 27%;
+  height: 70px;
+  line-height: 85px;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: 600;
+  color:rgba(141,226,254,1);
+}
+
+/* left large */
+.header-lf-lg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 70px;
+  background: url(../img/top_l_l.png) no-repeat center top;
+  background-size: 100% 100%;
+}
+.title-lf-lg {
+  width: 39%;
+  font-size: 2.2em;
+  font-weight: 600;
+  line-height: 85px;
+  color:rgba(141,226,254,1);
+  text-align: center;
+}
+.title-lf-lg .sp{
+  position: relative;
+  top: -3px;
+  font-size: 1.5rem;
+  font-weight: normal;
 }
