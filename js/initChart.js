@@ -1136,7 +1136,7 @@ var initChartFun = {
             },
             xAxis: [{
                 type: 'value',
-                name: '主机',
+                name: '(主机)',
                 scale: true,
                 min: 0,
                 max: 100,
@@ -1154,7 +1154,7 @@ var initChartFun = {
             }],
             yAxis: [{
                 type: 'value',
-                name: '风险值',
+                name: '(风险值)',
                 scale: true,
                 min: 0,
                 max: 100,
@@ -1167,7 +1167,10 @@ var initChartFun = {
                     }
                 },
                 splitLine: {
-                    show: false,
+                    show: true,
+                    lineStyle: {
+                        color: '#09206F'
+                    }
                 }
             }],
             series: [{
