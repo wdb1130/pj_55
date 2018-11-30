@@ -18,11 +18,8 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: .5rem 4rem 1rem 4rem;
+    padding: 3rem 8rem;
     color: #fff;
-}
-.header-lf .sp {
-    font-size: 1rem;
 }
 .header-lf > div:last-child {
     float:right;

@@ -46,17 +46,6 @@ html, body {
 .empty-col {
     width: 4rem;
 }
-.chart-group .title {
-    padding-top: .5rem;
-    padding-left: 2rem;
-    font-size: 1.16rem;
-    color: #C5D9FF;
-}
-.bottom .title {
-    width: 50%;
-    padding-left: 0;
-    text-align: center;
-}
 .bottom p {
     width: 2rem;
 }

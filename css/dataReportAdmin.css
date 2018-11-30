@@ -1,6 +1,4 @@
 html, body {
-    margin: 0;
-    padding: 0;
     background: url('../img/bg_01.png');
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -21,9 +19,6 @@ html, body {
     padding: 4rem 7rem 4rem;
     color: #fff;
     position: relative;
-}
-.header-lf .sp {
-    font-size: 1rem;
 }
 .header-lf > div:last-child {
     float:right;

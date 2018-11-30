@@ -155,12 +155,6 @@ body {
     background-size:  100% 100%;
 }
 
-.chart-box .chart-name {
-    padding-left: 2rem;
-    font-size: 16px;
-    padding-top: .5rem;
-}
-
 .chart-box .chart {
     display: flex;
     flex-direction: column;

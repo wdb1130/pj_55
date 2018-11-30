@@ -137,20 +137,9 @@ html, body {
     margin-top: 3rem;
 }
 
-
-.chart-box .chart-name {
-    display: inline-block;
-    font-size: 1.05rem;
-    height: 1.5rem;
-    text-align: right;
-    padding-right: 1.8rem;
-    padding-top: .5rem;
-}
-.col-3 .chart-name,
-.col-4 .chart-name {
-    padding-left: 1.2rem;
-    text-align: left;
-
+.col-1 .box-title,
+.col-2 .box-title {
+    padding-left:  54%;
 }
 .chart-box .chart {
     flex: 1;

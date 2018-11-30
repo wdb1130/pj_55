@@ -102,6 +102,7 @@ body {
 .font-num {
   font-family: Num !important;
 }
+
 /* center */
 .header-ct {
   width: 100%;
@@ -140,6 +141,7 @@ body {
   background: url(../img/top_l.png) no-repeat center top;
   background-size: 100% 100%;
 }
+
 .title-lf {
   float: left;
   width: 27%;
@@ -149,6 +151,11 @@ body {
   font-size: 2.2em;
   font-weight: 600;
   color:rgba(141,226,254,1);
+}
+
+.header-lf .sp {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 /* left large */
@@ -174,4 +181,40 @@ body {
   top: -3px;
   font-size: 1.5rem;
   font-weight: normal;
+}
+
+/* box */
+.box-title {
+  font-size: 1.1rem;  /*22px*/
+  width: 47%;
+  line-height: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  font-weight:bold;
+  color:rgba(197,217,255,1);
+}
+.box-title-s {
+  width: 77%;
+}
+.box-title-lg {
+  font-size: 1.7rem;  /*22px*/
+  padding-left: 1.5rem;
+  line-height: 2rem;
+  height: 2rem;
+  font-weight:600;
+  color:rgba(197,217,255,1);
+}
+.box-title-mid {
+  font-size: 1.5rem;  /*22px*/
+  padding-left: 2rem;
+  line-height: 3rem;
+  height: 2.5rem;
+  font-weight:600;
+  color:rgba(197,217,255,1);
+}
+
+/* checkbox */
+.layui-form-checkbox[lay-skin=primary] i {
+  background-color: #071D4B !important;
+  color: #071D4B;
 }

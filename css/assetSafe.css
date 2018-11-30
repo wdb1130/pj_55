@@ -82,7 +82,7 @@ html, body {
 .content {
   flex: 1;
   display: flex;
-  padding: 1rem 4rem 2rem;
+  padding: 5rem 4rem 2rem;
   padding-bottom: 2rem;
 }
 .content .col {
@@ -216,19 +216,9 @@ html, body {
 }
 
 
-.chart-box .chart-name {
-  display: inline-block;
-  height: 1rem;
-  text-align: right;
-  font-size: 13px;
-  padding-right: 1.2rem;
-  line-height: 1.5rem;
-}
-.col-3 .chart-name,
-.col-4 .chart-name {
-  padding-left: 1.2rem;
-  text-align: left;
-
+.col-1 .box-title,
+.col-2 .box-title {
+  padding-left:53%;
 }
 .chart-box .chart {
   flex: 1;

@@ -18,18 +18,11 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 90px 100px 80px;
+    padding: 6rem 9rem;
     color: #fff;
 }
-.opera-title > div:first-child {
-    width: 39%;
-    text-align: center;
-    height: 1.5rem;
-    font-size: 1.5rem;
-    color: #C0D4F9;
-}
-span.sp {
-    font-size: 1rem;
+.box-title-mid {
+    font-size: 1.7rem;
 }
 .chart-table {
     flex: 1;
@@ -50,7 +43,7 @@ span.sp {
     background-size: 100% 100%;
 }
 .empty{
-    width:4rem;
+    width:5.5rem;
 }
 .empty-row {
     height: 1rem;

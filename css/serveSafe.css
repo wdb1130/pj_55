@@ -129,17 +129,10 @@ body {
 
 /* 图标内的样式 */
 
-.layui-col-lg3 .title {
-    height: 2rem;
-    font-size: 16px;
-    z-index: 10;
-}
-
-.layui-col-lg3 .title span {
+.layui-col-lg3 .box-title span {
     width: 38%;
     text-align: center;
     position: absolute;
-    top: .5rem;
 }
 
 .col-1 span,

@@ -18,7 +18,7 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 90px 100px 80px;
+    padding: 6rem 9rem;
     color: #fff;
 }
 .chart-table {
@@ -42,16 +42,13 @@ html, body {
     min-height: 0;
 }
 .empty{
-    width:4rem;
+    width:5.5rem;
 }
 .empty-row {
     height: 1rem;
 }
-.chart-group .title {
-    padding-top: .4rem;
-    padding-left: 2rem;
-    font-size: 1.3rem;
-    color: #C5D9FF;
+.box-title-mid {
+    font-size: 1.7rem;
 }
 .chart-group .table-chart {
     flex: 1;

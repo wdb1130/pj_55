@@ -1,6 +1,4 @@
 html, body {
-    margin: 0;
-    padding: 0;
     background: url('../img/bg_01.png');
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -9,6 +7,7 @@ html, body {
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
+    font-size: 1rem;
 }
 .container {
     display: flex;
@@ -18,12 +17,9 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    padding: .5rem 4rem 1rem 4rem;
+    padding: 3rem 4rem;
     color: #fff;
     position: relative;
-}
-.header-lf .sp {
-    font-size: 1rem;
 }
 .header-lf > div:last-child {
     float:right;
@@ -50,6 +46,7 @@ i.layui-icon.layui-icon-triangle-d {
     margin-left: 3rem;
 }
 .title{
+    font-size: 1rem;
     height: 19px;
     padding-bottom: 5px;
     color: #C6D9FE;
