@@ -1209,7 +1209,7 @@ var initChartFun = {
                 left: 'right',
                 top: 'top',
                 text: ['高', '低'],
-                calculable: true,
+                calculable: false,
                 itemWidth: 10,
                 itemHeight: 100,
                 textStyle: {
