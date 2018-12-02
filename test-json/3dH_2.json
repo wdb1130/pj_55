@@ -4,11 +4,11 @@
     "result": {
         "seriesData": [
             {
-                "title": "数据访问失效率",
+                "title": "数据破损率",
                 "value": 70
             },
             {
-                "title": "数据破损率",
+                "title": "数据访问失效率",
                 "value": 52
             }
         ]

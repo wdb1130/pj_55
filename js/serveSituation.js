@@ -14,7 +14,11 @@ var storageData = {
 }
 
 var colorLine = ['#FF3838', '#8124FF', '#45CE8D'];
-var color3DCylinder = ['#FF3838', '#45CE8D', '#9000FF'];
+var color3DCylinder = [
+    ['#4511CF', '#8B53F2'],
+    ['#4ED6AD', '#5DDBF8'],
+    ['#D9162E', '#FE7421']
+];
 var colorBarList = ['#FF3838', '#45CE8D', '#8124FF'];
 var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#FF3838'},{offset: 1, color: '#C5AC8E'}]);
 var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#CA4736'},{offset: 1, color: '#1FB494'}]);
@@ -141,10 +145,8 @@ $(function () {
             url: "../test-json/3dH_3.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    res.result.seriesData.forEach(function (item, idx) {
-                        item.color = color3DCylinder[idx];
-                    });
                     storageData.draw3DCylinderH.push(res.result.seriesData);
+                    storageData.draw3DCylinderH.push(color3DCylinder);
                     initChartFun.draw3DCylinderH('chart2', storageData.draw3DCylinderH);
                 };
             }

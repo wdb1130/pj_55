@@ -15,9 +15,14 @@ var storageData = {
 }
 
 var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var color3DCylinder = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#FF3838'},{offset: 1, color: '#C5AC8E'}]);
-var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#3AA8D6'},{offset: 1, color: '#1FB494'}]);
+var color3DCylinder = [
+    ['#C62837', '#E06A2E'],
+    ['#E38348', '#E0C077'],
+    ['#197B53', '#42C763'],
+    ['#1FADE2', '#3697E3']
+];;
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#FF3838' }, { offset: 1, color: '#C5AC8E' }]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#3AA8D6' }, { offset: 1, color: '#1FB494' }]);
 
 
 $(function () {
@@ -143,10 +148,8 @@ $(function () {
             url: "../test-json/arcRadar_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    res.result.seriesData.forEach(function (item, idx) {
-                        item.color = color3DCylinder[idx];
-                    });
                     storageData.draw3DCylinder.push(res.result.seriesData);
+                    storageData.draw3DCylinder.push(color3DCylinder);
                     initChartFun.draw3DCylinder('chart2', storageData.draw3DCylinder);
                 };
             }

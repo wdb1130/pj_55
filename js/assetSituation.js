@@ -14,10 +14,15 @@ var storageData = {
 }
 
 var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var color3DCylinder = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var color3DCylinder = [
+    ['#FF732E', '#FF3838'],
+    ['#FFD062', '#FA8015'],
+    ['#68EDC6', '#10B857'],
+    ['#06B8EB', '#2420FF']
+];
 var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#FF3838'},{offset: 1, color: '#C5AC8E'}]);
-var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#3AA8D6'},{offset: 1, color: '#1FB494'}]);
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#FF3838' }, { offset: 1, color: '#C5AC8E' }]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#3AA8D6' }, { offset: 1, color: '#1FB494' }]);
 
 $(function () {
     layui.use('form', function () {
@@ -142,10 +147,8 @@ $(function () {
             url: "../test-json/3dH_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    res.result.seriesData.forEach(function (item, idx) {
-                        item.color = color3DCylinder[idx];
-                    });
                     storageData.draw3DCylinderV.push(res.result.seriesData);
+                    storageData.draw3DCylinderV.push(color3DCylinder);
                     initChartFun.draw3DCylinderV('chart2', storageData.draw3DCylinderV);
                 };
             }

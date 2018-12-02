@@ -14,7 +14,12 @@ var storageData = {
 }
 
 var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var color3DCylinder = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var color3DCylinder = [
+    ['#4ED6AD', '#5DDBF8'],
+    ['#2324FF', '#05B8FF'],
+    ['#FFD062', '#FACE64'],
+    ['#D9162E', '#FE7421']
+];
 var colorPartRingList = ['#2420FF', '#45CE8D', '#FF3838'];
 var colorRingList = ['#0DC3FF', '#E9D356', '#F65C3E'];
 var radiusArr = [
@@ -81,10 +86,8 @@ $(function () {
             url: "../test-json/3dH_4.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    res.result.seriesData.forEach(function (item, idx) {
-                        item.color = color3DCylinder[idx];
-                    });
                     storageData.draw3DCylinderH.push(res.result.seriesData);
+                    storageData.draw3DCylinderH.push(color3DCylinder);
                     initChartFun.draw3DCylinderH('chart1', storageData.draw3DCylinderH);
                 };
             }

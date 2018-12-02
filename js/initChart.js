@@ -1152,7 +1152,7 @@ var initChartFun = {
                     color: '#8ECEEE'
                 },
                 type: 'category',
-                
+
                 boundaryGap: true,
                 axisLabel: {
                     interval: 0,
@@ -1328,146 +1328,192 @@ var initChartFun = {
     },
     //3d圆柱图
     draw3DCylinder: function (dom, postModalData) {
-        var chart = AmCharts.makeChart(dom, {
-            "theme": "light",
-            "type": "serial",
-            "startDuration": 2,
-            "dataProvider": postModalData[0],
-            "valueAxes": [{
-                "position": "left",
-                "color": "#A4C1E4",
-                "title": "",
-                "axisColor": "#0D53A2",
-                "minimum": 0,
-                "maximum": 100,
-                "gridColor": '#0D53A2'
-            }],
-            "graphs": [{
-                "balloonText": "[[category]]: <b>[[value]]</b>",
-                "colorField": "color",
-                "fillAlphas": 0.85,
-                "lineAlpha": 0.1,
-                "type": "column",
-                "topRadius": 1,
-                "valueField": "value",
-                "labelText": "[[value]]",
-                "color": "#fff"
-            }],
-            "depth3D": 20,
-            "angle": 30,
-            "columnWidth": 0.4,
-            "chartCursor": {
-                "categoryBalloonEnabled": false,
-                "cursorAlpha": 0,
-                "zoomable": false
-            },
-            "categoryField": "title",
-            "categoryAxis": {
-                "gridPosition": "start",
-                "color": "#A4C1E4",
-                "labelRotation": 0,
-                "axisColor": "#0D53A2",
-                "gridColor": '#0D53A2'
-            },
-            "export": {
-                "enabled": true
-            }
-        }, 0);
+        am4core.useTheme(am4themes_animated);
+        var chart = am4core.create(dom, am4charts.XYChart3D);
+        chart.angle = 30;
+        chart.depth = 20;
+        chart.data = postModalData[0];
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "title";
+        categoryAxis.renderer.labels.template.rotation = 0;
+        categoryAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        categoryAxis.renderer.labels.template.hideOversized = false;
+        categoryAxis.renderer.labels.template.horizontalCenter = "middle";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.minGridDistance = 30;
+        categoryAxis.renderer.cellStartLocation = 0.2;
+        categoryAxis.renderer.cellEndLocation = 0.7;
+        categoryAxis.tooltip.disabled = true;
+        categoryAxis.renderer.grid.template.strokeOpacity = 0;
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.calculateTotals = true;
+        valueAxis.min = 0;
+        valueAxis.max = 100;
+        valueAxis.strictMinMax = true;
+        valueAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        valueAxis.renderer.grid.template.stroke = am4core.color("#0B397A");
+        valueAxis.renderer.grid.template.strokeOpacity = 1;
+        valueAxis.tooltip.disabled = true;
+        valueAxis.renderer.minGridDistance = 5;
+        var series = chart.series.push(new am4charts.ConeSeries());
+        series.dataFields.valueY = "value";
+        series.dataFields.categoryX = "title";
+        series.name = "value";
+        series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+
+        var columnTemplate = series.columns.template;
+        columnTemplate.strokeWidth = 0;
+        columnTemplate.strokeOpacity = 0;
+        columnTemplate.fillOpacity = 0.8;
+        columnTemplate.stroke = am4core.color("#fff");
+        var arr2 = postModalData[1];
+        columnTemplate.adapter.add("fill", (fill, target) => {
+            var gradient = new am4core.LinearGradient();
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][0]));
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][1]));
+            gradient.rotation = 90;
+            return fill = gradient;
+        })
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.lineX.strokeOpacity = 0;
+        chart.cursor.lineY.strokeOpacity = 0;
+        var bullet = series.bullets.push(new am4charts.LabelBullet());
+        bullet.label.text = "{valueY}";
+        bullet.label.fill = am4core.color("#fff");
+        bullet.label.verticalCenter = "bottom";
+        bullet.label.dy = -10;
+        chart.maskBullets = false;
+        $('#id-63-title').parent().hide();
     },
     // 3d柱状图（纵向）
     draw3DCylinderV: function (dom, postModalData) {
-        var chart = AmCharts.makeChart(dom, {
-            "theme": "light",
-            "type": "serial",
-            "startDuration": 2,
-            "dataProvider": postModalData[0],
-            "valueAxes": [{
-                "position": "left",
-                "color": "#A4C1E4",
-                "title": "",
-                "axisColor": "#0D53A2",
-                "minimum": 0,
-                "maximum": 100,
-                "gridColor": '#0D53A2'
-            }],
-            "graphs": [{
-                "balloonText": "[[category]]: <b>[[value]]</b>",
-                "fillColorsField": "color",
-                "fillAlphas": 1,
-                "lineAlpha": 0.1,
-                "type": "column",
-                "valueField": "value",
-                "labelText": "[[value]]",
-                "color": "#fff"
-            }],
-            "depth3D": 15,
-            "angle": 30,
-            "columnWidth": 0.3,
-            "rotate": false,
-            "chartCursor": {
-                "categoryBalloonEnabled": false,
-                "cursorAlpha": 0,
-                "zoomable": false
-            },
-            "categoryField": "title",
-            "categoryAxis": {
-                "gridPosition": "start",
-                "color": "#A4C1E4",
-                "labelRotation": 0,
-                "axisColor": "#0D53A2",
-                "gridColor": '#0D53A2'
-            },
-            "export": {
-                "enabled": true
-            }
-        });
+        am4core.useTheme(am4themes_animated);
+        var chart = am4core.create(dom, am4charts.XYChart3D);
+        chart.angle = 30;
+        chart.depth = 15;
+        chart.data = postModalData[0];
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "title";
+        categoryAxis.renderer.labels.template.rotation = 0;
+        categoryAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        categoryAxis.renderer.labels.template.hideOversized = false;
+        categoryAxis.renderer.labels.template.horizontalCenter = "middle";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.minGridDistance = 30;
+        categoryAxis.renderer.cellStartLocation = 0.25;
+        categoryAxis.renderer.cellEndLocation = 0.75;
+        categoryAxis.tooltip.disabled = true;
+        categoryAxis.renderer.grid.template.strokeOpacity = 0;
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.calculateTotals = true;
+        valueAxis.min = 0;
+        valueAxis.max = 100;
+        valueAxis.strictMinMax = true;
+        valueAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        valueAxis.renderer.grid.template.stroke = am4core.color("#0B397A");
+        valueAxis.renderer.grid.template.strokeOpacity = 1;
+        valueAxis.tooltip.disabled = true;
+        valueAxis.renderer.minGridDistance = 5;
+        var series = chart.series.push(new am4charts.ColumnSeries3D());
+        series.dataFields.valueY = "value";
+        series.dataFields.categoryX = "title";
+        series.name = "value";
+        series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+        series.columns.template.width = am4core.percent(50);
+
+        var columnTemplate = series.columns.template;
+        columnTemplate.strokeWidth = 2;
+        columnTemplate.strokeOpacity = 1;
+        columnTemplate.fillOpacity = 0.8;
+        columnTemplate.stroke = am4core.color("#fff");
+        var arr2 = postModalData[1];
+        columnTemplate.adapter.add("fill", (fill, target) => {
+            var gradient = new am4core.LinearGradient();
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][0]));
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][1]));
+            gradient.rotation = 90;
+            return fill = gradient;
+        })
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.lineX.strokeOpacity = 0;
+        chart.cursor.lineY.strokeOpacity = 0;
+        var bullet = series.bullets.push(new am4charts.LabelBullet());
+        bullet.label.text = "{valueY}";
+        bullet.label.fill = am4core.color("#fff");
+        bullet.label.verticalCenter = "bottom";
+        bullet.label.dx = 10;
+        bullet.label.dy = -10;
+        chart.maskBullets = false;
+        $('#id-63-title').parent().hide();
     },
     // 3d柱状图（横向）
     draw3DCylinderH: function (dom, postModalData) {
-        var chart = AmCharts.makeChart(dom, {
-            "theme": "light",
-            "type": "serial",
-            "startDuration": 2,
-            "dataProvider": postModalData[0],
-            "valueAxes": [{
-                "position": "left",
-                "color": "#8DA1C9",
-                "title": "",
-                "axisColor": "#0D53A2",
-                "minimum": 0,
-                "maximum": 100,
-                "gridColor": '#0D53A2'
-            }],
-            "graphs": [{
-                "balloonText": "[[category]]: <b>[[value]]</b>",
-                "fillColorsField": "color",
-                "fillAlphas": 1,
-                "lineAlpha": 0.1,
-                "type": "column",
-                "valueField": "value",
-                "labelText": "[[value]]",
-                "color": "#fff"
-            }],
-            "depth3D": 15,
-            "angle": 30,
-            "columnWidth": 0.5,
-            "rotate": true,
-            "chartCursor": {
-                "categoryBalloonEnabled": false,
-                "cursorAlpha": 0,
-                "zoomable": false
-            },
-            "categoryField": "title",
-            "categoryAxis": {
-                "gridPosition": "start",
-                "color": "#A4C1E4",
-                "labelRotation": 0,
-                "axisColor": "#0D53A2",
-                "gridColor": '#0D53A2'
-            },
-            "export": {
-                "enabled": true
-            }
-        });
+        am4core.useTheme(am4themes_animated);
+        var chart = am4core.create(dom, am4charts.XYChart3D);
+        chart.angle = 30;
+        chart.depth = 10;
+        chart.data = postModalData[0];
+        var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "title";
+        categoryAxis.renderer.labels.template.rotation = 0;
+        categoryAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        categoryAxis.renderer.labels.template.hideOversized = false;
+        categoryAxis.renderer.labels.template.horizontalCenter = "middle";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.tooltip.disabled = true;
+        categoryAxis.renderer.minGridDistance = 10;
+        categoryAxis.renderer.grid.template.strokeOpacity = 0;
+        categoryAxis.renderer.cellStartLocation = 0.5;
+        categoryAxis.renderer.cellEndLocation = 0.75;
+
+        var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+        valueAxis.calculateTotals = true;
+        valueAxis.min = 0;
+        valueAxis.max = 100;
+        valueAxis.strictMinMax = true;
+        valueAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        valueAxis.renderer.grid.template.stroke = am4core.color("#0B397A");
+        valueAxis.renderer.grid.template.strokeOpacity = 1;
+        valueAxis.tooltip.disabled = true;
+        valueAxis.renderer.minGridDistance = 5;
+
+        valueAxis.renderer.cellStartLocation = 0.5;
+        valueAxis.renderer.cellEndLocation = 0.75;
+
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries3D());
+        series.dataFields.valueX = "value";
+        series.dataFields.categoryY = "title";
+        series.name = "value";
+        series.columns.template.propertyFields.fill = "color";
+        series.columns.template.tooltipText = "{categoryY}: [bold]{valueX}[/]";
+        series.columns.template.height = am4core.percent(40);
+
+        var columnTemplate = series.columns.template;
+        columnTemplate.strokeWidth = 0;
+        columnTemplate.strokeOpacity = 0;
+        columnTemplate.fillOpacity = 0.8;
+        columnTemplate.stroke = am4core.color("#fff");
+        var arr2 = postModalData[1];
+        columnTemplate.adapter.add("fill", (fill, target) => {
+            var gradient = new am4core.LinearGradient();
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][0]));
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][1]));
+            return fill = gradient;
+        })
+
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.lineX.strokeOpacity = 0;
+        chart.cursor.lineY.strokeOpacity = 0;
+
+        var bullet = series.bullets.push(new am4charts.LabelBullet());
+        bullet.label.text = "{valueX}";
+        bullet.label.fill = am4core.color("#fff");
+        bullet.label.verticalCenter = "bottom";
+        bullet.label.dx = 20;
+        bullet.label.dy = 5;
+        bullet.label.fontSize = 20;
+        chart.maskBullets = true;
+        $('#id-63-title').parent().hide();
     }
 };

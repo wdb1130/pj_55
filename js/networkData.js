@@ -29,7 +29,10 @@ var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
     color: 'rgba(28,141,239,1)' // 100% 处的颜色
 }
 ], false);
-var color3DCylinder = ['#FF3838', '#2420FF'];
+var color3DCylinder = [
+    ['#2324FF', '#05B8FF'],
+    ['#D9162E', '#FE7421']
+];
 var colorPartRingList = ['#45CE8D', '#FF3838'];
 
 $(function () {
@@ -276,10 +279,8 @@ $(function () {
             url: "../test-json/3dH_2.json",
             success: function (res) {
                 if (res.resultCode == 200) {
-                    res.result.seriesData.forEach(function (item, idx) {
-                        item.color = color3DCylinder[idx];
-                    });
                     storageData.draw3DCylinderH.push(res.result.seriesData);
+                    storageData.draw3DCylinderH.push(color3DCylinder);
                     initChartFun.draw3DCylinderH('chart-4', storageData.draw3DCylinderH);
                 };
             }
