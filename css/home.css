@@ -59,7 +59,7 @@ body {
   color: #ffffff;
   font-size: 1.4rem;
   text-align: center;
-  background: url(../img/synthesis/center-1.png) no-repeat center center;
+  background: url(../img/synthesis/center_1.png) no-repeat center center;
   background-size: cover;
 
   /* 恒星角度变换 */
@@ -101,6 +101,17 @@ body {
   -ms-animation-direction: alternate;
   animation-direction: alternate;
 
+}
+.planet .big-ball {
+  position: absolute;
+  height:310px;
+  width: 310px;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  background: url(../img/synthesis/center-3.jpg) no-repeat center center;
+  background-size: cover;
 }
 
 /* 周边球体旋转面 宽高必须等同 */

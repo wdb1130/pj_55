@@ -676,6 +676,11 @@ var initChartFun = {
             globalCoord: false
         }, 'none'];
         option = {
+            tooltip: {
+                trigger: 'item',
+                // formatter: "{a} <br/>{b}: {c} ({d}%)"
+                formatter: "{d}%"
+            },
             title: [{
                 text: postModalData[0],
                 x: '50%',
@@ -731,6 +736,7 @@ var initChartFun = {
                     type: 'pie',
                     clockWise: true,
                     hoverAnimation: true,
+                    hoverOffset:-10,
                     center: ['50%', '40%'],
                     radius: ['75%', '65%'],
                     color: color,
