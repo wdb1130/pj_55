@@ -736,7 +736,7 @@ var initChartFun = {
                     type: 'pie',
                     clockWise: true,
                     hoverAnimation: true,
-                    hoverOffset:-10,
+                    hoverOffset: -10,
                     center: ['50%', '40%'],
                     radius: ['75%', '65%'],
                     color: color,
@@ -1366,7 +1366,6 @@ var initChartFun = {
         series.dataFields.categoryX = "title";
         series.name = "value";
         series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
-
         var columnTemplate = series.columns.template;
         columnTemplate.strokeWidth = 0;
         columnTemplate.strokeOpacity = 0;
@@ -1389,7 +1388,7 @@ var initChartFun = {
         bullet.label.verticalCenter = "bottom";
         bullet.label.dy = -10;
         chart.maskBullets = false;
-        $('#id-63-title').parent().hide();
+        $("#id-63-title").length && $('#id-63-title').parent().hide();
     },
     // 3d柱状图（纵向）
     draw3DCylinderV: function (dom, postModalData) {
@@ -1426,7 +1425,6 @@ var initChartFun = {
         series.name = "value";
         series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
         series.columns.template.width = am4core.percent(50);
-
         var columnTemplate = series.columns.template;
         columnTemplate.strokeWidth = 2;
         columnTemplate.strokeOpacity = 1;
@@ -1450,7 +1448,7 @@ var initChartFun = {
         bullet.label.dx = 10;
         bullet.label.dy = -10;
         chart.maskBullets = false;
-        $('#id-63-title').parent().hide();
+        $("#id-63-title").length && $('#id-63-title').parent().hide();
     },
     // 3d柱状图（横向）
     draw3DCylinderH: function (dom, postModalData) {
@@ -1471,7 +1469,6 @@ var initChartFun = {
         categoryAxis.renderer.grid.template.strokeOpacity = 0;
         categoryAxis.renderer.cellStartLocation = 0.5;
         categoryAxis.renderer.cellEndLocation = 0.75;
-
         var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
         valueAxis.calculateTotals = true;
         valueAxis.min = 0;
@@ -1482,11 +1479,8 @@ var initChartFun = {
         valueAxis.renderer.grid.template.strokeOpacity = 1;
         valueAxis.tooltip.disabled = true;
         valueAxis.renderer.minGridDistance = 5;
-
         valueAxis.renderer.cellStartLocation = 0.5;
         valueAxis.renderer.cellEndLocation = 0.75;
-
-        // Create series
         var series = chart.series.push(new am4charts.ColumnSeries3D());
         series.dataFields.valueX = "value";
         series.dataFields.categoryY = "title";
@@ -1494,7 +1488,6 @@ var initChartFun = {
         series.columns.template.propertyFields.fill = "color";
         series.columns.template.tooltipText = "{categoryY}: [bold]{valueX}[/]";
         series.columns.template.height = am4core.percent(40);
-
         var columnTemplate = series.columns.template;
         columnTemplate.strokeWidth = 0;
         columnTemplate.strokeOpacity = 0;
@@ -1507,11 +1500,9 @@ var initChartFun = {
             gradient.addColor(am4core.color(arr2[target.dataItem.index][1]));
             return fill = gradient;
         })
-
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.lineX.strokeOpacity = 0;
         chart.cursor.lineY.strokeOpacity = 0;
-
         var bullet = series.bullets.push(new am4charts.LabelBullet());
         bullet.label.text = "{valueX}";
         bullet.label.fill = am4core.color("#fff");
@@ -1520,6 +1511,7 @@ var initChartFun = {
         bullet.label.dy = 0;
         bullet.label.fontSize = 15;
         chart.maskBullets = true;
-        $('#id-63-title').parent().hide();
+        $("#id-63-title").length && $('#id-63-title').parent().hide();
+        $("#id-204-title").length && $("#id-204-title").parent().hide();
     }
 };
