@@ -1517,8 +1517,8 @@ var initChartFun = {
         bullet.label.fill = am4core.color("#fff");
         bullet.label.verticalCenter = "bottom";
         bullet.label.dx = 20;
-        bullet.label.dy = 5;
-        bullet.label.fontSize = 20;
+        bullet.label.dy = 0;
+        bullet.label.fontSize = 15;
         chart.maskBullets = true;
         $('#id-63-title').parent().hide();
     }
