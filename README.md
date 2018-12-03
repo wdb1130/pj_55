@@ -17,7 +17,7 @@ css
 
 ### echarts
 
-### amcharts
+### amcharts4
 
 ### layui
 
