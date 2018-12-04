@@ -14,10 +14,10 @@ var storageData = {
 }
 
 var color3DCylinder = [
-    ['#C93A49', '#E27541'],
-    ['#E38A56', '#E0C483'],
-    ['#1EAEE4', '#3998E3'],
-    ['#1DAFE3', '#3697E3']
+    ['#D8152E', '#FF7521'],
+    ['#FE7421', '#FACF65'],
+    ['#085BC1', '#26E8FF'],
+    ['#085BC1', '#26E8FF']
 ];
 var colorRadarList = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#CAA96E' }, { offset: 1, color: '#CE4430' }], false)
 var colorScatterList = ['#45CE8D', '#FB943A', '#FF3838'];
@@ -128,7 +128,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_4.json",
+            url: "../test-json/3d_arc.json",
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinder.push(res.result.seriesData);

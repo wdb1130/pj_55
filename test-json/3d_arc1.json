@@ -1,0 +1,28 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "title": "全局态势",
+                "value1": 70,
+                "value2": 30
+            },
+            {
+                "title": "威胁",
+                "value1": 82,
+                "value2": 18
+            },
+            {
+                "title": "防御",
+                "value1": 51,
+                "value2": 49
+            },
+            {
+                "title": "行为",
+                "value1": 79,
+                "value2": 21
+            }
+        ]
+    }
+}

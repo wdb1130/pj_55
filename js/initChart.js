@@ -1334,56 +1334,85 @@ var initChartFun = {
     },
     //3d圆柱图
     draw3DCylinder: function (dom, postModalData) {
+        console.log(dom)
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create(dom, am4charts.XYChart3D);
+        var arr2 = postModalData[1];
         chart.angle = 30;
         chart.depth = 20;
         chart.data = postModalData[0];
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "title";
-        categoryAxis.renderer.labels.template.rotation = 0;
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.grid.template.strokeOpacity = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+        categoryAxis.renderer.cellStartLocation = 0.2;
+        categoryAxis.renderer.cellEndLocation = 0.7;
         categoryAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
         categoryAxis.renderer.labels.template.hideOversized = false;
         categoryAxis.renderer.labels.template.horizontalCenter = "middle";
         categoryAxis.renderer.labels.template.verticalCenter = "middle";
-        categoryAxis.renderer.minGridDistance = 30;
-        categoryAxis.renderer.cellStartLocation = 0.2;
-        categoryAxis.renderer.cellEndLocation = 0.7;
         categoryAxis.tooltip.disabled = true;
-        categoryAxis.renderer.grid.template.strokeOpacity = 0;
         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
         valueAxis.calculateTotals = true;
+        valueAxis.renderer.grid.template.strokeOpacity = 0;
         valueAxis.min = 0;
-        valueAxis.max = 100;
+        valueAxis.max = 109;
         valueAxis.strictMinMax = true;
+        valueAxis.renderer.baseGrid.disabled = true;
         valueAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
         valueAxis.renderer.grid.template.stroke = am4core.color("#0B397A");
         valueAxis.renderer.grid.template.strokeOpacity = 1;
         valueAxis.tooltip.disabled = true;
         valueAxis.renderer.minGridDistance = 5;
-        var series = chart.series.push(new am4charts.ConeSeries());
-        series.dataFields.valueY = "value";
-        series.dataFields.categoryX = "title";
-        series.name = "value";
-        series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
-        var columnTemplate = series.columns.template;
-        columnTemplate.strokeWidth = 0;
-        columnTemplate.strokeOpacity = 0;
-        columnTemplate.fillOpacity = 0.8;
-        columnTemplate.stroke = am4core.color("#fff");
-        var arr2 = postModalData[1];
-        columnTemplate.adapter.add("fill", (fill, target) => {
+        valueAxis.tooltip.disabled = true;
+        var series1 = chart.series.push(new am4charts.ConeSeries());
+        series1.dataFields.valueY = "value1";
+        series1.dataFields.categoryX = "title";
+        series1.columns.template.width = am4core.percent(80);
+        series1.columns.template.fillOpacity = 0.9;
+        series1.columns.template.strokeOpacity = 1;
+        series1.columns.template.strokeWidth = 2;
+        series1.tooltipText = "{categoryX}: [bold]{valueY}%[/]";
+        var columnTemplate1 = series1.columns.template;
+        columnTemplate1.strokeWidth = 0;
+        columnTemplate1.strokeOpacity = 0;
+        columnTemplate1.fillOpacity = 0.8;
+        columnTemplate1.stroke = am4core.color("#fff");
+        columnTemplate1.adapter.add("fill", (fill, target) => {
             var gradient = new am4core.LinearGradient();
             gradient.addColor(am4core.color(arr2[target.dataItem.index][0]));
             gradient.addColor(am4core.color(arr2[target.dataItem.index][1]));
-            gradient.rotation = 90;
+            return fill = gradient;
+        })
+
+        var series2 = chart.series.push(new am4charts.ConeSeries());
+        series2.dataFields.valueY = "value2";
+        series2.dataFields.categoryX = "title";
+        series2.stacked = true;
+        series2.columns.template.width = am4core.percent(80);
+        series2.columns.template.fill = am4core.color("#000");
+        series2.columns.template.fillOpacity = 0.1;
+        series2.columns.template.stroke = am4core.color("#000");
+        series2.columns.template.strokeOpacity = 0.1;
+        series2.columns.template.strokeWidth = 1;
+        var columnTemplate2 = series2.columns.template;
+        columnTemplate2.strokeWidth = 0;
+        columnTemplate2.strokeOpacity = 0;
+        columnTemplate2.fillOpacity = 0.4;
+        columnTemplate2.stroke = am4core.color("#fff");
+        columnTemplate2.adapter.add("fill", (fill, target) => {
+            var gradient = new am4core.LinearGradient();
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][1]));
+            gradient.addColor(am4core.color(arr2[target.dataItem.index][1]));
             return fill = gradient;
         })
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.lineX.strokeOpacity = 0;
         chart.cursor.lineY.strokeOpacity = 0;
-        var bullet = series.bullets.push(new am4charts.LabelBullet());
-        bullet.label.text = "{valueY}";
+        chart.cursor.behavior = "none";
+        var bullet = series1.bullets.push(new am4charts.LabelBullet());
+        bullet.label.text = "{valueY}%";
         bullet.label.fill = am4core.color("#fff");
         bullet.label.verticalCenter = "bottom";
         bullet.label.dy = -10;
