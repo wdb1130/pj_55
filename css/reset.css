@@ -61,36 +61,80 @@ body {
   font-size: 10px;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1365px) {
+@media screen and (min-width: 1024px) and  (max-width: 1919px){
   html,body {
     font-size:10px !important;
   }
-}
-@media screen and (min-width: 1366px) and (max-width: 1599px){
-  html,body {
-    font-size:12px !important;
+  .title-ct {
+    padding: 5px 0 15px 10px;
+  }
+  .logo-ct {
+    top: 2px;
+    width: 30px;
+    height: 30px;
+  }
+  .header-lf { 
+    height: 40px;
+    line-height: 50px;
+  }
+  .header-lf .info {
+    line-height: 35px!important;
+  }
+  .header-lf > div:last-child {
+    line-height: 35px!important;
+  }
+  .header-lf-lg {
+    height: 40px;
+    line-height: 50px;
   }
 }
 @media screen and (min-width: 1600px) and (max-width: 1919px){
   html,body {
-    font-size:14px !important;
+    font-size:12px !important;
   }
 }
-@media screen and (min-width: 1920px) and (max-width: 2559px){
+@media screen and (min-width: 1920px) and (max-width: 2560px){
   html,body {
     font-size:16px !important;
   }
+  .title-ct {
+    padding: 5px 0 24px 10px;
+  }
+  .logo-ct {
+    top: 2px;
+    width: 50px;
+    height: 50px;
+  }
+  .header-lf { 
+    height: 70px;
+    line-height: 85px;
+  }
+  .header-lf-lg {
+    height: 70px;
+    line-height: 85px;
+  }
 }
 
-@media screen and (min-width: 2560px) and (max-width: 2999px){ 
-  html { 
-    font-size:18px !important;
-  } 
-}
-@media screen and (min-width: 3000px) and (max-width: 3800px){ 
+@media screen and (min-width: 2561px) and (max-width: 3800px){ 
   html { 
     font-size:20px !important;
   } 
+  .title-ct {
+    padding: 5px 0 24px 10px;
+  }
+  .logo-ct {
+    top: 2px;
+    width: 50px;
+    height: 50px;
+  }
+  .header-lf { 
+    height: 70px;
+    line-height: 85px;
+  }
+  .header-lf-lg {
+    height: 70px;
+    line-height: 85px;
+  }
 }
 
 @font-face {
@@ -116,7 +160,6 @@ body {
 
 .title-ct {
   display: inline-block;
-  padding: 5px 0 24px 10px;
   font-size: 2.5em;
   font-weight: 600;
   color:rgba(141,226,254,1);
@@ -125,8 +168,6 @@ body {
   position: relative;
   display: inline-block;
   top: 7px;
-  width: 50px;
-  height: 50px;
   background: url(../img/synthesis/logo_s.png) no-repeat;
   background-size: cover;
 }
@@ -137,7 +178,6 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  height: 70px;
   background: url(../img/top_l.png) no-repeat center top;
   background-size: 100% 100%;
 }
@@ -145,8 +185,6 @@ body {
 .title-lf {
   float: left;
   width: 27%;
-  height: 70px;
-  line-height: 85px;
   text-align: center;
   font-size: 2.2em;
   font-weight: 600;
@@ -164,7 +202,6 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  height: 70px;
   background: url(../img/top_l_l.png) no-repeat center top;
   background-size: 100% 100%;
 }
@@ -172,7 +209,6 @@ body {
   width: 39%;
   font-size: 2.2em;
   font-weight: 600;
-  line-height: 85px;
   color:rgba(141,226,254,1);
   text-align: center;
 }
@@ -206,7 +242,7 @@ body {
 }
 .box-title-mid {
   font-size: 1.5rem;  /*22px*/
-  padding-left: 2rem;
+  padding-left: 2.5rem;
   line-height: 3rem;
   height: 2.5rem;
   font-weight:600;
