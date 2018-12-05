@@ -853,7 +853,7 @@ var initChartFun = {
             series: [{
                 name: '',
                 type: 'pie',
-                radius: '55%',
+                radius: '80%',
                 center: ['50%', '50%'],
                 data: postModalData[1],
                 roseType: 'radius',
@@ -1334,7 +1334,6 @@ var initChartFun = {
     },
     //3d圆柱图
     draw3DCylinder: function (dom, postModalData) {
-        console.log(dom)
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create(dom, am4charts.XYChart3D);
         var arr2 = postModalData[1];
