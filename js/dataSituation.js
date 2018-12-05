@@ -60,7 +60,7 @@ $(function () {
                     area: ['70%', '70%'],
                     shade: 0.3,
                     offset: ['15%', '15%'],
-                    maxmin: true,
+                    maxmin: false,
                     anim: 1,
                     content: '../pages/chartModal.html',
                     yes: function () {
