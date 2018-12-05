@@ -1,4 +1,5 @@
 $(function () {
+    var minusVal = window.innerHeight - $(".table-render").height();
     layui.use('form', function () {
         var form = layui.form;
         form.on('submit(formSubmit)', function (data) {
@@ -28,7 +29,7 @@ $(function () {
             id: 'reportTable',
             elem: '#reportTable',
             url: '../test-json/reportTable.json',
-            // page: true, 
+            height: 'full-' + minusVal,
             cols: [
                 [
                     { type: 'checkbox' },
@@ -50,7 +51,6 @@ $(function () {
                 var checkStatus = table.checkStatus('reportTable');
                 var data = checkStatus.data;
                 console.log(data);
-                layer.alert(JSON.stringify(data));
             }
         };
         $('.download').on('click', function () {

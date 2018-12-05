@@ -5,4 +5,9 @@ $(function () {
             console.log(data.value)
         });
     });
+
+    $('.form-table').on("click", '.times', function () {
+        $(this).parent().parent().remove();
+    })
+
 });

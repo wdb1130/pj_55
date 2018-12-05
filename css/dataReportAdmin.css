@@ -18,7 +18,6 @@ html, body {
     left: 0;
     padding: 4rem 7rem 4rem;
     color: #fff;
-    position: relative;
 }
 .header-lf > div:last-child {
     float:right;
@@ -29,6 +28,10 @@ html, body {
     background-size: 16px 16px;
     position: relative;
     color: #C0D4F9;
+    cursor: pointer;
+}
+.header-lf > div:last-child:hover .login-out{
+    display: block;
 }
 i.layui-icon.layui-icon-triangle-d {
     position: absolute;
@@ -54,12 +57,20 @@ i.layui-icon.layui-icon-triangle-d {
 }
 .form-table{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #145BFE;
+    padding: 0 1rem;
+    background: #050737;
+    z-index: 50;
 }
 .table-title{
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 2rem;
 }
 .table-title span{
     font-size: 1.5rem;
@@ -68,6 +79,9 @@ i.layui-icon.layui-icon-triangle-d {
 .table-title span + div {
     position: absolute;
     right: 0%;
+}
+.table-title + div.table-render{
+    flex: 1;
 }
 .opera-btn{
     color: #fff;
@@ -81,6 +95,7 @@ i.layui-icon.layui-icon-triangle-d {
     background-color: #050728;
     border: 1px solid #0C359E;
     border-right: none;
+    z-index: 100;
 }
 .compare-ctt {
     padding: 2rem;
@@ -101,6 +116,7 @@ i.layui-icon.layui-icon-triangle-d {
 }
 .compare-item .rt{
     float: right;
+    font-size: 1.5rem;
     padding-right: 2rem;
     color: #0E40B9;
     cursor: pointer;
@@ -112,4 +128,19 @@ p.tip {
 }
 .btn-wrapper {
     text-align: center;
+}
+.login-out{
+    position: absolute;
+    padding: 0 1rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    left: 0;
+    top: 80%;
+    color: #C5D9FF;
+    background: rgba(18, 87, 245, 0.9);
+    cursor: pointer;
+    display: none;
+}
+.login-out:hover{
+    color: #C5D9FF;
 }

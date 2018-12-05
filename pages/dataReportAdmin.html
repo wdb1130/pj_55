@@ -20,7 +20,8 @@
             <div class="title-lf">数据报表 <span class="sp">（IT主管）</span></div>
             <div>
                 <span>Admin</span>
-                <i class="layui-icon layui-icon-triangle-d"></i>  
+                <i class="layui-icon layui-icon-triangle-d"></i>
+                <a href="../login.html" class="login-out">退出登陆</a>
             </div>
         </div>
         <div class="select-option">
@@ -75,7 +76,9 @@
                 <span>事件列表</span>
                 
             </div>
-            <table class="layui-hide" id="reportTable" lay-filter="compareOpera"></table>
+            <div class="table-render">
+                <table class="layui-hide" id="reportTable" lay-filter="compareOpera"></table>
+            </div>
         </div>
         <!-- right -->
         <div class="compare-wrapper">
@@ -84,20 +87,20 @@
                 <div class="compare-list">
                     <div class="compare-item">
                         <span>这是事件名称</span>
-                        <span class="rt">X</span>
+                        <span class="rt">&times;</span>
                     </div>
                     <div class="compare-item">
                         <span>最多十个字</span>
-                        <span class="rt">X</span>
+                        <span class="rt">&times;</span>
                     </div>
                     <div class="compare-item">
                         <span>这是事件名称</span>
-                        <span class="rt">X</span>
+                        <span class="rt">&times;</span>
                     </div>
                 </div>
                 <p class="tip">最多四个</p>
                 <div class="btn-wrapper">
-                    <button class="layui-btn compare-btn" data-type="getCheckData">对比</button>
+                    <button class="layui-btn compare-btn">对比</button>
                 </div>
             </div>
         </div>

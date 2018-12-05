@@ -44,9 +44,15 @@
 .layui-table thead tr {
     background: #07245E;
 }
+.layui-table-header{
+    background: #07245E;
+}
 .layui-table-header, .layui-table th {
     color: #C6D9FE;
     border-color: #204A87;
+}
+.layui-table-mend{
+    background: #07245E;
 }
 .layui-table {
     color: #C6D9FE;

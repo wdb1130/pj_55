@@ -30,6 +30,10 @@ html, body {
     background-size: 16px 16px;
     position: relative;
     color: #C0D4F9;
+    cursor: pointer;
+}
+.header-lf > div:last-child:hover .login-out{
+    display: block;
 }
 .select-option{
     display: flex;
@@ -54,6 +58,7 @@ html, body {
     width: 5rem;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid #1046CD;
 }
 .table-title > div {
     display: flex;
@@ -106,6 +111,10 @@ html, body {
 }
 .times {
     position: absolute;
+    width: 1.1rem;
+    height: 1.1rem;
+    text-align: center;
+    line-height: 1.1rem;
     top: 5px;
     right: 5px;
     background: #030528;
@@ -119,4 +128,19 @@ form.layui-form {
 }
 .layui-form > div {
     width: 80%!important;
+}
+.login-out{
+    position: absolute;
+    padding: 0 1rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    left: 0;
+    top: 80%;
+    color: #C5D9FF;
+    background: rgba(18, 87, 245, 0.9);
+    cursor: pointer;
+    display: none;
+}
+.login-out:hover{
+    color: #C5D9FF;
 }

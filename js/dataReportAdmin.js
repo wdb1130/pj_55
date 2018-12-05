@@ -1,4 +1,5 @@
 $(function () {
+    var minusVal = window.innerHeight - $(".table-render").height();
     var btnType;
     layui.use('form', function () {
         var form = layui.form;
@@ -25,7 +26,7 @@ $(function () {
             id: 'reportTable',
             elem: '#reportTable',
             url: '../test-json/zg-reportTable.json',
-            // page: true, 
+            height: 'full-' + minusVal,
             cols: [
                 [
                     { type: 'checkbox' },
