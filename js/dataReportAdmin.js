@@ -49,7 +49,6 @@ $(function () {
             var data = obj.data;
             if (obj.event === 'compare') {
                 console.log(data);
-                layer.msg('ID：' + data.id + '对比操作');
             }
         });
         var $ = layui.$, active = {

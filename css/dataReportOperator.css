@@ -102,3 +102,13 @@ i.layui-icon.layui-icon-triangle-d {
 .login-out:hover{
     color: #C5D9FF;
 }
+a.opera-btn{
+    color: #0D6EFF;
+    background: transparent!important;
+    border-color: transparent!important;
+}
+a.opera-btn:hover{
+    color: #0D6EFF;
+    background: transparent!important;
+    border-color: transparent!important;
+}

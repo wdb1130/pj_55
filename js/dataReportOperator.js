@@ -39,11 +39,19 @@ $(function () {
                     { field: 'cvss', width: 80, title: 'CVSS', align: 'center' },
                     { field: 'risk', width: 150, title: 'risk', align: 'center' },
                     { field: 'num', width: 100, title: '主机数量', align: 'center' },
-                    { field: 'intro', title: '简介', align: 'center' }
+                    { field: 'intro', title: '简介', align: 'center' },
+                    { fixed: 'right', width: 80, align: 'center', toolbar: '#reportOpera' }
                 ]
             ],
             done: function (res, curr, count) {
                 $("[data-field='id']").css('display', 'none');
+            }
+        });
+        //监听工具条
+        table.on('tool(detailList)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'detail') {
+                console.log(data);
             }
         });
         var $ = layui.$, active = {

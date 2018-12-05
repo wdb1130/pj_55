@@ -83,7 +83,10 @@ i.layui-icon.layui-icon-triangle-d {
 .table-title + div.table-render{
     flex: 1;
 }
-.opera-btn{
+a.opera-btn{
+    color: #fff;
+}
+a.opera-btn:hover{
     color: #fff;
 }
 .compare-wrapper {
