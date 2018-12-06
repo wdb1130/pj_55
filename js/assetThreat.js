@@ -12,7 +12,7 @@ var storageData = {
 }
 
 var colorBarList = ['#FF3838', '#45CE8D', '#2420FF'];
-var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var colorRingList = ['#0DC3FF', '#E9D356', '#F65C3E'];
 var radiusArr = [
     ['55%', '60%'],
@@ -20,9 +20,9 @@ var radiusArr = [
     ['25%', '30%']
 ];
 var centerArr = [
-    ['50%', '50%'],
-    ['50%', '50%'],
-    ['50%', '50%']
+    ['60%', '50%'],
+    ['60%', '50%'],
+    ['60%', '50%']
 ];
 
 $(function () {
@@ -104,7 +104,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -156,7 +159,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -198,7 +204,10 @@ $(function () {
                                 normal: {
                                     label: {
                                         show: true,
-                                        formatter: "{b}({d}%)"
+                                        formatter: "{d}%",
+                                        textStyle: {
+                                            color: '#95D9F8'
+                                        }
                                     },
                                     labelLine: {
                                         show: true
@@ -227,7 +236,7 @@ $(function () {
                                 },
                                 itemStyle: {
                                     normal: {
-                                        color: 'rgba(41,27,135,.3)',
+                                        color: 'rgba(101,60,255,.3)',
                                         label: {
                                             show: false
                                         },
@@ -236,7 +245,7 @@ $(function () {
                                         }
                                     },
                                     emphasis: {
-                                        color: 'rgba(41,27,135,.3)'
+                                        color: 'rgba(101,60,255,.3)'
                                     }
                                 }
                             }]

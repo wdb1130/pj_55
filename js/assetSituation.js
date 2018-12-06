@@ -13,16 +13,16 @@ var storageData = {
     drawRectRadar2: []
 }
 
-var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var color3DCylinder = [
     ['#FF732E', '#FF3838'],
     ['#FFD062', '#FA8015'],
     ['#68EDC6', '#10B857'],
     ['#06B8EB', '#2420FF']
 ];
-var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#FF3838' }, { offset: 1, color: '#C5AC8E' }]);
-var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#3AA8D6' }, { offset: 1, color: '#1FB494' }]);
+var colorBarList = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(255,76,35,.8)' }, { offset: 1, color: 'rgba(255,211,133,.8)' }]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgba(35,226,165,.8)' }, { offset: 1, color: 'rgba(58,216,255,.8)' }]);
 
 $(function () {
     layui.use('form', function () {
@@ -118,7 +118,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -184,7 +187,7 @@ $(function () {
                                         show: true,
                                         position: 'top',
                                         textStyle: {
-                                            color: '#ccc',
+                                            color: '#95D9F8',
                                             fontSize: 16
                                         }
                                     }

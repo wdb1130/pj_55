@@ -12,16 +12,15 @@ var storageData = {
     drawHollowRing: [[], []]
 }
 
-var colorBarList = ['#2420FF', '#45CE8D', '#FB943A', '#FF3838'];
 var color3DCylinder = [
     ['#2324FF', '#05B8FF'],
     ['#4ED6AD', '#5DDBF8'],
     ['#FFD062', '#FACE64'],
     ['#D9162E', '#FE7421']
 ];
-var colorVerticalBarList = ['#FF3838', '#FB943A', '#2420FF'];
-var colorPartRingList = ['#2420FF', '#45CE8D', '#FF3838'];
-var colorHollowRingList = ['#FF3838', '#9000FF', '#2420FF', '#EC13FF', '#45CE8D', '#FB943A'];
+var colorVerticalBarList = ['#FF3838', '#FD953A', '#2420FF'];
+var colorPartRingList = ['#135BFF', '#13D799', '#F45925'];
+var colorHollowRingList = ['#FF3838', '#9000FF', '#2420FF', '#EC13FF', '#40CF77', '#DF9B4C'];
 
 $(function () {
     layui.use('layer', function () {
@@ -166,8 +165,7 @@ $(function () {
                                         show: true,
                                         position: 'top',
                                         textStyle: {
-                                            color: '#ccc',
-                                            fontSize: 16
+                                            color: '#95D9F8'
                                         }
                                     }
                                 }

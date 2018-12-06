@@ -13,24 +13,24 @@ var storageData = {
     drawPlusLine: [],
 }
 
-var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var color3DCylinder = [
-    ['#4ED6AD', '#5DDBF8'],
     ['#2324FF', '#05B8FF'],
+    ['#4ED6AD', '#5DDBF8'],
     ['#FFD062', '#FACE64'],
     ['#D9162E', '#FE7421']
 ];
-var colorPartRingList = ['#2420FF', '#45CE8D', '#FF3838'];
+var colorPartRingList = ['#135BFF', '#13D799', '#F45925'];
 var colorRingList = ['#0DC3FF', '#E9D356', '#F65C3E'];
 var radiusArr = [
-    ['55%', '60%'],
-    ['40%', '45%'],
-    ['25%', '30%']
+    ['65%', '70%'],
+    ['50%', '55%'],
+    ['35%', '40%']
 ];
 var centerArr = [
-    ['50%', '50%'],
-    ['50%', '50%'],
-    ['50%', '50%']
+    ['60%', '50%'],
+    ['60%', '50%'],
+    ['60%', '50%']
 ];
 var colorLineList = ['#FF3838'];
 
@@ -125,7 +125,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -203,7 +206,10 @@ $(function () {
                                 normal: {
                                     label: {
                                         show: true,
-                                        formatter: "{b}({d}%)"
+                                        formatter: "{d}%",
+                                        textStyle: {
+                                            color: '#95D9F8'
+                                        }
                                     },
                                     labelLine: {
                                         show: true
@@ -232,7 +238,7 @@ $(function () {
                                 },
                                 itemStyle: {
                                     normal: {
-                                        color: 'rgba(41,27,135,.3)',
+                                        color: 'rgba(101,60,255,.3)',
                                         label: {
                                             show: false
                                         },
@@ -241,7 +247,7 @@ $(function () {
                                         }
                                     },
                                     emphasis: {
-                                        color: 'rgba(41,27,135,.3)'
+                                        color: 'rgba(101,60,255,.3)'
                                     }
                                 }
                             }]
@@ -438,13 +444,13 @@ function drawSvgDash() {
     var line7Y = Math.floor(boxSvg7Top) + 5;
     var pathLine7 = "M" + cx4 + " " + cy4 + " L" + cx4 + " " + line7Y;
 
-    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
-    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
-    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
-    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#fff" />';
-    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#fff" />';
-    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#fff" />';
-    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#fff" />';
+    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#A3E8FE" />';
 
     $('.svg-data').html(
         wrapper1Arc + wrapper2Arc + wrapper3Arc + wrapper4Arc + wrapper5Arc + wrapper6Arc + wrapper7Arc

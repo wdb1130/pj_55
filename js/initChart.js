@@ -10,14 +10,13 @@ var initChartFun = {
             },
             legend: {
                 icon: 'rect',
-                itemWidth: 14,
-                itemHeight: 5,
+                itemWidth: 24,
+                itemHeight: 10,
                 itemGap: 13,
                 data: postModalData[0],
                 right: '4%',
                 textStyle: {
-                    fontSize: 12,
-                    color: '#F1F1F3'
+                    color: '#95D9F8'
                 }
             },
             grid: {
@@ -29,19 +28,19 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 boundaryGap: true,
                 axisLine: {
                     lineStyle: {
-                        color: '#1255F0'
+                        color: '#135BFF'
                     }
                 },
                 axisLabel: {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#8ECEEE'
+                        color: '#95D9F8'
                     }
                 },
                 data: postModalData[1]
@@ -53,27 +52,22 @@ var initChartFun = {
                 min: -100,
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#8ECEEE'
+                        color: '#135BFF'
                     }
                 },
-                axisLine: {
-                    lineStyle: {
-                        color: '#1941B3'
-                    },
-                },
                 axisLabel: {
-                    color: '#8ECEEE',
+                    color: '#95D9F8',
                 },
                 splitLine: {
                     lineStyle: {
-                        color: '#121C64'
+                        color: '#09206F'
                     }
                 },
             }],
@@ -95,14 +89,12 @@ var initChartFun = {
             },
             legend: {
                 icon: 'rect',
-                itemWidth: 14,
-                itemHeight: 5,
-                itemGap: 13,
+                itemWidth: 24,
+                itemHeight: 10,
                 data: postModalData[0],
                 right: '4%',
                 textStyle: {
-                    fontSize: 12,
-                    color: '#F1F1F3'
+                    color: '#95D9F8'
                 }
             },
             grid: {
@@ -114,19 +106,19 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 boundaryGap: true,
                 axisLine: {
                     lineStyle: {
-                        color: '#1255F0'
+                        color: '#135BFF'
                     }
                 },
                 axisLabel: {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#8ECEEE'
+                        color: '#95D9F8'
                     }
                 },
                 data: postModalData[1]
@@ -138,27 +130,22 @@ var initChartFun = {
                 min: 0,
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#8ECEEE'
+                        color: '#135BFF'
                     }
                 },
-                axisLine: {
-                    lineStyle: {
-                        color: '#1941B3'
-                    },
-                },
                 axisLabel: {
-                    color: '#8ECEEE',
+                    color: '#95D9F8',
                 },
                 splitLine: {
                     lineStyle: {
-                        color: '#121C64'
+                        color: '#09206F'
                     }
                 },
             }],
@@ -332,7 +319,7 @@ var initChartFun = {
                 itemGap: 30,
                 data: postModalData[0],
                 textStyle: {
-                    color: '#fff'
+                    color: '#95D9F8'
                 }
             },
             grid: {
@@ -347,11 +334,11 @@ var initChartFun = {
                     type: 'category',
                     axisLine: {
                         lineStyle: {
-                            color: '#1941B3'
+                            color: '#135BFF'
                         },
                     },
                     axisLabel: {
-                        color: '#ddd',
+                        color: '#95D9F8',
                         fontSize: 16
                     },
                     data: postModalData[1]
@@ -364,23 +351,23 @@ var initChartFun = {
                     type: 'value',
                     name: '(量值)',
                     nameTextStyle: { //最值样式
-                        color: '#8ECEEE'
+                        color: '#95D9F8'
                     },
                     splitNumber: 10,
                     axisLine: {
                         lineStyle: {
-                            color: '#1941B3'
+                            color: '#135BFF'
                         },
                     },
                     axisTick: { //y轴刻度隐藏
                         show: false
                     },
                     axisLabel: {
-                        color: '#ddd'
+                        color: '#95D9F8'
                     },
                     splitLine: {
                         lineStyle: {
-                            color: '#121C64'
+                            color: '#09206F'
                         }
                     }
                 }
@@ -405,9 +392,12 @@ var initChartFun = {
                 }
             },
             legend: {
+                icon: 'rect',
                 right: '10%',
+                itemWidth: 24,
+                itemHeight: 10,
                 textStyle: {
-                    color: '#ccc'
+                    color: '#C5D9FF'
                 },
                 data: postModalData[0]
             },
@@ -421,20 +411,20 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 type: 'category',
                 data: postModalData[1],
                 axisLine: {
                     lineStyle: {
-                        color: '#1255F0'
+                        color: '#135BFF'
                     }
                 },
                 axisLabel: {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#8ECEEE'
+                        color: '#95D9F8'
                     }
                 }
             }],
@@ -442,14 +432,14 @@ var initChartFun = {
                 type: 'value',
                 name: '(量值)',
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 min: 0,
                 max: 100,
                 splitNumber: 10,
                 axisLine: {
                     lineStyle: {
-                        color: '#1255F0'
+                        color: '#135BFF'
                     }
                 },
                 axisTick: { //y轴刻度隐藏
@@ -458,7 +448,7 @@ var initChartFun = {
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#8ECEEE'
+                        color: '#95D9F8'
                     }
                 },
                 splitLine: {
@@ -563,7 +553,7 @@ var initChartFun = {
                 name: {
                     formatter: '{value}',
                     textStyle: {
-                        color: '#fff'
+                        color: '#95D9F8'
                     }
                 },
                 splitArea: {
@@ -575,12 +565,12 @@ var initChartFun = {
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#1254ED'
+                        color: '#135BFF'
                     }
                 },
                 splitLine: {
                     lineStyle: {
-                        color: '#1254ED'
+                        color: '#135BFF'
                     }
                 }
             }],
@@ -634,13 +624,16 @@ var initChartFun = {
                 formatter: "{b} : {d}%",
             },
             legend: {
+                icon: 'rect',
+                itemWidth: 24,
+                itemHeight: 10,
                 orient: 'vertical',
                 left: '2%',
                 top: 'center',
                 itemGap: 30,
                 data: postModalData[0],
                 textStyle: {
-                    color: '#fff'
+                    color: '#95D9F8'
                 }
             },
             series: postModalData[1]
@@ -687,9 +680,9 @@ var initChartFun = {
                 y: '80%',
                 textAlign: 'center',
                 textStyle: {
-                    color: '#fff',
+                    color: '#95D9F8',
                     textAlign: 'center',
-                    fontSize: '120%'
+                    fontSize: '105%'
                 },
             }],
             series: [
@@ -722,7 +715,7 @@ var initChartFun = {
                             },
                             rich: {
                                 time: {
-                                    color: '#fff',
+                                    color: '#F0F5FF',
                                     fontSize: 20 * scale,
                                     padding: [0, 0],
                                     fontWeight: 'bold'
@@ -801,7 +794,7 @@ var initChartFun = {
                 top: 'center',
                 textStyle: {
                     fontSize: '80%',
-                    color: '#fff'
+                    color: '#95D9F8'
                 }
             },
             series: [
@@ -813,7 +806,7 @@ var initChartFun = {
                         normal: {
                             formatter: '{b}',
                             textStyle: {
-                                color: '#fff',
+                                color: '#95D9F8',
                                 fontWeight: 'normal',
                                 fontSize: 12
                             }
@@ -1155,7 +1148,7 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 type: 'category',
 
@@ -1261,7 +1254,7 @@ var initChartFun = {
                 max: 100,
                 splitNumber: 5,
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 axisLine: {
                     lineStyle: {
@@ -1272,7 +1265,7 @@ var initChartFun = {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#8ECEEE'
+                        color: '#95D9F8'
                     }
                 },
                 axisTick: {
@@ -1290,7 +1283,7 @@ var initChartFun = {
                 max: 100,
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
-                    color: '#8ECEEE'
+                    color: '#95D9F8'
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -1306,7 +1299,7 @@ var initChartFun = {
                     },
                 },
                 axisLabel: {
-                    color: '#8ECEEE',
+                    color: '#95D9F8',
                 },
                 splitLine: {
                     lineStyle: {
@@ -1489,7 +1482,7 @@ var initChartFun = {
         var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "title";
         categoryAxis.renderer.labels.template.rotation = 0;
-        categoryAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        categoryAxis.renderer.labels.template.fill = am4core.color("#95D9F8");
         categoryAxis.renderer.labels.template.hideOversized = false;
         categoryAxis.renderer.labels.template.horizontalCenter = "middle";
         categoryAxis.renderer.labels.template.verticalCenter = "middle";
@@ -1503,8 +1496,8 @@ var initChartFun = {
         valueAxis.min = 0;
         valueAxis.max = 100;
         valueAxis.strictMinMax = true;
-        valueAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
-        valueAxis.renderer.grid.template.stroke = am4core.color("#0B397A");
+        valueAxis.renderer.labels.template.fill = am4core.color("#95D9F8");
+        valueAxis.renderer.grid.template.stroke = am4core.color("#09206F");
         valueAxis.renderer.grid.template.strokeOpacity = 1;
         valueAxis.tooltip.disabled = true;
         valueAxis.renderer.minGridDistance = 5;
@@ -1532,10 +1525,10 @@ var initChartFun = {
         chart.cursor.lineY.strokeOpacity = 0;
         chart.cursor.behavior = "none";
         var bullet = series.bullets.push(new am4charts.LabelBullet());
-        bullet.label.text = "{valueX}";
-        bullet.label.fill = am4core.color("#fff");
+        bullet.label.text = "{valueX}%";
+        bullet.label.fill = am4core.color("#95D9F8");
         bullet.label.verticalCenter = "bottom";
-        bullet.label.dx = 20;
+        bullet.label.dx = 30;
         bullet.label.dy = 0;
         bullet.label.fontSize = 14;
         chart.maskBullets = true;

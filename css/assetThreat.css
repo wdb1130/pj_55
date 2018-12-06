@@ -70,7 +70,7 @@ html, body {
     font-size: 1.1rem;
     text-align: center;
     padding: .5rem 0;
-    color: #124BCD;
+    color: #3F74F1;
 }
 .table-chart .th-header span:nth-child(1) {
     flex: 1.5;
@@ -97,7 +97,7 @@ html, body {
     min-height: 0;
 }
 .table-chart .th-boby > div:nth-child(2n+1) {
-    background: #061044;
+    background:rgba(19,91,255,.1);
 }
 .table-chart .th-boby span:nth-child(1) {
     flex: 1.5;

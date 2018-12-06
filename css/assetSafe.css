@@ -31,6 +31,7 @@ html, body {
 }
 .info-item .flag {
   font-size: 1.1rem;
+  color: #8DE2FE;
 }
 .info-item .num {
   color: #FFC178;
@@ -233,7 +234,7 @@ html, body {
   padding-top: 0.5rem;
   display: flex;
   text-align: center;
-  color: #124BCD;
+  color: #3F74F1;
 }
 
 .table-chart .th-header span {
@@ -287,13 +288,16 @@ html, body {
   display: flex;
 }
 .swiper-slide-detail:nth-child(2n+1){
-  background: #061043;
+  background: rgba(19,91,255,0.1);
 }
 .swiper-slide-detail > span{
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.swiper-slide-detail > span:last-child{
+  color: #7187B0;
 }
 svg.svg-data {
   position: absolute;
