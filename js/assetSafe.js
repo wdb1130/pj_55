@@ -202,20 +202,20 @@ $(function () {
                             clockWise: true,
                             radius: radiusArr[idx],
                             center: centerArr[idx],
-                            itemStyle: {
-                                normal: {
-                                    label: {
-                                        show: true,
-                                        formatter: "{d}%",
-                                        textStyle: {
-                                            color: '#95D9F8'
-                                        }
-                                    },
-                                    labelLine: {
-                                        show: true
-                                    }
-                                }
-                            },
+                            // itemStyle: {
+                            //     normal: {
+                            //         label: {
+                            //             show: true,
+                            //             formatter: "{d}%",
+                            //             textStyle: {
+                            //                 color: '#95D9F8'
+                            //             }
+                            //         },
+                            //         labelLine: {
+                            //             show: true
+                            //         }
+                            //     }
+                            // },
                             hoverAnimation: true,
                             startAngle: 90,
                             label: {
