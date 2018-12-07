@@ -131,14 +131,14 @@ html, body {
 }
 .font-num{
     position: absolute;
-    bottom: 15%;
+    bottom: 12%;
     color: #0CCCEC;
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: bold;
-    padding: .2rem .5rem;
+    padding: .5rem .8rem;
     background: #03062F;
     border-radius: 5px;
-    text-shadow: 0 0 5px #fff;
+    text-shadow: 0 0 5px #1139D8, 0 0 5px #1139D8, 0 0 5px #1139D8, 0 0 5px #1139D8, 0 0 5px #1139D8;
 }
 .tip{
     color: #C5D9FF;
