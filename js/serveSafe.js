@@ -208,7 +208,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -263,7 +266,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -317,7 +323,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -386,7 +395,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             barWidth: 12,

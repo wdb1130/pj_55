@@ -116,7 +116,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
@@ -180,7 +183,7 @@ $(function () {
                                         show: true,
                                         position: 'top',
                                         textStyle: {
-                                            color: '#ccc',
+                                            color: '#95D9F8',
                                             fontSize: 16
                                         }
                                     }
