@@ -27,7 +27,7 @@ html, body {
     background: url('../img/manage/oprea-people.png') no-repeat left center;
     background-size: 16px 16px;
     position: relative;
-    color: #C0D4F9;
+    color: #C5D9FF;
     cursor: pointer;
 }
 .header-lf > div:last-child:hover .login-out{
@@ -37,7 +37,7 @@ i.layui-icon.layui-icon-triangle-d {
     position: absolute;
     right: 25px;
     top: 2px;
-    color: #145BFE;
+    color: #135BFF;
 }
 .select-option{
     display: flex;
@@ -62,7 +62,7 @@ i.layui-icon.layui-icon-triangle-d {
     position: relative;
     border: 1px solid #145BFE;
     padding: 0 1rem;
-    background: #050737;
+    background: #050836;
     z-index: 50;
 }
 .table-title{
@@ -75,6 +75,7 @@ i.layui-icon.layui-icon-triangle-d {
 .table-title span{
     font-size: 1.5rem;
     font-weight: 900;
+    color: #C5D9FF;
 }
 .table-title span + div {
     position: absolute;
@@ -113,20 +114,20 @@ a.opera-btn:hover{
 .compare-item {
     width: 100%;
     line-height: 2.5rem;
-    color: #7494D7;
+    color: #8AB0F9;
     font-size: 1.1rem;
-    border-bottom: thin solid #15184B;
+    border-bottom: thin solid #212567;
 }
 .compare-item .rt{
     float: right;
     font-size: 1.5rem;
     padding-right: 2rem;
-    color: #0E40B9;
+    color: #135BFF;
     cursor: pointer;
 }
 p.tip {
     font-size: 1rem;
-    color: #0E40B9;
+    color: #135BFF;
     margin: 20px auto;
 }
 .btn-wrapper {
@@ -145,5 +146,9 @@ p.tip {
     display: none;
 }
 .login-out:hover{
+    color: #C5D9FF;
+}
+.title1{
+    margin-bottom: .5rem;
     color: #C5D9FF;
 }

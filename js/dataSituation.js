@@ -13,16 +13,16 @@ var storageData = {
     drawArcRadar2: [],
 }
 
-var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var color3DCylinder = [
     ['#2324FF', '#05B8FF'],
     ['#4ED6AD', '#5DDBF8'],
     ['#FFD062', '#FACE64'],
     ['#D9162E', '#FE7421']
 ];
-var colorBarList = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
-var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#FF3838'},{offset: 1, color: '#C5AC8E'}]);
-var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#3AA8D6'},{offset: 1, color: '#1FB494'}]);
+var colorBarList = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#FF4C23'},{offset: 1, color: '#FFD385'}]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#23E2A5'},{offset: 1, color: '#3AD8FF'}]);
 
 // 页面加载
 $(function () {
@@ -119,7 +119,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {

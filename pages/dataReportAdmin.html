@@ -28,7 +28,7 @@
             <div class="sel1">
                 <form class="layui-form">
                     <div class="layui-inline">
-                        <div class="title">报表</div>
+                        <div class="title title1">报表</div>
                         <div class="layui-inline" style="width: 100px;">
                             <select name="report">
                                 <option value="0">日报</option>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="layui-inline thing">
-                        <div class="title">事件</div>
+                        <div class="title title1">事件</div>
                         <div class="layui-inline">
                             <input type="text" name="keyword" autocomplete="off" placeholder="输入事件关键字" class="layui-input">
                         </div><!-- 
@@ -57,24 +57,23 @@
             </div>
             <div class="sel2">
                 <div class="layui-inline thing">
-                    <div class="title"></div>
+                    <div class="title title1"></div>
                     <div class="layui-inline">
                         <button class="layui-btn download" data-type="getCheckData">下载</button>
                     </div>
                 </div>
-                <div class="layui-inline thing">
-                    <div class="title"></div>
+                <!-- <div class="layui-inline thing">
+                    <div class="title title1"></div>
                     <div class="layui-inline">
                         <button class="layui-btn del" data-type="getCheckData">删除</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- table -->
         <div class="form-table">
             <div class="table-title">
                 <span>事件列表</span>
-                
             </div>
             <div class="table-render">
                 <table class="layui-hide" id="reportTable" lay-filter="compareOpera"></table>

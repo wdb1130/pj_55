@@ -19,51 +19,51 @@ var color3DCylinder = [
     ['#085BC1', '#26E8FF'],
     ['#085BC1', '#26E8FF']
 ];
-var colorRadarList = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#CAA96E' }, { offset: 1, color: '#CE4430' }], false)
-var colorScatterList = ['#45CE8D', '#FB943A', '#FF3838'];
+var colorRadarList = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#FF4C23' }, { offset: 1, color: '#FFD385' }], false)
+var colorScatterList = ['#0DF6FF', '#FFC65C', '#FF3F3F'];
 
 var colorLineList = [
-    'rgb(255,56,56)',
-    'rgb(69,206,141)',
-    'rgb(251,148,58)',
-    'rgb(36,32,255)',
-    'rgb(144,0,255)',
+    '#FF3838',
+    '#0CDCFF',
+    '#FFBA58',
+    '#135BFF',
+    '#8124FF',
 ];
 var colorLineGradientList = [
     new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
         offset: 0,
-        color: 'rgba(255,56,56, 0.3)'
+        color: 'rgba(255,56,56, 0.16)'
     }, {
         offset: 0.8,
         color: 'rgba(255,56,56, 0)'
     }], false),
     new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
         offset: 0,
-        color: 'rgba(69,206,141, 0.3)'
+        color: 'rgba(12,220,255, 0.16)'
     }, {
         offset: 0.8,
-        color: 'rgba(69,206,141, 0)'
+        color: 'rgba(12,220,255, 0)'
     }], false),
     new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
         offset: 0,
-        color: 'rgba(251,148,58, 0.3)'
+        color: 'rgba(255,186,88, 0.16)'
     }, {
         offset: 0.8,
-        color: 'rgba(251,148,58, 0)'
+        color: 'rgba(255,186,88, 0)'
     }], false),
     new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
         offset: 0,
-        color: 'rgba(36,32,255, 0.3)'
+        color: 'rgba(19,91,255, 0.16)'
     }, {
         offset: 0.8,
-        color: 'rgba(36,32,255, 0)'
+        color: 'rgba(19,91,255, 0)'
     }], false),
     new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
         offset: 0,
-        color: 'rgba(144,0,255, 0.3)'
+        color: 'rgba(129,36,255, 0.16)'
     }, {
         offset: 0.8,
-        color: 'rgba(144,0,255, 0)'
+        color: 'rgba(129,36,255, 0)'
     }], false),
 ];
 
@@ -214,7 +214,10 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             areaStyle: {

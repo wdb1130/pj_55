@@ -15,7 +15,7 @@ var storageData = {
     drawPartRing: [[], []]
 }
 
-var colorLine = ['#FF3838', '#8124FF', '#45CE8D', '#9000FF'];
+var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
     offset: 0,
@@ -120,14 +120,16 @@ $(function () {
                             label: {
                                 normal: {
                                     show: true,
-                                    position: 'top'
+                                    position: 'top',
+                                    textStyle: {
+                                        color: '#95D9F8'
+                                    }
                                 }
                             },
                             itemStyle: {
                                 normal: {
                                     color: colorLine[idx],
                                     borderWidth: 1
-
                                 }
                             },
                             data: sitemArr[idx]

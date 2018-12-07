@@ -1136,7 +1136,7 @@ var initChartFun = {
                 right: '4%',
                 textStyle: {
                     fontSize: 12,
-                    color: '#F1F1F3'
+                    color: '#95D9F8'
                 }
             },
             grid: {
@@ -1151,14 +1151,17 @@ var initChartFun = {
                     color: '#95D9F8'
                 },
                 type: 'category',
-
                 boundaryGap: true,
                 axisLabel: {
+                    show: true,
                     interval: 0,
+                    textStyle: {
+                        color: '#95D9F8'
+                    }
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#0D53A2'
+                        color: '#135BFF'
                     }
                 },
                 data: postModalData[1]
@@ -1166,26 +1169,30 @@ var initChartFun = {
             yAxis: [{
                 type: 'value',
                 name: '(量值)',
+                nameTextStyle: { //最值样式
+                    color: '#95D9F8'
+                },
                 axisTick: {
                     show: false
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#0D53A2'
+                        color: '#135BFF'
                     }
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
                 },
                 axisLabel: {
-                    margin: 10,
+                    show: true,
+                    interval: 0,
                     textStyle: {
-                        fontSize: 14
+                        color: '#95D9F8'
                     }
                 },
                 splitLine: {
                     lineStyle: {
-                        color: '#0D53A2'
+                        color: '#09206F'
                     }
                 }
             }],
@@ -1258,7 +1265,7 @@ var initChartFun = {
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#1255F0'
+                        color: '#135BFF'
                     }
                 },
                 axisLabel: {
@@ -1290,20 +1297,15 @@ var initChartFun = {
                 },
                 axisLine: {
                     lineStyle: {
-                        color: '#8ECEEE'
+                        color: '#135BFF'
                     }
-                },
-                axisLine: {
-                    lineStyle: {
-                        color: '#1941B3'
-                    },
                 },
                 axisLabel: {
                     color: '#95D9F8',
                 },
                 splitLine: {
                     lineStyle: {
-                        color: '#121C64'
+                        color: '#09206F'
                     }
                 },
             }],
@@ -1340,7 +1342,7 @@ var initChartFun = {
         categoryAxis.renderer.minGridDistance = 30;
         categoryAxis.renderer.cellStartLocation = 0.2;
         categoryAxis.renderer.cellEndLocation = 0.7;
-        categoryAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        categoryAxis.renderer.labels.template.fill = am4core.color("#95D9F8");
         categoryAxis.renderer.labels.template.hideOversized = false;
         categoryAxis.renderer.labels.template.horizontalCenter = "middle";
         categoryAxis.renderer.labels.template.verticalCenter = "middle";
@@ -1352,7 +1354,7 @@ var initChartFun = {
         valueAxis.max = 109;
         valueAxis.strictMinMax = true;
         valueAxis.renderer.baseGrid.disabled = true;
-        valueAxis.renderer.labels.template.fill = am4core.color("#C5D9FF");
+        valueAxis.renderer.labels.template.fill = am4core.color("#95D9F8");
         valueAxis.renderer.grid.template.stroke = am4core.color("#0B397A");
         valueAxis.renderer.grid.template.strokeOpacity = 1;
         valueAxis.tooltip.disabled = true;

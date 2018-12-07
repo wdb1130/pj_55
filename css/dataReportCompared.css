@@ -46,8 +46,8 @@ html, body {
 }
 .form-table{
     flex: 1;
-    border: 1px solid #1046CD;
-    background: #050836;
+    border: 1px solid #135BFF;
+    background: rgba(5,8,54,1);;
     color: #fff;
     margin-bottom: 1rem;
 }
@@ -58,14 +58,15 @@ html, body {
     width: 5rem;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #1046CD;
+    color: #C5D9FF;
+    border-right: 1px solid #1593FF;
 }
 .table-title > div {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: .5rem;
-    border-bottom: 1px solid #1F4B88;
+    border-bottom: 1px solid #135BFF;
 }
 .table-title > div:not(:last-child):not(:first-child){
     flex: 1;
@@ -92,7 +93,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #1F4B88;
+    color: #C5D9FF;
+    border-bottom: 1px solid #135BFF;
 }
 .table-compare > div:not(:last-child):not(:first-child){
     flex: 1;
@@ -119,7 +121,7 @@ html, body {
     right: 5px;
     background: #030528;
     color: #fff;
-    border: 1px solid #1150E3;
+    border: 1px solid #135BFF;
     cursor: pointer;
 }
 form.layui-form {
