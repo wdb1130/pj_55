@@ -14,15 +14,15 @@ var storageData = {
     drawArcRadar2: []
 }
 
-var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var color3DCylinder = [
     ['#D8152E', '#FF7521'],
     ['#FE7421', '#FACF65'],
     ['#199359', '#53EE65'],
     ['#085BC1', '#26E8FF']
 ];;
-var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#FF3838' }, { offset: 1, color: '#C5AC8E' }]);
-var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset: 0, color: '#3AA8D6' }, { offset: 1, color: '#1FB494' }]);
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#FF4C23' }, { offset: 1, color: '#FFD385' }]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#23E2A5' }, { offset: 1, color: '#3AD8FF' }]);
 
 
 $(function () {

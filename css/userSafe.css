@@ -156,14 +156,11 @@ html, body {
     line-height: 1.2rem;
     display: flex;
     text-align: center;
-    color: #124BCD;
+    color: #3F74F1;
 }
-
 .table-chart .th-header span {
     flex: 1;
 }
-
-
 .table-chart .th-boby {
     display: flex;
     flex: 1;
@@ -171,18 +168,17 @@ html, body {
     overflow: hidden;
     color: #C5D9FF;
   }
-  
-  .table-chart .th-boby>div {
+.table-chart .th-boby>div {
     flex: 1;
     display: flex;
     text-align: center;
-  }
-  
-  .table-chart .th-boby span {
+}
+
+.table-chart .th-boby span {
     flex: 1;
   }
   
-  .table-chart .th-boby span {
+.table-chart .th-boby span {
     flex: 1;
   }
 
@@ -202,7 +198,7 @@ html, body {
     display: flex;
   }
 .swiper-slide-detail:nth-child(2n+1){
-    background: #061043;
+    background: rgba(19,91,255,.1);;
 }
 .swiper-slide-detail > span{
     flex: 1;
@@ -219,4 +215,10 @@ svg.svg-data {
 div.swiper-container1,
 div.swiper-container2{
   margin-bottom: 1rem;
+}
+.tag-box>div>a>div:first-child{
+    color: #FFFFFE;
+}
+.swiper-slide-detail>span:last-child{
+    color: #7187B0;
 }

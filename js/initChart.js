@@ -479,7 +479,7 @@ var initChartFun = {
                 shape: 'circle',
                 name: {
                     textStyle: {
-                        color: '#fff'
+                        color: '#C5D9FF'
                     }
                 },
                 splitArea: {
@@ -840,7 +840,7 @@ var initChartFun = {
                 y: 'top',
                 data: postModalData[0],
                 textStyle: {
-                    color: 'white'
+                    color: '#C5D9FF'
                 }
             },
             series: [{

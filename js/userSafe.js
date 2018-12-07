@@ -13,7 +13,7 @@ var storageData = {
     drawLiquidFill: [],
 }
 
-var colorLine = ['#FF3838', '#FB943A', '#45CE8D', '#2420FF'];
+var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var color3DCylinder1 = [
     ['#4ED6AD', '#5DDBF8'],
     ['#2324FF', '#05B8FF'],
@@ -23,7 +23,7 @@ var color3DCylinder2 = [
     ['#2324FF', '#05B8FF'],
     ['#D9162E', '#FE7421']
 ];
-var colorPartRingList = ['#45CE8D', '#FF3838'];
+var colorPartRingList = ['#13D799', '#F45925'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
     offset: 0,
@@ -387,13 +387,13 @@ function drawSvgDash() {
     var line7Y = Math.floor(boxSvg7Top) + 15;
     var pathLine7 = "M" + cx5 + " " + cy5 + " L" + line5X + " " + cy5 + " L" + line5X + " " + line7Y;
 
-    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
-    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
-    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
-    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#fff" />';
-    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#fff" />';
-    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#fff" />';
-    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#fff" />';
+    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#A3E8FE" />';
 
     $('.svg-data').html(
         wrapper1Arc + wrapper2Arc + wrapper3Arc + wrapper4Arc + wrapper5Arc + wrapper6Arc + wrapper7Arc

@@ -16,11 +16,35 @@ var storageData = {
     drawVerticalBarH: []
 }
 
-var colorOneFanPie1List = ['#45CE8D', 'rgba(69,206,141, .5)'];
-var colorOneFanPie2List = ['#FB943A', 'rgba(251,148,58, .5)'];
-var colorVerticalBarList = ['#45CE8D', '#9000FF'];
-var colorLineList1 = ['#FF3838', '#9000FF', '#45CE8D'];
-var colorLineList2 = ['#2420FF', '#EC13FF', '#FB943A', '#45CE8D', '#FF3838'];
+var colorOneFanPie1List = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    offset: 0,
+    color: 'rgb(50,214,255)'
+}, {
+    offset: 1,
+    color: 'rgb(18,241,170)'
+}], false), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    offset: 0,
+    color: 'rgba(50,214,255,.3)'
+}, {
+    offset: 1,
+    color: 'rgba(18,241,170,.3)'
+}], false)];
+var colorOneFanPie2List = [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    offset: 0,
+    color: 'rgb(255,160,68)'
+}, {
+    offset: 1,
+    color: 'rgb(246,92,62)'
+}], false), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    offset: 0,
+    color: 'rgba(255,160,68,.3)'
+}, {
+    offset: 1,
+    color: 'rgba(246,92,62,.3)'
+}], false)];
+var colorVerticalBarList = ['#45CE8D', '#8124FF'];
+var colorLineList1 = ['#FF3838', '#8124FF', '#45CE8D'];
+var colorLineList2 = ['#2420FF', '#EC13FF', '#DF9B4C', '#40CF77', '#FF3838'];
 var colorTwoFanPieList = [new echarts.graphic.LinearGradient(0, 0, 1, 1, [{
     offset: 0,
     color: '#8F3CF7'
@@ -120,8 +144,8 @@ $(function () {
                     storageData.drawLiquidFill.push(seriesData);
                     storageData.drawLiquidFill.push(colorLiquidFillList1);
                     storageData.drawLiquidFill.push(colorLiquidFillList2);
-                    initChartFun.drawLiquidFill('chart1',storageData.drawLiquidFill);
-                    
+                    initChartFun.drawLiquidFill('chart1', storageData.drawLiquidFill);
+
                     // var legend = '';
                     // var value = '';
                     // res.result.seriesData.forEach(function (item) {
@@ -502,14 +526,14 @@ function drawSvgDash() {
     var line8XX = Math.floor(boxSvg8Left) + 5;
     var pathLine8 = "M" + cx3 + " " + cy3 + " L" + line6X + " " + cy3 + " L" + line6X + " " + line8X + " L" + line8XX + " " + line8X;
 
-    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
-    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
-    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
-    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#fff" />';
-    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#fff" />';
-    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#fff" />';
-    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#fff" />';
-    var wrapper8Arc = '<path stroke-dasharray="2,2" d="' + pathLine8 + '" fill="transparent" stroke="#fff" />';
+    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper8Arc = '<path stroke-dasharray="2,2" d="' + pathLine8 + '" fill="transparent" stroke="#A3E8FE" />';
 
     $('.svg-data').html(
         wrapper1Arc + wrapper2Arc + wrapper3Arc + wrapper4Arc + wrapper5Arc + wrapper6Arc + wrapper7Arc + wrapper8Arc

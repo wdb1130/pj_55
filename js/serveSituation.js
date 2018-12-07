@@ -20,8 +20,8 @@ var color3DCylinder = [
     ['#D9162E', '#FE7421']
 ];
 var colorBarList = ['#FF3838', '#45CE8D', '#8124FF'];
-var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#FF3838'},{offset: 1, color: '#C5AC8E'}]);
-var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 1, 0,[{offset: 0, color: '#CA4736'},{offset: 1, color: '#1FB494'}]);
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#FF4C23'},{offset: 1, color: '#FFD385'}]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#4ED6AB'},{offset: 1, color: '#5EDCFB'}]);
 
 $(function () {
     layui.use('form', function () {

@@ -81,6 +81,10 @@ body {
     font-size: 1.1rem;
 }
 
+.tag p:last-child{
+    color: #FFFFFE;
+}
+
 .col-3 .tag-box {
     display: block;
 }
