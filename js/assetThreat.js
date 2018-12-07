@@ -251,6 +251,7 @@ $(function () {
                             }]
                         });
                     });
+                    console.log(JSON.stringify(seriesData))
                     storageData.drawRing.push(legendData);
                     storageData.drawRing.push(seriesData);
                     initChartFun.drawRing('chart3', storageData.drawRing);

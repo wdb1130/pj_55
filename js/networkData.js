@@ -19,14 +19,14 @@ var colorLine = ['#FF3838', '#8124FF', '#45CE8D', '#9000FF'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
     offset: 0,
-    color: 'rgba(28,141,239,0)' // 0% 处的颜色
+    color: 'rgba(28,141,239,0)'
 },
 {
     offset: 0.6,
-    color: 'rgba(28,141,239,0.4)' // 0% 处的颜色
+    color: 'rgba(28,141,239,0.4)'
 }, {
     offset: 1,
-    color: 'rgba(28,141,239,1)' // 100% 处的颜色
+    color: 'rgba(28,141,239,1)'
 }
 ], false);
 var color3DCylinder = [
@@ -410,13 +410,13 @@ function drawSvgDash() {
     var zheLine8Y = Math.floor(box7Left) + 5;
     var pathLine7 = "M" + zheLine7X + " " + zheLine6Y + " L" + zheLine7X + " " + zheLine8X + " L" + zheLine8Y + " " + zheLine8X;
 
-    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#fff" />';
-    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#fff" />';
-    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#fff" />';
-    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#fff" />';
-    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#fff" />';
-    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#fff" />';
-    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#fff" />';
+    var wrapper1Arc = '<path stroke-dasharray="2,2" d="' + pathLine1 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper2Arc = '<path stroke-dasharray="2,2" d="' + pathLine2 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper3Arc = '<path stroke-dasharray="2,2" d="' + pathLine3 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper4Arc = '<path stroke-dasharray="2,2" d="' + pathLine4 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper5Arc = '<path stroke-dasharray="2,2" d="' + pathLine5 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper6Arc = '<path stroke-dasharray="2,2" d="' + pathLine6 + '" fill="transparent" stroke="#A3E8FE" />';
+    var wrapper7Arc = '<path stroke-dasharray="2,2" d="' + pathLine7 + '" fill="transparent" stroke="#A3E8FE" />';
 
     $('.svg-data').html(wrapper1Arc + wrapper2Arc + wrapper3Arc + wrapper4Arc + wrapper5Arc + wrapper6Arc + wrapper7Arc);
 }

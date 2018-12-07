@@ -1033,7 +1033,7 @@ var initChartFun = {
                 left: 'center',
                 textStyle: {
                     fontSize: 14,
-                    color: '#fff',
+                    color: '#A3E8FE',
                     align: 'center',
                     verticalAlign: 'bottom',
                 }

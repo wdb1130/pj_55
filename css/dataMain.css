@@ -171,7 +171,7 @@ body {
     line-height: 2.5rem;
     display: flex;
     text-align: center;
-    color: #124BCD;
+    color: #3F74F1;
 }
 
 .table-chart .th-header span {
@@ -209,13 +209,16 @@ body {
     display: flex;
 }
 .swiper-slide-detail:nth-child(2n){
-    background: #061043;
+    background:rgba(19,91,255,.1);
 }
 .swiper-slide-detail > span{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.swiper-slide-detail > span:last-child{
+    color: #7187B0;
 }
 svg.svg-data {
     position: absolute;
@@ -226,4 +229,7 @@ svg.svg-data {
 .swiper-container2,
 .swiper-container1{
     margin-bottom: 1rem;
+}
+.wrapper span{
+    color: #FEFEFE;
 }
