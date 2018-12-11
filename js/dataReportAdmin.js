@@ -1,6 +1,7 @@
 $(function () {
     var minusVal = window.innerHeight - $(".table-render").height();
     var btnType;
+    var compareArr = [];
     layui.use('form', function () {
         var form = layui.form;
         form.on('submit(formSubmit)', function (data) {
@@ -20,8 +21,9 @@ $(function () {
         });
     });
     // table
-    layui.use('table', function () {
+    layui.use(['table', 'layer'], function () {
         var table = layui.table;
+        var layer = layui.layer;
         table.render({
             id: 'reportTable',
             elem: '#reportTable',
@@ -48,9 +50,16 @@ $(function () {
         table.on('tool(compareOpera)', function (obj) {
             var data = obj.data;
             if (obj.event === 'compare') {
-                console.log(data);
+                compareArr.push(data);
+                var str= '';
+                for(var i = 0; i<compareArr.length; i++){
+                    str += '<div class="compare-item"><span>'+compareArr[i].title+'</span><span class="rt" value="'+i+'">&times;</span></div>'
+                }
+                $('.compare-list').html(str);
+                $('.compare-wrapper').animate({marginRight: '0'},300);
             }
         });
+
         var $ = layui.$, active = {
             getCheckData: function () { //获取选中数据
                 var checkStatus = table.checkStatus('reportTable');
@@ -67,6 +76,27 @@ $(function () {
             btnType = 'del';
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
+        });
+        //点击其他地方隐藏btns框(更多操作隐藏)
+        $(document).mouseup(function (e) {
+            var _con = $('.compare-wrapper'); // 设置目标区域
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
+                $('.compare-wrapper').animate({marginRight: '-300px'},300);
+            }
+        });
+        $('.compare-wrapper').on('click','.rt', function () {
+            var idx = this.getAttribute('value');
+            $(this).parent().remove();
+            compareArr.splice(idx, 1);
+        });
+        $('.compare-btn').on('click', function () {
+            //对比操作
+            //需要传入的数据compareArr
+            if(compareArr.length>4){
+                layer.alert('最多4条！');
+                return;
+            }
+            location.href = './dataReportCompared.html'
         });
     });
 

@@ -95,23 +95,23 @@ body {
 }
 @media screen and (min-width: 1920px) and (max-width: 2560px){
   html,body {
-    font-size:16px !important;
+    font-size:15px !important;
   }
   .title-ct {
-    padding: 5px 0 24px 10px;
+    padding: 12px 0 18px 10px;
   }
   .logo-ct {
-    top: 2px;
-    width: 50px;
-    height: 50px;
+    top: 3px;
+    width: 40px;
+    height: 40px;
   }
   .header-lf { 
-    height: 70px;
-    line-height: 85px;
+    height: 60px;
+    line-height: 75px;
   }
   .header-lf-lg {
-    height: 70px;
-    line-height: 85px;
+    height: 60px;
+    line-height: 75px;
   }
 }
 
@@ -167,7 +167,6 @@ body {
 .logo-ct {
   position: relative;
   display: inline-block;
-  top: 7px;
   background: url(../img/synthesis/logo_s.png) no-repeat;
   background-size: cover;
 }
@@ -221,10 +220,9 @@ body {
 
 /* box */
 .box-title {
-  font-size: 1.1rem;  /*22px*/
+  font-size: 1.05rem;  /*22px*/
   width: 47%;
-  line-height: 2.5rem;
-  height: 2.5rem;
+  padding-top: .7rem;
   text-align: center;
   font-weight:bold;
   color:rgba(197,217,255,1);
@@ -241,9 +239,9 @@ body {
   color:rgba(197,217,255,1);
 }
 .box-title-mid {
-  font-size: 1.5rem;  /*22px*/
+  font-size: 1.4rem;  /*22px*/
   padding-left: 2.5rem;
-  line-height: 3rem;
+  padding-top: 1rem;
   height: 2.5rem;
   font-weight:600;
   color:rgba(197,217,255,1);
