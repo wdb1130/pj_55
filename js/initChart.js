@@ -478,8 +478,22 @@ var initChartFun = {
                 startAngle: 90,
                 shape: 'circle',
                 name: {
-                    textStyle: {
-                        color: '#C5D9FF'
+                    formatter: function (value) {
+                        var name = value.substring(0, value.indexOf("\n"));
+                        var values = value.substring(value.indexOf("\n") + 1, value.length);
+                        return '{col2|' + values + '\n}{col1| ' + name + '}';
+                    },
+                    rich: {
+                        col1: {
+                            color: '#C5D9FF',
+                            align: 'center',
+                            padding: [5, 0, 0, 0]
+                        },
+                        col2: {
+                            color: postModalData[3],
+                            align: 'center',
+                            padding: [5, 0, 0, 0]
+                        }
                     }
                 },
                 splitArea: {
@@ -551,9 +565,29 @@ var initChartFun = {
                 startAngle: 90,
                 splitNumber: 4,
                 name: {
-                    formatter: '{value}',
-                    textStyle: {
-                        color: '#95D9F8'
+                    formatter: function (value) {
+                        if (value.indexOf('&') > -1) {
+                            var arr = value.split("\n");
+                            var name = arr[0];
+                            var values = arr[1].substring(0, arr[1].length - 1);
+                            return '{col1|' + name + '\n}{col2| ' + values + '}';
+                        } else {
+                            var name = value.substring(0, value.indexOf("\n"));
+                            var values = value.substring(value.indexOf("\n") + 1, value.length);
+                            return '{col2|' + name + '\n}{col1| ' + values + '}';
+                        }
+                    },
+                    rich: {
+                        col2: {
+                            color: '#C5D9FF',
+                            align: 'center',
+                            padding: [5, 0, 0, 0]
+                        },
+                        col1: {
+                            color: postModalData[3],
+                            align: 'center',
+                            padding: [5, 0, 0, 0]
+                        }
                     }
                 },
                 splitArea: {
@@ -601,6 +635,7 @@ var initChartFun = {
                     lineStyle: {
                         normal: {
                             type: 'solid',
+                            color: postModalData[2],
                             width: 0
                         }
                     }
@@ -1340,7 +1375,7 @@ var initChartFun = {
         categoryAxis.renderer.grid.template.location = 0;
         categoryAxis.renderer.grid.template.strokeOpacity = 0;
         categoryAxis.renderer.minGridDistance = 30;
-        categoryAxis.renderer.cellStartLocation = 0.2;
+        categoryAxis.renderer.cellStartLocation = 0.25;
         categoryAxis.renderer.cellEndLocation = 0.7;
         categoryAxis.renderer.labels.template.fill = am4core.color("#95D9F8");
         categoryAxis.renderer.labels.template.hideOversized = false;

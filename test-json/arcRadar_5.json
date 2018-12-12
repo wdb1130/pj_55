@@ -1,0 +1,24 @@
+{
+    "resultCode": 200,
+    "resultMessage": "请求成功",
+    "result": {
+        "seriesData": [
+            {
+                "title": "低危用户",
+                "value": 70
+            },
+            {
+                "title": "中危用户",
+                "value": 52
+            },
+            {
+                "title": "极高危用户",
+                "value": 38
+            },
+            {
+                "title": "高危用户",
+                "value": 92
+            }
+        ]
+    }
+}

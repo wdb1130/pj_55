@@ -215,9 +215,9 @@ $(function () {
                 if (res.resultCode == 200) {
                     var indicator = [];
                     var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
+                    res.result.seriesData.forEach(function (item, idx) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: idx ? item.title + '\n' + item.value + '%' : item.value + '%\n' + item.title + '&',
                             max: 100
                         });
                         seriesData.push(item.value)
@@ -240,9 +240,9 @@ $(function () {
                 if (res.resultCode == 200) {
                     var indicator = [];
                     var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
+                    res.result.seriesData.forEach(function (item, idx) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: idx ? item.title + '\n' + item.value + '%' : item.value + '%\n' + item.title + '&',
                             max: 100
                         });
                         seriesData.push(item.value)

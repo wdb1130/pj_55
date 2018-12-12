@@ -168,9 +168,9 @@ $(function () {
                 if (res.resultCode == 200) {
                     var indicator = [];
                     var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
+                    res.result.seriesData.forEach(function (item, idx) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: idx ? item.title + '\n' + item.value + '%' : item.value + '%\n' + item.title + '&',
                             max: 100
                         });
                         seriesData.push(item.value)
@@ -178,6 +178,7 @@ $(function () {
                     storageData.drawRectRadar1.push(indicator);
                     storageData.drawRectRadar1.push(seriesData);
                     storageData.drawRectRadar1.push(colorRadarList1);
+                    // storageData.drawRectRadar1.push(percentColor);
                     initChartFun.drawRectRadar('chart3', storageData.drawRectRadar1);
                 };
             }
@@ -193,9 +194,9 @@ $(function () {
                 if (res.resultCode == 200) {
                     var indicator = [];
                     var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
+                    res.result.seriesData.forEach(function (item, idx) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: idx ? item.title + '\n' + item.value + '%' : item.value + '%\n' + item.title + '&',
                             max: 100
                         });
                         seriesData.push(item.value)
@@ -203,6 +204,7 @@ $(function () {
                     storageData.drawRectRadar2.push(indicator);
                     storageData.drawRectRadar2.push(seriesData);
                     storageData.drawRectRadar2.push(colorRadarList2);
+                    // storageData.drawRectRadar2.push(percentColor);
                     initChartFun.drawRectRadar('chart4', storageData.drawRectRadar2);
                 };
             }
@@ -220,7 +222,7 @@ $(function () {
                     var seriesData = [];
                     res.result.seriesData.forEach(function (item) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: item.title + '\n' + item.value + '%',
                             max: 100
                         });
                         seriesData.push(item.value)
@@ -228,6 +230,7 @@ $(function () {
                     storageData.drawArcRadar1.push(indicator);
                     storageData.drawArcRadar1.push(seriesData);
                     storageData.drawArcRadar1.push(colorRadarList1);
+                    // storageData.drawArcRadar1.push(percentColor);
                     initChartFun.drawArcRadar('chart5', storageData.drawArcRadar1);
                 };
             }
@@ -253,6 +256,7 @@ $(function () {
                     storageData.drawArcRadar2.push(indicator);
                     storageData.drawArcRadar2.push(seriesData);
                     storageData.drawArcRadar2.push(colorRadarList2);
+                    // storageData.drawArcRadar2.push(percentColor);
                     initChartFun.drawArcRadar('chart6', storageData.drawArcRadar2);
                 };
             }

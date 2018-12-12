@@ -20,6 +20,8 @@ var color3DCylinder = [
     ['#085BC1', '#26E8FF']
 ];
 var colorRadarList = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#FF4C23' }, { offset: 1, color: '#FFD385' }], false)
+var percentColor = "#27BAFE";
+
 var colorScatterList = ['#0DF6FF', '#FFC65C', '#FF3F3F'];
 
 var colorLineList = [
@@ -143,21 +145,22 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_4.json",
+            url: "../test-json/arcRadar_5.json",
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];
                     var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
+                    res.result.seriesData.forEach(function (item, idx) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: idx ? item.title + '\n' + item.value + '%' : item.value + '%\n' + item.title + '&',
                             max: 100
                         });
-                        seriesData.push(item.value)
+                        seriesData.push(item.value);
                     });
                     storageData.drawRectRadar.push(indicator);
                     storageData.drawRectRadar.push(seriesData);
                     storageData.drawRectRadar.push(colorRadarList);
+                    storageData.drawRectRadar.push(percentColor);
                     initChartFun.drawRectRadar('chart3', storageData.drawRectRadar);
                 };
             }
@@ -213,7 +216,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top',
                                     textStyle: {
                                         color: '#95D9F8'
