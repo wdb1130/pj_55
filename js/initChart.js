@@ -1514,8 +1514,8 @@ var initChartFun = {
     draw3DCylinderH: function (dom, postModalData) {
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create(dom, am4charts.XYChart3D);
-        chart.angle = 30;
-        chart.depth = 10;
+        chart.angle = 20;
+        chart.depth = 20;
         chart.data = postModalData[0];
         var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "title";
@@ -1527,8 +1527,8 @@ var initChartFun = {
         categoryAxis.tooltip.disabled = true;
         categoryAxis.renderer.minGridDistance = 10;
         categoryAxis.renderer.grid.template.strokeOpacity = 0;
-        categoryAxis.renderer.cellStartLocation = 0.1;
-        categoryAxis.renderer.cellEndLocation = 0.9;
+        categoryAxis.renderer.cellStartLocation = 0.2;
+        categoryAxis.renderer.cellEndLocation = 0.8;
         var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
         valueAxis.calculateTotals = true;
         valueAxis.min = 0;
@@ -1566,9 +1566,9 @@ var initChartFun = {
         bullet.label.text = "{valueX}%";
         bullet.label.fill = am4core.color("#95D9F8");
         bullet.label.verticalCenter = "bottom";
-        bullet.label.dx = 30;
+        bullet.label.dx = 40;
         bullet.label.dy = 0;
-        bullet.label.fontSize = 14;
+        bullet.label.fontSize = 13;
         chart.maskBullets = true;
         $("#id-63-title").length && $('#id-63-title').parent().hide();
         $("#id-204-title").length && $("#id-204-title").parent().hide();
