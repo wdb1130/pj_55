@@ -1381,6 +1381,7 @@ var initChartFun = {
         categoryAxis.renderer.labels.template.hideOversized = false;
         categoryAxis.renderer.labels.template.horizontalCenter = "middle";
         categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.dy = 10;
         categoryAxis.tooltip.disabled = true;
         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
         valueAxis.calculateTotals = true;
