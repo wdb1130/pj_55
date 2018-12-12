@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./modal.css">
+</head>
+
+<body>
+    <!-- <div id="modalBg">
+        <div id="chartContent">
+            <div class="modal-title">
+                <span></span>
+                <span>数据包大小变化率</span>
+                <span class="times">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="chartModal"></div>
+            </div>
+        </div>
+    </div> -->
+
+    <div data-method="setTop" data-chartType="drawPlusLine">drawPlusLine</div>
+    <br>
+    <div data-method="setTop" data-chartType="drawRing">drawRing</div>
+
+    <script src="../js/jquery.js"></script>
+    <script src="./modal.js"></script>
+    <script>
+        $('[data-method="setTop"]').click(function () {
+            var params = $(this).attr("data-chartType");
+            initModal(params);
+        });
+    </script>
+
+</body>
+
+</html>

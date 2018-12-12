@@ -1,0 +1,41 @@
+#modalBg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .4);
+    overflow: hidden;
+}
+
+#chartContent{
+    position: absolute;
+    display: flex;
+    padding: 2rem 3rem 3rem;
+    flex-direction: column;
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    height: 70%;
+    border: 1px solid #333;
+    transform: translate(-50%, -50%);
+    background: url('../img/modal-box.png') no-repeat;
+    background-size: 100% 100%;
+}
+.modal-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+.modal-title span.times{
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: -1.5rem;
+}
+.modal-body{
+    flex: 1;
+    border: 1px solid red;
+}
