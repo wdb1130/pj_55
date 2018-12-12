@@ -124,7 +124,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top',
                                     textStyle: {
                                         color: '#95D9F8'
@@ -288,7 +288,7 @@ $(function () {
                             },
                             label: {
                                 normal: {
-                                    show: true,
+                                    show: false,
                                     position: 'top'
                                 }
                             },
