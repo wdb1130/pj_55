@@ -393,6 +393,13 @@ $(function () {
 
     }, 1000);
 
+    // initModal
+    $('[data-method="setTop"]').click(function () {
+        modalTitle = $(this).text();
+        chartTypeState = $(this).attr('data-chartType');
+        postModalData = storageData[chartTypeState];
+        initModal(modalTitle, chartTypeState, postModalData);
+    });
 });
 function drawSvgDash() {
     $('.svg-data').html("");
