@@ -11,7 +11,6 @@ function initModal(modalTitle, funName, postodalData) {
         case 'drawVerticalBarH':
         case 'drawHorizontalBar':
         case 'drawVerticalSingleBar':
-
         case 'drawLiquidFill':
         case 'drawTwoFanPie':
         case 'drawOneFanPie':
@@ -86,7 +85,7 @@ function initModal(modalTitle, funName, postodalData) {
             initChartFun[funName]('chartModal', postodalData);
             // 图片赋值
             var rateListW = $('.modal-body .rate-list').width();
-            $('.modal-body .rate-list').css('left', 'calc(64% - ' + rateListW + 'px)');
+            $('.modal-body .rate-list').css('left', 'calc('+ postodalData[3] +'% - ' + rateListW + 'px)');
             break;
     }
 

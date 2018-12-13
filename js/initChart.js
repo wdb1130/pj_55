@@ -323,7 +323,7 @@ var initChartFun = {
                 }
             },
             grid: {
-                x: 120,
+                x: 150,
                 y: 55,
                 x2: 0,
                 y2: 10,
@@ -1212,6 +1212,10 @@ var initChartFun = {
             yAxis: [{
                 type: 'value',
                 name: '(量值)',
+                scale: true,
+                min: 0,
+                max: 100,
+                splitNumber: 10,
                 nameTextStyle: { //最值样式
                     color: '#95D9F8'
                 },

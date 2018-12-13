@@ -122,3 +122,23 @@ html, body {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+.chart-show-chart3{
+    position: relative;
+}
+.rate-list{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 18%;
+    font-size: 1rem;
+    line-height: 1.2rem;
+}
+.modal-body .rate-list{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 25%;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: #C5D9FF;
+}

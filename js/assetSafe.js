@@ -220,6 +220,7 @@ $(function () {
                     storageData.drawRing.push(legendData);
                     storageData.drawRing.push(seriesData);
                     storageData.drawRing.push(percentHtml);
+                    storageData.drawRing.push(63.5);
                     initChartFun.drawRing('chart6', storageData.drawRing);
                     // 图片赋值
                     $('.rate-list').html(percentHtml);

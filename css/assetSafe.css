@@ -317,3 +317,12 @@ div.swiper-container2{
   font-size: 0.5rem;
   line-height: 1rem;
 }
+.modal-body .rate-list{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 21%;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  color: #C5D9FF;
+}

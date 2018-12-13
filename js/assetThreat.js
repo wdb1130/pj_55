@@ -154,7 +154,9 @@ $(function () {
                 if (res.resultCode == 200) {
                     var legendData = [];
                     var seriesData = [];
+                    var percentHtml = "";
                     res.result.seriesData.forEach(function (item, idx) {
+                        percentHtml += '<span>' + item.value + '%</span>';
                         legendData.push(item.title);
                         seriesData.push({
                             name: 'Line' + idx,
@@ -176,7 +178,7 @@ $(function () {
                                     }
                                 }
                             },
-                            hoverAnimation: true,
+                            hoverAnimation: false,
                             startAngle: 90,
                             label: {
                                 borderRadius: '10',
@@ -215,7 +217,13 @@ $(function () {
                     });
                     storageData.drawRing.push(legendData);
                     storageData.drawRing.push(seriesData);
+                    storageData.drawRing.push(percentHtml);
+                    storageData.drawRing.push(59);
                     initChartFun.drawRing('chart3', storageData.drawRing);
+                    // 图片赋值
+                    $('.rate-list').html(percentHtml);
+                    var rateListW = $('.rate-list').width();
+                    $('.rate-list').css('left', 'calc(63% - ' + rateListW + 'px)');
                 };
             }
         });

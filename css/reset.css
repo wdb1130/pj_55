@@ -284,7 +284,7 @@ body {
   align-items: center;
   color: #C5D9FF;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .modal-title span.times{
   font-size: 2rem;
@@ -302,13 +302,4 @@ body {
 }
 #chartModal>div.chart-child-modal{
   flex: 1;
-}
-.modal-body .rate-list{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 21.5%;
-  font-size: 1.5rem;
-  line-height: 3rem;
-  color: #C5D9FF;
 }
