@@ -20,10 +20,10 @@ var initChartFun = {
                 }
             },
             grid: {
-                top: 50,
+                top: '20%',
                 left: '15%',
-                right: '10%',
-                bottom: 30,
+                right: '15%',
+                bottom: '20%',
             },
             xAxis: [{
                 name: '(时间)',
@@ -98,10 +98,10 @@ var initChartFun = {
                 }
             },
             grid: {
-                top: 50,
+                top: '20%',
                 left: '15%',
-                right: '10%',
-                bottom: 30,
+                right: '15%',
+                bottom: '20%',
             },
             xAxis: [{
                 name: '(时间)',
@@ -670,12 +670,14 @@ var initChartFun = {
                 itemWidth: 24,
                 itemHeight: 10,
                 orient: 'vertical',
-                left: '2%',
+                left: '3%',
                 top: 'center',
-                itemGap: 30,
+                padding: 30,
+                itemGap: 20,
                 data: postModalData[0],
                 textStyle: {
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    padding: [0, 0, 0, 5],
                 }
             },
             series: postModalData[1]

@@ -28,9 +28,9 @@ var radiusArr = [
     ['35%', '40%']
 ];
 var centerArr = [
-    ['60%', '50%'],
-    ['60%', '50%'],
-    ['60%', '50%']
+    ['65%', '50%'],
+    ['65%', '50%'],
+    ['65%', '50%']
 ];
 var colorLineList = ['#FF3838'];
 
@@ -164,20 +164,20 @@ $(function () {
                             clockWise: true,
                             radius: radiusArr[idx],
                             center: centerArr[idx],
-                            // itemStyle: {
-                            //     normal: {
-                            //         label: {
-                            //             show: true,
-                            //             formatter: "{d}%",
-                            //             textStyle: {
-                            //                 color: '#95D9F8'
-                            //             }
-                            //         },
-                            //         labelLine: {
-                            //             show: true
-                            //         }
-                            //     }
-                            // },
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: false,
+                                        formatter: "{d}%",
+                                        textStyle: {
+                                            color: '#95D9F8'
+                                        }
+                                    },
+                                    labelLine: {
+                                        show: true
+                                    }
+                                }
+                            },
                             hoverAnimation: true,
                             startAngle: 90,
                             label: {
