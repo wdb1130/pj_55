@@ -29,7 +29,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_4.json",
+            url: "../test-json/3dH_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH.push(res.result.seriesData);
@@ -44,7 +44,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/maintenanceOccupancyRate_3.json",
+            url: "../test-json/maintenanceOccupancyRate_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var resizeChart = [];
@@ -80,7 +80,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/maintenance_hollow_6.json",
+            url: "../test-json/maintenance_hollow_6.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -104,7 +104,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/maintenance_verticalBar_3.json",
+            url: "../test-json/maintenance_verticalBar_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -144,7 +144,7 @@ $(function () {
             }
         });
     }, 1000);
-    
+
     // initModal
     $('[data-method="setTop"]').click(function () {
         modalTitle = $(this).text();

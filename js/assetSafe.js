@@ -45,7 +45,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_4.json",
+            url: "../test-json/3dH_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH.push(res.result.seriesData);
@@ -60,7 +60,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_4.json",
+            url: "../test-json/line_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -115,7 +115,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/maintenanceOccupancyRate_3.json",
+            url: "../test-json/maintenanceOccupancyRate_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var resizeChart = [];
@@ -151,7 +151,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/ring_3.json",
+            url: "../test-json/ring_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -227,7 +227,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_1.json",
+            url: "../test-json/line_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -276,7 +276,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_3.json",
+            url: "../test-json/device_table_list_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
@@ -309,7 +309,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_3.json",
+            url: "../test-json/device_table_list_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
@@ -341,10 +341,10 @@ $(function () {
 });
 // initModal
 $('[data-method="setTop"]').click(function () {
-	modalTitle = $(this).text();
-	chartTypeState = $(this).attr('data-chartType');
-	postModalData = storageData[chartTypeState];
-	initModal(modalTitle, chartTypeState, postModalData);
+    modalTitle = $(this).text();
+    chartTypeState = $(this).attr('data-chartType');
+    postModalData = storageData[chartTypeState];
+    initModal(modalTitle, chartTypeState, postModalData);
 });
 
 function drawSvgDash() {

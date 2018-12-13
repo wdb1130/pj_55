@@ -27,7 +27,7 @@ $(function () {
         table.render({
             id: 'reportTable',
             elem: '#reportTable',
-            url: '../test-json/zg-reportTable.json',
+            url: '../test-json/zg-reportTable.json' + getRandomNum(),
             height: 'full-' + minusVal,
             cols: [
                 [
@@ -51,12 +51,12 @@ $(function () {
             var data = obj.data;
             if (obj.event === 'compare') {
                 compareArr.push(data);
-                var str= '';
-                for(var i = 0; i<compareArr.length; i++){
-                    str += '<div class="compare-item"><span>'+compareArr[i].title+'</span><span class="rt" value="'+i+'">&times;</span></div>'
+                var str = '';
+                for (var i = 0; i < compareArr.length; i++) {
+                    str += '<div class="compare-item"><span>' + compareArr[i].title + '</span><span class="rt" value="' + i + '">&times;</span></div>'
                 }
                 $('.compare-list').html(str);
-                $('.compare-wrapper').animate({marginRight: '0'},300);
+                $('.compare-wrapper').animate({ marginRight: '0' }, 300);
             }
         });
 
@@ -81,10 +81,10 @@ $(function () {
         $(document).mouseup(function (e) {
             var _con = $('.compare-wrapper'); // 设置目标区域
             if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
-                $('.compare-wrapper').animate({marginRight: '-300px'},300);
+                $('.compare-wrapper').animate({ marginRight: '-300px' }, 300);
             }
         });
-        $('.compare-wrapper').on('click','.rt', function () {
+        $('.compare-wrapper').on('click', '.rt', function () {
             var idx = this.getAttribute('value');
             $(this).parent().remove();
             compareArr.splice(idx, 1);
@@ -92,7 +92,7 @@ $(function () {
         $('.compare-btn').on('click', function () {
             //对比操作
             //需要传入的数据compareArr
-            if(compareArr.length>4){
+            if (compareArr.length > 4) {
                 layer.alert('最多4条！');
                 return;
             }

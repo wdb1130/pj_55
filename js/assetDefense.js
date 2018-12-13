@@ -35,7 +35,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_3.json",
+            url: "../test-json/device_table_list_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
@@ -56,7 +56,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_1.json",
+            url: "../test-json/line_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -108,7 +108,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/verticalBar_2.json",
+            url: "../test-json/verticalBar_2.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -154,7 +154,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_4.json",
+            url: "../test-json/device_table_list_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";

@@ -77,7 +77,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/meter.json",
+            url: "../test-json/meter.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var val = res.result.seriesData[0].value;
@@ -92,7 +92,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3d_arc.json",
+            url: "../test-json/3d_arc.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinder.push(res.result.seriesData);
@@ -107,7 +107,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_5.json",
+            url: "../test-json/arcRadar_5.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];
@@ -133,7 +133,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/scatter.json",
+            url: "../test-json/scatter.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var seriesData = [];
@@ -153,7 +153,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/lineGradient_5.json",
+            url: "../test-json/lineGradient_5.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];

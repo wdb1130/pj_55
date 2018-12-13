@@ -55,7 +55,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_4.json",
+            url: "../test-json/line_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -111,7 +111,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3d_arc1.json",
+            url: "../test-json/3d_arc1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinder.push(res.result.seriesData);
@@ -126,7 +126,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_4.json",
+            url: "../test-json/arcRadar_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];
@@ -152,7 +152,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_4.json",
+            url: "../test-json/arcRadar_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];
@@ -178,7 +178,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_4.json",
+            url: "../test-json/arcRadar_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];
@@ -204,7 +204,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_4.json",
+            url: "../test-json/arcRadar_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];

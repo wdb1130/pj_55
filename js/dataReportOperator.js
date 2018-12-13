@@ -28,7 +28,7 @@ $(function () {
         table.render({
             id: 'reportTable',
             elem: '#reportTable',
-            url: '../test-json/reportTable.json',
+            url: '../test-json/reportTable.json' + getRandomNum(),
             height: 'full-' + minusVal,
             cols: [
                 [

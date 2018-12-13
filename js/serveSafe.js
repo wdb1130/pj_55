@@ -78,14 +78,14 @@ $(function () {
     $(window).resize(function () {
         drawSvgDash();
     });
-    
+
     setTimeout(function () {
         // chart1
         $.ajax({
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json",
+            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -116,7 +116,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json",
+            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -138,7 +138,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json",
+            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -160,7 +160,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_3.json",
+            url: "../test-json/line_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -216,7 +216,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_5.json",
+            url: "../test-json/line_5.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -273,7 +273,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_5.json",
+            url: "../test-json/line_5.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -330,7 +330,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/twoFanPie_2.json",
+            url: "../test-json/twoFanPie_2.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -350,7 +350,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/verticalBar_2.json",
+            url: "../test-json/verticalBar_2.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];

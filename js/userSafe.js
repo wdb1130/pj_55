@@ -50,7 +50,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_3.json",
+            url: "../test-json/3dH_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH1.push(res.result.seriesData);
@@ -65,7 +65,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_2.json",
+            url: "../test-json/3dH_2.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH2.push(res.result.seriesData);
@@ -80,7 +80,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_4.json",
+            url: "../test-json/line_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -136,7 +136,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json",
+            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -166,7 +166,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/networkDataRing_2.json",
+            url: "../test-json/networkDataRing_2.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var resizeChart = [];
@@ -202,7 +202,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_3.json",
+            url: "../test-json/device_table_list_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
@@ -235,7 +235,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_3.json",
+            url: "../test-json/device_table_list_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";

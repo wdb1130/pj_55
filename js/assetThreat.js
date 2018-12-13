@@ -47,7 +47,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/muma_verticalBar_3.json",
+            url: "../test-json/muma_verticalBar_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -94,7 +94,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/muma_line_4.json",
+            url: "../test-json/muma_line_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -149,7 +149,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/ring_3.json",
+            url: "../test-json/ring_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -225,7 +225,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_3.json",
+            url: "../test-json/device_table_list_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
@@ -246,7 +246,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/device_table_list_3.json",
+            url: "../test-json/device_table_list_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";

@@ -20,8 +20,8 @@ var color3DCylinder = [
     ['#D9162E', '#FE7421']
 ];
 var colorBarList = ['#FF3838', '#45CE8D', '#8124FF'];
-var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#FF4C23'},{offset: 1, color: '#FFD385'}]);
-var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#4ED6AB'},{offset: 1, color: '#5EDCFB'}]);
+var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#FF4C23' }, { offset: 1, color: '#FFD385' }]);
+var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#4ED6AB' }, { offset: 1, color: '#5EDCFB' }]);
 var percentColor = "#E7672F";
 
 $(function () {
@@ -54,7 +54,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/line_3.json",
+            url: "../test-json/line_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -109,7 +109,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_3.json",
+            url: "../test-json/3dH_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH.push(res.result.seriesData);
@@ -124,7 +124,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/verticalBar_3.json",
+            url: "../test-json/verticalBar_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
@@ -170,7 +170,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_3.json",
+            url: "../test-json/arcRadar_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];
@@ -196,7 +196,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/arcRadar_3.json",
+            url: "../test-json/arcRadar_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var indicator = [];

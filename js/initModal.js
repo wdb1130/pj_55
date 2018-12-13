@@ -75,3 +75,8 @@ function initModal(modalTitle, funName, postodalData) {
         modalHtml.remove();
     });
 };
+
+// 随机数
+function getRandomNum() {
+    return '?flag=' + (Math.random() * 10001).toFixed(2);
+}
