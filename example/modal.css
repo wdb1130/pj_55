@@ -4,7 +4,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, .4);
+    background: rgba(0, 0, 0, .5);
     overflow: hidden;
 }
 
@@ -17,7 +17,6 @@
     top: 50%;
     width: 70%;
     height: 70%;
-    border: 1px solid #333;
     transform: translate(-50%, -50%);
     background: url('../img/modal-box.png') no-repeat;
     background-size: 100% 100%;
@@ -26,7 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: #C5D9FF;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
@@ -34,8 +33,13 @@
     font-size: 2rem;
     cursor: pointer;
     margin-top: -1.5rem;
+    color: #C5D9FF;
 }
 .modal-body{
     flex: 1;
-    border: 1px solid red;
+    display: flex;
+}
+#chartModal {
+    flex: 1;
+    display: flex;
 }

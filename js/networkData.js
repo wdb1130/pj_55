@@ -40,52 +40,6 @@ $(function () {
     $(window).resize(function () {
         drawSvgDash();
     });
-    layui.use('layer', function () {
-        var $ = layui.jquery, layer = layui.layer;
-        //触发事件
-        var active = {
-            setTop: function () {
-                var that = this;
-                layer.open({
-                    type: 2,
-                    title: ' ',
-                    area: ['70%', '70%'],
-                    shade: 0.3,
-                    offset: ['15%', '15%'],
-                    maxmin: false,
-                    anim: 1,
-                    content: '../pages/chartModal.html',
-                    yes: function () {
-                        $(that).click();
-                    },
-                    btn2: function () {
-                        layer.closeAll();
-                    },
-                    zIndex: layer.zIndex,
-                    success: function (layero) {
-                        // 子页面弹出成功回调
-                        layero.find('.layui-layer-title').text(modalTitle);
-                    },
-                    full: function (dom) {
-                        if (chartTypeState == "drawLiquidFill1" || chartTypeState == "drawLiquidFill2") {
-                            dom.find('iframe').contents().find('.content').html("");
-                            dom.find('iframe').contents().find('.content').append('<div id="chartModal"></div>');
-                            var funName = dom.find('iframe')[0].contentWindow.funName;
-                            var postodalData = dom.find('iframe')[0].contentWindow.postodalData;
-                            dom.find('iframe')[0].contentWindow.initChartFun[funName]('chartModal', postodalData);
-                        }
-                    }
-                });
-            }
-        };
-        $('.chart-click').on('click', function () {
-            modalTitle = $(this).text();
-            chartTypeState = $(this).attr('data-chartType');
-            postModalData = storageData[chartTypeState];
-            var othis = $(this), method = othis.data('method');
-            active[method] ? active[method].call(this, othis) : '';
-        });
-    });
 
     setTimeout(function () {
         // chart1
@@ -325,6 +279,14 @@ $(function () {
         });
 
     }, 1000);
+
+    // initModal
+    $('[data-method="setTop"]').click(function () {
+        modalTitle = $(this).text();
+        chartTypeState = $(this).attr('data-chartType');
+        postModalData = storageData[chartTypeState];
+        initModal(modalTitle, chartTypeState, postModalData);
+    });
 
 });
 

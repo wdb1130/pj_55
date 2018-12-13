@@ -1,4 +1,4 @@
-function initModal(params) {
+function initModal(funName, postodalData) {
     var modalHtml = $('<div id="modalBg">' +
         '<div id="chartContent">' +
         '<div class="modal-title">' +
@@ -14,6 +14,8 @@ function initModal(params) {
 
     $('body').append(modalHtml);
 
+    initChartFun[funName]('chartModal', postodalData);
+    
     $(".times").click(function () {
         modalHtml.remove();
     });

@@ -10,29 +10,21 @@
 </head>
 
 <body>
-    <!-- <div id="modalBg">
-        <div id="chartContent">
-            <div class="modal-title">
-                <span></span>
-                <span>数据包大小变化率</span>
-                <span class="times">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="chartModal"></div>
-            </div>
-        </div>
-    </div> -->
+    
 
     <div data-method="setTop" data-chartType="drawPlusLine">drawPlusLine</div>
     <br>
     <div data-method="setTop" data-chartType="drawRing">drawRing</div>
 
     <script src="../js/jquery.js"></script>
+    <script src="../static/echarts/echarts.js"></script>
+    <script src="../js/initChart.js"></script>
     <script src="./modal.js"></script>
     <script>
         $('[data-method="setTop"]').click(function () {
             var params = $(this).attr("data-chartType");
-            initModal(params);
+            var data = [["病毒库更新率"],["2018-10-01","2018-10-02","2018-10-03","2018-10-04","2018-10-05","2018-10-06","2018-10-07"],[{"name":"病毒库更新率","type":"line","symbol":"circle","symbolSize":4,"lineStyle":{"normal":{"width":1}},"label":{"normal":{"show":false,"position":"top","textStyle":{"color":"#95D9F8"}}},"itemStyle":{"normal":{"color":"#FF3838","borderWidth":1}},"data":[70,10,60,15,50,90,77]}]]
+            initModal(params, data);
         });
     </script>
 

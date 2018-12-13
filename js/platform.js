@@ -71,44 +71,6 @@ var colorLineGradientList = [
 
 
 $(function () {
-    layui.use('layer', function () {
-        var $ = layui.jquery, layer = layui.layer;
-        //触发事件
-        var active = {
-            setTop: function () {
-                var that = this;
-                layer.open({
-                    type: 2,
-                    title: ' ',
-                    area: ['70%', '70%'],
-                    shade: 0.3,
-                    offset: ['15%', '15%'],
-                    maxmin: false,
-                    anim: 1,
-                    content: '../pages/chartModal.html',
-                    yes: function () {
-                        $(that).click();
-                    },
-                    btn2: function () {
-                        layer.closeAll();
-                    },
-                    zIndex: layer.zIndex,
-                    success: function (layero) {
-                        // 子页面弹出成功回调
-                        layero.find('.layui-layer-title').text(modalTitle);
-                    }
-                });
-            }
-        };
-        $('.chart-click').on('click', function () {
-            modalTitle = $(this).text();
-            chartTypeState = $(this).attr('data-chartType');
-            postModalData = storageData[chartTypeState];
-            var othis = $(this), method = othis.data('method');
-            active[method] ? active[method].call(this, othis) : '';
-        });
-    });
-
     setTimeout(function () {
         // chart1
         $.ajax({
@@ -245,7 +207,13 @@ $(function () {
                 }
             }
         });
-
     }, 1000);
 
+    // initModal
+    $('[data-method="setTop"]').click(function () {
+        modalTitle = $(this).text();
+        chartTypeState = $(this).attr('data-chartType');
+        postModalData = storageData[chartTypeState];
+        initModal(modalTitle, chartTypeState, postModalData);
+    });
 });

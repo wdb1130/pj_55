@@ -252,3 +252,54 @@ body {
   background-color: #071D4B !important;
   color: #071D4B;
 }
+
+/* modal */
+#modalBg{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .5);
+  overflow: hidden;
+  z-index: 700;
+}
+
+#chartContent{
+  position: absolute;
+  display: flex;
+  padding: 3rem 4rem 4rem;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  width: 70%;
+  height: 70%;
+  transform: translate(-50%, -50%);
+  background: url('../img/modal-box.png') no-repeat;
+  background-size: 100% 100%;
+}
+.modal-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #C5D9FF;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.modal-title span.times{
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: -1.5rem;
+  color: #C5D9FF;
+}
+.modal-body{
+  flex: 1;
+  display: flex;
+}
+#chartModal {
+  flex: 1;
+  display: flex;
+}
+#chartModal>div.chart-child-modal{
+  flex: 1;
+}
