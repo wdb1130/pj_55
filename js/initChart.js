@@ -473,23 +473,30 @@ var initChartFun = {
         option = {
             radar: [{
                 indicator: postModalData[0],
-                radius: '65%',
+                radius: '55%',
                 center: ['50%', '50%'],
                 startAngle: 90,
                 shape: 'circle',
                 name: {
                     formatter: function (value) {
-                        var name = value.substring(0, value.indexOf("\n"));
-                        var values = value.substring(value.indexOf("\n") + 1, value.length);
-                        return '{col2|' + values + '\n}{col1| ' + name + '}';
+                        if (value.indexOf('&') > -1) {
+                            var arr = value.split("\n");
+                            var name = arr[0];
+                            var values = arr[1].substring(0, arr[1].length - 1);
+                            return '{col1|' + name + '\n}{col2| ' + values + '}';
+                        } else {
+                            var name = value.substring(0, value.indexOf("\n"));
+                            var values = value.substring(value.indexOf("\n") + 1, value.length);
+                            return '{col2|' + name + '\n}{col1| ' + values + '}';
+                        }
                     },
                     rich: {
-                        col1: {
+                        col2: {
                             color: '#C5D9FF',
                             align: 'center',
                             padding: [5, 0, 0, 0]
                         },
-                        col2: {
+                        col1: {
                             color: postModalData[3],
                             align: 'center',
                             padding: [5, 0, 0, 0]
@@ -560,7 +567,7 @@ var initChartFun = {
         option = {
             radar: [{
                 indicator: postModalData[0],
-                radius: '65%',
+                radius: '55%',
                 center: ['50%', '50%'],
                 startAngle: 90,
                 splitNumber: 4,

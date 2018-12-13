@@ -23,6 +23,7 @@ var color3DCylinder = [
 var colorBarList = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#FF4C23'},{offset: 1, color: '#FFD385'}]);
 var colorRadarList2 = new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0, color: '#23E2A5'},{offset: 1, color: '#3AD8FF'}]);
+var percentColor = "#E7672F";
 
 // 页面加载
 $(function () {
@@ -179,9 +180,9 @@ $(function () {
                 if (res.resultCode == 200) {
                     var indicator = [];
                     var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
+                    res.result.seriesData.forEach(function (item, idx) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: idx == 2 ? item.title + '\n' + item.value + '%' : item.value + '%\n' + item.title + '&',
                             max: 100
                         });
                         seriesData.push(item.value)
@@ -189,6 +190,7 @@ $(function () {
                     storageData.drawArcRadar1.push(indicator);
                     storageData.drawArcRadar1.push(seriesData);
                     storageData.drawArcRadar1.push(colorRadarList1);
+                    storageData.drawArcRadar1.push(percentColor);
                     initChartFun.drawArcRadar('chart4', storageData.drawArcRadar1);
                 };
             }
@@ -204,9 +206,9 @@ $(function () {
                 if (res.resultCode == 200) {
                     var indicator = [];
                     var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
+                    res.result.seriesData.forEach(function (item, idx) {
                         indicator.push({
-                            text: item.title + ':' + item.value + '%',
+                            text: idx == 2 ? item.title + '\n' + item.value + '%' : item.value + '%\n' + item.title + '&',
                             max: 100
                         });
                         seriesData.push(item.value)
@@ -214,6 +216,7 @@ $(function () {
                     storageData.drawArcRadar2.push(indicator);
                     storageData.drawArcRadar2.push(seriesData);
                     storageData.drawArcRadar2.push(colorRadarList2);
+                    storageData.drawArcRadar2.push(percentColor);
                     initChartFun.drawArcRadar('chart5', storageData.drawArcRadar2);
                 };
             }
