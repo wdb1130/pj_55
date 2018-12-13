@@ -402,10 +402,10 @@ var initChartFun = {
                 data: postModalData[0]
             },
             grid: {
-                x: 40,
-                y: 40,
-                x2: 80,
-                y2: 20,
+                top: '15%',
+                left: '8%',
+                right: '12%',
+                bottom: '12%',
                 containLabel: true
             },
             xAxis: [{
@@ -715,18 +715,17 @@ var initChartFun = {
         option = {
             tooltip: {
                 trigger: 'item',
-                // formatter: "{a} <br/>{b}: {c} ({d}%)"
                 formatter: "{d}%"
             },
             title: [{
                 text: postModalData[0],
                 x: '50%',
-                y: '80%',
+                y: '75%',
                 textAlign: 'center',
                 textStyle: {
-                    color: '#95D9F8',
-                    textAlign: 'center',
-                    fontSize: '105%'
+                    color: '#C5D9FF',
+                    fontSize: 15 * scale,
+                    fontWeight: '400'
                 },
             }],
             series: [
@@ -775,7 +774,7 @@ var initChartFun = {
                     hoverAnimation: true,
                     hoverOffset: -10,
                     center: ['50%', '40%'],
-                    radius: ['75%', '65%'],
+                    radius: ['60%', '50%'],
                     color: color,
                     itemStyle: {
                         normal: {
@@ -795,7 +794,7 @@ var initChartFun = {
                     clockWise: true,
                     hoverAnimation: false,
                     center: ['50%', '40%'],
-                    radius: ['75%', '75%'],
+                    radius: ['60%', '60%'],
                     itemStyle: {
                         normal: {
                             borderWidth: 2 * scale,

@@ -11,7 +11,7 @@ function initModal(modalTitle, funName, postodalData) {
         case 'drawVerticalBarH':
         case 'drawHorizontalBar':
         case 'drawVerticalSingleBar':
-        case 'drawRing':
+
         case 'drawLiquidFill':
         case 'drawTwoFanPie':
         case 'drawOneFanPie':
@@ -65,10 +65,29 @@ function initModal(modalTitle, funName, postodalData) {
             });
             break;
         case 'drawWaterBall':
-            console.log('drawWaterBall')
-        // var chartModal = $('<div id="chartModal"></div>');
-        // $('.content').html(chartModal);
-        // initChartFun[funName]('chartModal', postodalData[0], postodalData[1]);
+            console.log('drawWaterBall');
+            break;
+        case 'drawRing':
+            var html = postodalData[2];
+            var modalHtml = $('<div id="modalBg">' +
+                '<div id="chartContent">' +
+                '<div class="modal-title">' +
+                '<span></span>' +
+                '<span>' + modalTitle + '</span>' +
+                '<span class="times">&times;</span>' +
+                '</div>' +
+                '<div class="modal-body">' +
+                '<div id="chartModal"></div>' +
+                '<div class="rate-list">' + html + '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+            $('body').append(modalHtml);
+            initChartFun[funName]('chartModal', postodalData);
+            // 图片赋值
+            var rateListW = $('.modal-body .rate-list').width();
+            $('.modal-body .rate-list').css('left', 'calc(64% - ' + rateListW + 'px)');
+            break;
     }
 
     $(".times").click(function () {
