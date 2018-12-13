@@ -119,6 +119,10 @@ html, body {
     background: url(../img/meter_arc.png) no-repeat center center;
     background-size: contain;
     position: relative;
+    margin: 1.5rem;
+}
+#chartModal>.meter-box{
+    margin: 5rem;
 }
 .meter-box>img{
     position: absolute;
@@ -133,7 +137,7 @@ html, body {
     position: absolute;
     bottom: 12%;
     color: #0CCCEC;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     padding: .5rem .8rem;
     background: #03062F;

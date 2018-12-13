@@ -1454,7 +1454,11 @@ var initChartFun = {
         bullet.label.verticalCenter = "bottom";
         bullet.label.dy = -10;
         chart.maskBullets = false;
-        $("#id-63-title").length && $('#id-63-title').parent().hide();
+        for (var i = 0; i < $('svg title').length; i++) {
+            if($('svg title')[i].textContent == "Chart created using amCharts library"){
+                $($('svg title')[i]).parent().hide();
+            }
+        }
     },
     // 3d柱状图（纵向）
     draw3DCylinderV: function (dom, postModalData) {
@@ -1515,7 +1519,11 @@ var initChartFun = {
         bullet.label.dx = 10;
         bullet.label.dy = -10;
         chart.maskBullets = false;
-        $("#id-63-title").length && $('#id-63-title').parent().hide();
+        for (var i = 0; i < $('svg title').length; i++) {
+            if($('svg title')[i].textContent == "Chart created using amCharts library"){
+                $($('svg title')[i]).parent().hide();
+            }
+        }
     },
     // 3d柱状图（横向）
     draw3DCylinderH: function (dom, postModalData) {
@@ -1577,7 +1585,10 @@ var initChartFun = {
         bullet.label.dy = 0;
         bullet.label.fontSize = 13;
         chart.maskBullets = true;
-        $("#id-63-title").length && $('#id-63-title').parent().hide();
-        $("#id-204-title").length && $("#id-204-title").parent().hide();
+        for (var i = 0; i < $('svg title').length; i++) {
+            if($('svg title')[i].textContent == "Chart created using amCharts library"){
+                $($('svg title')[i]).parent().hide();
+            }
+        }
     }
 };
