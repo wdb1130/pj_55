@@ -15,7 +15,7 @@ var storageData = {
 var color3DCylinder = [
     ['#2324FF', '#05B8FF'],
     ['#4ED6AD', '#5DDBF8'],
-    ['#FFD062', '#FACE64'],
+    ['#FE7421', '#FACF65'],
     ['#D9162E', '#FE7421']
 ];
 var colorVerticalBarList = ['#FF3838', '#FD953A', '#2420FF'];
