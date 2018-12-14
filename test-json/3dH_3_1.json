@@ -4,12 +4,16 @@
     "result": {
         "seriesData": [
             {
-                "title": "数据\n破损率",
+                "title": "网络流量比",
                 "value": 70
             },
             {
-                "title": "数据访问\n失效率",
+                "title": "固定上网\n地址比例",
                 "value": 52
+            },
+            {
+                "title": "在线时间比",
+                "value": 32
             }
         ]
     }

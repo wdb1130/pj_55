@@ -4,11 +4,11 @@
     "result": {
         "seriesData": [
             {
-                "title": "数据\n破损率",
+                "title": "站点访问\n异常指数",
                 "value": 70
             },
             {
-                "title": "数据访问\n失效率",
+                "title": "通讯行为\n异常指数",
                 "value": 52
             }
         ]

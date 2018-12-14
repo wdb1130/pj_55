@@ -15,10 +15,10 @@ var storageData = {
 
 var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var color3DCylinder = [
-    ['#2324FF', '#05B8FF'],
-    ['#4ED6AD', '#5DDBF8'],
-    ['#FE7421', '#FACF65'],
-    ['#D9162E', '#FE7421']
+    ['#2420FF', '#06B8EB'],
+    ['#10B857', '#68EDC6'],
+    ['#FA8015', '#FFD062'],
+    ['#FF3838', '#FF732E']
 ];
 var colorBarList = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#FF4C23' }, { offset: 1, color: '#FFD385' }]);
@@ -112,7 +112,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_4.json" + getRandomNum(),
+            url: "../test-json/3dH_4_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH.push(res.result.seriesData);

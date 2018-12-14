@@ -15,9 +15,9 @@ var storageData = {
 
 var colorLine = ['#FF3838', '#8124FF', '#45CE8D'];
 var color3DCylinder = [
-    ['#4511CF', '#8B53F2'],
-    ['#4ED6AD', '#5DDBF8'],
-    ['#D9162E', '#FE7421']
+    ['#420FCE', '#8D55F3'],
+    ['#10B857', '#68EDC6'],
+    ['#FF3838', '#FF732E']
 ];
 var colorBarList = ['#FF3838', '#45CE8D', '#8124FF'];
 var colorRadarList1 = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#FF4C23' }, { offset: 1, color: '#FFD385' }]);

@@ -4,19 +4,19 @@
     "result": {
         "seriesData": [
             {
-                "title": "全局态势",
+                "title": "操作",
                 "value": 70
             },
             {
-                "title": "威胁",
+                "title": "防御",
                 "value": 52
             },
             {
-                "title": "防御",
+                "title": "威胁",
                 "value": 32
             },
             {
-                "title": "操作",
+                "title": "全局态势",
                 "value": 66
             }
         ]

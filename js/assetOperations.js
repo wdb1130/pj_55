@@ -13,10 +13,10 @@ var storageData = {
 }
 
 var color3DCylinder = [
-    ['#2324FF', '#05B8FF'],
-    ['#4ED6AD', '#5DDBF8'],
+    ['#251EFF', '#04BBFF'],
+    ['#10B857', '#68EDC6'],
     ['#FE7421', '#FACF65'],
-    ['#D9162E', '#FE7421']
+    ['#D8152E', '#FF7521']
 ];
 var colorVerticalBarList = ['#FF3838', '#FD953A', '#2420FF'];
 var colorPartRingList = ['#135BFF', '#13D799', '#F45925'];
@@ -29,7 +29,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_4.json" + getRandomNum(),
+            url: "../test-json/maintenance_horizontalBar_4.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH.push(res.result.seriesData);

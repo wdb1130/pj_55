@@ -5,19 +5,19 @@
         "seriesData": [
             {
                 "title": "设备合法率",
-                "value": 32
+                "value": 60
             },
             {
                 "title": "设备篡改率",
-                "value": 20
+                "value": 55
             },
             {
                 "title": "设备受损率",
-                "value": 70
+                "value": 34
             },
             {
                 "title": "链路受损率",
-                "value": 10
+                "value": 40
             }
         ]
     }

@@ -30,8 +30,8 @@ var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
 }
 ], false);
 var color3DCylinder = [
-    ['#2324FF', '#05B8FF'],
-    ['#D9162E', '#FE7421']
+    ['#2420FF', '#06B8EB'],
+    ['#FF3838', '#FF732E']
 ];
 var colorPartRingList = ['#45CE8D', '#FF3838'];
 

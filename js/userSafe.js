@@ -16,13 +16,13 @@ var storageData = {
 
 var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var color3DCylinder1 = [
-    ['#4ED6AD', '#5DDBF8'],
-    ['#2324FF', '#05B8FF'],
-    ['#D9162E', '#FE7421']
+    ['#2420FF', '#06B8EB'],
+    ['#10B857', '#68EDC6'],
+    ['#FF3838', '#FF732E']
 ];
 var color3DCylinder2 = [
     ['#2324FF', '#05B8FF'],
-    ['#D9162E', '#FE7421']
+    ['#FF3838', '#FF732E']
 ];
 var colorPartRingList = ['#13D799', '#F45925'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
@@ -51,7 +51,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_3.json" + getRandomNum(),
+            url: "../test-json/3dH_3_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH1.push(res.result.seriesData);
@@ -66,7 +66,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_2.json" + getRandomNum(),
+            url: "../test-json/3dH_2_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH2.push(res.result.seriesData);
