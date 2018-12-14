@@ -129,7 +129,7 @@ html, body {
     width: auto;
     height: 40%;
     top: 15%;
-    transform-origin: center 90%;
+    transform-origin: center 91.5%;
     transform: rotate(-129deg);
     transition: transform 1s ease;
 }
