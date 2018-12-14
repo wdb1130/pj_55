@@ -30,6 +30,7 @@
             </div>
         </div>
         <div class="content">
+            <div class="lf-bg"></div>
             <div class="left">
                 <div class="layui-row">
                     <div class="wrapper wrapper1">
@@ -140,6 +141,10 @@
         </div>
     </div>
 </body>
+<script>
+    var h = parseInt($('.lf-bg').css('width'));
+    $('.lf-bg').css('height',h+'px');
+</script>
 <script src="../static/echarts/echarts.js"></script>
 <script src="../static/echarts/echarts-liquidfill.min.js"></script>
 <script src="../static/amchart4/core.js"></script>

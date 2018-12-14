@@ -1,10 +1,8 @@
 html,
 body {
-    height: 100%;
-    width: 100%;
     color: #fff;
     box-sizing: border-box;
-    background: url(../img/data_bg.png) no-repeat;
+    background: url(../img/bg_01.png) no-repeat;
     background-size: 100% 100%;
     z-index: -200;
     position: relative;
@@ -31,12 +29,20 @@ body {
 }
 
 .content {
+    position: relative;
     display: flex;
     flex: 1;
     width: 100%;
     padding: 7rem 0 5rem;
 }
-
+.lf-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    background: url(../img/data/data-lf.png) no-repeat left top;
+    background-size: contain;
+}
 .left {
     display: flex;
     flex: 4.5;
@@ -78,8 +84,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    line-height: 1.5rem;
-    font-size: 1rem;
+    line-height: 2rem;
+    font-size: 1.3rem;
 }
 
 .left .layui-row:nth-child(1) div {
