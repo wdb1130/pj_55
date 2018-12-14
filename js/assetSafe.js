@@ -223,9 +223,9 @@ $(function () {
                     storageData.drawRing.push(63.5);
                     initChartFun.drawRing('chart6', storageData.drawRing);
                     // 图片赋值
-                    $('.rate-list').html(percentHtml);
-                    var rateListW = $('.rate-list').width();
-                    $('.rate-list').css('left', 'calc(65% - ' + rateListW + 'px)');
+                    // $('.rate-list').html(percentHtml);
+                    // var rateListW = $('.rate-list').width();
+                    // $('.rate-list').css('left', 'calc(65% - ' + rateListW + 'px)');
                 };
             }
         });

@@ -77,15 +77,15 @@ function initModal(modalTitle, funName, postodalData) {
                 '</div>' +
                 '<div class="modal-body">' +
                 '<div id="chartModal"></div>' +
-                '<div class="rate-list">' + html + '</div>' +
+                // '<div class="rate-list">' + html + '</div>' +
                 '</div>' +
                 '</div>' +
                 '</div>');
             $('body').append(modalHtml);
             initChartFun[funName]('chartModal', postodalData);
             // 图片赋值
-            var rateListW = $('.modal-body .rate-list').width();
-            $('.modal-body .rate-list').css('left', 'calc('+ postodalData[3] +'% - ' + rateListW + 'px)');
+            // var rateListW = $('.modal-body .rate-list').width();
+            // $('.modal-body .rate-list').css('left', 'calc('+ postodalData[3] +'% - ' + rateListW + 'px)');
             break;
     }
 
