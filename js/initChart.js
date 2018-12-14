@@ -1114,8 +1114,9 @@ var initChartFun = {
         }
     },
     //水球图css
-    drawWaterBall: function (dom, val, legend) {
-        var text = legend || '';
+    drawWaterBall: function (dom, postModalData) {
+        var val = postModalData[0];
+        var text = postModalData[1] || '';
         var htmlStr =
             '<div class="water-wrapper center">' +
             '<div class="ball-border"> </div>' +
@@ -1130,7 +1131,6 @@ var initChartFun = {
             '</div>';
         $('#' + dom).html(htmlStr);
         $('#' + dom).find('.bw').css('top', (100 - val) + '%');
-
         var w = $('#' + dom).find('.water-wrapper').css('height');
         $('#' + dom).find('.water-wrapper').css('width', w);
     },

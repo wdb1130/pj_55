@@ -21,6 +21,7 @@ function initModal(modalTitle, funName, postodalData) {
         case 'drawGradientLine':
         case 'drawScatter':
         case 'drawMeterPointer':
+        case 'drawWaterBall':
             var modalHtml = $('<div id="modalBg">' +
                 '<div id="chartContent">' +
                 '<div class="modal-title">' +
@@ -62,9 +63,6 @@ function initModal(modalTitle, funName, postodalData) {
                 var domId = 'chartChildModal' + (idx + 1);
                 initChartFun[funName](domId, postodalData[idx]);
             });
-            break;
-        case 'drawWaterBall':
-            console.log('drawWaterBall');
             break;
         case 'drawRing':
             var html = postodalData[2];

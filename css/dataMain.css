@@ -162,9 +162,9 @@ body {
     padding: 0 .5rem;
 }
 .chart-box .chart .water-wrapper {
-    top: 40%;
-    height: 7rem;
-    width: 7rem;
+    top: 35%;
+    width: auto;
+    height: 60%;
 }
 
 .table-chart .th-header {

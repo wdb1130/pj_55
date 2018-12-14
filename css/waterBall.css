@@ -6,10 +6,11 @@
 }
 
 .water-wrapper {
+  margin-top: .5rem;
   color: #fff;
-  width:8rem;  
-  height:8rem; 
-  text-align: center; 
+  width: auto;  
+  height: 65%; 
+  text-align: center;
 }
 .ball-border {
   height: 100%;
@@ -37,6 +38,11 @@
   -o-animation-name: b-water;
   -ms-animation-name: b-water;
   animation-name: b-water;
+}
+.legend{
+  margin-top: 1rem;
+  color: #A3E8FE;
+  font-size: 1rem;
 }
 
 .ball {
@@ -263,7 +269,6 @@
 }
 
 /* 仪表盘 */
-
 .meter-box {
   display: flex;
   justify-content: center;
@@ -273,7 +278,6 @@
   background-size: contain;
   position: relative;
 }
-
 .meter-box>img {
   position: absolute;
   width: auto;
@@ -283,7 +287,6 @@
   transform: rotate(-129deg);
   transition: transform 1s ease;
 }
-
 .meter-box{
   display: flex;
   justify-content: center;

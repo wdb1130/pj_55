@@ -102,29 +102,29 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
+            url: "../test-json/oneFanPie_2.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
-                    var legendData = [];
-                    var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
-                        legendData.push(item.name);
-                        seriesData.push(item.value);
-                    });
-                    storageData.drawLiquidFill1.push(legendData);
-                    storageData.drawLiquidFill1.push(seriesData);
-                    storageData.drawLiquidFill1.push(colorLiquidFillList1);
-                    storageData.drawLiquidFill1.push(colorLiquidFillList2);
-                    initChartFun.drawLiquidFill('chart-2', storageData.drawLiquidFill1);
-                    // var legend = '';
-                    // var value = '';
+                    // var legendData = [];
+                    // var seriesData = [];
                     // res.result.seriesData.forEach(function (item) {
-                    //     legend = item.name
-                    //     value = item.value ;
+                    //     legendData.push(item.name);
+                    //     seriesData.push(item.value);
                     // });
-                    // storageData.drawWaterBall1.push(value);
-                    // storageData.drawWaterBall1.push(legend);
-                    // initChartFun.drawWaterBall('chart-2',value,legend);
+                    // storageData.drawLiquidFill1.push(legendData);
+                    // storageData.drawLiquidFill1.push(seriesData);
+                    // storageData.drawLiquidFill1.push(colorLiquidFillList1);
+                    // storageData.drawLiquidFill1.push(colorLiquidFillList2);
+                    // initChartFun.drawLiquidFill('chart-2', storageData.drawLiquidFill1);
+                    var legend = '';
+                    var value = '';
+                    res.result.seriesData.forEach(function (item) {
+                        legend = item.name;
+                        value = item.value;
+                    });
+                    storageData.drawWaterBall1.push(value);
+                    storageData.drawWaterBall1.push(legend);
+                    initChartFun.drawWaterBall('chart-2', storageData.drawWaterBall1);
                 };
             }
         });
@@ -134,29 +134,29 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
+            url: "../test-json/oneFanPie_3.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
-                    var legendData = [];
-                    var seriesData = [];
-                    res.result.seriesData.forEach(function (item) {
-                        legendData.push(item.name);
-                        seriesData.push(item.value);
-                    });
-                    storageData.drawLiquidFill2.push(legendData);
-                    storageData.drawLiquidFill2.push(seriesData);
-                    storageData.drawLiquidFill2.push(colorLiquidFillList1);
-                    storageData.drawLiquidFill2.push(colorLiquidFillList2);
-                    initChartFun.drawLiquidFill('chart-3', storageData.drawLiquidFill2);
-                    // var legend = '';
-                    // var value = '';
+                    // var legendData = [];
+                    // var seriesData = [];
                     // res.result.seriesData.forEach(function (item) {
-                    //     legend = item.name
-                    //     value = item.value ;
+                    //     legendData.push(item.name);
+                    //     seriesData.push(item.value);
                     // });
-                    // storageData.drawWaterBall2.push(value);
-                    // storageData.drawWaterBall2.push(legend);
-                    // initChartFun.drawWaterBall('chart-3',value,legend);
+                    // storageData.drawLiquidFill2.push(legendData);
+                    // storageData.drawLiquidFill2.push(seriesData);
+                    // storageData.drawLiquidFill2.push(colorLiquidFillList1);
+                    // storageData.drawLiquidFill2.push(colorLiquidFillList2);
+                    // initChartFun.drawLiquidFill('chart-3', storageData.drawLiquidFill2);
+                    var legend = '';
+                    var value = '';
+                    res.result.seriesData.forEach(function (item) {
+                        legend = item.name;
+                        value = item.value;
+                    });
+                    storageData.drawWaterBall2.push(value);
+                    storageData.drawWaterBall2.push(legend);
+                    initChartFun.drawWaterBall('chart-3', storageData.drawWaterBall2);
                 };
             }
         });
