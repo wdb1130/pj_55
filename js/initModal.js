@@ -44,7 +44,6 @@ function initModal(modalTitle, funName, postodalData) {
                 var domId = 'chartChildModal' + (idx + 1);
                 var chartModal = '<div class="chart-child-modal" id=' + domId + '></div>';
                 chartModalHtml += chartModal;
-                // chartGroup.append(chartModal);
             });
             var modalHtml = $('<div id="modalBg">' +
                 '<div id="chartContent">' +
