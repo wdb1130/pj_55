@@ -2,7 +2,8 @@ html,
 body {
     color: #fff;
     box-sizing: border-box;
-    background: url(../img/bg_01.png) no-repeat;
+    /* background: url(../img/bg_01.png) no-repeat; */
+    background: url(../img/data_bg.png) no-repeat;
     background-size: 100% 100%;
     z-index: -200;
     position: relative;
@@ -23,6 +24,11 @@ body {
     font-size: 1rem;
     display: inline-block;
 }
+@media screen and (min-width: 2561px) and (max-width: 3800px){ 
+    .header-lf div {
+        top: -17px!important;
+    }
+}
 
 .header-lf .speed {
     color:#F9BC80;
@@ -35,7 +41,7 @@ body {
     width: 100%;
     padding: 7rem 0 5rem;
 }
-.lf-bg {
+/* .lf-bg {
     position: absolute;
     left: 0;
     top: 0;
@@ -43,7 +49,7 @@ body {
     background: url(../img/data/data-lf.png) no-repeat left top;
     background-size: contain;
     z-index: -1;
-}
+} */
 .left {
     display: flex;
     flex: 4.5;

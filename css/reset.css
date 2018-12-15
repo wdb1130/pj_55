@@ -53,12 +53,10 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-size:10px !important;
   min-width: 1024px;
   min-height: 576px;
   overflow: hidden;
   font-family:MicrosoftYaHei;
-  font-size: 10px;
 }
 
 @media screen and (min-width: 1024px) and  (max-width: 1919px){
@@ -80,7 +78,7 @@ body {
   .header-lf .info {
     line-height: 35px!important;
   }
-  .header-lf > div:last-child {
+  .header-lf > div:not(.title-lf) {
     line-height: 35px!important;
   }
   .header-lf-lg {
@@ -109,6 +107,9 @@ body {
     height: 60px;
     line-height: 75px;
   }
+  .header-lf .info {
+    line-height: 50px!important;
+  }
   .header-lf-lg {
     height: 60px;
     line-height: 75px;
@@ -117,7 +118,7 @@ body {
 
 @media screen and (min-width: 2561px) and (max-width: 3800px){ 
   html { 
-    font-size:20px !important;
+    font-size:24px !important;
   } 
   .title-ct {
     padding: 5px 0 24px 10px;
@@ -128,12 +129,15 @@ body {
     height: 50px;
   }
   .header-lf { 
-    height: 70px;
-    line-height: 85px;
+    height: 85px;
+    line-height: 110px;
+  }
+  .header-lf .info {
+    line-height: 70px!important;
   }
   .header-lf-lg {
-    height: 70px;
-    line-height: 85px;
+    height: 85px;
+    line-height: 110px;
   }
 }
 
@@ -160,7 +164,7 @@ body {
 
 .title-ct {
   display: inline-block;
-  font-size: 2.5em;
+  font-size: 2.1rem;
   font-weight: 600;
   color:rgba(141,226,254,1);
 }
@@ -185,7 +189,7 @@ body {
   float: left;
   width: 27%;
   text-align: center;
-  font-size: 2.2em;
+  font-size: 2rem;
   font-weight: 600;
   color:rgba(141,226,254,1);
 }
@@ -206,7 +210,7 @@ body {
 }
 .title-lf-lg {
   width: 39%;
-  font-size: 2.2em;
+  font-size: 2rem;
   font-weight: 600;
   color:rgba(141,226,254,1);
   text-align: center;
@@ -302,4 +306,8 @@ body {
 }
 #chartModal>div.chart-child-modal{
   flex: 1;
+}
+
+.layui-table td, .layui-table th{
+  font-size: 1rem;
 }

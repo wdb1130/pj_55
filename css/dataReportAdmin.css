@@ -19,9 +19,9 @@ html, body {
     padding: 4rem 7rem 4rem;
     color: #fff;
 }
-.header-lf > div:last-child {
+.header-lf .user {
     float:right;
-    line-height: 55px;
+    line-height: 50px;
     padding-left: 30px;
     padding-right: 40px;
     background: url('../img/manage/oprea-people.png') no-repeat left center;
@@ -30,7 +30,12 @@ html, body {
     color: #C5D9FF;
     cursor: pointer;
 }
-.header-lf > div:last-child:hover .login-out{
+@media screen and (min-width: 2561px) and (max-width: 3800px){ 
+    .header-lf .user {
+        line-height: 75px;
+    }
+}
+.header-lf .user:hover .login-out{
     display: block;
 }
 i.layui-icon.layui-icon-triangle-d {
@@ -150,6 +155,7 @@ p.tip {
     color: #C5D9FF;
 }
 .title1{
+    font-size: 1.1rem;
     margin-bottom: .5rem;
     color: #C5D9FF;
 }
