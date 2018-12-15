@@ -5,11 +5,9 @@ $(function () {
     layui.use('form', function () {
         var form = layui.form;
         form.on('submit(formSubmit)', function (data) {
-            layer.msg(JSON.stringify(data.field));
             return false;
         });
         form.on('submit(formSearch)', function (data) {
-            layer.msg(JSON.stringify(data.field));
             return false;
         });
     });

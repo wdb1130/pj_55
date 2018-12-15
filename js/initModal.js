@@ -4,6 +4,7 @@ function initModal(modalTitle, funName, postodalData) {
     (funName.indexOf('drawLiquidFill') > -1) && (funName = 'drawLiquidFill');
     (funName.indexOf('draw3DCylinderH') > -1) && (funName = 'draw3DCylinderH');
     (funName.indexOf('drawWaterBall') > -1) && (funName = 'drawWaterBall');
+    $("#modalBg").length && $("#modalBg").remove();
     switch (funName) {
         case 'drawLine':
         case 'drawPlusLine':
@@ -40,6 +41,7 @@ function initModal(modalTitle, funName, postodalData) {
         case 'drawHollowRing':
         case 'drawPartRing':
             var chartModalHtml = "";
+            var resizeChart = [];
             postodalData.forEach(function (item, idx) {
                 var domId = 'chartChildModal' + (idx + 1);
                 var chartModal = '<div class="chart-child-modal" id=' + domId + '></div>';
@@ -60,7 +62,13 @@ function initModal(modalTitle, funName, postodalData) {
             $('body').append(modalHtml);
             postodalData.forEach(function (item, idx) {
                 var domId = 'chartChildModal' + (idx + 1);
-                initChartFun[funName](domId, postodalData[idx]);
+                var myChart = initChartFun[funName](domId, postodalData[idx]);
+                resizeChart.push(myChart);
+                window.addEventListener("resize", function () {
+                    for (var i = 0; i < resizeChart.length; i++) {
+                        resizeChart[i].resize();
+                    }
+                });
             });
             break;
         case 'drawRing':

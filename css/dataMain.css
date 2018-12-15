@@ -42,6 +42,7 @@ body {
     width: 50%;
     background: url(../img/data/data-lf.png) no-repeat left top;
     background-size: contain;
+    z-index: -1;
 }
 .left {
     display: flex;

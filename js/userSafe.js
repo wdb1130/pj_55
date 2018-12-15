@@ -9,7 +9,10 @@ var storageData = {
     drawLine: [],
     draw3DCylinderH1: [],
     draw3DCylinderH2: [],
-    drawPartRing: [[], []],
+    drawPartRing: [
+        [],
+        []
+    ],
     drawLiquidFill: [],
     drawWaterBall: []
 }
@@ -27,21 +30,22 @@ var color3DCylinder2 = [
 var colorPartRingList = ['#13D799', '#F45925'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
-    offset: 0,
-    color: 'rgba(28,141,239,0)' // 0% 处的颜色
-},
-{
-    offset: 0.6,
-    color: 'rgba(28,141,239,0.4)' // 0% 处的颜色
-}, {
-    offset: 1,
-    color: 'rgba(28,141,239,1)' // 100% 处的颜色
-}
+        offset: 0,
+        color: 'rgba(28,141,239,0)' // 0% 处的颜色
+    },
+    {
+        offset: 0.6,
+        color: 'rgba(28,141,239,0.4)' // 0% 处的颜色
+    }, {
+        offset: 1,
+        color: 'rgba(28,141,239,1)' // 100% 处的颜色
+    }
 ], false);
 
 $(function () {
     drawSvgDash();
     $(window).resize(function () {
+        (chartTypeState == 'drawWaterBall') && initModal(modalTitle, chartTypeState, postModalData);
         drawSvgDash();
     });
 
@@ -85,7 +89,12 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
-                    var sitemArr = [[], [], [], []];
+                    var sitemArr = [
+                        [],
+                        [],
+                        [],
+                        []
+                    ];
                     var seriesData = []
                     res.result.seriesData.forEach(function (item, idx) {
                         xAxisData.push(item.date);
@@ -173,20 +182,24 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var resizeChart = [];
-                    var xAxisDataArr = [[], []];
-                    var seriesDataArr = [[], []];
+                    var xAxisDataArr = [
+                        [],
+                        []
+                    ];
+                    var seriesDataArr = [
+                        [],
+                        []
+                    ];
                     res.result.seriesData.forEach(function (item, idx) {
                         var domId = 'chart' + (idx + 5);
                         xAxisDataArr[idx].push(item.title);
-                        seriesDataArr[idx].push(
-                            {
-                                value: item.value,
-                                name: ''
-                            }, {
-                                value: 100 - item.value,
-                                name: ''
-                            }
-                        );
+                        seriesDataArr[idx].push({
+                            value: item.value,
+                            name: ''
+                        }, {
+                            value: 100 - item.value,
+                            name: ''
+                        });
                         storageData.drawPartRing[idx].push(xAxisDataArr[idx], seriesDataArr[idx], colorPartRingList[idx]);
                         var myChart = initChartFun.drawPartRing(domId, storageData.drawPartRing[idx]);
                         resizeChart.push(myChart);
@@ -210,11 +223,11 @@ $(function () {
                 if (res.resultCode == 200) {
                     var html = "";
                     res.result.forEach(function (item) {
-                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
-                            + "<span>" + item.name + "</span>"
-                            + "<span>" + item.value + "%</span>"
-                            + "<span>" + item.date + "</span>"
-                            + "</div>";
+                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
+                            "<span>" + item.name + "</span>" +
+                            "<span>" + item.value + "%</span>" +
+                            "<span>" + item.date + "</span>" +
+                            "</div>";
                     });
                     var height1 = $('.swiper-container1').height();
                     $('.swiper-container1').height(height1);
@@ -243,11 +256,11 @@ $(function () {
                 if (res.resultCode == 200) {
                     var html = "";
                     res.result.forEach(function (item) {
-                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
-                            + "<span>" + item.name + "</span>"
-                            + "<span>" + item.value + "%</span>"
-                            + "<span>" + item.date + "</span>"
-                            + "</div>";
+                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
+                            "<span>" + item.name + "</span>" +
+                            "<span>" + item.value + "%</span>" +
+                            "<span>" + item.date + "</span>" +
+                            "</div>";
                     });
                     var height2 = $('.swiper-container2').height();
                     $('.swiper-container2').height(height2);
@@ -297,7 +310,8 @@ function drawSvgDash() {
     var tag2Width = $('.tag2').width();
     var tag2Hight = $('.tag2').height();
     var cx2 = Math.floor(tag2Left + tag2Width / 4);
-    var cy2 = Math.floor(tag2Top + tag2Hight / 2);
+    var cy2 = Math.floor(tag2Top + tag2Hight * 0.65);
+    console.log(cx2, cy2)
     // 终点
     var boxSvg2Top = $('.box-svg2').offset().top;
     var boxSvg2Left = $('.box-svg2').offset().left;
@@ -329,7 +343,7 @@ function drawSvgDash() {
     var tag4Width = $('.tag4').width();
     var tag4Hight = $('.tag4').height();
     var cx4 = Math.floor(tag4Left + tag4Width * (3 / 4));
-    var cy4 = Math.floor(tag4Top + tag4Hight / 2);
+    var cy4 = Math.floor(tag4Top + tag4Hight * 0.65);
     // 终点
     var boxSvg5Top = $('.box-svg5').offset().top;
     var boxSvg5Left = $('.box-svg5').offset().left;

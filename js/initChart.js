@@ -20,7 +20,7 @@ var initChartFun = {
                 }
             },
             grid: {
-                top: '20%',
+                top: '18%',
                 left: '15%',
                 right: '15%',
                 bottom: '20%',
@@ -52,7 +52,8 @@ var initChartFun = {
                 min: -100,
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    padding : [0, 40, 0, 0],
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -130,7 +131,8 @@ var initChartFun = {
                 min: 0,
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    padding : [0, 50, 0, 0],
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -351,7 +353,8 @@ var initChartFun = {
                     type: 'value',
                     name: '(量值)',
                     nameTextStyle: { //最值样式
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        padding : [0, 50, 0, 0],
                     },
                     splitNumber: 10,
                     axisLine: {
@@ -432,7 +435,8 @@ var initChartFun = {
                 type: 'value',
                 name: '(量值)',
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    padding : [0, 50, 0, 0],
                 },
                 min: 0,
                 max: 100,
@@ -879,8 +883,9 @@ var initChartFun = {
         var myChart = echarts.init(dom);
         option = {
             legend: {
-                x: 'right',
-                y: 'top',
+                icon: 'rect',
+                right: '5%',
+                itemGap: 13,
                 data: postModalData[0],
                 textStyle: {
                     color: '#C5D9FF'
@@ -889,7 +894,7 @@ var initChartFun = {
             series: [{
                 name: '',
                 type: 'pie',
-                radius: '80%',
+                radius: '65%',
                 center: ['50%', '50%'],
                 data: postModalData[1],
                 roseType: 'radius',
@@ -946,7 +951,7 @@ var initChartFun = {
             tooltip: {
                 trigger: 'item',
                 show: true,
-                formatter: "{b} : <br/>{d}%",
+                formatter: "{b} : {d}%",
                 backgroundColor: 'rgba(0,0,0,0.7)',
                 padding: [8, 10]
             },
@@ -954,7 +959,7 @@ var initChartFun = {
                 name: 'Line 2',
                 type: 'pie',
                 clockWise: true,
-                radius: ['0%', '80%'],
+                radius: ['0%', '70%'],
                 center: ['50%', '50%'],
                 itemStyle: dataStyle,
                 hoverAnimation: false,
@@ -1217,7 +1222,8 @@ var initChartFun = {
                 max: 100,
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    padding : [0, 50, 0, 0],
                 },
                 axisTick: {
                     show: false
@@ -1337,7 +1343,8 @@ var initChartFun = {
                 max: 100,
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    padding : [0, 50, 0, 0],
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false

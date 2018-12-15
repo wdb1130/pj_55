@@ -149,17 +149,11 @@ body {
     z-index: 1;
 }
 
-.col-1 span,
-.col-2 span {
-    right: 1rem;
-    padding-right: 0rem;
+.col-1 h3,
+.col-2 h3{
+    margin-left: 53%;
 }
 
-.col-3 span,
-.col-4 span {
-    left: 1rem;
-    padding-left: 0rem;
-}
 svg.svg-data {
     position: absolute;
     width: 100%;

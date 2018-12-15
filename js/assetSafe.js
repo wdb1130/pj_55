@@ -45,7 +45,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/3dH_4.json" + getRandomNum(),
+            url: "../test-json/3dH_4_2.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH.push(res.result.seriesData);

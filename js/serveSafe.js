@@ -77,6 +77,7 @@ var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
 $(function () {
     drawSvgDash();
     $(window).resize(function () {
+        history.go(0);
         drawSvgDash();
     });
 
@@ -118,7 +119,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
+            url: "../test-json/oneFanPie_1_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -140,7 +141,7 @@ $(function () {
             type: "GET",
             data: "",
             dataType: 'json',
-            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
+            url: "../test-json/oneFanPie_1_1.json" + getRandomNum(),
             success: function (res) {
                 if (res.resultCode == 200) {
                     var legendData = [];
@@ -381,7 +382,7 @@ $(function () {
                                     }
                                 }
                             },
-                            barWidth: 12,
+                            barWidth: 10,
                             data: sitemArr[idx]
                         })
                     });
