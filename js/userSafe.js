@@ -269,17 +269,6 @@ function drawWaterBall() {
         url: "../test-json/oneFanPie_1.json" + getRandomNum(),
         success: function (res) {
             if (res.resultCode == 200) {
-                // var legendData = [];
-                // var seriesData = [];
-                // res.result.seriesData.forEach(function (item) {
-                //     legendData.push(item.name);
-                //     seriesData.push(item.value);
-                // });
-                // storageData.drawLiquidFill.push(legendData);
-                // storageData.drawLiquidFill.push(seriesData);
-                // storageData.drawLiquidFill.push(colorLiquidFillList1);
-                // storageData.drawLiquidFill.push(colorLiquidFillList2);
-                // initChartFun.drawLiquidFill('chart2', storageData.drawLiquidFill);
                 var legend = '';
                 var value = '';
                 res.result.seriesData.forEach(function (item) {
@@ -316,7 +305,6 @@ function drawSvgDash() {
     var tag2Hight = $('.tag2').height();
     var cx2 = Math.floor(tag2Left + tag2Width / 4);
     var cy2 = Math.floor(tag2Top + tag2Hight * 0.65);
-    console.log(cx2, cy2)
     // 终点
     var boxSvg2Top = $('.box-svg2').offset().top;
     var boxSvg2Left = $('.box-svg2').offset().left;
