@@ -45,7 +45,8 @@ var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
 $(function () {
     drawSvgDash();
     $(window).resize(function () {
-        (chartTypeState == 'drawWaterBall') && initModal(modalTitle, chartTypeState, postModalData);
+        drawWaterBall();
+        ((chartTypeState == 'drawWaterBall') && $("#modalBg").length) && initModal(modalTitle, chartTypeState, postModalData);
         drawSvgDash();
     });
 
@@ -142,36 +143,7 @@ $(function () {
         });
 
         // chart2
-        $.ajax({
-            type: "GET",
-            data: "",
-            dataType: 'json',
-            url: "../test-json/oneFanPie_1.json" + getRandomNum(),
-            success: function (res) {
-                if (res.resultCode == 200) {
-                    // var legendData = [];
-                    // var seriesData = [];
-                    // res.result.seriesData.forEach(function (item) {
-                    //     legendData.push(item.name);
-                    //     seriesData.push(item.value);
-                    // });
-                    // storageData.drawLiquidFill.push(legendData);
-                    // storageData.drawLiquidFill.push(seriesData);
-                    // storageData.drawLiquidFill.push(colorLiquidFillList1);
-                    // storageData.drawLiquidFill.push(colorLiquidFillList2);
-                    // initChartFun.drawLiquidFill('chart2', storageData.drawLiquidFill);
-                    var legend = '';
-                    var value = '';
-                    res.result.seriesData.forEach(function (item) {
-                        legend = item.name
-                        value = item.value;
-                    });
-                    storageData.drawWaterBall.push(value);
-                    storageData.drawWaterBall.push(legend);
-                    initChartFun.drawWaterBall('chart2', storageData.drawWaterBall);
-                };
-            }
-        });
+        drawWaterBall();
 
         // chart5,6
         $.ajax({
@@ -288,6 +260,39 @@ $(function () {
         initModal(modalTitle, chartTypeState, postModalData);
     });
 });
+
+function drawWaterBall() {
+    $.ajax({
+        type: "GET",
+        data: "",
+        dataType: 'json',
+        url: "../test-json/oneFanPie_1.json" + getRandomNum(),
+        success: function (res) {
+            if (res.resultCode == 200) {
+                // var legendData = [];
+                // var seriesData = [];
+                // res.result.seriesData.forEach(function (item) {
+                //     legendData.push(item.name);
+                //     seriesData.push(item.value);
+                // });
+                // storageData.drawLiquidFill.push(legendData);
+                // storageData.drawLiquidFill.push(seriesData);
+                // storageData.drawLiquidFill.push(colorLiquidFillList1);
+                // storageData.drawLiquidFill.push(colorLiquidFillList2);
+                // initChartFun.drawLiquidFill('chart2', storageData.drawLiquidFill);
+                var legend = '';
+                var value = '';
+                res.result.seriesData.forEach(function (item) {
+                    legend = item.name
+                    value = item.value;
+                });
+                storageData.drawWaterBall.push(value);
+                storageData.drawWaterBall.push(legend);
+                initChartFun.drawWaterBall('chart2', storageData.drawWaterBall);
+            };
+        }
+    });
+}
 
 function drawSvgDash() {
     $('.svg-data').html("");

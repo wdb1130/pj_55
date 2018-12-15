@@ -12,22 +12,25 @@ var storageData = {
     drawLiquidFill1: [],
     drawLiquidFill2: [],
     draw3DCylinderH: [],
-    drawPartRing: [[], []]
+    drawPartRing: [
+        [],
+        []
+    ]
 }
 
 var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
-    offset: 0,
-    color: 'rgba(28,141,239,0)'
-},
-{
-    offset: 0.6,
-    color: 'rgba(28,141,239,0.4)'
-}, {
-    offset: 1,
-    color: 'rgba(28,141,239,1)'
-}
+        offset: 0,
+        color: 'rgba(28,141,239,0)'
+    },
+    {
+        offset: 0.6,
+        color: 'rgba(28,141,239,0.4)'
+    }, {
+        offset: 1,
+        color: 'rgba(28,141,239,1)'
+    }
 ], false);
 var color3DCylinder = [
     ['#2420FF', '#06B8EB'],
@@ -38,6 +41,10 @@ var colorPartRingList = ['#45CE8D', '#FF3838'];
 $(function () {
     drawSvgDash();
     $(window).resize(function () {
+        drawWaterBall1();
+        drawWaterBall2();
+        ((chartTypeState == 'drawWaterBall1') && $("#modalBg").length) && initModal(modalTitle, chartTypeState, postModalData);
+        ((chartTypeState == 'drawWaterBall2') && $("#modalBg").length) && initModal(modalTitle, chartTypeState, postModalData);
         drawSvgDash();
     });
 
@@ -51,7 +58,12 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var xAxisData = [];
-                    var sitemArr = [[], [], [], []];
+                    var sitemArr = [
+                        [],
+                        [],
+                        [],
+                        []
+                    ];
                     var seriesData = []
                     res.result.seriesData.forEach(function (item, idx) {
                         xAxisData.push(item.date);
@@ -98,68 +110,10 @@ $(function () {
         });
 
         // chart2
-        $.ajax({
-            type: "GET",
-            data: "",
-            dataType: 'json',
-            url: "../test-json/oneFanPie_2.json" + getRandomNum(),
-            success: function (res) {
-                if (res.resultCode == 200) {
-                    // var legendData = [];
-                    // var seriesData = [];
-                    // res.result.seriesData.forEach(function (item) {
-                    //     legendData.push(item.name);
-                    //     seriesData.push(item.value);
-                    // });
-                    // storageData.drawLiquidFill1.push(legendData);
-                    // storageData.drawLiquidFill1.push(seriesData);
-                    // storageData.drawLiquidFill1.push(colorLiquidFillList1);
-                    // storageData.drawLiquidFill1.push(colorLiquidFillList2);
-                    // initChartFun.drawLiquidFill('chart-2', storageData.drawLiquidFill1);
-                    var legend = '';
-                    var value = '';
-                    res.result.seriesData.forEach(function (item) {
-                        legend = item.name;
-                        value = item.value;
-                    });
-                    storageData.drawWaterBall1.push(value);
-                    storageData.drawWaterBall1.push(legend);
-                    initChartFun.drawWaterBall('chart-2', storageData.drawWaterBall1);
-                };
-            }
-        });
+        drawWaterBall1();
 
         // chart3
-        $.ajax({
-            type: "GET",
-            data: "",
-            dataType: 'json',
-            url: "../test-json/oneFanPie_3.json" + getRandomNum(),
-            success: function (res) {
-                if (res.resultCode == 200) {
-                    // var legendData = [];
-                    // var seriesData = [];
-                    // res.result.seriesData.forEach(function (item) {
-                    //     legendData.push(item.name);
-                    //     seriesData.push(item.value);
-                    // });
-                    // storageData.drawLiquidFill2.push(legendData);
-                    // storageData.drawLiquidFill2.push(seriesData);
-                    // storageData.drawLiquidFill2.push(colorLiquidFillList1);
-                    // storageData.drawLiquidFill2.push(colorLiquidFillList2);
-                    // initChartFun.drawLiquidFill('chart-3', storageData.drawLiquidFill2);
-                    var legend = '';
-                    var value = '';
-                    res.result.seriesData.forEach(function (item) {
-                        legend = item.name;
-                        value = item.value;
-                    });
-                    storageData.drawWaterBall2.push(value);
-                    storageData.drawWaterBall2.push(legend);
-                    initChartFun.drawWaterBall('chart-3', storageData.drawWaterBall2);
-                };
-            }
-        });
+        drawWaterBall2();
 
         // list4
         $.ajax({
@@ -171,11 +125,11 @@ $(function () {
                 if (res.resultCode == 200) {
                     var html = "";
                     res.result.forEach(function (item) {
-                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
-                            + "<span>" + item.name + "</span>"
-                            + "<span>" + item.value + "%</span>"
-                            + "<span>" + item.date + "</span>"
-                            + "</div>";
+                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
+                            "<span>" + item.name + "</span>" +
+                            "<span>" + item.value + "%</span>" +
+                            "<span>" + item.date + "</span>" +
+                            "</div>";
                     });
                     var height1 = $('.swiper-container1').height();
                     $('.swiper-container1').height(height1);
@@ -204,11 +158,11 @@ $(function () {
                 if (res.resultCode == 200) {
                     var html = "";
                     res.result.forEach(function (item) {
-                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
-                            + "<span>" + item.name + "</span>"
-                            + "<span>" + item.value + "%</span>"
-                            + "<span>" + item.date + "</span>"
-                            + "</div>";
+                        html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
+                            "<span>" + item.name + "</span>" +
+                            "<span>" + item.value + "%</span>" +
+                            "<span>" + item.date + "</span>" +
+                            "</div>";
                     });
                     var height2 = $('.swiper-container2').height();
                     $('.swiper-container2').height(height2 - 5);
@@ -251,20 +205,24 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var resizeChart = [];
-                    var xAxisDataArr = [[], []];
-                    var seriesDataArr = [[], []];
+                    var xAxisDataArr = [
+                        [],
+                        []
+                    ];
+                    var seriesDataArr = [
+                        [],
+                        []
+                    ];
                     res.result.seriesData.forEach(function (item, idx) {
                         var domId = 'chart-' + (idx + 5);
                         xAxisDataArr[idx].push(item.title);
-                        seriesDataArr[idx].push(
-                            {
-                                value: item.value,
-                                name: ''
-                            }, {
-                                value: 100 - item.value,
-                                name: ''
-                            }
-                        );
+                        seriesDataArr[idx].push({
+                            value: item.value,
+                            name: ''
+                        }, {
+                            value: 100 - item.value,
+                            name: ''
+                        });
                         storageData.drawPartRing[idx].push(xAxisDataArr[idx], seriesDataArr[idx], colorPartRingList[idx]);
                         var myChart = initChartFun.drawPartRing(domId, storageData.drawPartRing[idx]);
                         resizeChart.push(myChart);
@@ -287,8 +245,52 @@ $(function () {
         postModalData = storageData[chartTypeState];
         initModal(modalTitle, chartTypeState, postModalData);
     });
-
 });
+
+function drawWaterBall1() {
+    $.ajax({
+        type: "GET",
+        data: "",
+        dataType: 'json',
+        url: "../test-json/oneFanPie_2.json" + getRandomNum(),
+        success: function (res) {
+            if (res.resultCode == 200) {
+                var legend = '';
+                var value = '';
+                res.result.seriesData.forEach(function (item) {
+                    legend = item.name;
+                    value = item.value;
+                });
+                storageData.drawWaterBall1.push(value);
+                storageData.drawWaterBall1.push(legend);
+                initChartFun.drawWaterBall('chart-2', storageData.drawWaterBall1);
+            };
+        }
+    });
+};
+
+function drawWaterBall2() {
+    // chart3
+    $.ajax({
+        type: "GET",
+        data: "",
+        dataType: 'json',
+        url: "../test-json/oneFanPie_3.json" + getRandomNum(),
+        success: function (res) {
+            if (res.resultCode == 200) {
+                var legend = '';
+                var value = '';
+                res.result.seriesData.forEach(function (item) {
+                    legend = item.name;
+                    value = item.value;
+                });
+                storageData.drawWaterBall2.push(value);
+                storageData.drawWaterBall2.push(legend);
+                initChartFun.drawWaterBall('chart-3', storageData.drawWaterBall2);
+            };
+        }
+    });
+}
 
 function drawSvgDash() {
     $('.svg-data').html("");
