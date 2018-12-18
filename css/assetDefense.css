@@ -47,9 +47,6 @@ html, body {
 .empty-row {
     height: 1rem;
 }
-.box-title-mid {
-    font-size: 1.7rem;
-}
 .chart-group .table-chart {
     flex: 1;
     display: flex;

@@ -32,11 +32,6 @@ html, body {
     color: #C0D4F9;
     cursor: pointer;
 }
-@media screen and (min-width: 2561px) and (max-width: 3800px){ 
-    .header-lf .user {
-        line-height: 75px;
-    }
-}
 .header-lf .user:hover .login-out{
     display: block;
 }
@@ -150,4 +145,12 @@ form.layui-form {
 }
 .login-out:hover{
     color: #C5D9FF;
+}
+@media screen and (min-width: 2561px) and (max-width: 3804px){ 
+    .header-lf .user {
+        line-height: 75px;
+    }
+    .container {
+        font-size: 16px!important;
+    }
 }

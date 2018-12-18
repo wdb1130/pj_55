@@ -147,3 +147,8 @@ html, body {
 .tip{
     color: #C5D9FF;
 }
+@media screen and (min-width: 2561px) and (max-width: 3804px){ 
+    .content {
+        padding: 140px 160px 140px;
+    }
+}

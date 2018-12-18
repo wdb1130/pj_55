@@ -115,3 +115,9 @@ html, body {
 .chart2 {
     margin-bottom: 1rem;
 }
+
+@media screen and (min-width: 2561px) and (max-width: 3804px){ 
+    .chart-group {
+        padding-bottom: 20px;
+    }
+}

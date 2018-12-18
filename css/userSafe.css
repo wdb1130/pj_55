@@ -155,7 +155,6 @@ html, body {
     width: 100%;
 }
 .table-chart {
-    font-size: 12px;
     display: flex;
     flex-direction: column;
 }

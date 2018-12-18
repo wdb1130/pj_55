@@ -37,7 +37,6 @@ html, body {
 .chart-group > div {
     flex: 1;
     display: flex;
-    padding: 0.5rem 1.5rem;
     flex-direction: column;
     background: url('../img/asset/asset_fy_03.png') no-repeat;
     background-size: 100% 100%;
@@ -48,14 +47,10 @@ html, body {
 .empty-row {
     height: 1rem;
 }
-.chart-group .title {
-    padding-left: 2rem;
-    font-size: 1.3rem;
-    color: #C5D9FF;
-}
 .chart-show{
     flex: 1;
     display: flex;
+    padding: 0.5rem 1.5rem;
 }
 .chart-bottom {
     display: flex;

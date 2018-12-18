@@ -31,11 +31,6 @@ html, body {
     color: #C5D9FF;
     cursor: pointer;
 }
-@media screen and (min-width: 2561px) and (max-width: 3800px){ 
-    .header-lf .user {
-        line-height: 75px;
-    }
-}
 .header-lf .user:hover .login-out{
     display: block;
 }
@@ -118,4 +113,13 @@ a.opera-btn:hover{
     color: #0D6EFF;
     background: transparent!important;
     border-color: transparent!important;
+}
+
+@media screen and (min-width: 2561px) and (max-width: 3804px){ 
+    .header-lf .user {
+        line-height: 75px;
+    }
+    .title {
+        font-size: 16px;
+    }
 }

@@ -30,11 +30,7 @@ html, body {
     color: #C5D9FF;
     cursor: pointer;
 }
-@media screen and (min-width: 2561px) and (max-width: 3800px){ 
-    .header-lf .user {
-        line-height: 75px;
-    }
-}
+
 .header-lf .user:hover .login-out{
     display: block;
 }
@@ -155,10 +151,17 @@ p.tip {
     color: #C5D9FF;
 }
 .title1{
-    font-size: 1.1rem;
     margin-bottom: .5rem;
     color: #C5D9FF;
 }
 .layui-layer {
     background-color: #fff!important;
+}
+@media screen and (min-width: 2561px) and (max-width: 3804px){ 
+    .header-lf .user {
+        line-height: 75px;
+    }
+    .title1 {
+        font-size: 16px;
+    }
 }
