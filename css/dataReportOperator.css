@@ -115,7 +115,7 @@ a.opera-btn:hover{
     border-color: transparent!important;
 }
 
-@media screen and (min-width: 2561px) and (max-width: 3804px){ 
+@media screen and (min-width: 2561px) and (max-width: 4200px){ 
     .header-lf .user {
         line-height: 75px;
     }

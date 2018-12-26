@@ -146,7 +146,7 @@ form.layui-form {
 .login-out:hover{
     color: #C5D9FF;
 }
-@media screen and (min-width: 2561px) and (max-width: 3804px){ 
+@media screen and (min-width: 2561px) and (max-width: 4200px){ 
     .header-lf .user {
         line-height: 75px;
     }
