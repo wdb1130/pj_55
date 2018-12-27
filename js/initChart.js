@@ -1,6 +1,17 @@
+var fontSet = function(size,isBig){
+    var width = screen.width;
+    if(isBig && width<2560){ //如果是小屏显示最小值，大屏正常值
+        return 8
+    }else if(isBig){ //4k不需要放大
+        return size;
+    }else { //放大
+        var fontSize = parseInt(size * width/1920);
+        return fontSize;
+    }
+}
 var initChartFun = {
     // 折线图
-    drawLine: function (dom, postModalData) {
+    drawLine: function (dom, postModalData,isBig) {
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
         option = null;
@@ -16,7 +27,8 @@ var initChartFun = {
                 data: postModalData[0],
                 right: '4%',
                 textStyle: {
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(12)
                 }
             },
             grid: {
@@ -28,7 +40,8 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    // fontSize: fontSet(12)
                 },
                 boundaryGap: true,
                 axisLine: {
@@ -40,7 +53,8 @@ var initChartFun = {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        fontSize: fontSet(8,true)
                     }
                 },
                 data: postModalData[1]
@@ -54,6 +68,7 @@ var initChartFun = {
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
                     padding : [0, 40, 0, 0],
+                    fontSize: fontSet(8,true)
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -65,6 +80,10 @@ var initChartFun = {
                 },
                 axisLabel: {
                     color: '#95D9F8',
+                    textStyle: {
+                        color: '#95D9F8',
+                        fontSize: fontSet(8,true)
+                    }
                 },
                 splitLine: {
                     lineStyle: {
@@ -80,7 +99,8 @@ var initChartFun = {
         }
     },
     // 折线图（正值且一条线）
-    drawPlusLine: function (dom, postModalData) {
+    drawPlusLine: function (dom, postModalData,isBig) {
+        var baseSize = isBig === false ? 8 : 16;
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
         option = null;
@@ -95,7 +115,8 @@ var initChartFun = {
                 data: postModalData[0],
                 right: '4%',
                 textStyle: {
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(12)
                 }
             },
             grid: {
@@ -107,7 +128,8 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(baseSize,true)
                 },
                 boundaryGap: true,
                 axisLine: {
@@ -119,7 +141,8 @@ var initChartFun = {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        fontSize: fontSet(baseSize,true)
                     }
                 },
                 data: postModalData[1]
@@ -133,6 +156,7 @@ var initChartFun = {
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
                     padding : [0, 50, 0, 0],
+                    fontSize: fontSet(baseSize,true)
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -144,6 +168,10 @@ var initChartFun = {
                 },
                 axisLabel: {
                     color: '#95D9F8',
+                    textStyle: {
+                        color: '#95D9F8',
+                        fontSize: fontSet(baseSize,true)
+                    }
                 },
                 splitLine: {
                     lineStyle: {
@@ -186,7 +214,8 @@ var initChartFun = {
                 axisLabel: {
                     formatter: '{value}%',
                     textStyle: {
-                        fontWeight: '80'
+                        fontWeight: '80',
+                        fontSize: fontSet(12)
                     }
                 },
                 axisLine: {
@@ -217,7 +246,8 @@ var initChartFun = {
                     margin: 10,
                     inside: false,
                     textStyle: {
-                        fontWeight: '50'
+                        fontWeight: '50',
+                        fontSize: fontSet(12)
                     }
                 }
             },
@@ -313,22 +343,23 @@ var initChartFun = {
             },
             legend: {
                 icon: 'rect',
-                itemWidth: 30,
-                itemHeight: 10,
+                itemWidth: fontSet(24),
+                itemHeight: fontSet(8),
                 orient: 'vertical',
                 x: '3%',
                 y: '10%',
-                itemGap: 30,
+                itemGap: fontSet(24),
                 data: postModalData[0],
                 textStyle: {
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(14)
                 }
             },
             grid: {
-                x: 150,
+                x: '15',
                 y: 55,
                 x2: 0,
-                y2: 10,
+                y2: '10%',
                 containLabel: true
             },
             xAxis: [
@@ -340,8 +371,11 @@ var initChartFun = {
                         },
                     },
                     axisLabel: {
-                        color: '#95D9F8',
-                        fontSize: 16
+                        color: '#95D9F8',   
+                        textStyle: {
+                            color: '#95D9F8',
+                            fontSize: fontSet(14)
+                        }
                     },
                     data: postModalData[1]
                 }
@@ -355,6 +389,7 @@ var initChartFun = {
                     nameTextStyle: { //最值样式
                         color: '#95D9F8',
                         padding : [0, 50, 0, 0],
+                        fontSize: fontSet(16,true)
                     },
                     splitNumber: 10,
                     axisLine: {
@@ -366,7 +401,11 @@ var initChartFun = {
                         show: false
                     },
                     axisLabel: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        textStyle: {
+                            color: '#95D9F8',
+                            fontSize: fontSet(16,true)
+                        }
                     },
                     splitLine: {
                         lineStyle: {
@@ -400,7 +439,8 @@ var initChartFun = {
                 itemWidth: 24,
                 itemHeight: 10,
                 textStyle: {
-                    color: '#C5D9FF'
+                    color: '#C5D9FF',
+                    fontSize: fontSet(12)
                 },
                 data: postModalData[0]
             },
@@ -414,7 +454,8 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(16,true)
                 },
                 type: 'category',
                 data: postModalData[1],
@@ -427,7 +468,8 @@ var initChartFun = {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        fontSize: fontSet(14,true)
                     }
                 }
             }],
@@ -437,6 +479,7 @@ var initChartFun = {
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
                     padding : [0, 50, 0, 0],
+                    fontSize: fontSet(16,true)
                 },
                 min: 0,
                 max: 100,
@@ -452,7 +495,8 @@ var initChartFun = {
                 axisLabel: {
                     show: true,
                     textStyle: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        fontSize: fontSet(16,true)
                     }
                 },
                 splitLine: {
@@ -682,6 +726,7 @@ var initChartFun = {
                 textStyle: {
                     color: '#95D9F8',
                     padding: [0, 0, 0, 5],
+                    fontSize: fontSet(12)
                 }
             },
             series: postModalData[1]
@@ -728,7 +773,7 @@ var initChartFun = {
                 textAlign: 'center',
                 textStyle: {
                     color: '#C5D9FF',
-                    fontSize: 15 * scale,
+                    fontSize: fontSet(15),
                     fontWeight: '400'
                 },
             }],
@@ -757,13 +802,13 @@ var initChartFun = {
                             },
                             position: 'center',
                             textStyle: {
-                                fontSize: 38 * scale,
+                                fontSize: fontSet(38),
                                 fontWeight: 'bold'
                             },
                             rich: {
                                 time: {
                                     color: '#F0F5FF',
-                                    fontSize: 20 * scale,
+                                    fontSize: fontSet(20),
                                     padding: [0, 0],
                                     fontWeight: 'bold'
                                 }
@@ -841,7 +886,8 @@ var initChartFun = {
                 top: 'center',
                 textStyle: {
                     fontSize: '80%',
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(12)
                 }
             },
             series: [
@@ -855,7 +901,7 @@ var initChartFun = {
                             textStyle: {
                                 color: '#95D9F8',
                                 fontWeight: 'normal',
-                                fontSize: 12
+                                fontSize: fontSet(12)
                             }
                         },
                     },
@@ -888,7 +934,8 @@ var initChartFun = {
                 itemGap: 13,
                 data: postModalData[0],
                 textStyle: {
-                    color: '#C5D9FF'
+                    color: '#C5D9FF',
+                    fontSize: fontSet(12)
                 }
             },
             series: [{
@@ -944,8 +991,8 @@ var initChartFun = {
                 y: 'center',
                 textStyle: {
                     fontWeight: 'normal',
-                    fontSize: 24,
                     color: "#fff",
+                    fontSize: fontSet(24)
                 }
             },
             tooltip: {
@@ -1080,10 +1127,10 @@ var initChartFun = {
                 bottom: '4%',
                 left: 'center',
                 textStyle: {
-                    fontSize: 14,
                     color: '#A3E8FE',
                     align: 'center',
                     verticalAlign: 'bottom',
+                    fontSize: fontSet(14)
                 }
             },
             series: [{
@@ -1183,8 +1230,8 @@ var initChartFun = {
                 data: postModalData[0],
                 right: '4%',
                 textStyle: {
-                    fontSize: 12,
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(12)
                 }
             },
             grid: {
@@ -1196,7 +1243,8 @@ var initChartFun = {
             xAxis: [{
                 name: '(时间)',
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(12)
                 },
                 type: 'category',
                 boundaryGap: true,
@@ -1204,7 +1252,8 @@ var initChartFun = {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        fontSize: fontSet(12)
                     }
                 },
                 axisLine: {
@@ -1224,6 +1273,7 @@ var initChartFun = {
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
                     padding : [0, 50, 0, 0],
+                    fontSize: fontSet(12)
                 },
                 axisTick: {
                     show: false
@@ -1240,7 +1290,8 @@ var initChartFun = {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        fontSize: fontSet(12)
                     }
                 },
                 splitLine: {
@@ -1273,7 +1324,7 @@ var initChartFun = {
                 itemHeight: 100,
                 textStyle: {
                     color: '#ccc',
-                    fontSize: 11
+                    fontSize: fontSet(11)
                 },
                 inRange: {
                     color: postModalData[1]
@@ -1314,7 +1365,8 @@ var initChartFun = {
                 max: 100,
                 splitNumber: 5,
                 nameTextStyle: { //最值样式
-                    color: '#95D9F8'
+                    color: '#95D9F8',
+                    fontSize: fontSet(12)
                 },
                 axisLine: {
                     lineStyle: {
@@ -1325,7 +1377,8 @@ var initChartFun = {
                     show: true,
                     interval: 0,
                     textStyle: {
-                        color: '#95D9F8'
+                        color: '#95D9F8',
+                        fontSize: fontSet(12)
                     }
                 },
                 axisTick: {
@@ -1345,6 +1398,7 @@ var initChartFun = {
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
                     padding : [0, 50, 0, 0],
+                    fontSize: fontSet(12)
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false

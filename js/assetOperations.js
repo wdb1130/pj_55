@@ -127,12 +127,13 @@ $(function () {
                                         show: true,
                                         position: 'top',
                                         textStyle: {
-                                            color: '#95D9F8'
+                                            color: '#95D9F8',
+                                            fontSize: fontSet(12)
                                         }
                                     }
                                 }
                             },
-                            barWidth: 20,
+                            barWidth: fontSet(16),
                             data: sitemArr[idx]
                         })
                     });

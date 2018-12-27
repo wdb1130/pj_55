@@ -82,7 +82,8 @@ $(function () {
                                     show: false,
                                     position: 'top',
                                     textStyle: {
-                                        color: '#95D9F8'
+                                        color: '#95D9F8',
+                                        fontSize: fontSet(8)
                                     }
                                 }
                             },
@@ -133,11 +134,12 @@ $(function () {
                                     show: true,
                                     position: 'top',
                                     textStyle: {
-                                        color: '#95D9F8'
+                                        color: '#95D9F8',
+                                        fontSize: fontSet(14,true)
                                     }
                                 }
                             },
-                            barWidth: 12,
+                            barWidth: fontSet(20,true),
                             data: sitemArr[idx]
                         })
                     });
