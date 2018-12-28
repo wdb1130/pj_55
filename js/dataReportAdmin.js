@@ -20,6 +20,7 @@ $(function () {
     });
     // table
     layui.use(['table', 'layer'], function () {
+        var size =  screen.width>2560 ? 2: 1;
         var table = layui.table;
         var layer = layui.layer;
         table.render({
@@ -31,13 +32,13 @@ $(function () {
                 [
                     { type: 'checkbox' },
                     // { field: 'id', width: 80, title: 'ID', align: 'center' },
-                    { field: 'title', width: 150, title: '名称', align: 'center' },
-                    { field: 'cve', width: 150, title: 'CVE', align: 'center' },
-                    { field: 'cvss', width: 80, title: 'CVSS', align: 'center' },
-                    { field: 'risk', width: 150, title: 'risk', align: 'center' },
-                    { field: 'num', width: 100, title: '主机数量', align: 'center' },
+                    { field: 'title', width: 150 * size, title: '名称', align: 'center' },
+                    { field: 'cve', width: 150 * size, title: 'CVE', align: 'center' },
+                    { field: 'cvss', width: 80 * size, title: 'CVSS', align: 'center' },
+                    { field: 'risk', width: 150 * size, title: 'risk', align: 'center' },
+                    { field: 'num', width: 100 * size, title: '主机数量', align: 'center' },
                     { field: 'intro', title: '简介', align: 'center' },
-                    { fixed: 'right', width: 80, align: 'center', toolbar: '#reportOpera' }
+                    { fixed: 'right', width: 80 * size, align: 'center', toolbar: '#reportOpera' }
                 ]
             ],
             done: function (res, curr, count) {
@@ -48,6 +49,13 @@ $(function () {
         table.on('tool(compareOpera)', function (obj) {
             var data = obj.data;
             if (obj.event === 'compare') {
+                var dom = obj.tr.find('.layui-btn').get(0);
+                var isGray = $(dom).hasClass('layui-btn-gray');
+                if(isGray){
+                    return;
+                }else {
+                    $(dom).addClass('layui-btn-gray');
+                }
                 compareArr.push(data);
                 var str = '';
                 for (var i = 0; i < compareArr.length; i++) {

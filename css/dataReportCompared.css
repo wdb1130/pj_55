@@ -150,7 +150,17 @@ form.layui-form {
     .header-lf .user {
         line-height: 75px;
     }
+    .layui-input {
+        font-size: 32px;
+        height: 66px;
+    }
+    .layui-form-select dl {
+        top: 70px;
+    }
+    .layui-form-select dl dd, .layui-form-select dl dt {
+        line-height: 90px;
+    }
     .container {
-        font-size: 16px!important;
+        font-size: 28px!important;
     }
 }

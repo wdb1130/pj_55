@@ -68,13 +68,17 @@ $(function () {
                                     show: true,
                                     position: 'top',
                                     textStyle: {
-                                        color: '#95D9F8'
+                                        color: '#95D9F8',
+                                        fontSize: fontSet(16,true)
                                     }
                                 }
                             },
                             itemStyle: {
                                 normal: {
-                                    color: colorBarList[idx]
+                                    color: colorBarList[idx],
+                                    textStyle: {
+                                        fontSize:fontSet(16,true)
+                                    }
                                 }
                             },
                             barWidth: 12,

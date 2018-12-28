@@ -104,7 +104,7 @@ $(function () {
                     storageData.drawLine.push(res.result.legendData);
                     storageData.drawLine.push(xAxisData);
                     storageData.drawLine.push(seriesData);
-                    initChartFun.drawLine('chart-1', storageData.drawLine);
+                    initChartFun.drawLine('chart-1', storageData.drawLine,false);
                 };
             }
         });

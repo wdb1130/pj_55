@@ -99,12 +99,12 @@ html, body {
 .compare-btn {
     margin-left: 1rem;
 }
-.layui-input,.layui-btn {
+/* .layui-input,.layui-btn {
     height: 30px!important;
 }
 .layui-btn{
     line-height: 30px;
-}
+} */
 .layui-form-selected dl{
     text-align: center;
 }

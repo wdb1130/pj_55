@@ -164,7 +164,7 @@ $(function () {
                     storageData.drawVerticalBar.push(res.result.legendData);
                     storageData.drawVerticalBar.push(xAxisData);
                     storageData.drawVerticalBar.push(seriesData);
-                    initChartFun.drawVerticalBar('chart3', storageData.drawVerticalBar);
+                    initChartFun.drawVerticalBar('chart3', storageData.drawVerticalBar,true);
                 };
             }
         });

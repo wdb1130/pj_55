@@ -227,7 +227,7 @@ body {
 }
 
 .layui-table td, .layui-table th{
-  font-size: 1rem;
+  font-size: 1rem!important;
 }
 
 @media screen and (min-width: 1024px) and  (max-width: 1919px){
@@ -334,8 +334,33 @@ body {
   .th-header{
     font-size: 1.1rem;
   }
-
+  .title {
+    font-size: 1rem!important;
+  }
   .layui-input {
-    font-size: 14px;
+    font-size: 1rem;
+    height: 60px!important;
+  }
+  .layui-table-view .layui-table td, .layui-table-view .layui-table th {
+
+  }
+  .layui-btn {
+    height: 60px!important;
+    line-height: 60px!important;
+    padding: 0px 36px!important;
+    font-size: 1rem!important;
+  }
+  .layui-btn .layui-icon {
+    font-size: 1rem!important;
+  }
+  .layui-table-cell {
+    height: 58px!important;
+    line-height: 58px!important;
+  }
+  .layui-btn-xs {
+    height: 40px !important;
+    line-height: 40px!important;
+    padding: 0px 22px!important;
+    font-size: 1rem!important;
   }
 }

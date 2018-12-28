@@ -157,6 +157,10 @@ p.tip {
 .layui-layer {
     background-color: #fff!important;
 }
+.layui-btn-gray {
+    background:#aaa!important;
+    cursor: not-allowed;
+}
 @media screen and (min-width: 2561px) and (max-width: 4200px){ 
     .header-lf .user {
         line-height: 75px;
