@@ -61,7 +61,7 @@ $(function () {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH1.push(res.result.seriesData);
                     storageData.draw3DCylinderH1.push(color3DCylinder1);
-                    initChartFun.draw3DCylinderH('chart3', storageData.draw3DCylinderH1);
+                    initChartFun.draw3DCylinderH('chart3', storageData.draw3DCylinderH1, false);
                 };
             }
         });
@@ -76,7 +76,7 @@ $(function () {
                 if (res.resultCode == 200) {
                     storageData.draw3DCylinderH2.push(res.result.seriesData);
                     storageData.draw3DCylinderH2.push(color3DCylinder2);
-                    initChartFun.draw3DCylinderH('chart4', storageData.draw3DCylinderH2);
+                    initChartFun.draw3DCylinderH('chart4', storageData.draw3DCylinderH2, false);
                 };
             }
         });

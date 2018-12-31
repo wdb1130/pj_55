@@ -1,17 +1,17 @@
-var fontSet = function(size,isBig){
+var fontSet = function (size, isBig) {
     var width = screen.width;
-    if(isBig && width<2560){ //如果是小屏显示最小值，大屏正常值
+    if (isBig && width < 2560) { //如果是小屏显示最小值，大屏正常值
         return 8
-    }else if(isBig){ //4k不需要放大
+    } else if (isBig) { //4k不需要放大
         return size;
-    }else { //放大
-        var fontSize = parseInt(size * width/1920);
+    } else { //放大
+        var fontSize = parseInt(size * width / 1920);
         return fontSize;
     }
 }
 var initChartFun = {
     // 折线图
-    drawLine: function (dom, postModalData,isBig) {
+    drawLine: function (dom, postModalData, isBig) {
         var baseSize = isBig === true ? 16 : 8;
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
@@ -42,7 +42,7 @@ var initChartFun = {
                 name: '(时间)',
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    fontSize: fontSet(baseSize,true)
+                    fontSize: fontSet(baseSize, true)
                 },
                 boundaryGap: true,
                 axisLine: {
@@ -55,7 +55,7 @@ var initChartFun = {
                     interval: 0,
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(baseSize,true)
+                        fontSize: fontSet(baseSize, true)
                     }
                 },
                 data: postModalData[1]
@@ -68,8 +68,8 @@ var initChartFun = {
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    padding : [0, 40, 0, 0],
-                    fontSize: fontSet(baseSize,true)
+                    padding: [0, 40, 0, 0],
+                    fontSize: fontSet(baseSize, true)
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -83,7 +83,7 @@ var initChartFun = {
                     color: '#95D9F8',
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(baseSize,true)
+                        fontSize: fontSet(baseSize, true)
                     }
                 },
                 splitLine: {
@@ -100,7 +100,7 @@ var initChartFun = {
         }
     },
     // 折线图（正值且一条线）
-    drawPlusLine: function (dom, postModalData,isBig) {
+    drawPlusLine: function (dom, postModalData, isBig) {
         var baseSize = isBig === false ? 8 : 16;
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
@@ -130,7 +130,7 @@ var initChartFun = {
                 name: '(时间)',
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    fontSize: fontSet(baseSize,true)
+                    fontSize: fontSet(baseSize, true)
                 },
                 boundaryGap: true,
                 axisLine: {
@@ -143,7 +143,7 @@ var initChartFun = {
                     interval: 0,
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(baseSize,true)
+                        fontSize: fontSet(baseSize, true)
                     }
                 },
                 data: postModalData[1]
@@ -156,8 +156,8 @@ var initChartFun = {
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    padding : [0, 50, 0, 0],
-                    fontSize: fontSet(baseSize,true)
+                    padding: [0, 50, 0, 0],
+                    fontSize: fontSet(baseSize, true)
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -171,7 +171,7 @@ var initChartFun = {
                     color: '#95D9F8',
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(baseSize,true)
+                        fontSize: fontSet(baseSize, true)
                     }
                 },
                 splitLine: {
@@ -331,7 +331,7 @@ var initChartFun = {
         }
     },
     // 纵向柱状图(合并、legend竖)
-    drawVerticalBar: function (dom, postModalData,isBig) {
+    drawVerticalBar: function (dom, postModalData, isBig) {
         var dom = document.getElementById(dom);
         var myChart = echarts.init(dom);
         option = null;
@@ -372,10 +372,10 @@ var initChartFun = {
                         },
                     },
                     axisLabel: {
-                        color: '#95D9F8',   
+                        color: '#95D9F8',
                         textStyle: {
                             color: '#95D9F8',
-                            fontSize: fontSet(14,true)
+                            fontSize: fontSet(14, true)
                         }
                     },
                     data: postModalData[1]
@@ -389,8 +389,8 @@ var initChartFun = {
                     name: '(量值)',
                     nameTextStyle: { //最值样式
                         color: '#95D9F8',
-                        padding : [0, 50, 0, 0],
-                        fontSize: fontSet(16,true)
+                        padding: [0, 50, 0, 0],
+                        fontSize: fontSet(16, true)
                     },
                     splitNumber: 10,
                     axisLine: {
@@ -405,7 +405,7 @@ var initChartFun = {
                         color: '#95D9F8',
                         textStyle: {
                             color: '#95D9F8',
-                            fontSize: fontSet(16,true)
+                            fontSize: fontSet(16, true)
                         }
                     },
                     splitLine: {
@@ -456,7 +456,7 @@ var initChartFun = {
                 name: '(时间)',
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    fontSize: fontSet(16,true)
+                    fontSize: fontSet(16, true)
                 },
                 type: 'category',
                 data: postModalData[1],
@@ -470,7 +470,7 @@ var initChartFun = {
                     interval: 0,
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(14,true)
+                        fontSize: fontSet(14, true)
                     }
                 }
             }],
@@ -479,8 +479,8 @@ var initChartFun = {
                 name: '(量值)',
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    padding : [0, 50, 0, 0],
-                    fontSize: fontSet(16,true)
+                    padding: [0, 50, 0, 0],
+                    fontSize: fontSet(16, true)
                 },
                 min: 0,
                 max: 100,
@@ -497,7 +497,7 @@ var initChartFun = {
                     show: true,
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(16,true)
+                        fontSize: fontSet(16, true)
                     }
                 },
                 splitLine: {
@@ -545,7 +545,7 @@ var initChartFun = {
                             align: 'center',
                             padding: [5, 0, 0, 0],
                             fontSize: fontSet(12)
-                            
+
                         },
                         col1: {
                             color: postModalData[3],
@@ -1250,7 +1250,7 @@ var initChartFun = {
                 name: '(时间)',
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    fontSize: fontSet(16,true)
+                    fontSize: fontSet(16, true)
                 },
                 type: 'category',
                 boundaryGap: true,
@@ -1259,7 +1259,7 @@ var initChartFun = {
                     interval: 0,
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(16,true)
+                        fontSize: fontSet(16, true)
                     }
                 },
                 axisLine: {
@@ -1278,8 +1278,8 @@ var initChartFun = {
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    padding : [0, 50, 0, 0],
-                    fontSize: fontSet(16,true)
+                    padding: [0, 50, 0, 0],
+                    fontSize: fontSet(16, true)
                 },
                 axisTick: {
                     show: false
@@ -1297,7 +1297,7 @@ var initChartFun = {
                     interval: 0,
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(16,true)
+                        fontSize: fontSet(16, true)
                     }
                 },
                 splitLine: {
@@ -1372,7 +1372,7 @@ var initChartFun = {
                 splitNumber: 5,
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    fontSize: fontSet(16,true)
+                    fontSize: fontSet(16, true)
                 },
                 axisLine: {
                     lineStyle: {
@@ -1384,7 +1384,7 @@ var initChartFun = {
                     interval: 0,
                     textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(16,true)
+                        fontSize: fontSet(16, true)
                     }
                 },
                 axisTick: {
@@ -1403,8 +1403,8 @@ var initChartFun = {
                 splitNumber: 10,
                 nameTextStyle: { //最值样式
                     color: '#95D9F8',
-                    padding : [0, 50, 0, 0],
-                    fontSize: fontSet(16,true)
+                    padding: [0, 50, 0, 0],
+                    fontSize: fontSet(16, true)
                 },
                 axisTick: { //y轴刻度隐藏
                     show: false
@@ -1416,9 +1416,9 @@ var initChartFun = {
                 },
                 axisLabel: {
                     color: '#95D9F8',
-                    textStyle:{
+                    textStyle: {
                         color: '#95D9F8',
-                        fontSize: fontSet(16,true)
+                        fontSize: fontSet(16, true)
                     }
                 },
                 splitLine: {
@@ -1531,10 +1531,23 @@ var initChartFun = {
         bullet.label.dy = -10;
         chart.maskBullets = false;
         for (var i = 0; i < $('svg title').length; i++) {
-            if($('svg title')[i].textContent == "Chart created using amCharts library"){
+            if ($('svg title')[i].textContent == "Chart created using amCharts library") {
                 $($('svg title')[i]).parent().hide();
             }
         }
+        setTimeout(function () {
+            var lastLen = $('g[stroke="#000000"][stroke-opacity=0][fill=none]').length - 2;
+            var replaceStr = lastLen < 10 ? 'M0,9' : 'M0,29';
+            var gHtml = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen]);
+            gHtml.css({
+                'stroke': '#09206F',
+                'stroke-opacity': '1'
+            });
+            var gChild = gHtml.children();
+            var gChildStr = gChild.attr('d');
+            var newChildStr = gChildStr.replace(/M0,0/g, replaceStr);
+            gChild.attr('d', newChildStr);
+        }, 0);
     },
     // 3d柱状图（纵向）
     draw3DCylinderV: function (dom, postModalData) {
@@ -1596,13 +1609,20 @@ var initChartFun = {
         bullet.label.dy = -10;
         chart.maskBullets = false;
         for (var i = 0; i < $('svg title').length; i++) {
-            if($('svg title')[i].textContent == "Chart created using amCharts library"){
+            if ($('svg title')[i].textContent == "Chart created using amCharts library") {
                 $($('svg title')[i]).parent().hide();
             }
         }
+        setTimeout(function () {
+            var lastLen = $('g[stroke="#000000"][stroke-opacity=0][fill=none]').length - 2;
+            $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen]).css({
+                'stroke': '#09206F',
+                'stroke-opacity': '1'
+            });
+        }, 0);
     },
     // 3d柱状图（横向）
-    draw3DCylinderH: function (dom, postModalData) {
+    draw3DCylinderH: function (dom, postModalData, isSingle) {
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create(dom, am4charts.XYChart3D);
         chart.angle = 20;
@@ -1663,9 +1683,55 @@ var initChartFun = {
         bullet.label.fontSize = 13;
         chart.maskBullets = true;
         for (var i = 0; i < $('svg title').length; i++) {
-            if($('svg title')[i].textContent == "Chart created using amCharts library"){
+            if ($('svg title')[i].textContent == "Chart created using amCharts library") {
                 $($('svg title')[i]).parent().hide();
             }
         }
+        var time = typeof isSingle === 'undefined' ? 1000 : 2000;
+        setTimeout(function () {
+            if (time == 1000) {
+                var lastLen = $('g[stroke="#000000"][stroke-opacity=0][fill=none]').length - 1;
+                $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen]).css({
+                    'stroke': '#09206F',
+                    'stroke-opacity': '1'
+                });
+                var nextPath = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen]).next();
+                nextPath.css({
+                    'stroke': '#09206F',
+                    'stroke-opacity': '1'
+                });
+                var childPath = nextPath.children('path');
+                var dHtml = childPath.attr('d');
+                dHtml += " L0,0 Z";
+                childPath.attr('d', dHtml);
+            } else {
+                var lastLen = $('g[stroke="#000000"][stroke-opacity=0][fill=none]').length - 1;
+                var lastLenOther = Math.floor((lastLen + 1) / 2);
+                $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen]).css({
+                    'stroke': '#09206F',
+                    'stroke-opacity': '1'
+                });
+                $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLenOther]).css({
+                    'stroke': '#09206F',
+                    'stroke-opacity': '1'
+                });
+                var nextPath = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen]).next();
+                var nextPathOther = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLenOther]).next();
+                nextPath.css({
+                    'stroke': '#09206F',
+                    'stroke-opacity': '1'
+                });
+                nextPathOther.css({
+                    'stroke': '#09206F',
+                    'stroke-opacity': '1'
+                });
+                var childPath = nextPath.children('path');
+                var childPathOther = nextPathOther.children('path');
+                var dHtml = childPath.attr('d');
+                dHtml += " L0,0 Z";
+                childPath.attr('d', dHtml);
+                childPathOther.attr('d', dHtml);
+            }
+        }, time);
     }
 };
