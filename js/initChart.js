@@ -1623,8 +1623,36 @@ var initChartFun = {
       }
     }
     setTimeout(function() {
+      var pointY = $('g[fill-opacity="0"][stroke-opacity="0"][stroke="#000000"][stroke-width="1"]').length - 8
+      var tramsHtml = $($('g[fill-opacity="0"][stroke-opacity="0"][stroke="#000000"][stroke-width="1"]')[pointY]).attr(
+        'transform'
+      )
+      var xidx = tramsHtml.indexOf(',') + 1
+      var yidx = tramsHtml.indexOf('.')
+      var numY = tramsHtml.substring(xidx, yidx)
+
+      $('g[fill-opacity="0"][stroke-opacity="0"][stroke="#000000"][stroke-width="1"]')
+
+      var len =
+        $('g[stroke="#0b397a"][stroke-opacity="1"][fill="none"]').length > 15
+          ? $('g[stroke="#0b397a"][stroke-opacity="1"][fill="none"]').length / 15 + 15
+          : 2
+      var hPath = $($('g[stroke="#0b397a"][stroke-opacity="1"][fill="none"]')[len])
+      var hd = hPath.children().attr('d')
+      window.sessionStorage.setItem('hd', hd)
+      var hdStr = hd.match(/[L].*[\\.]/g).join('')
+      var aIdx = hdStr.indexOf('L') + 1
+      var bIdx = hdStr.indexOf('.')
+      var cIdx = hdStr.lastIndexOf('L') + 1
+      var dIdx = hdStr.lastIndexOf('.')
+      var num1 = hdStr.substring(aIdx, bIdx)
+      var num2 = hdStr.substring(cIdx, dIdx)
+      var needNum = Math.abs(num1 - num2)
+      var reHd = window.sessionStorage.getItem('hd')
+      reHd += ' L' + needNum + ',0 Z'
+      hPath.children().attr('d', reHd)
       var lastLen = $('g[stroke="#000000"][stroke-opacity=0][fill=none]').length - 2
-      var replaceStr = lastLen < 10 ? 'M0,19' : 'M0,19'
+      var replaceStr = 'M0,' + numY
       var gHtml = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen])
       gHtml.css({
         stroke: '#09206F',
@@ -1634,7 +1662,7 @@ var initChartFun = {
       var gChildStr = gChild.attr('d')
       var newChildStr = gChildStr.replace(/M0,0/g, replaceStr)
       gChild.attr('d', newChildStr)
-    }, 0)
+    }, 500)
   },
   // 3d柱状图（纵向）
   draw3DCylinderV: function(dom, postModalData) {
