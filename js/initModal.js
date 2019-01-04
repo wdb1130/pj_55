@@ -1,9 +1,10 @@
-function initModal(modalTitle, funName, postodalData) {
+function initModal(modalTitle, funName, postodalData, swiperThHeader) {
     (funName.indexOf('drawLine') > -1) && (funName = 'drawLine');
     (funName.indexOf('drawOneFanPie') > -1) && (funName = 'drawOneFanPie');
     (funName.indexOf('drawLiquidFill') > -1) && (funName = 'drawLiquidFill');
     (funName.indexOf('draw3DCylinderH') > -1) && (funName = 'draw3DCylinderH');
     (funName.indexOf('drawWaterBall') > -1) && (funName = 'drawWaterBall');
+    (funName.indexOf('swiperDataList') > -1) && (funName = 'swiperDataList');
     $("#modalBg").length && $("#modalBg").remove();
     switch (funName) {
         case 'drawLine':
@@ -92,9 +93,69 @@ function initModal(modalTitle, funName, postodalData) {
             // var rateListW = $('.modal-body .rate-list').width();
             // $('.modal-body .rate-list').css('left', 'calc('+ postodalData[3] +'% - ' + rateListW + 'px)');
             break;
+        case 'swiperDataList':
+            var swiperDataHtml = "";
+            var len = Object.getOwnPropertyNames(postModalData[0][0]).length;
+            if (len > 3) {
+                postModalData[0].forEach(function (item) {
+                    swiperDataHtml += '<div class="data-list">' +
+                        "<span>" + item.name + "</span>" +
+                        "<span>" + item.value + "%</span>" +
+                        "<span>" + (item.state ? '已修复' : '未修复') + "</span>" + 
+                        "<span>" + item.date + "</span>" +
+                        "</div>";
+                });
+            } else {
+                postModalData[0].forEach(function (item) {
+                    swiperDataHtml += '<div class="data-list">' +
+                        "<span>" + item.name + "</span>" +
+                        "<span>" + item.value + "%</span>" +
+                        "<span>" + item.date + "</span>" +
+                        "</div>";
+                });
+            }
+            var modalHtml = $('<div id="modalBg">' +
+                '<div id="chartContent">' +
+                '<div class="modal-title">' +
+                '<span></span>' +
+                '<span>' + modalTitle + '</span>' +
+                '<span class="times">&times;</span>' +
+                '</div>' +
+                '<div class="modal-th-header">' + swiperThHeader + '</div>' +
+                '<div class="modal-body">' +
+                '<div class="swiper-data">' +
+                swiperDataHtml
+                + '</div > ' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+            $('body').append(modalHtml);
+            $(".swiper-data").niceScroll({
+                cursorcolor: "#0E3FB9",
+                cursorwidth: "8px",
+                background: "#03062A",
+                cursorborder: "1px solid #0E3FB9",
+                cursorborderradius: 0
+            });
+            break;
+        case 'compareListLimit':
+            var modalHtml = $('<div id="modalBg">' +
+                '<div id="chartContent" class="compare-list-limit">' +
+                '<div class="modal-title">' +
+                '<span></span>' +
+                '<span></span>' +
+                '<span class="times">&times;</span>' +
+                '</div>' +
+                '<div class="compare-modal-body">' +
+                '<span class="compare-list-title">' + modalTitle + '</span>' +
+                '<span class="compare-list-sure">确定</span>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+            $('body').append(modalHtml);
+            break;
     }
-
-    $(".times").click(function () {
+    $(".times,.compare-list-sure").click(function () {
         modalHtml.remove();
     });
 };

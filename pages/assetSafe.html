@@ -108,7 +108,7 @@
                 </div>
                 <div class="row-empty"></div>
                 <div class="chart-box box-svg7">
-                    <span class="box-title">设备资源开发率</span>
+                    <span class="box-title chart-click" data-method="setTop" data-chartType="swiperDataList1">设备资源开发率</span>
                     <div class="chart table-chart">
                         <div class="th-header">
                             <span>事件</span>
@@ -128,7 +128,7 @@
 
             <div class="col col-4">
                 <div class="chart-box box-svg5">
-                    <span class="box-title">病毒攻击事件指数</span>
+                    <span class="box-title chart-click" data-method="setTop" data-chartType="swiperDataList2">病毒攻击事件指数</span>
                     <div class="chart table-chart">
                         <div class="th-header">
                             <span>事件</span>
@@ -154,8 +154,8 @@
     <script>
         var h = parseInt($('.center').css('height'));
         $('.center').css('width',2*h+'px');
-        console.log(h);
     </script>
+    <script src="../static/nicescroll/jquery.nicescroll.min.js"></script>
     <script src="../static/echarts/echarts.js"></script>
     <script src="../static/amchart4/core.js"></script>
     <script src="../static/amchart4/charts.js"></script>

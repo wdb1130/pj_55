@@ -20,7 +20,7 @@ $(function () {
     });
     // table
     layui.use(['table', 'layer'], function () {
-        var size =  screen.width>2560 ? 2: 1;
+        var size = screen.width > 2560 ? 2 : 1;
         var table = layui.table;
         var layer = layui.layer;
         table.render({
@@ -51,9 +51,9 @@ $(function () {
             if (obj.event === 'compare') {
                 var dom = obj.tr.find('.layui-btn').get(0);
                 var isGray = $(dom).hasClass('layui-btn-gray');
-                if(isGray){
+                if (isGray) {
                     return;
-                }else {
+                } else {
                     $(dom).addClass('layui-btn-gray');
                 }
                 compareArr.push(data);
@@ -99,7 +99,8 @@ $(function () {
             //对比操作
             //需要传入的数据compareArr
             if (compareArr.length > 4) {
-                layer.alert('最多4条！');
+                // layer.alert('最多4条！');
+                initModal('最多添加四个对比条件，可删除后再添加。', 'compareListLimit');
                 return;
             }
             location.href = './dataReportCompared.html'

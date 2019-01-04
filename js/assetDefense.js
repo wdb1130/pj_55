@@ -7,8 +7,12 @@ var postModalData;
 // 所有图表请求后暂存
 var storageData = {
     drawPlusLine: [],
-    drawVerticalBarH: []
+    drawVerticalBarH: [],
+    swiperDataList1: [],
+    swiperDataList2: []
 }
+
+var isChangeLength = false;
 
 var colorLineList = ['#FF3838'];
 var colorVerticalBarList = ['#45CE8D', '#5B1AFF'];
@@ -39,6 +43,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList1.push(res.result);
                     res.result.forEach(function (item) {
                         html += "<div>"
                             + "<span>" + item.name + "</span>"
@@ -135,11 +140,11 @@ $(function () {
                                     position: 'top',
                                     textStyle: {
                                         color: '#95D9F8',
-                                        fontSize: fontSet(14,true)
+                                        fontSize: fontSet(14, true)
                                     }
                                 }
                             },
-                            barWidth: fontSet(20,true),
+                            barWidth: fontSet(20, true),
                             data: sitemArr[idx]
                         })
                     });
@@ -160,6 +165,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList2.push(res.result);
                     res.result.forEach(function (item) {
                         html += "<div>"
                             + "<span>" + item.name + "</span>"
@@ -176,10 +182,13 @@ $(function () {
 
     // initModal
     $('[data-method="setTop"]').click(function () {
+        var swiperThHeader = '';
         modalTitle = $(this).text();
         chartTypeState = $(this).attr('data-chartType');
         postModalData = storageData[chartTypeState];
-        initModal(modalTitle, chartTypeState, postModalData);
+        if (chartTypeState.indexOf('swiperDataList') > -1) {
+            swiperThHeader = $(this).next().find('.th-header').html();
+        }
+        initModal(modalTitle, chartTypeState, postModalData, swiperThHeader);
     });
-
 });

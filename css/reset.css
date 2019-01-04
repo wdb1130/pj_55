@@ -200,6 +200,11 @@ body {
   background: url('../img/modal-box.png') no-repeat;
   background-size: 100% 100%;
 }
+div#chartContent.compare-list-limit{
+  width: 30%;
+  height: 30%;
+}
+
 .modal-title{
   display: flex;
   justify-content: space-between;
@@ -217,6 +222,7 @@ body {
 .modal-body{
   flex: 1;
   display: flex;
+  min-height: 0;
 }
 #chartModal {
   flex: 1;
@@ -224,6 +230,59 @@ body {
 }
 #chartModal>div.chart-child-modal{
   flex: 1;
+}
+.swiper-data{
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+.modal-th-header{
+  display: flex;
+  padding: 1.5rem 1rem;
+  font-size: 2rem;
+  color: #3F74F1;
+}
+.modal-th-header>span{
+  flex: 1;
+  text-align: center;
+}
+.data-list{
+  display: flex;
+  color: #C5D9FF;
+}
+.data-list:nth-child(2n+1){
+  background:rgba(19,91,255,.1);
+}
+.data-list>span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+.compare-modal-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #C5D9FF;
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.compare-list-title{
+  font-size: 1.5rem;
+}
+.compare-list-sure{
+  margin-top: 5rem;
+  padding: .5rem 2rem;
+  color: #fff;
+  background:#135BFF;
+  cursor: pointer;
 }
 
 .layui-table td, .layui-table th{

@@ -84,7 +84,7 @@
                 <div class="row"></div>
                 <div class="layui-row">
                     <div class="layui-col col-4 chart-box chart-box4">
-                        <h3 class="box-title">数据日常操作指数</h3>
+                        <h3 class="box-title chart-click" data-method="setTop" data-chartType="swiperDataList1">数据日常操作指数</h3>
                         <div class="chart table-chart">
                             <div class="th-header">
                                 <span>事件</span>
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="layui-col col-4 chart-box chart-box5">
-                        <h3 class="box-title">数据异常访问指数</h3>
+                        <h3 class="box-title chart-click" data-method="setTop" data-chartType="swiperDataList2">数据异常访问指数</h3>
                         <div class="chart table-chart">
                             <div class="th-header">
                                 <span>事件</span>
@@ -145,6 +145,7 @@
     var h = parseInt($('.lf-bg').css('width'));
     $('.lf-bg').css('height',h+'px');
 </script>
+<script src="../static/nicescroll/jquery.nicescroll.min.js"></script>
 <script src="../static/echarts/echarts.js"></script>
 <script src="../static/echarts/echarts-liquidfill.min.js"></script>
 <script src="../static/amchart4/core.js"></script>

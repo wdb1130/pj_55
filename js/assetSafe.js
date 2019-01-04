@@ -11,6 +11,8 @@ var storageData = {
     drawPartRing: [[], [], []],
     drawRing: [],
     drawPlusLine: [],
+    swiperDataList1: [],
+    swiperDataList2: []
 }
 
 var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
@@ -105,7 +107,7 @@ $(function () {
                     storageData.drawLine.push(res.result.legendData);
                     storageData.drawLine.push(xAxisData);
                     storageData.drawLine.push(seriesData);
-                    initChartFun.drawLine('chart2', storageData.drawLine,false);
+                    initChartFun.drawLine('chart2', storageData.drawLine, false);
                 };
             }
         });
@@ -274,7 +276,7 @@ $(function () {
                     storageData.drawPlusLine.push(res.result.legendData);
                     storageData.drawPlusLine.push(xAxisData);
                     storageData.drawPlusLine.push(seriesData);
-                    initChartFun.drawPlusLine('chart7', storageData.drawPlusLine,false);
+                    initChartFun.drawPlusLine('chart7', storageData.drawPlusLine, false);
                 };
             }
         });
@@ -288,6 +290,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList1.push(res.result);
                     res.result.forEach(function (item) {
                         html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
                             + "<span>" + item.name + "</span>"
@@ -321,6 +324,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList2.push(res.result);
                     res.result.forEach(function (item) {
                         html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">'
                             + "<span>" + item.name + "</span>"
@@ -346,13 +350,18 @@ $(function () {
         });
 
     }, 1000);
-});
-// initModal
-$('[data-method="setTop"]').click(function () {
-    modalTitle = $(this).text();
-    chartTypeState = $(this).attr('data-chartType');
-    postModalData = storageData[chartTypeState];
-    initModal(modalTitle, chartTypeState, postModalData);
+
+    // initModal
+    $('[data-method="setTop"]').click(function () {
+        var swiperThHeader = '';
+        modalTitle = $(this).text();
+        chartTypeState = $(this).attr('data-chartType');
+        postModalData = storageData[chartTypeState];
+        if (chartTypeState.indexOf('swiperDataList') > -1) {
+            swiperThHeader = $(this).next().find('.th-header').html();
+        }
+        initModal(modalTitle, chartTypeState, postModalData, swiperThHeader);
+    });
 });
 
 function drawSvgDash() {

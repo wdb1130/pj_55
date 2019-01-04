@@ -14,7 +14,9 @@ var storageData = {
         []
     ],
     drawLiquidFill: [],
-    drawWaterBall: []
+    drawWaterBall: [],
+    swiperDataList1: [],
+    swiperDataList2: []
 }
 
 var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
@@ -30,16 +32,16 @@ var color3DCylinder2 = [
 var colorPartRingList = ['#13D799', '#F45925'];
 var colorLiquidFillList1 = ['rgba(144,0,255,0.3)', 'rgba(144,0,255, 0.1)'];
 var colorLiquidFillList2 = new echarts.graphic.RadialGradient(0.5, 0.5, 0.5, [{
-        offset: 0,
-        color: 'rgba(28,141,239,0)' // 0% 处的颜色
-    },
-    {
-        offset: 0.6,
-        color: 'rgba(28,141,239,0.4)' // 0% 处的颜色
-    }, {
-        offset: 1,
-        color: 'rgba(28,141,239,1)' // 100% 处的颜色
-    }
+    offset: 0,
+    color: 'rgba(28,141,239,0)' // 0% 处的颜色
+},
+{
+    offset: 0.6,
+    color: 'rgba(28,141,239,0.4)' // 0% 处的颜色
+}, {
+    offset: 1,
+    color: 'rgba(28,141,239,1)' // 100% 处的颜色
+}
 ], false);
 
 $(function () {
@@ -169,9 +171,9 @@ $(function () {
                             value: item.value,
                             name: ''
                         }, {
-                            value: 100 - item.value,
-                            name: ''
-                        });
+                                value: 100 - item.value,
+                                name: ''
+                            });
                         storageData.drawPartRing[idx].push(xAxisDataArr[idx], seriesDataArr[idx], colorPartRingList[idx]);
                         var myChart = initChartFun.drawPartRing(domId, storageData.drawPartRing[idx]);
                         resizeChart.push(myChart);
@@ -194,6 +196,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList1.push(res.result);
                     res.result.forEach(function (item) {
                         html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
                             "<span>" + item.name + "</span>" +
@@ -227,6 +230,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList2.push(res.result);
                     res.result.forEach(function (item) {
                         html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
                             "<span>" + item.name + "</span>" +
@@ -254,10 +258,14 @@ $(function () {
 
     // initModal
     $('[data-method="setTop"]').click(function () {
+        var swiperThHeader = '';
         modalTitle = $(this).text();
         chartTypeState = $(this).attr('data-chartType');
         postModalData = storageData[chartTypeState];
-        initModal(modalTitle, chartTypeState, postModalData);
+        if (chartTypeState.indexOf('swiperDataList') > -1) {
+            swiperThHeader = $(this).next().find('.th-header').html();
+        }
+        initModal(modalTitle, chartTypeState, postModalData, swiperThHeader);
     });
 });
 

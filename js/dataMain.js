@@ -15,7 +15,9 @@ var storageData = {
     drawPartRing: [
         [],
         []
-    ]
+    ],
+    swiperDataList1: [],
+    swiperDataList2: []
 }
 
 var colorLine = ['#FF3838', '#FD953A', '#45CE8D', '#2420FF'];
@@ -124,6 +126,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList1.push(res.result);
                     res.result.forEach(function (item) {
                         html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
                             "<span>" + item.name + "</span>" +
@@ -157,6 +160,7 @@ $(function () {
             success: function (res) {
                 if (res.resultCode == 200) {
                     var html = "";
+                    storageData.swiperDataList2.push(res.result);
                     res.result.forEach(function (item) {
                         html += '<div class="swiper-slide swiper-slide-detail" data-swiper-autoplay="1000">' +
                             "<span>" + item.name + "</span>" +
@@ -240,10 +244,14 @@ $(function () {
 
     // initModal
     $('[data-method="setTop"]').click(function () {
+        var swiperThHeader = '';
         modalTitle = $(this).text();
         chartTypeState = $(this).attr('data-chartType');
         postModalData = storageData[chartTypeState];
-        initModal(modalTitle, chartTypeState, postModalData);
+        if(chartTypeState.indexOf('swiperDataList') > -1){
+            swiperThHeader = $(this).next().find('.th-header').html();
+        }
+        initModal(modalTitle, chartTypeState, postModalData, swiperThHeader);
     });
 });
 
