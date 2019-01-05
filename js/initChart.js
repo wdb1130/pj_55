@@ -1823,7 +1823,7 @@ var initChartFun = {
         var nextPath = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen]).next()
         nextPath.css({
           stroke: '#09206F',
-          'stroke-opacity': '1'
+          'stroke-opacity': '0.15'
         })
         var childPath = nextPath.children('path')
         var dHtml = childPath.attr('d')
@@ -1844,11 +1844,11 @@ var initChartFun = {
         var nextPathOther = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLenOther]).next()
         nextPath.css({
           stroke: '#09206F',
-          'stroke-opacity': '1'
+          'stroke-opacity': '0.15'
         })
         nextPathOther.css({
           stroke: '#09206F',
-          'stroke-opacity': '1'
+          'stroke-opacity': '0.15'
         })
         var childPath = nextPath.children('path')
         var childPathOther = nextPathOther.children('path')
