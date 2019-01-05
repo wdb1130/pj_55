@@ -32,7 +32,8 @@
 ::-webkit-scrollbar-thumb {
     background: #135BFF;
 }
-.layui-input {
+.layui-input,
+.layui-textarea {
     color: #fff;
     background: #071D4C;
     border-color: #135BFD;

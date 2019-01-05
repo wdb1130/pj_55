@@ -284,7 +284,46 @@ div#chartContent.compare-list-limit{
   background:#135BFF;
   cursor: pointer;
 }
-
+.detail-list-modal{
+  margin-top: 3rem;
+  flex-direction: column;
+}
+.from-row{
+  padding: 2rem;
+  display: flex;
+}
+.from-row>div{
+  margin: 0 1rem;
+  flex: 1;
+}
+.from-row>div>label{
+  color: #C5D9FF;
+  font-size: 1.5rem;
+}
+.btn-form-group{
+  display: flex;
+  justify-content: space-around;
+}
+.btn-form-group>span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 2.5rem;
+  color: #fff;
+  background:#135BFF;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.btn-form-group>span:first-child{
+  margin-left: 5rem;
+  border: 1px solid #135BFF;
+  background: #5670AC;
+}
+.btn-form-group>span:last-child{
+  margin-right: 5rem;
+  border: 1px solid #135BFF;
+  background: #135BFF;
+}
 .layui-table td, .layui-table th{
   font-size: 1rem!important;
 }

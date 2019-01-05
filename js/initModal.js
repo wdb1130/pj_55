@@ -101,7 +101,7 @@ function initModal(modalTitle, funName, postodalData, swiperThHeader) {
                     swiperDataHtml += '<div class="data-list">' +
                         "<span>" + item.name + "</span>" +
                         "<span>" + item.value + "%</span>" +
-                        "<span>" + (item.state ? '已修复' : '未修复') + "</span>" + 
+                        "<span>" + (item.state ? '已修复' : '未修复') + "</span>" +
                         "<span>" + item.date + "</span>" +
                         "</div>";
                 });
@@ -154,9 +154,75 @@ function initModal(modalTitle, funName, postodalData, swiperThHeader) {
                 '</div>');
             $('body').append(modalHtml);
             break;
+        case 'detailList':
+            var detailObj = postodalData[0];
+            var modalHtml = $('<div id="modalBg">' +
+                '<div id="chartContent">' +
+                '<div class="modal-title">' +
+                '<span></span>' +
+                '<span>' + modalTitle + '</span>' +
+                '<span class="times">&times;</span>' +
+                '</div>' +
+                '<div class="modal-body">' +
+                '<div id="chartModal" class="detail-list-modal">' +
+                '<form id="detailForm">' +
+                '<div class="from-row">' +
+                '<div>' +
+                '<label class="layui-form-label">名称</label>' +
+                '<div class="layui-input-block">' +
+                '<input type="text" value=' + detailObj.title + ' name="title" class="layui-input" readonly>' +
+                '</div>' +
+                '</div>' +
+                '<div>' +
+                '<label class="layui-form-label">CVSS</label>' +
+                '<div class="layui-input-block">' +
+                '<input type="text" value=' + detailObj.cvss + ' name="cvss" class="layui-input" readonly>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="from-row">' +
+                '<div>' +
+                '<label class="layui-form-label">CVE</label>' +
+                '<div class="layui-input-block">' +
+                '<input type="text" value=' + detailObj.cve + ' name="cve" class="layui-input" readonly>' +
+                '</div>' +
+                '</div>' +
+                '<div>' +
+                '<label class="layui-form-label">risk</label>' +
+                '<div class="layui-input-block">' +
+                '<input type="text" value=' + detailObj.risk + ' name="risk" class="layui-input" readonly>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="from-row">' +
+                '<div class="layui-form-item layui-form-text">' +
+                '<label class="layui-form-label">简介</label>' +
+                '<div class="layui-input-block">' +
+                '<textarea style="resize:none" name="desc" class="layui-textarea" readonly>' + detailObj.intro + '</textarea>' +
+                '</div>' +
+                '</div> ' +
+                '</div>' +
+                '<div class="from-row btn-form-group">' +
+                '<span class="btn-form-colse">关闭</span>' +
+                '<span class="btn-form-save">保存</span>' +
+                '</div>' +
+                '</form>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+            $('body').append(modalHtml);
+            $(document).on('click', '.btn-form-save', function () {
+                var detailForm = $('#detailForm').serialize();
+                console.log(detailForm)
+            });
+            break;
     }
-    $(".times,.compare-list-sure").click(function () {
+    $(".times,.compare-list-sure,.btn-form-colse").click(function () {
         modalHtml.remove();
+        if (funName == "detailList") {
+            $(document).off('click', '.btn-form-save');
+        }
     });
 };
 

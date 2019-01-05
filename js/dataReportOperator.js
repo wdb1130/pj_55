@@ -25,7 +25,7 @@ $(function () {
     // table
     layui.use('table', function () {
         var table = layui.table;
-        var size =  screen.width>2560 ? 2: 1;
+        var size = screen.width > 2560 ? 2 : 1;
         table.render({
             id: 'reportTable',
             elem: '#reportTable',
@@ -53,6 +53,8 @@ $(function () {
             var data = obj.data;
             if (obj.event === 'detail') {
                 console.log(data);
+                // initModal
+                initModal('详情页面', 'detailList', [data]);
             }
         });
         var $ = layui.$, active = {
@@ -67,5 +69,4 @@ $(function () {
             active[type] ? active[type].call(this) : '';
         });
     });
-
 });
