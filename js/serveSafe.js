@@ -184,7 +184,7 @@ $(function () {
                     storageData.drawLine4.push(res.result.legendData);
                     storageData.drawLine4.push(xAxisData);
                     storageData.drawLine4.push(seriesData);
-                    initChartFun.drawLine('chart4', storageData.drawLine4);
+                    initChartFun.drawLine('chart4', storageData.drawLine4,false);
                 };
             }
         });
@@ -248,7 +248,7 @@ $(function () {
                     storageData.drawLine5.push(res.result.legendData);
                     storageData.drawLine5.push(xAxisData);
                     storageData.drawLine5.push(seriesData);
-                    initChartFun.drawLine('chart5', storageData.drawLine5);
+                    initChartFun.drawLine('chart5', storageData.drawLine5,false);
                 };
             }
         });
@@ -311,7 +311,7 @@ $(function () {
                     storageData.drawLine6.push(res.result.legendData);
                     storageData.drawLine6.push(xAxisData);
                     storageData.drawLine6.push(seriesData);
-                    initChartFun.drawLine('chart6', storageData.drawLine6);
+                    initChartFun.drawLine('chart6', storageData.drawLine6,false);
                 };
             }
         });
@@ -369,11 +369,12 @@ $(function () {
                                     show: true,
                                     position: 'top',
                                     textStyle: {
-                                        color: '#95D9F8'
+                                        color: '#95D9F8',
+                                        fontSize: fontSet(10)
                                     }
                                 }
                             },
-                            barWidth: 10,
+                            barWidth: fontSet(10),
                             data: sitemArr[idx]
                         })
                     });

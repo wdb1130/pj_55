@@ -1,22 +1,25 @@
-var fontSet = function(size, isBig) {
-  var width = screen.width
-  if (isBig && width < 2560) {
+var fontSet = function(size,dom) {
+  var isModal = dom === 'chartModal'; 
+  var width = screen.width;
+  var fontSize;
+  if (!isModal && width < 2560) {//如果是小屏或者不是modal框
     //如果是小屏显示最小值，大屏正常值
-    return 8
-  } else if (isBig) {
-    //4k不需要放大
-    return size
-  } else {
+    fontSize = size;
+  } else if (isModal && width > 2560) { //4k modal框
+    fontSize = 3*size;
+  } else if(isModal){
+    fontSize = 1.5*size;  
+  }else {
     //放大
-    var fontSize = parseInt((size * width) / 1920)
-    return fontSize
+    fontSize = parseInt((size * width) / 1920);
   }
+  return fontSize;
 }
 var initChartFun = {
   // 折线图
-  drawLine: function(dom, postModalData, isBig) {
-    var baseSize = isBig === true ? 16 : 8
-    var dom = document.getElementById(dom)
+  drawLine: function(id, postModalData,isBig) {
+    var baseSize = isBig === false ? 8 : 12;
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -25,14 +28,14 @@ var initChartFun = {
       },
       legend: {
         icon: 'rect',
-        itemWidth: fontSet(24),
-        itemHeight: fontSet(10),
-        itemGap: fontSet(13),
+        itemWidth: fontSet(24,id),
+        itemHeight: fontSet(10,id),
+        itemGap: fontSet(13,id),
         data: postModalData[0],
         right: '4%',
         textStyle: {
           color: '#95D9F8',
-          fontSize: fontSet(12)
+          fontSize: fontSet(baseSize,id)
         }
       },
       grid: {
@@ -47,7 +50,7 @@ var initChartFun = {
           nameTextStyle: {
             //最值样式
             color: '#95D9F8',
-            fontSize: fontSet(baseSize, true)
+            fontSize: fontSet(baseSize,id)
           },
           boundaryGap: true,
           axisLine: {
@@ -60,8 +63,8 @@ var initChartFun = {
             interval: 0,
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(baseSize, true)
-            }
+              fontSize: fontSet(baseSize,id)
+          }
           },
           data: postModalData[1]
         }
@@ -77,7 +80,7 @@ var initChartFun = {
             //最值样式
             color: '#95D9F8',
             padding: [0, 40, 0, 0],
-            fontSize: fontSet(baseSize, true)
+            fontSize: fontSet(baseSize,id)
           },
           axisTick: {
             //y轴刻度隐藏
@@ -92,7 +95,7 @@ var initChartFun = {
             color: '#95D9F8',
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(baseSize, true)
+              fontSize: fontSet(baseSize,id)
             }
           },
           splitLine: {
@@ -110,9 +113,9 @@ var initChartFun = {
     }
   },
   // 折线图（正值且一条线）
-  drawPlusLine: function(dom, postModalData, isBig) {
-    var baseSize = isBig === false ? 8 : 16
-    var dom = document.getElementById(dom)
+  drawPlusLine: function(id, postModalData, isBig) {
+    var baseSize = isBig === false ? 8 : 12;
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -121,13 +124,13 @@ var initChartFun = {
       },
       legend: {
         icon: 'rect',
-        itemWidth: fontSet(24),
-        itemHeight: fontSet(10),
+        itemWidth: fontSet(24,id),
+        itemHeight: fontSet(10,id),
         data: postModalData[0],
         right: '4%',
         textStyle: {
           color: '#95D9F8',
-          fontSize: fontSet(12)
+          fontSize: fontSet(12,id)
         }
       },
       grid: {
@@ -142,7 +145,7 @@ var initChartFun = {
           nameTextStyle: {
             //最值样式
             color: '#95D9F8',
-            fontSize: fontSet(baseSize, true)
+            fontSize: fontSet(baseSize,id)
           },
           boundaryGap: true,
           axisLine: {
@@ -155,7 +158,7 @@ var initChartFun = {
             interval: 0,
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(baseSize, true)
+              fontSize: fontSet(baseSize,id)
             }
           },
           data: postModalData[1]
@@ -172,7 +175,7 @@ var initChartFun = {
             //最值样式
             color: '#95D9F8',
             padding: [0, 50, 0, 0],
-            fontSize: fontSet(baseSize, true)
+            fontSize: fontSet(baseSize,id)
           },
           axisTick: {
             //y轴刻度隐藏
@@ -187,7 +190,7 @@ var initChartFun = {
             color: '#95D9F8',
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(baseSize, true)
+              fontSize: fontSet(baseSize,id)
             }
           },
           splitLine: {
@@ -205,8 +208,8 @@ var initChartFun = {
     }
   },
   // 横向柱状图
-  drawHorizontalBar: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawHorizontalBar: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -233,7 +236,7 @@ var initChartFun = {
           formatter: '{value}%',
           textStyle: {
             fontWeight: '80',
-            fontSize: fontSet(12)
+            fontSize: fontSet(12,id)
           }
         },
         axisLine: {
@@ -266,7 +269,7 @@ var initChartFun = {
           inside: false,
           textStyle: {
             fontWeight: '50',
-            fontSize: fontSet(12)
+            fontSize: fontSet(12,id)
           }
         }
       },
@@ -292,8 +295,8 @@ var initChartFun = {
     }
   },
   // 纵向柱状图(单独)
-  drawVerticalSingleBar: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawVerticalSingleBar: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -352,8 +355,8 @@ var initChartFun = {
     }
   },
   // 纵向柱状图(合并、legend竖)
-  drawVerticalBar: function(dom, postModalData, isBig) {
-    var dom = document.getElementById(dom)
+  drawVerticalBar: function(id, postModalData, isBig) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -365,16 +368,16 @@ var initChartFun = {
       },
       legend: {
         icon: 'rect',
-        itemWidth: fontSet(24),
-        itemHeight: fontSet(10),
+        itemWidth: fontSet(24,id),
+        itemHeight: fontSet(10,id),
         orient: 'vertical',
         x: '3%',
         y: '10%',
-        itemGap: fontSet(24),
+        itemGap: fontSet(24,id),
         data: postModalData[0],
         textStyle: {
           color: '#95D9F8',
-          fontSize: fontSet(14)
+          fontSize: fontSet(14,id)
         }
       },
       grid: {
@@ -396,7 +399,7 @@ var initChartFun = {
             color: '#95D9F8',
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(14, true)
+              fontSize: fontSet(12,id)
             }
           },
           data: postModalData[1]
@@ -412,7 +415,7 @@ var initChartFun = {
             //最值样式
             color: '#95D9F8',
             padding: [0, 50, 0, 0],
-            fontSize: fontSet(16, true)
+            fontSize: fontSet(12,id)
           },
           splitNumber: 10,
           axisLine: {
@@ -428,7 +431,7 @@ var initChartFun = {
             color: '#95D9F8',
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(16, true)
+              fontSize: fontSet(12,id)
             }
           },
           splitLine: {
@@ -446,8 +449,8 @@ var initChartFun = {
     }
   },
   // 纵向柱状图(合并、legend横)
-  drawVerticalBarH: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawVerticalBarH: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -460,11 +463,11 @@ var initChartFun = {
       legend: {
         icon: 'rect',
         right: '10%',
-        itemWidth: fontSet(24),
-        itemHeight: fontSet(10),
+        itemWidth: fontSet(24,id),
+        itemHeight: fontSet(10,id),
         textStyle: {
           color: '#C5D9FF',
-          fontSize: fontSet(12)
+          fontSize: fontSet(12,id)
         },
         data: postModalData[0]
       },
@@ -481,7 +484,7 @@ var initChartFun = {
           nameTextStyle: {
             //最值样式
             color: '#95D9F8',
-            fontSize: fontSet(16, true)
+            fontSize: fontSet(12,id)
           },
           type: 'category',
           data: postModalData[1],
@@ -495,7 +498,7 @@ var initChartFun = {
             interval: 0,
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(14, true)
+              fontSize: fontSet(12,id)
             }
           }
         }
@@ -508,7 +511,7 @@ var initChartFun = {
             //最值样式
             color: '#95D9F8',
             padding: [0, 50, 0, 0],
-            fontSize: fontSet(16, true)
+            fontSize: fontSet(12,id)
           },
           min: 0,
           max: 100,
@@ -526,7 +529,7 @@ var initChartFun = {
             show: true,
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(16, true)
+              fontSize: fontSet(12,id)
             }
           },
           splitLine: {
@@ -545,8 +548,8 @@ var initChartFun = {
     }
   },
   // 圆形雷达图
-  drawArcRadar: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawArcRadar: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -575,13 +578,13 @@ var initChartFun = {
                 color: '#C5D9FF',
                 align: 'center',
                 padding: [5, 0, 0, 0],
-                fontSize: fontSet(12)
+                fontSize: fontSet(12,id)
               },
               col1: {
                 color: postModalData[3],
                 align: 'center',
                 padding: [5, 0, 0, 0],
-                fontSize: fontSet(12)
+                fontSize: fontSet(12,id)
               }
             }
           },
@@ -647,8 +650,8 @@ var initChartFun = {
     }
   },
   // 方形雷达图
-  drawRectRadar: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawRectRadar: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -676,13 +679,13 @@ var initChartFun = {
               color: '#C5D9FF',
               align: 'center',
               padding: [5, 0, 0, 0],
-              fontSize: fontSet(12)
+              fontSize: fontSet(12,id)
             },
             col1: {
               color: postModalData[3],
               align: 'center',
               padding: [5, 0, 0, 0],
-              fontSize: fontSet(12)
+              fontSize: fontSet(12,id)
             }
           }
         },
@@ -748,8 +751,8 @@ var initChartFun = {
     }
   },
   // 内中外三环圆环图
-  drawRing: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawRing: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -760,18 +763,18 @@ var initChartFun = {
       },
       legend: {
         icon: 'rect',
-        itemWidth: fontSet(24),
-        itemHeight: fontSet(10),
+        itemWidth: fontSet(24,id),
+        itemHeight: fontSet(10,id),
         orient: 'vertical',
         left: '3%',
         top: 'center',
         padding: 30,
-        itemGap: fontSet(20),
+        itemGap: fontSet(20,id),
         data: postModalData[0],
         textStyle: {
           color: '#95D9F8',
           padding: [0, 0, 0, 5],
-          fontSize: fontSet(12)
+          fontSize: fontSet(12,id)
         }
       },
       series: postModalData[1]
@@ -782,8 +785,8 @@ var initChartFun = {
     }
   },
   // 部分比例圆环
-  drawPartRing: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawPartRing: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     var echartData = postModalData[1]
@@ -825,7 +828,7 @@ var initChartFun = {
           textAlign: 'center',
           textStyle: {
             color: '#C5D9FF',
-            fontSize: fontSet(15),
+            fontSize: fontSet(14,id),
             fontWeight: '400'
           }
         }
@@ -857,13 +860,13 @@ var initChartFun = {
               },
               position: 'center',
               textStyle: {
-                fontSize: fontSet(38),
+                fontSize: fontSet(24,id),
                 fontWeight: 'bold'
               },
               rich: {
                 time: {
                   color: '#F0F5FF',
-                  fontSize: fontSet(20),
+                  fontSize: fontSet(24,id),
                   padding: [0, 0],
                   fontWeight: 'bold'
                 }
@@ -927,8 +930,8 @@ var initChartFun = {
     }
   },
   // 空心圆环图
-  drawHollowRing: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawHollowRing: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = null
     option = {
@@ -943,7 +946,7 @@ var initChartFun = {
         textStyle: {
           fontSize: '80%',
           color: '#95D9F8',
-          fontSize: fontSet(12)
+          fontSize: fontSet(12,id)
         }
       },
       series: [
@@ -957,7 +960,7 @@ var initChartFun = {
               textStyle: {
                 color: '#95D9F8',
                 fontWeight: 'normal',
-                fontSize: fontSet(12)
+                fontSize: fontSet(12,id)
               }
             }
           },
@@ -980,8 +983,8 @@ var initChartFun = {
     }
   },
   // 2半扇形状饼型图
-  drawTwoFanPie: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawTwoFanPie: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = {
       legend: {
@@ -991,7 +994,7 @@ var initChartFun = {
         data: postModalData[0],
         textStyle: {
           color: '#C5D9FF',
-          fontSize: fontSet(12)
+          fontSize: fontSet(12,id)
         }
       },
       series: [
@@ -1006,7 +1009,7 @@ var initChartFun = {
             normal: {
               position: 'inner',
               formatter: '{c}%',
-              fontSize: fontSet(14)
+              fontSize: fontSet(12,id)
             }
           },
           labelLine: {
@@ -1026,8 +1029,8 @@ var initChartFun = {
     }
   },
   // 1个扇形状饼型图
-  drawOneFanPie: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawOneFanPie: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     var dataStyle = {
       normal: {
@@ -1050,7 +1053,7 @@ var initChartFun = {
         textStyle: {
           fontWeight: 'normal',
           color: '#fff',
-          fontSize: fontSet(24)
+          fontSize: fontSet(24,id)
         }
       },
       tooltip: {
@@ -1180,8 +1183,8 @@ var initChartFun = {
     }
   },
   // 水球图
-  drawLiquidFill: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawLiquidFill: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     var option = {
       title: {
@@ -1192,7 +1195,7 @@ var initChartFun = {
           color: '#A3E8FE',
           align: 'center',
           verticalAlign: 'bottom',
-          fontSize: fontSet(14)
+          fontSize: fontSet(14,id)
         }
       },
       series: [
@@ -1287,8 +1290,8 @@ var initChartFun = {
     }, 300)
   },
   // 渐变背景折线图
-  drawGradientLine: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawGradientLine: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = {
       tooltip: {
@@ -1301,14 +1304,14 @@ var initChartFun = {
       },
       legend: {
         icon: 'rect',
-        itemWidth: fontSet(24),
-        itemHeight: fontSet(10),
-        itemGap: fontSet(13),
+        itemWidth: fontSet(24,id),
+        itemHeight: fontSet(10,id),
+        itemGap: fontSet(13,id),
         data: postModalData[0],
         right: '4%',
         textStyle: {
           color: '#95D9F8',
-          fontSize: fontSet(12)
+          fontSize: fontSet(12,id)
         }
       },
       grid: {
@@ -1323,7 +1326,7 @@ var initChartFun = {
           nameTextStyle: {
             //最值样式
             color: '#95D9F8',
-            fontSize: fontSet(16, true)
+            fontSize: fontSet(12,id)
           },
           type: 'category',
           boundaryGap: true,
@@ -1332,7 +1335,7 @@ var initChartFun = {
             interval: 0,
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(16, true)
+              fontSize: fontSet(12,id)
             }
           },
           axisLine: {
@@ -1355,7 +1358,7 @@ var initChartFun = {
             //最值样式
             color: '#95D9F8',
             padding: [0, 50, 0, 0],
-            fontSize: fontSet(16, true)
+            fontSize: fontSet(12,id)
           },
           axisTick: {
             show: false
@@ -1374,7 +1377,7 @@ var initChartFun = {
             interval: 0,
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(16, true)
+              fontSize: fontSet(12,id)
             }
           },
           splitLine: {
@@ -1392,8 +1395,8 @@ var initChartFun = {
     }
   },
   // 散点图
-  drawScatter: function(dom, postModalData) {
-    var dom = document.getElementById(dom)
+  drawScatter: function(id, postModalData) {
+    var dom = document.getElementById(id)
     var myChart = echarts.init(dom)
     option = {
       visualMap: {
@@ -1404,11 +1407,11 @@ var initChartFun = {
         top: 'top',
         text: ['高', '低'],
         calculable: false,
-        itemWidth: fontSet(10),
-        itemHeight: fontSet(100),
+        itemWidth: fontSet(10,id),
+        itemHeight: fontSet(10,id),
         textStyle: {
           color: '#ccc',
-          fontSize: fontSet(11)
+          fontSize: fontSet(11,id)
         },
         inRange: {
           color: postModalData[1]
@@ -1450,7 +1453,7 @@ var initChartFun = {
           nameTextStyle: {
             //最值样式
             color: '#95D9F8',
-            fontSize: fontSet(16, true)
+            fontSize: fontSet(12,id)
           },
           axisLine: {
             lineStyle: {
@@ -1462,7 +1465,7 @@ var initChartFun = {
             interval: 0,
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(16, true)
+              fontSize: fontSet(12,id)
             }
           },
           axisTick: {
@@ -1485,7 +1488,7 @@ var initChartFun = {
             //最值样式
             color: '#95D9F8',
             padding: [0, 50, 0, 0],
-            fontSize: fontSet(16, true)
+            fontSize: fontSet(12,id)
           },
           axisTick: {
             //y轴刻度隐藏
@@ -1500,7 +1503,7 @@ var initChartFun = {
             color: '#95D9F8',
             textStyle: {
               color: '#95D9F8',
-              fontSize: fontSet(16, true)
+              fontSize: fontSet(12,id)
             }
           },
           splitLine: {
@@ -1758,7 +1761,7 @@ var initChartFun = {
     categoryAxis.renderer.labels.template.hideOversized = false
     categoryAxis.renderer.labels.template.horizontalCenter = 'middle'
     categoryAxis.renderer.labels.template.verticalCenter = 'middle'
-    categoryAxis.renderer.labels.template.fontSize = 13
+    // categoryAxis.renderer.labels.template.fontSize = fontSet(12,dom)
     categoryAxis.tooltip.disabled = true
     categoryAxis.renderer.minGridDistance = 10
     categoryAxis.renderer.grid.template.strokeOpacity = 0
@@ -1800,10 +1803,10 @@ var initChartFun = {
     var bullet = series.bullets.push(new am4charts.LabelBullet())
     bullet.label.text = '{valueX}%'
     bullet.label.fill = am4core.color('#95D9F8')
-    bullet.label.verticalCenter = 'bottom'
+    bullet.label.verticalCenter = 'middle'
     bullet.label.dx = 40
     bullet.label.dy = 0
-    bullet.label.fontSize = 13
+    // bullet.label.fontSize = fontSet(12,dom)
     chart.maskBullets = true
     for (var i = 0; i < $('svg title').length; i++) {
       if ($('svg title')[i].textContent == 'Chart created using amCharts library') {

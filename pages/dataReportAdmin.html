@@ -34,11 +34,15 @@
                                 <option value="0">日报</option>
                                 <option value="1">月报</option>
                             </select>
-                        </div><!--  
-                        --><div class="layui-inline">
+                        </div>
+                        <!--  
+                        -->
+                        <div class="layui-inline">
                             <input type="text" class="layui-input" id="pickDate1" name="pickDate1" placeholder="选择日期">
-                        </div><!-- 
-                        --><div class="layui-inline">
+                        </div>
+                        <!-- 
+                        -->
+                        <div class="layui-inline">
                             <button class="layui-btn" lay-submit lay-filter="formSubmit">确定</button>
                         </div>
                     </div>
@@ -46,8 +50,10 @@
                         <div class="title title1">事件</div>
                         <div class="layui-inline">
                             <input type="text" name="keyword" autocomplete="off" placeholder="输入事件关键字" class="layui-input">
-                        </div><!-- 
-                        --><div class="layui-inline">
+                        </div>
+                        <!-- 
+                        -->
+                        <div class="layui-inline">
                             <button class="layui-btn" lay-submit lay-filter="formSearch">
                                 <i class="layui-icon layui-icon-search"></i>
                             </button>
@@ -84,12 +90,23 @@
             <div class="compare-ctt">
                 <div class="title">事件对比</div>
                 <div class="compare-list">
-                    
+
                 </div>
                 <p class="tip">最多四个</p>
                 <div class="btn-wrapper">
                     <button class="layui-btn compare-btn">对比</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalBg">
+        <div id="chartContent">
+            <div class="modal-title">
+                <span></span>
+                <span class="times">&times;</span>
+            </div>
+            <div class="modal-body">
+                最多添加四个对比条件，可删除后再添加。
             </div>
         </div>
     </div>

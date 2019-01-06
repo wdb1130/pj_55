@@ -44,7 +44,10 @@
   color: #A3E8FE;
   font-size: 1rem;
 }
-
+#chartModal .legend {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
 .ball {
   height: 84%;
   width: 84%;
@@ -61,6 +64,9 @@
   font-size: 1.5rem;
   min-width: 50px;
   text-align: center;
+}
+#chartModal .water-value {
+  font-size: 4rem;
 }
 
 .water {

@@ -71,7 +71,7 @@ $(function () {
                                     position: 'top',
                                     textStyle: {
                                         color: '#95D9F8',
-                                        fontSize: fontSet(16, true)
+                                        fontSize: fontSet(10)
                                     }
                                 }
                             },
@@ -79,11 +79,11 @@ $(function () {
                                 normal: {
                                     color: colorBarList[idx],
                                     textStyle: {
-                                        fontSize: fontSet(16, true)
+                                        fontSize: fontSet(10)
                                     }
                                 }
                             },
-                            barWidth: 12,
+                            barWidth: fontSet(10),
                             data: sitemArr[idx]
                         })
                     });

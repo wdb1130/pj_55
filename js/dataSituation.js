@@ -153,12 +153,12 @@ $(function () {
                                         position: 'top',
                                         textStyle: {
                                             color: '#ccc',
-                                            fontSize: 16
+                                            fontSize: fontSet(12)
                                         }
                                     }
                                 }
                             },
-                            barWidth: 20,
+                            barWidth: fontSet(16),
                             data: sitemArr[idx]
                         })
                     });

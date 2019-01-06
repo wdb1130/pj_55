@@ -140,11 +140,11 @@ $(function () {
                                     position: 'top',
                                     textStyle: {
                                         color: '#95D9F8',
-                                        fontSize: fontSet(14, true)
+                                        fontSize: fontSet(12)
                                     }
                                 }
                             },
-                            barWidth: fontSet(20, true),
+                            barWidth: fontSet(12),
                             data: sitemArr[idx]
                         })
                     });

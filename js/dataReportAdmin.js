@@ -49,6 +49,10 @@ $(function () {
         table.on('tool(compareOpera)', function (obj) {
             var data = obj.data;
             if (obj.event === 'compare') {
+                if(compareArr.length == 4){
+                    $('#modalBg').show();
+                    return;
+                }
                 var dom = obj.tr.find('.layui-btn').get(0);
                 var isGray = $(dom).hasClass('layui-btn-gray');
                 if (isGray) {
@@ -83,6 +87,10 @@ $(function () {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
+        $('span.times ').on('click', function () {
+            $('#modalBg').hide();
+            $('.compare-wrapper').animate({ marginRight: '0' }, 300);
+        });
         //点击其他地方隐藏btns框(更多操作隐藏)
         $(document).mouseup(function (e) {
             var _con = $('.compare-wrapper'); // 设置目标区域
@@ -94,6 +102,8 @@ $(function () {
             var idx = this.getAttribute('value');
             $(this).parent().remove();
             compareArr.splice(idx, 1);
+            var dom = $('.layui-table').find('.layui-btn').get(idx);
+            $(dom).removeClass('layui-btn-gray');
         });
         $('.compare-btn').on('click', function () {
             //对比操作
