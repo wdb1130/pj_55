@@ -92,6 +92,7 @@ a.opera-btn:hover{
     color: #fff;
 }
 .compare-wrapper {
+    position: relative;
     width: 300px;
     margin-right: -300px;
     position: fixed;
@@ -102,6 +103,10 @@ a.opera-btn:hover{
     border: 1px solid #0C359E;
     border-right: none;
     z-index: 100;
+}
+.icon-switch {
+    position: absolute;
+
 }
 .compare-ctt {
     padding: 2rem;
