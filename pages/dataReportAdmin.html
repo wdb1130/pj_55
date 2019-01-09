@@ -68,12 +68,6 @@
                         <button class="layui-btn download" data-type="getCheckData">下载</button>
                     </div>
                 </div>
-                <!-- <div class="layui-inline thing">
-                    <div class="title title1"></div>
-                    <div class="layui-inline">
-                        <button class="layui-btn del" data-type="getCheckData">删除</button>
-                    </div>
-                </div> -->
             </div>
         </div>
         <!-- table -->
@@ -87,7 +81,7 @@
         </div>
         <!-- right -->
         <div class="compare-wrapper">
-            <i class="icon-switch"></i>
+            <a class="icon-switch"><i class="left"></i></a>
             <div class="compare-ctt">
                 <div class="title">事件对比</div>
                 <div class="compare-list">
@@ -104,10 +98,13 @@
         <div id="chartContent">
             <div class="modal-title">
                 <span></span>
-                <span class="times">&times;</span>
+                <span class="times btn-close">&times;</span>
             </div>
             <div class="modal-body">
                 最多添加四个对比条件，可删除后再添加。
+            </div>
+            <div class="btn-wrapper">
+                <button class="layui-btn btn-close">确定</button>
             </div>
         </div>
     </div>

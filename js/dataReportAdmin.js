@@ -1,6 +1,7 @@
 $(function () {
     var minusVal = window.innerHeight - $(".table-render").height();
     var btnType;
+    var compareWrapperWidth = screen.width>2560 ? '600px' : '300px';
     var compareArr = [];
     layui.use('form', function () {
         var form = layui.form;
@@ -49,13 +50,12 @@ $(function () {
         table.on('tool(compareOpera)', function (obj) {
             var data = obj.data;
             if (obj.event === 'compare') {
-                if(compareArr.length == 4){
-                    $('#modalBg').show();
-                    return;
-                }
                 var dom = obj.tr.find('.layui-btn').get(0);
                 var isGray = $(dom).hasClass('layui-btn-gray');
                 if (isGray) {
+                    return;
+                }else if (compareArr.length == 4){
+                    $('#modalBg').show();
                     return;
                 } else {
                     $(dom).addClass('layui-btn-gray');
@@ -67,6 +67,7 @@ $(function () {
                 }
                 $('.compare-list').html(str);
                 $('.compare-wrapper').animate({ marginRight: '0' }, 300);
+                $('.icon-switch i').removeClass('left').addClass('right');
             }
         });
 
@@ -77,27 +78,43 @@ $(function () {
                 console.log(btnType, data);
             }
         };
+
+        $('.icon-switch ').on('click','i',function(){
+            if($(this).hasClass('left')){
+                $('.compare-wrapper').animate({ marginRight: '0' }, 300);
+                $(this).removeClass('left').addClass('right');
+            }else {
+                $('.compare-wrapper').animate({ marginRight: '-'+compareWrapperWidth }, 300);
+                $(this).removeClass('right').addClass('left'); 
+            }
+        })
+
         $('.download').on('click', function () {
             btnType = 'download';
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
+
         $('.del').on('click', function () {
             btnType = 'del';
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-        $('span.times ').on('click', function () {
+
+        $('.btn-close').on('click', function () {
             $('#modalBg').hide();
-            $('.compare-wrapper').animate({ marginRight: '0' }, 300);
         });
+
         //点击其他地方隐藏btns框(更多操作隐藏)
         $(document).mouseup(function (e) {
             var _con = $('.compare-wrapper'); // 设置目标区域
             if (!_con.is(e.target) && _con.has(e.target).length === 0) { // Mark 1
-                $('.compare-wrapper').animate({ marginRight: '-300px' }, 300);
+                $('.compare-wrapper').animate({ marginRight: '-'+compareWrapperWidth }, 300);
+                $('.icon-switch i').removeClass('right').addClass('left'); 
             }
         });
+
+        //删除对比项
         $('.compare-wrapper').on('click', '.rt', function () {
             var idx = this.getAttribute('value');
             $(this).parent().remove();
@@ -107,12 +124,8 @@ $(function () {
         });
         $('.compare-btn').on('click', function () {
             //对比操作
-            //需要传入的数据compareArr
-            if (compareArr.length > 4) {
-                // layer.alert('最多4条！');
-                initModal('最多添加四个对比条件，可删除后再添加。', 'compareListLimit');
-                return;
-            }
+            //数据compareArr
+            //页面跳转
             location.href = './dataReportCompared.html'
         });
     });

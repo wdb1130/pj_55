@@ -106,8 +106,29 @@ a.opera-btn:hover{
 }
 .icon-switch {
     position: absolute;
-
+    width: 35px;
+    height: 28px;
+    background: #135BFF;
+    border: thin solid #0C359E;
+    border-right: none;
+    left: -36px;
+    top: 50%;
+    cursor: pointer;
 }
+.icon-switch i {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.left {
+    background: url(../img/left.png) no-repeat 45% center;
+    background-size: 50%; 
+}
+.right {
+    background: url(../img/right.png) no-repeat 45% center;
+    background-size: 50%; 
+}
+
 .compare-ctt {
     padding: 2rem;
 }
@@ -170,11 +191,15 @@ p.tip {
     display: none;
 }
 #chartContent {
-    width: 220px;
-    height: 120px;
-    font-size: 14px;
+    width: 300px;
+    height: 150px;
+    font-size: 1rem;
     color: #fff;
     padding: 15px;
+}
+.modal-body {
+    display: block;
+    text-align: center;
 }
 .modal-title {
     display: flex;
@@ -184,9 +209,14 @@ p.tip {
     margin-bottom: 10px;
     font-size: 1rem;
 }
+.btn-wrapper .btn-close {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
 .modal-title span.times {
     font-size: 1rem;
     cursor: pointer;
+    font-size: 1.5rem;
     margin-top: 1px;
     color: #C5D9FF;
     cursor: pointer;
@@ -197,5 +227,29 @@ p.tip {
     }
     .title1 {
         font-size: 16px;
+    }
+
+    .icon-switch {
+        width: 70px;
+        height: 56px;
+        left: -69px;
+    }
+    #chartContent {
+        width: 600px;
+        height: 300px;
+    }
+    .modal-title span.times { 
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+    .modal-body {
+        padding-top: 30px;
+    }
+    .btn-wrapper .btn-close {
+        margin-bottom: 25px;
+    }
+    .compare-wrapper {
+        width: 600px;
+        margin-right: -600px;
     }
 }
