@@ -1408,7 +1408,7 @@ var initChartFun = {
         text: ['高', '低'],
         calculable: false,
         itemWidth: fontSet(10,id),
-        itemHeight: fontSet(10,id),
+        itemHeight: fontSet(100,id),
         textStyle: {
           color: '#ccc',
           fontSize: fontSet(11,id)
