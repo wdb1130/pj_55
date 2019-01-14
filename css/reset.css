@@ -354,10 +354,13 @@ div#chartContent.compare-list-limit{
     height: 40px;
     line-height: 50px;
   }
+  .compare-wrapper {
+    top: 38px !important;
+  }
 }
 @media screen and (min-width: 1600px) and (max-width: 1919px){
   html,body {
-    font-size:12px !important;
+    font-size:10px !important;
   }
 }
 @media screen and (min-width: 1920px) and (max-width: 2560px){
@@ -383,6 +386,9 @@ div#chartContent.compare-list-limit{
     height: 60px;
     line-height: 75px;
   }
+  .compare-wrapper {
+    top: 58px !important;
+  }
 }
 @media screen and (min-width: 2561px) and (max-width: 4200px){ 
   html { 
@@ -395,6 +401,9 @@ div#chartContent.compare-list-limit{
     top: 9px;
     width: 70px;
     height: 70px;
+  }
+  .compare-wrapper {
+    top: 98px !important;
   }
   .header-lf { 
     height: 100px;
