@@ -1636,7 +1636,12 @@ var initChartFun = {
         'transform'
       )
       var xidx = tramsHtml.indexOf(',') + 1
-      var yidx = tramsHtml.indexOf('.')
+      var yidx;
+      if (tramsHtml.indexOf('.') > -1) {
+        yidx = tramsHtml.indexOf('.')
+      } else {
+        yidx = tramsHtml.indexOf(')')
+      }
       var numY = tramsHtml.substring(xidx, yidx)
 
       $('g[fill-opacity="0"][stroke-opacity="0"][stroke="#000000"][stroke-width="1"]')
@@ -1661,7 +1666,6 @@ var initChartFun = {
       hPath.children().attr('d', reHd)
       var lastLen = $('g[stroke="#000000"][stroke-opacity=0][fill=none]').length - 2
       var replaceStr = 'M0, ' + numY
-      debugger
       var gHtml = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen])
       gHtml.css({
         stroke: '#09206F',
