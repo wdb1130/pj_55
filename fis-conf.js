@@ -9,6 +9,11 @@ fis.match('*.{js,css,png,jpg,gif,jpeg,scss}', {
   useHash: true
 });
 
+// 启用插件 
+fis.hook('relative');
+// 让所有文件，都使用相对路径。 
+fis.match('**', { relative: true })
+
 
 fis.match('/js/*.js', {
   optimizer: fis.plugin('uglify-js'),
