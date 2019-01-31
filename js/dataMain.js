@@ -335,8 +335,8 @@ function drawSvgDash() {
     var lineTo2 = Math.floor((box3Left - (box2Width + box2Left)) / 2) + lastX + 5;
     var pathLine2 = "M" + cx2 + " " + cy2 + " L" + lastX + " " + lastY + " L" + lastX + " " + lineTo1 + " L" + lineTo2 + " " + lineTo1;
     // 起点
-    otherLineX = Math.floor((box2Left - box1Left - box1Width) / 2 + box1Left + box1Width);
-    otherLinex2 = Math.floor(box2Left + 5);
+    var otherLineX = Math.floor((box2Left - box1Left - box1Width) / 2 + box1Left + box1Width);
+    var otherLinex2 = Math.floor(box2Left + 5);
     var pathLine3 = "M" + otherLineX + " " + cy2 + " L" + otherLineX + " " + lineTo1 + " L" + otherLinex2 + " " + lineTo1;
     // 终点
     // 起点

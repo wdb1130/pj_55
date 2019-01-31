@@ -34,6 +34,12 @@ fis.match('*.scss', {
   rExt: '.css'
 });
 
+fis.match('*.html', {
+  //invoke fis-optimizer-html-minifier
+  optimizer: fis.plugin('html-minifier')
+});
+
+
 
 fis.match('*.png', {
   // 内置压缩png图片

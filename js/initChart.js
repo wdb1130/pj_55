@@ -1660,7 +1660,8 @@ var initChartFun = {
       reHd += ' L' + needNum + ',0 Z'
       hPath.children().attr('d', reHd)
       var lastLen = $('g[stroke="#000000"][stroke-opacity=0][fill=none]').length - 2
-      var replaceStr = 'M0,' + numY
+      var replaceStr = 'M0, ' + numY
+      debugger
       var gHtml = $($('g[stroke="#000000"][stroke-opacity=0][fill=none]')[lastLen])
       gHtml.css({
         stroke: '#09206F',
